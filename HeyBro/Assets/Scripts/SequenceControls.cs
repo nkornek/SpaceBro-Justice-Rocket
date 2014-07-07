@@ -454,5 +454,6 @@ public class SequenceControls : MonoBehaviour {
 	public void DamagePlayers(int damage){
 		hp -= damage; 
 	}
+	//test change
 
 }
