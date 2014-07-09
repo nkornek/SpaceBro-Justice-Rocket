@@ -128,6 +128,7 @@ public class Sequence_Queue : MonoBehaviour {
 				                                               o.gameObject.transform.position.z + zTranslation);
 			}
 		}
+		gameManager.GetComponent<GameControl>().canEmit = false;
 
 	}
 

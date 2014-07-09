@@ -30,7 +30,9 @@ public class GameControl : MonoBehaviour {
 	public AudioSource srcRobot;
 	public AudioSource srcPlayersDie;
 	public float moveTimeToFail, timeLeft;
-	public bool canTime;
+	public bool canTime, canEmit;
+
+	public GameObject timerParticles, passfailParticles;
 
 
 
@@ -42,10 +44,47 @@ public class GameControl : MonoBehaviour {
 		moveTimeToFail = 4.0f;
 		canTime = true;
 		timeLeft = moveTimeToFail;
+		canEmit = true;
 	}
 
 	void Update () {
-		
+		if (timeLeft < 0)
+		{
+			timeLeft = 0;
+		}
+
+		//set particle speed & ebable
+		if (canEmit)
+		{
+			foreach (ParticleSystem p in timerParticles.GetComponentsInChildren<ParticleSystem>())
+			{
+				p.enableEmission = true;
+			}
+			if (timeLeft > 0.5f)
+			{
+				foreach (ParticleSystem p in timerParticles.GetComponentsInChildren<ParticleSystem>())
+				{
+					p.startColor = Color.yellow;
+					p.startSpeed = timeLeft;
+				}
+			}
+			else
+				{
+					foreach (ParticleSystem p in timerParticles.GetComponentsInChildren<ParticleSystem>())
+					{
+						p.startColor = Color.red;
+						p.startSpeed = 4;
+					}
+				}
+		}
+		else
+		{
+			foreach (ParticleSystem p in timerParticles.GetComponentsInChildren<ParticleSystem>())
+			{
+				p.enableEmission = false;
+			}
+		}
+
 	/* --------------------------------------------------------------------------------------------------------------------------
 	 * ~ PLAYER'S TURN
 	 * (1)	Generate a sequence
@@ -103,6 +142,7 @@ public class GameControl : MonoBehaviour {
 		//seqQueueRight.movingSpritesDown = true;
 		seqGenerated = false;
 		canTime = true;
+		canEmit = true;
 		timeLeft = moveTimeToFail;
 		GameObject.Find ("Player_Left").GetComponent<PlayerAnim>().SetSprite (-1);
 		GameObject.Find ("Player_Right").GetComponent<PlayerAnim>().SetSprite (-1);
@@ -116,7 +156,8 @@ public class GameControl : MonoBehaviour {
 	}
 	
 	private void createBlockSequence () {
-		player.generateBlockSequence ();
+		player.generateBlockSequence ();		
+		canEmit = true;
 		seqQueueLeft.LoadSequence (player.contactA, player.seqDelay);
 		seqQueueRight.LoadSequence (player.contactB, player.seqDelay);
 		if (!canTime)
@@ -172,11 +213,14 @@ public class GameControl : MonoBehaviour {
 			if (pictogramsFailed ()) {
 				seqQueueLeft.GetComponent<Sequence_Queue>().movesFail = true;
 				seqQueueRight.GetComponent<Sequence_Queue>().movesFail = true;
-				seqQueueLeft.GetComponent<Sequence_Queue>().Invoke ("AfterFail", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
-				seqQueueRight.GetComponent<Sequence_Queue>().Invoke ("AfterFail", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
+				seqQueueLeft.GetComponent<Sequence_Queue>().Invoke ("AfterFail", 1);
+				seqQueueRight.GetComponent<Sequence_Queue>().Invoke ("AfterFail", 1);
 				startEnemyTurn ();
 				canTime = false;
+				canEmit = false;
 				GameObject.Find ("Enemy_Face").GetComponent<Enemy_Faces>().SetSprite (2);
+				passfailParticles.particleSystem.startColor = Color.red;
+				passfailParticles.particleSystem.Emit(400);
 			}
 			else if (player.checkBothEvents() && pictogramsInRange()){
 				hasResetInput = false;
@@ -188,6 +232,8 @@ public class GameControl : MonoBehaviour {
 				seqQueueLeft.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
 				seqQueueRight.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
 				canTime = false;
+				passfailParticles.particleSystem.startColor = Color.green;
+				passfailParticles.particleSystem.Emit(400);
 				//seqQueueLeft.GetComponent<Sequence_Queue>().MoveSpriteForward();
 				//seqQueueRight.GetComponent<Sequence_Queue>().MoveSpriteForward();
 				//player.generateNextMove();
@@ -205,6 +251,7 @@ public class GameControl : MonoBehaviour {
 					GameObject.Find ("Player_Left").GetComponent<PlayerAnim>().SetSprite (3);
 					GameObject.Find ("Player_Right").GetComponent<PlayerAnim>().SetSprite (3);
 					enemy.DamageEnemy (player.seqDamage);
+					canEmit = false;
 //					player.attacking = false;
 //					player.defending = true;
 					if (enemy.hp <= 0) {
@@ -254,6 +301,9 @@ public class GameControl : MonoBehaviour {
 				seqQueueRight.GetComponent<Sequence_Queue>().movesCorrect = true;
 				seqQueueLeft.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
 				seqQueueRight.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
+				passfailParticles.particleSystem.startColor = Color.green;
+				passfailParticles.particleSystem.Emit(400);
+				canEmit = false;
 			}
 			if (pictogramsFailed ()) {
 				checkBlocked ();
@@ -262,6 +312,8 @@ public class GameControl : MonoBehaviour {
 					seqQueueRight.GetComponent<Sequence_Queue>().movesFail = true;
 					seqQueueLeft.GetComponent<Sequence_Queue>().Invoke ("AfterFail", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
 					seqQueueRight.GetComponent<Sequence_Queue>().Invoke ("AfterFail", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
+					passfailParticles.particleSystem.startColor = Color.red;
+					passfailParticles.particleSystem.Emit(400);
 					canTime = false;
 				}
 				
