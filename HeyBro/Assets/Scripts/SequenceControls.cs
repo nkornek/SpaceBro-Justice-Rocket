@@ -312,7 +312,7 @@ public class SequenceControls : MonoBehaviour {
 				game.srcSeqSound.clip = game.clipBlockSuccess;
 				game.srcSeqSound.Play ();
 			}
-	 		return true; 
+	 		return true;
 	 	}
 		return false; 
 	 }
