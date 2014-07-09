@@ -281,7 +281,7 @@ Transform:
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .149999976, y: .720000029, z: 0}
-  m_LocalScale: {x: .180000007, y: .289999992, z: 1}
+  m_LocalScale: {x: .239999995, y: .449999988, z: 1}
   m_Children: []
   m_Father: {fileID: 400026}
   m_RootOrder: 5
@@ -293,7 +293,7 @@ Transform:
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .149999976, y: .720000029, z: -.400000006}
-  m_LocalScale: {x: .180000007, y: .289999992, z: 1}
+  m_LocalScale: {x: .239999995, y: .449999988, z: 1}
   m_Children: []
   m_Father: {fileID: 400026}
   m_RootOrder: 4
@@ -305,7 +305,7 @@ Transform:
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .149999976, y: .720000029, z: -.5}
-  m_LocalScale: {x: .180000007, y: .289999992, z: 1}
+  m_LocalScale: {x: .239999995, y: .449999988, z: 1}
   m_Children: []
   m_Father: {fileID: 400026}
   m_RootOrder: 3
@@ -317,7 +317,7 @@ Transform:
   m_GameObject: {fileID: 100006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .149999976, y: .720000029, z: -.300000012}
-  m_LocalScale: {x: .180000007, y: .289999992, z: 1}
+  m_LocalScale: {x: .239999995, y: .449999988, z: 1}
   m_Children: []
   m_Father: {fileID: 400026}
   m_RootOrder: 2
@@ -329,7 +329,7 @@ Transform:
   m_GameObject: {fileID: 100008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .149999976, y: .720000029, z: -.200000003}
-  m_LocalScale: {x: .180000007, y: .289999992, z: 1}
+  m_LocalScale: {x: .239999995, y: .449999988, z: 1}
   m_Children: []
   m_Father: {fileID: 400026}
   m_RootOrder: 1
@@ -341,7 +341,7 @@ Transform:
   m_GameObject: {fileID: 100010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .149999976, y: .720000029, z: -.100000001}
-  m_LocalScale: {x: .180000007, y: .289999992, z: 1}
+  m_LocalScale: {x: .239999995, y: .449999988, z: 1}
   m_Children: []
   m_Father: {fileID: 400026}
   m_RootOrder: 0
@@ -353,7 +353,7 @@ Transform:
   m_GameObject: {fileID: 100012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .349999994, y: .720000029, z: -.100000001}
-  m_LocalScale: {x: .180000007, y: .289999992, z: 1}
+  m_LocalScale: {x: .239999995, y: .449999988, z: 1}
   m_Children: []
   m_Father: {fileID: 400024}
   m_RootOrder: 5
@@ -365,7 +365,7 @@ Transform:
   m_GameObject: {fileID: 100014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .349999994, y: .720000029, z: -.200000003}
-  m_LocalScale: {x: .180000007, y: .289999992, z: 1}
+  m_LocalScale: {x: .239999995, y: .449999988, z: 1}
   m_Children: []
   m_Father: {fileID: 400024}
   m_RootOrder: 4
@@ -377,7 +377,7 @@ Transform:
   m_GameObject: {fileID: 100016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .349999994, y: .720000029, z: -.300000012}
-  m_LocalScale: {x: .180000007, y: .289999992, z: 1}
+  m_LocalScale: {x: .239999995, y: .449999988, z: 1}
   m_Children: []
   m_Father: {fileID: 400024}
   m_RootOrder: 3
@@ -389,7 +389,7 @@ Transform:
   m_GameObject: {fileID: 100018}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .349999994, y: .720000029, z: -.5}
-  m_LocalScale: {x: .180000007, y: .289999992, z: 1}
+  m_LocalScale: {x: .239999995, y: .449999988, z: 1}
   m_Children: []
   m_Father: {fileID: 400024}
   m_RootOrder: 2
@@ -401,7 +401,7 @@ Transform:
   m_GameObject: {fileID: 100020}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .349999994, y: .720000029, z: -.400000006}
-  m_LocalScale: {x: .180000007, y: .289999992, z: 1}
+  m_LocalScale: {x: .239999995, y: .449999988, z: 1}
   m_Children: []
   m_Father: {fileID: 400024}
   m_RootOrder: 1
@@ -413,7 +413,7 @@ Transform:
   m_GameObject: {fileID: 100022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .349999994, y: .720000029, z: 0}
-  m_LocalScale: {x: .180000007, y: .289999992, z: 1}
+  m_LocalScale: {x: .239999995, y: .449999988, z: 1}
   m_Children: []
   m_Father: {fileID: 400024}
   m_RootOrder: 0
@@ -460,7 +460,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -19.936533}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400032}
@@ -511,15 +511,25 @@ MonoBehaviour:
   - {fileID: 100016}
   - {fileID: 100020}
   - {fileID: 100018}
-  pictogramHighfive: {fileID: 2800000, guid: 47b1d34d80789e3498eec596f8f9fcd9, type: 3}
-  pictogramFist: {fileID: 2800000, guid: f14138204220d7647a29036549283213, type: 3}
-  pictogramElbow: {fileID: 2800000, guid: 7145746782a723d4baff7b16a258bde0, type: 3}
+  gameManager: {fileID: 0}
+  pictogramHighfive: {fileID: 2800000, guid: 4923986cc2072cf4cb002c952e5783ff, type: 3}
+  pictogramFist: {fileID: 2800000, guid: c86d79345d464f84c8fa12a9841d85a2, type: 3}
+  pictogramElbow: {fileID: 2800000, guid: 3e633bf4a2033904aabeca94c710262d, type: 3}
+  highSuccess: {fileID: 2800000, guid: 570c09a3424fafb45860d89818ba5afe, type: 3}
+  fistSuccess: {fileID: 2800000, guid: 5baf5630931e35e4384c1cfcdc8ec208, type: 3}
+  elbSuccess: {fileID: 2800000, guid: 00d8d9ec0a8fdd740b3078d74982eaab, type: 3}
+  highFail: {fileID: 2800000, guid: 5864dce44fdd5054993249a017a4555b, type: 3}
+  fistFail: {fileID: 2800000, guid: 6db1d6998b317974bad0cae9995cfa30, type: 3}
+  elbFail: {fileID: 2800000, guid: 244d5286f6a0107478fc9e6755c479c5, type: 3}
   playerNum: 2
   player: {fileID: 0}
   seqDelay: 0
   currentTime: 0
   zDistanceBetweenPictograms: 0
   movingSpritesForward: 0
+  movesCorrect: 0
+  movesFail: 0
+  timeBetweenMoves: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -538,15 +548,25 @@ MonoBehaviour:
   - {fileID: 100006}
   - {fileID: 100002}
   - {fileID: 100004}
-  pictogramHighfive: {fileID: 2800000, guid: 47b1d34d80789e3498eec596f8f9fcd9, type: 3}
-  pictogramFist: {fileID: 2800000, guid: f14138204220d7647a29036549283213, type: 3}
-  pictogramElbow: {fileID: 2800000, guid: 7145746782a723d4baff7b16a258bde0, type: 3}
+  gameManager: {fileID: 0}
+  pictogramHighfive: {fileID: 2800000, guid: 4923986cc2072cf4cb002c952e5783ff, type: 3}
+  pictogramFist: {fileID: 2800000, guid: c86d79345d464f84c8fa12a9841d85a2, type: 3}
+  pictogramElbow: {fileID: 2800000, guid: 3e633bf4a2033904aabeca94c710262d, type: 3}
+  highSuccess: {fileID: 2800000, guid: 570c09a3424fafb45860d89818ba5afe, type: 3}
+  fistSuccess: {fileID: 2800000, guid: 5baf5630931e35e4384c1cfcdc8ec208, type: 3}
+  elbSuccess: {fileID: 2800000, guid: 00d8d9ec0a8fdd740b3078d74982eaab, type: 3}
+  highFail: {fileID: 2800000, guid: 5864dce44fdd5054993249a017a4555b, type: 3}
+  fistFail: {fileID: 2800000, guid: 6db1d6998b317974bad0cae9995cfa30, type: 3}
+  elbFail: {fileID: 2800000, guid: 244d5286f6a0107478fc9e6755c479c5, type: 3}
   playerNum: 1
   player: {fileID: 0}
   seqDelay: 0
   currentTime: 0
   zDistanceBetweenPictograms: 0
   movingSpritesForward: 0
+  movesCorrect: 0
+  movesFail: 0
+  timeBetweenMoves: 0
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -586,7 +606,7 @@ GUITexture:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100008}
   m_Enabled: 1
-  m_Texture: {fileID: 2800000, guid: 7145746782a723d4baff7b16a258bde0, type: 3}
+  m_Texture: {fileID: 2800000, guid: 4923986cc2072cf4cb002c952e5783ff, type: 3}
   m_Color: {r: .5, g: .5, b: .5, a: .5}
   m_PixelInset:
     serializedVersion: 2
@@ -605,7 +625,7 @@ GUITexture:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
-  m_Texture: {fileID: 2800000, guid: 47b1d34d80789e3498eec596f8f9fcd9, type: 3}
+  m_Texture: {fileID: 2800000, guid: 4923986cc2072cf4cb002c952e5783ff, type: 3}
   m_Color: {r: .5, g: .5, b: .5, a: .5}
   m_PixelInset:
     serializedVersion: 2
@@ -624,7 +644,7 @@ GUITexture:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
-  m_Texture: {fileID: 2800000, guid: f14138204220d7647a29036549283213, type: 3}
+  m_Texture: {fileID: 2800000, guid: 4923986cc2072cf4cb002c952e5783ff, type: 3}
   m_Color: {r: .5, g: .5, b: .5, a: .5}
   m_PixelInset:
     serializedVersion: 2
@@ -643,7 +663,7 @@ GUITexture:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100010}
   m_Enabled: 1
-  m_Texture: {fileID: 2800000, guid: f14138204220d7647a29036549283213, type: 3}
+  m_Texture: {fileID: 2800000, guid: 4923986cc2072cf4cb002c952e5783ff, type: 3}
   m_Color: {r: .5, g: .5, b: .5, a: .5}
   m_PixelInset:
     serializedVersion: 2
@@ -662,7 +682,7 @@ GUITexture:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_Enabled: 1
-  m_Texture: {fileID: 2800000, guid: 47b1d34d80789e3498eec596f8f9fcd9, type: 3}
+  m_Texture: {fileID: 2800000, guid: 4923986cc2072cf4cb002c952e5783ff, type: 3}
   m_Color: {r: .5, g: .5, b: .5, a: .5}
   m_PixelInset:
     serializedVersion: 2
@@ -681,7 +701,7 @@ GUITexture:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_Enabled: 1
-  m_Texture: {fileID: 2800000, guid: 7145746782a723d4baff7b16a258bde0, type: 3}
+  m_Texture: {fileID: 2800000, guid: 4923986cc2072cf4cb002c952e5783ff, type: 3}
   m_Color: {r: .5, g: .5, b: .5, a: .5}
   m_PixelInset:
     serializedVersion: 2
@@ -700,7 +720,7 @@ GUITexture:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100018}
   m_Enabled: 1
-  m_Texture: {fileID: 2800000, guid: 7145746782a723d4baff7b16a258bde0, type: 3}
+  m_Texture: {fileID: 2800000, guid: 4923986cc2072cf4cb002c952e5783ff, type: 3}
   m_Color: {r: .5, g: .5, b: .5, a: .5}
   m_PixelInset:
     serializedVersion: 2
@@ -719,7 +739,7 @@ GUITexture:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100016}
   m_Enabled: 1
-  m_Texture: {fileID: 2800000, guid: 47b1d34d80789e3498eec596f8f9fcd9, type: 3}
+  m_Texture: {fileID: 2800000, guid: 4923986cc2072cf4cb002c952e5783ff, type: 3}
   m_Color: {r: .5, g: .5, b: .5, a: .5}
   m_PixelInset:
     serializedVersion: 2
@@ -738,7 +758,7 @@ GUITexture:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100012}
   m_Enabled: 1
-  m_Texture: {fileID: 2800000, guid: f14138204220d7647a29036549283213, type: 3}
+  m_Texture: {fileID: 2800000, guid: 4923986cc2072cf4cb002c952e5783ff, type: 3}
   m_Color: {r: .5, g: .5, b: .5, a: .5}
   m_PixelInset:
     serializedVersion: 2
@@ -757,7 +777,7 @@ GUITexture:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100020}
   m_Enabled: 1
-  m_Texture: {fileID: 2800000, guid: f14138204220d7647a29036549283213, type: 3}
+  m_Texture: {fileID: 2800000, guid: 4923986cc2072cf4cb002c952e5783ff, type: 3}
   m_Color: {r: .5, g: .5, b: .5, a: .5}
   m_PixelInset:
     serializedVersion: 2
@@ -776,7 +796,7 @@ GUITexture:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100022}
   m_Enabled: 1
-  m_Texture: {fileID: 2800000, guid: 47b1d34d80789e3498eec596f8f9fcd9, type: 3}
+  m_Texture: {fileID: 2800000, guid: 4923986cc2072cf4cb002c952e5783ff, type: 3}
   m_Color: {r: .5, g: .5, b: .5, a: .5}
   m_PixelInset:
     serializedVersion: 2
@@ -795,7 +815,7 @@ GUITexture:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100014}
   m_Enabled: 1
-  m_Texture: {fileID: 2800000, guid: 7145746782a723d4baff7b16a258bde0, type: 3}
+  m_Texture: {fileID: 2800000, guid: 4923986cc2072cf4cb002c952e5783ff, type: 3}
   m_Color: {r: .5, g: .5, b: .5, a: .5}
   m_PixelInset:
     serializedVersion: 2

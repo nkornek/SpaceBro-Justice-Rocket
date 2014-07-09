@@ -29,12 +29,19 @@ public class GameControl : MonoBehaviour {
 	
 	public AudioSource srcRobot;
 	public AudioSource srcPlayersDie;
+	public float moveTimeToFail, timeLeft;
+	public bool canTime;
+
+
 
 	void Start () {
 		hi5 = true;
 		hasResetInput = false;
 		startPlayerTurn ();
 		seqObjectCloseEnoughDistance = 0.5f;
+		moveTimeToFail = 4.0f;
+		canTime = true;
+		timeLeft = moveTimeToFail;
 	}
 
 	void Update () {
@@ -95,6 +102,8 @@ public class GameControl : MonoBehaviour {
 		//seqQueueLeft.movingSpritesDown = true;
 		//seqQueueRight.movingSpritesDown = true;
 		seqGenerated = false;
+		canTime = true;
+		timeLeft = moveTimeToFail;
 		GameObject.Find ("Player_Left").GetComponent<PlayerAnim>().SetSprite (-1);
 		GameObject.Find ("Player_Right").GetComponent<PlayerAnim>().SetSprite (-1);
 	}
@@ -110,6 +119,11 @@ public class GameControl : MonoBehaviour {
 		player.generateBlockSequence ();
 		seqQueueLeft.LoadSequence (player.contactA, player.seqDelay);
 		seqQueueRight.LoadSequence (player.contactB, player.seqDelay);
+		if (!canTime)
+		{
+			canTime = true;
+			timeLeft = moveTimeToFail;
+		}
 		//Hax!
 		//Invoke ("checkBlocked", 8.0f);
 	}
@@ -130,6 +144,10 @@ public class GameControl : MonoBehaviour {
 	}
 
 	private void playerTurn(){
+		if (canTime)
+		{
+			timeLeft -= Time.deltaTime;
+		}
 		// (1) generate a sequence
 		if (!seqGenerated){
 			player.generateSeqParams(); 
@@ -145,26 +163,33 @@ public class GameControl : MonoBehaviour {
 				if (pictogramsInRange ()) {
 					player.detectedA = -1;
 					player.detectedB = -2;
+					canTime = true;				
+					timeLeft = moveTimeToFail;
 					hasResetInput = true;
 				}
 			}
-			/*
-			if (pictogramsTooLow ()) {
-				for (int i = 0; i < 6; i++) {
-					seqQueueLeft.sequenceObjects[i].Get+Component<SpriteRenderer>().enabled = false;
-					seqQueueRight.sequenceObjects[i].GetComponent<SpriteRenderer>().enabled = false;
-				}	
+
+			if (pictogramsFailed ()) {
+				seqQueueLeft.GetComponent<Sequence_Queue>().movesFail = true;
+				seqQueueRight.GetComponent<Sequence_Queue>().movesFail = true;
+				seqQueueLeft.GetComponent<Sequence_Queue>().Invoke ("AfterFail", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
+				seqQueueRight.GetComponent<Sequence_Queue>().Invoke ("AfterFail", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
 				startEnemyTurn ();
+				canTime = false;
 				GameObject.Find ("Enemy_Face").GetComponent<Enemy_Faces>().SetSprite (2);
 			}
-			*/
 			else if (player.checkBothEvents() && pictogramsInRange()){
 				hasResetInput = false;
 				seqQueueLeft.sequenceObjects[player.correctMoves].GetComponent<GUITexture>().enabled = false;
 				seqQueueRight.sequenceObjects[player.correctMoves].GetComponent<GUITexture>().enabled = false;
 				player.correctMoves++;
-				seqQueueLeft.GetComponent<Sequence_Queue>().MoveSpriteForward();
-				seqQueueRight.GetComponent<Sequence_Queue>().MoveSpriteForward();
+				seqQueueLeft.GetComponent<Sequence_Queue>().movesCorrect = true;
+				seqQueueRight.GetComponent<Sequence_Queue>().movesCorrect = true;
+				seqQueueLeft.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
+				seqQueueRight.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
+				canTime = false;
+				//seqQueueLeft.GetComponent<Sequence_Queue>().MoveSpriteForward();
+				//seqQueueRight.GetComponent<Sequence_Queue>().MoveSpriteForward();
 				//player.generateNextMove();
 			
 				if (player.correctMoves < player.seqMoves) {
@@ -210,11 +235,14 @@ public class GameControl : MonoBehaviour {
 		}
 	}
 
-	private void enemyTurn(){
+	public void enemyTurn(){
 		//enemy.generateAttack(); 
 		responseTime = 0;
 		//playerResponse(); 
-		
+		if (canTime)
+		{
+			timeLeft -= Time.deltaTime;
+		}
 		if (player.defending) {
 		
 			if (player.checkBothEvents() && pictogramsInRange()) {
@@ -222,19 +250,22 @@ public class GameControl : MonoBehaviour {
 				checkBlocked ();
 				seqQueueLeft.sequenceObjects[0].GetComponent<GUITexture>().enabled = false;
 				seqQueueRight.sequenceObjects[0].GetComponent<GUITexture>().enabled = false;
-				seqQueueLeft.GetComponent<Sequence_Queue>().MoveSpriteForward();
-				seqQueueRight.GetComponent<Sequence_Queue>().MoveSpriteForward();
+				seqQueueLeft.GetComponent<Sequence_Queue>().movesCorrect = true;
+				seqQueueRight.GetComponent<Sequence_Queue>().movesCorrect = true;
+				seqQueueLeft.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
+				seqQueueRight.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
 			}
-			/*
-			if (pictogramsTooLow ()) {
+			if (pictogramsFailed ()) {
 				checkBlocked ();
 				for (int i = 0; i < 6; i++) {
-					seqQueueLeft.sequenceObjects[i].GetComponent<SpriteRenderer>().enabled = false;
-					seqQueueRight.sequenceObjects[i].GetComponent<SpriteRenderer>().enabled = false;
+					seqQueueLeft.GetComponent<Sequence_Queue>().movesFail = true;
+					seqQueueRight.GetComponent<Sequence_Queue>().movesFail = true;
+					seqQueueLeft.GetComponent<Sequence_Queue>().Invoke ("AfterFail", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
+					seqQueueRight.GetComponent<Sequence_Queue>().Invoke ("AfterFail", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
+					canTime = false;
 				}
 				
 			}
-			*/
 		}	
 	}
 
@@ -268,12 +299,11 @@ public class GameControl : MonoBehaviour {
 		//Just check left, they're the same
 		return (Mathf.Abs (seqQueueLeft.sequenceObjects[player.currentMove].transform.localPosition.z) == 1);
 	}
-	/*
-	private bool pictogramsTooLow () {
-		return ((seqQueueLeft.sequenceObjects[player.currentMove].transform.localPosition.y) < -1*seqObjectCloseEnoughDistance);
+
+	public bool pictogramsFailed () {
+		return (timeLeft <= 0);
 	}
-	*/
-	
+
 	private void loadSplashScreen () {
 		Application.LoadLevel ("SplashScreenScene");
 	}
