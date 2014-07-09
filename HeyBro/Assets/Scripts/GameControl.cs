@@ -163,6 +163,8 @@ public class GameControl : MonoBehaviour {
 				seqQueueLeft.sequenceObjects[player.correctMoves].GetComponent<GUITexture>().enabled = false;
 				seqQueueRight.sequenceObjects[player.correctMoves].GetComponent<GUITexture>().enabled = false;
 				player.correctMoves++;
+				seqQueueLeft.GetComponent<Sequence_Queue>().MoveSpriteForward();
+				seqQueueRight.GetComponent<Sequence_Queue>().MoveSpriteForward();
 				//player.generateNextMove();
 			
 				if (player.correctMoves < player.seqMoves) {
@@ -220,6 +222,8 @@ public class GameControl : MonoBehaviour {
 				checkBlocked ();
 				seqQueueLeft.sequenceObjects[0].GetComponent<GUITexture>().enabled = false;
 				seqQueueRight.sequenceObjects[0].GetComponent<GUITexture>().enabled = false;
+				seqQueueLeft.GetComponent<Sequence_Queue>().MoveSpriteForward();
+				seqQueueRight.GetComponent<Sequence_Queue>().MoveSpriteForward();
 			}
 			/*
 			if (pictogramsTooLow ()) {
@@ -262,7 +266,7 @@ public class GameControl : MonoBehaviour {
 	
 	private bool pictogramsInRange () {
 		//Just check left, they're the same
-		return (Mathf.Abs (seqQueueLeft.sequenceObjects[player.currentMove].transform.localPosition.z) == 0);
+		return (Mathf.Abs (seqQueueLeft.sequenceObjects[player.currentMove].transform.localPosition.z) == 1);
 	}
 	/*
 	private bool pictogramsTooLow () {
