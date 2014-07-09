@@ -92,8 +92,8 @@ public class GameControl : MonoBehaviour {
 
 	private void startPlayerTurn () {
 		playersTurn = true;
-		seqQueueLeft.movingSpritesDown = true;
-		seqQueueRight.movingSpritesDown = true;
+		//seqQueueLeft.movingSpritesDown = true;
+		//seqQueueRight.movingSpritesDown = true;
 		seqGenerated = false;
 		GameObject.Find ("Player_Left").GetComponent<PlayerAnim>().SetSprite (-1);
 		GameObject.Find ("Player_Right").GetComponent<PlayerAnim>().SetSprite (-1);
@@ -148,19 +148,20 @@ public class GameControl : MonoBehaviour {
 					hasResetInput = true;
 				}
 			}
-			
+			/*
 			if (pictogramsTooLow ()) {
 				for (int i = 0; i < 6; i++) {
-					seqQueueLeft.sequenceObjects[i].GetComponent<SpriteRenderer>().enabled = false;
+					seqQueueLeft.sequenceObjects[i].Get+Component<SpriteRenderer>().enabled = false;
 					seqQueueRight.sequenceObjects[i].GetComponent<SpriteRenderer>().enabled = false;
 				}	
 				startEnemyTurn ();
 				GameObject.Find ("Enemy_Face").GetComponent<Enemy_Faces>().SetSprite (2);
 			}
+			*/
 			else if (player.checkBothEvents() && pictogramsInRange()){
 				hasResetInput = false;
-				seqQueueLeft.sequenceObjects[player.correctMoves].GetComponent<SpriteRenderer>().enabled = false;
-				seqQueueRight.sequenceObjects[player.correctMoves].GetComponent<SpriteRenderer>().enabled = false;
+				seqQueueLeft.sequenceObjects[player.correctMoves].GetComponent<GUITexture>().enabled = false;
+				seqQueueRight.sequenceObjects[player.correctMoves].GetComponent<GUITexture>().enabled = false;
 				player.correctMoves++;
 				//player.generateNextMove();
 			
@@ -217,10 +218,10 @@ public class GameControl : MonoBehaviour {
 			if (player.checkBothEvents() && pictogramsInRange()) {
 				player.blocked = true;
 				checkBlocked ();
-				seqQueueLeft.sequenceObjects[0].GetComponent<SpriteRenderer>().enabled = false;
-				seqQueueRight.sequenceObjects[0].GetComponent<SpriteRenderer>().enabled = false;
+				seqQueueLeft.sequenceObjects[0].GetComponent<GUITexture>().enabled = false;
+				seqQueueRight.sequenceObjects[0].GetComponent<GUITexture>().enabled = false;
 			}
-			
+			/*
 			if (pictogramsTooLow ()) {
 				checkBlocked ();
 				for (int i = 0; i < 6; i++) {
@@ -229,6 +230,7 @@ public class GameControl : MonoBehaviour {
 				}
 				
 			}
+			*/
 		}	
 	}
 
@@ -260,12 +262,13 @@ public class GameControl : MonoBehaviour {
 	
 	private bool pictogramsInRange () {
 		//Just check left, they're the same
-		return (Mathf.Abs (seqQueueLeft.sequenceObjects[player.currentMove].transform.localPosition.y) <= seqObjectCloseEnoughDistance);
+		return (Mathf.Abs (seqQueueLeft.sequenceObjects[player.currentMove].transform.localPosition.z) == 0);
 	}
-	
+	/*
 	private bool pictogramsTooLow () {
 		return ((seqQueueLeft.sequenceObjects[player.currentMove].transform.localPosition.y) < -1*seqObjectCloseEnoughDistance);
 	}
+	*/
 	
 	private void loadSplashScreen () {
 		Application.LoadLevel ("SplashScreenScene");
