@@ -65,7 +65,7 @@ public class GameControl : MonoBehaviour {
 				foreach (ParticleSystem p in timerParticles.GetComponentsInChildren<ParticleSystem>())
 				{
 					p.startColor = Color.yellow;
-					p.startSpeed = timeLeft;
+					p.startSpeed =  timeLeft / (1 - 0.1f * player.correctMoves);
 				}
 			}
 			else
@@ -205,7 +205,7 @@ public class GameControl : MonoBehaviour {
 					player.detectedA = -1;
 					player.detectedB = -2;
 					canTime = true;				
-					timeLeft = moveTimeToFail;
+					timeLeft = (1 - 0.1f * player.correctMoves) * moveTimeToFail;
 					hasResetInput = true;
 				}
 			}
