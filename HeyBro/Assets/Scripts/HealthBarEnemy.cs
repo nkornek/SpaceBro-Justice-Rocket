@@ -9,6 +9,7 @@ public class HealthBarEnemy : MonoBehaviour {
 	
 	public float curPerc;
 	public float targetPerc;
+	public GameObject barLeft, healthBar;
 
 	// Use this for initialization
 	void Start () {
@@ -29,13 +30,14 @@ public class HealthBarEnemy : MonoBehaviour {
 		
 		if (targetPerc != curPerc) {
 		
-			if (Mathf.Abs (curPerc - targetPerc) <= 0.1f) {
+			if (Mathf.Abs (curPerc - targetPerc) <= 0.001f) {
 				curPerc = targetPerc;
 			}
 			else {
-				curPerc = Mathf.Lerp (curPerc, targetPerc, 0.1f);
+				curPerc = Mathf.Lerp (curPerc, targetPerc, 0.03f);
 			}			
-			transform.localScale = new Vector3 (max_XScale * curPerc, yScale, 1f);
+			healthBar.transform.localScale = new Vector3 (max_XScale * curPerc, yScale, 1f);
+			barLeft.transform.localPosition = new Vector3 ( -1.84f - (max_XScale * curPerc * 1.13333333333333333f), -0.87f, 0);
 		}		
 	}
 }
