@@ -122,7 +122,8 @@ public class Sequence_Queue : MonoBehaviour {
 		float zTranslation = zDistanceBetweenPictograms;
 		foreach (GameObject o in sequenceObjects)
 		{
-			o.guiTexture.enabled = false;
+			o.gameObject.transform.position = new Vector3 (o.gameObject.transform.position.x, o.gameObject.transform.position.y, 
+			o.gameObject.transform.position.z + zTranslation * 10);
 		}
 		gameManager.GetComponent<GameControl>().canEmit = false;
 
