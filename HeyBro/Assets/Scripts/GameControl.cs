@@ -150,7 +150,7 @@ public class GameControl : MonoBehaviour {
 	
 	private void startEnemyTurn () {
 		playersTurn = false;
-		Invoke ("createBlockSequence", 2.0f);
+		Invoke ("createBlockSequence", 2);
 		//seqQueueLeft.movingSpritesDown = false;
 		//seqQueueRight.movingSpritesDown = false;
 	}
