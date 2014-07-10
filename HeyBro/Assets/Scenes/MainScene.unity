@@ -2792,6 +2792,9 @@ MonoBehaviour:
   targetPerc: 0
   barLeft: {fileID: 158648680}
   healthBar: {fileID: 897108071}
+  CanFadeIn: 0
+  fadeSwitch: 0
+  alpha: 0
 --- !u!4 &555381047
 Transform:
   m_ObjectHideFlags: 0
@@ -10588,6 +10591,9 @@ MonoBehaviour:
   targetPerc: 0
   barRight: {fileID: 1824180097}
   healthBar: {fileID: 711166173}
+  CanFadeIn: 0
+  fadeSwitch: 0
+  alpha: 0
 --- !u!4 &1702811581
 Transform:
   m_ObjectHideFlags: 0
