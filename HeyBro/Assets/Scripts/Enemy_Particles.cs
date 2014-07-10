@@ -9,6 +9,7 @@ public class Enemy_Particles : MonoBehaviour {
 	public AudioClip laserSound;
 	public AudioSource attackAudio;
 	public float attackTime;
+	public BoxCollider forcefield;
 
 	// Use this for initialization
 	void Start () {
@@ -31,6 +32,14 @@ public class Enemy_Particles : MonoBehaviour {
 				}
 			GameObject.Find ("Enemy_Face").GetComponent<Enemy_Faces>().SetSprite (3);
 			attackTime -= Time.deltaTime;
+			if (GameObject.Find ("Players").GetComponent<SequenceControls>().blocked)
+			{
+				forcefield.enabled = true;
+			}
+			else
+			{
+				forcefield.enabled = false;
+			}
 		}
 		if (attackTime <= 0)
 		{
