@@ -3,53 +3,63 @@ using System.Collections;
 
 public class Enemy_Particles : MonoBehaviour {
 
-	public bool partVisible;
+	public bool chargeVisible;
 	public ParticleSystem laser;
 	public ParticleSystem laser2;
+	public GameObject chargeParticles;
 	public AudioClip laserSound;
 	public AudioSource attackAudio;
 	public float attackTime;
 	public BoxCollider forcefield;
-
+	public float rotation;
 	// Use this for initialization
 	void Start () {
-		partVisible = false;
+		chargeVisible = false;
 		laser.enableEmission = false;
 		laser2.enableEmission = false;
-		attackTime = 4.0f;
+		attackTime = 3.0f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (partVisible == true)
+		if (chargeVisible)
 		{
-			laser.enableEmission = true;
-			laser2.enableEmission = true;
-			if (attackAudio.isPlaying == false)
-				{
-				attackAudio.clip = laserSound;
-				attackAudio.Play();
-				}
-			GameObject.Find ("Enemy_Face").GetComponent<Enemy_Faces>().SetSprite (3);
-			attackTime -= Time.deltaTime;
-			if (GameObject.Find ("Players").GetComponent<SequenceControls>().blocked)
-			{
-				forcefield.enabled = true;
-			}
-			else
-			{
-				forcefield.enabled = false;
-			}
+			chargeParticles.GetComponent<ParticleSystem>().enableEmission = true;
+			rotation += 1.5f;
+			chargeParticles.transform.localRotation = Quaternion.Euler (0, 0, rotation);
 		}
-		if (attackTime <= 0)
+		else
 		{
-			partVisible = false;
-			laser.enableEmission = false;
-			laser2.enableEmission = false;
-			GameObject.Find("Forcefield").GetComponent<Display_Forcefield>().showField = false;
-			GameObject.Find ("Enemy_Face").GetComponent<Enemy_Faces>().SetSprite (0);
-			attackTime = 4.0f;
+			chargeParticles.GetComponent<ParticleSystem>().enableEmission = false;
 		}
 	
+	}
+
+	void FireLasers () {
+		chargeVisible = false;
+		laser.enableEmission = true;
+		laser2.enableEmission = true;
+		Invoke ("EndLasers", attackTime);
+		GameObject.Find ("Game").GetComponent<GameControl> ().Invoke ("LaserDamage", attackTime / 2);
+		if (attackAudio.isPlaying == false) 
+		{
+			attackAudio.clip = laserSound;
+			attackAudio.Play ();
+		}
+		GameObject.Find ("Enemy_Face").GetComponent<Enemy_Faces> ().SetSprite (3);
+		if (GameObject.Find ("Players").GetComponent<SequenceControls> ().blocked) 
+		{
+			forcefield.enabled = true;
+		} 
+		else 
+		{
+			forcefield.enabled = false;
+		}
+	}
+	void EndLasers () {
+		laser.enableEmission = false;
+		laser2.enableEmission = false;
+		GameObject.Find("Forcefield").GetComponent<Display_Forcefield>().showField = false;
+		GameObject.Find ("Enemy_Face").GetComponent<Enemy_Faces>().SetSprite (0);
 	}
 }

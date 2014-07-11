@@ -176,6 +176,7 @@ public class GameControl : MonoBehaviour {
 		canEmit = true;
 		seqQueueLeft.LoadSequence (player.contactA, player.seqDelay);
 		seqQueueRight.LoadSequence (player.contactB, player.seqDelay);
+		GameObject.Find("Enemy Particle Parent").GetComponent<Enemy_Particles>().chargeVisible = true;
 		if (!canTime)
 		{
 			canTime = true;
@@ -187,17 +188,8 @@ public class GameControl : MonoBehaviour {
 		
 	private void checkBlocked () {
 		player.defending = false;
-		GameObject.Find("Enemy Particle Parent").GetComponent<Enemy_Particles>().partVisible = true;
-		if (!player.blocked) {
-			player.hp -= 20;
-		}
-		if (player.hp <= 0) {
-			srcPlayersDie.Play ();
-			Invoke ("loadSplashScreen", 5.0f);			
-		}
-		else {
-			Invoke ("startPlayerTurn", 5.0f);
-		}
+		GameObject.Find ("Enemy Particle Parent").GetComponent<Enemy_Particles> ().Invoke ("FireLasers", 0.5f);
+
 	}
 
 	private void playerTurn(){
@@ -363,6 +355,19 @@ public class GameControl : MonoBehaviour {
 
 			default:
 				break; 
+		}
+	}
+
+	public void laserDamage() {
+		if (!player.blocked) {
+			player.hp -= 20;
+		}
+		if (player.hp <= 0) {
+			srcPlayersDie.Play ();
+			Invoke ("loadSplashScreen", 5.0f);			
+		}
+		else {
+			Invoke ("startPlayerTurn", 5.0f);
 		}
 	}
 	
