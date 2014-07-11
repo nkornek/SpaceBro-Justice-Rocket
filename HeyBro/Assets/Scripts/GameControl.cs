@@ -32,6 +32,9 @@ public class GameControl : MonoBehaviour {
 	public float moveTimeToFail, timeLeft;
 	public bool canTime, canEmit;
 
+	public Transform timerBar;
+	public SpriteRenderer timerSprite, timerOutline;
+	public Sprite timerYellow, timerGreen, timerRed;
 	public GameObject timerParticles, passfailParticles;
 
 
@@ -84,6 +87,8 @@ public class GameControl : MonoBehaviour {
 				p.enableEmission = false;
 			}
 		}
+		//set bar length
+		timerBar.localScale = new Vector3(timerBar.localScale.x, timeLeft / ((1 - 0.1f * player.correctMoves) * moveTimeToFail), timerBar.localScale.z);
 
 	/* --------------------------------------------------------------------------------------------------------------------------
 	 * ~ PLAYER'S TURN
