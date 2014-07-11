@@ -24,6 +24,7 @@ public class Enemy_Particles : MonoBehaviour {
 	void Update () {
 		if (chargeVisible)
 		{
+			GetComponentInParent<SpriteRenderer> ().sprite = GetComponentInParent<Enemy_Faces> ().laserCharge;
 			chargeParticles.GetComponent<ParticleSystem>().enableEmission = true;
 			rotation += 1.5f;
 			chargeParticles.transform.localRotation = Quaternion.Euler (0, 0, rotation);
@@ -36,17 +37,17 @@ public class Enemy_Particles : MonoBehaviour {
 	}
 
 	void FireLasers () {
-		chargeVisible = false;
+		GetComponentInParent<SpriteRenderer> ().sprite = GetComponentInParent<Enemy_Faces> ().laserAttack;
 		laser.enableEmission = true;
 		laser2.enableEmission = true;
 		Invoke ("EndLasers", attackTime);
-		GameObject.Find ("Game").GetComponent<GameControl> ().Invoke ("LaserDamage", attackTime / 2);
+		GameObject.Find ("Game").GetComponent<GameControl> ().Invoke ("LaserDamage", attackTime / 3);
 		if (attackAudio.isPlaying == false) 
 		{
 			attackAudio.clip = laserSound;
 			attackAudio.Play ();
 		}
-		GameObject.Find ("Enemy_Face").GetComponent<Enemy_Faces> ().SetSprite (3);
+		GameObject.Find ("Enemy_Face").GetComponent<Enemy_Faces> ().SetSprite (4);
 		if (GameObject.Find ("Players").GetComponent<SequenceControls> ().blocked) 
 		{
 			forcefield.enabled = true;

@@ -2,10 +2,8 @@
 using System.Collections;
 
 public class Enemy_Faces : MonoBehaviour {
-	public Sprite normal;
-	public Sprite angry;
-	public Sprite happy;
-	public Sprite laserattack;
+	public Sprite normal, angry, happy;
+	public Sprite laserAttack, laserCharge;
 
 	// Use this for initialization
 	void Start () {
@@ -33,7 +31,10 @@ public class Enemy_Faces : MonoBehaviour {
 			Invoke ("ResetFace", 2.0f);
 			break;
 		case 3:
-			gameObject.GetComponent<SpriteRenderer>().sprite = laserattack;
+			gameObject.GetComponent<SpriteRenderer>().sprite = laserCharge;
+			break;
+		case 4:
+			gameObject.GetComponent<SpriteRenderer>().sprite = laserAttack;
 			break;
 		}
 	}
