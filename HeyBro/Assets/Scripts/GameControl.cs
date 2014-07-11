@@ -37,16 +37,21 @@ public class GameControl : MonoBehaviour {
 	public Sprite timerYellow, timerGreen, timerRed;
 	public GameObject timerParticles, passfailParticles;
 
-
+	public bool sceneStarted;
 
 	void Start () {
+		moveTimeToFail = 4.0f;		
+		timeLeft = moveTimeToFail;
+		sceneStarted = true;
+		//Invoke("GameStart", 3);
+	}
+
+	public void GameStart () {
 		hi5 = true;
 		hasResetInput = false;
 		startPlayerTurn ();
 		seqObjectCloseEnoughDistance = 0.5f;
-		moveTimeToFail = 4.0f;
 		canTime = true;
-		timeLeft = moveTimeToFail;
 		canEmit = true;
 	}
 
