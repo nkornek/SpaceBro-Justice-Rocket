@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: c0821417ff68db2469ae79ece4636b1b
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: enemy health fill
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

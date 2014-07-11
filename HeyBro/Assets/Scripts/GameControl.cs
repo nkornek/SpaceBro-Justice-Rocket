@@ -59,12 +59,15 @@ public class GameControl : MonoBehaviour {
 		//set particle speed & ebable
 		if (canEmit)
 		{
+			timerSprite.enabled = true;			
+			timerOutline.enabled = true;
 			foreach (ParticleSystem p in timerParticles.GetComponentsInChildren<ParticleSystem>())
 			{
 				p.enableEmission = true;
 			}
 			if (timeLeft > 0.5f)
 			{
+				timerSprite.sprite = timerYellow;
 				foreach (ParticleSystem p in timerParticles.GetComponentsInChildren<ParticleSystem>())
 				{
 					p.startColor = Color.yellow;
@@ -73,6 +76,7 @@ public class GameControl : MonoBehaviour {
 			}
 			else
 				{
+					timerSprite.sprite = timerRed;
 					foreach (ParticleSystem p in timerParticles.GetComponentsInChildren<ParticleSystem>())
 					{
 						p.startColor = Color.red;
@@ -82,6 +86,8 @@ public class GameControl : MonoBehaviour {
 		}
 		else
 		{
+			timerSprite.enabled = false;
+			timerOutline.enabled = false;
 			foreach (ParticleSystem p in timerParticles.GetComponentsInChildren<ParticleSystem>())
 			{
 				p.enableEmission = false;
@@ -239,6 +245,7 @@ public class GameControl : MonoBehaviour {
 				canTime = false;
 				passfailParticles.particleSystem.startColor = Color.green;
 				passfailParticles.particleSystem.Emit(400);
+				timerSprite.sprite = timerGreen; 
 				//seqQueueLeft.GetComponent<Sequence_Queue>().MoveSpriteForward();
 				//seqQueueRight.GetComponent<Sequence_Queue>().MoveSpriteForward();
 				//player.generateNextMove();
@@ -309,6 +316,8 @@ public class GameControl : MonoBehaviour {
 				passfailParticles.particleSystem.startColor = Color.green;
 				passfailParticles.particleSystem.Emit(400);
 				canEmit = false;
+				canTime = false;
+				timerSprite.sprite = timerGreen;
 			}
 			if (pictogramsFailed ()) {
 				checkBlocked ();
