@@ -188,7 +188,8 @@ public class GameControl : MonoBehaviour {
 		
 	private void checkBlocked () {
 		player.defending = false;
-		GameObject.Find ("Enemy Particle Parent").GetComponent<Enemy_Particles> ().Invoke ("FireLasers", 0.5f);
+		GameObject.Find ("Enemy Particle Parent").GetComponent<Enemy_Particles> ().chargeVisible = false;
+		GameObject.Find ("Enemy Particle Parent").GetComponent<Enemy_Particles> ().Invoke ("FireLasers", 0.7f);
 
 	}
 
@@ -358,7 +359,7 @@ public class GameControl : MonoBehaviour {
 		}
 	}
 
-	public void laserDamage() {
+	public void LaserDamage() {
 		if (!player.blocked) {
 			player.hp -= 20;
 		}
