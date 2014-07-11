@@ -65,7 +65,7 @@ public class HealthBarEnemy : MonoBehaviour {
 
 			}			
 			healthBar.transform.localScale = new Vector3 (max_XScale * curPerc, yScale, 1f);
-			barLeft.transform.localPosition = new Vector3 ( -1.84f - (max_XScale * curPerc * 1.13333333333333333f), barLeft.transform.position.y, 0);
+			barLeft.transform.localPosition = new Vector3 ( -1.84f - (max_XScale * curPerc * 1.13333333333333333f), barLeft.transform.localPosition.y, 0);
 		}		
 	}
 public void FadeOutStart(){

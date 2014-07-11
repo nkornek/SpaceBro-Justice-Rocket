@@ -64,7 +64,7 @@ public class HealthBarPlayer : MonoBehaviour {
 				}
 			}			
 			healthBar.transform.localScale = new Vector3 (max_XScale * curPerc, yScale, 1f);
-			barRight.transform.localPosition = new Vector3 ( 3.88f + (max_XScale * curPerc * 1.13f), barRight.transform.position.y, 0);
+			barRight.transform.localPosition = new Vector3 ( 3.88f + (max_XScale * curPerc * 1.13f), barRight.transform.localPosition.y, 0);
 		}		
 	}
 public void FadeOutStart(){
