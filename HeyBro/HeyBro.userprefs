@@ -1,10 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Enemy_Faces.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Sequence_Queue.cs">
     <Files>
-      <File FileName="Assets\Scripts\GameControl.cs" Line="46" Column="28" />
-      <File FileName="Assets\Scripts\Sequence_Queue.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Enemy_Faces.cs" Line="43" Column="4" />
+      <File FileName="Assets\Scripts\SequenceControls.cs" Line="448" Column="1" />
+      <File FileName="Assets\Scripts\Sequence_Queue.cs" Line="15" Column="16" />
+      <File FileName="Assets\Scripts\GameControl.cs" Line="307" Column="21" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

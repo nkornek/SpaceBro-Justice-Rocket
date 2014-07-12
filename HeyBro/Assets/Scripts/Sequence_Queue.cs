@@ -7,7 +7,7 @@ public class Sequence_Queue : MonoBehaviour {
 	public GameObject gameManager;
 	private Sprite[] sequenceSprites;
 	
-	public Sprite pictogramHighfive, pictogramFist, pictogramElbow;
+	public Sprite pictogramHighfive, pictogramFist, pictogramElbow, pictogramTriple;
 	public Sprite highSuccess, fistSuccess, elbSuccess;
 	public Sprite highFail, fistFail, elbFail;
 	public int playerNum;
