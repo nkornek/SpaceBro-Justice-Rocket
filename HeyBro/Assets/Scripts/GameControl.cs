@@ -233,8 +233,8 @@ public class GameControl : MonoBehaviour {
 			}
 			else if (player.checkBothEvents() && pictogramsInRange()){
 				hasResetInput = false;
-				seqQueueLeft.sequenceObjects[player.correctMoves].GetComponent<GUITexture>().enabled = false;
-				seqQueueRight.sequenceObjects[player.correctMoves].GetComponent<GUITexture>().enabled = false;
+				seqQueueLeft.sequenceObjects[player.correctMoves].GetComponent<SpriteRenderer>().enabled = false;
+				seqQueueRight.sequenceObjects[player.correctMoves].GetComponent<SpriteRenderer>().enabled = false;
 				player.correctMoves++;
 				seqQueueLeft.GetComponent<Sequence_Queue>().movesCorrect = true;
 				seqQueueRight.GetComponent<Sequence_Queue>().movesCorrect = true;
@@ -305,8 +305,8 @@ public class GameControl : MonoBehaviour {
 			if (player.checkBothEvents() && pictogramsInRange()) {
 				player.blocked = true;
 				checkBlocked ();
-				seqQueueLeft.sequenceObjects[0].GetComponent<GUITexture>().enabled = false;
-				seqQueueRight.sequenceObjects[0].GetComponent<GUITexture>().enabled = false;
+				seqQueueLeft.sequenceObjects[0].GetComponent<SpriteRenderer>().enabled = false;
+				seqQueueRight.sequenceObjects[0].GetComponent<SpriteRenderer>().enabled = false;
 				seqQueueLeft.GetComponent<Sequence_Queue>().movesCorrect = true;
 				seqQueueRight.GetComponent<Sequence_Queue>().movesCorrect = true;
 				seqQueueLeft.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);

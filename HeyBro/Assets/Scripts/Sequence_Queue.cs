@@ -5,11 +5,11 @@ public class Sequence_Queue : MonoBehaviour {
 
 	public GameObject[] sequenceObjects;
 	public GameObject gameManager;
-	private Texture[] sequenceSprites;
+	private Sprite[] sequenceSprites;
 	
-	public Texture pictogramHighfive, pictogramFist, pictogramElbow;
-	public Texture highSuccess, fistSuccess, elbSuccess;
-	public Texture highFail, fistFail, elbFail;
+	public Sprite pictogramHighfive, pictogramFist, pictogramElbow;
+	public Sprite highSuccess, fistSuccess, elbSuccess;
+	public Sprite highFail, fistFail, elbFail;
 	public int playerNum;
 
 	// delay stuff
@@ -24,7 +24,7 @@ public class Sequence_Queue : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		sequenceSprites = new Texture[3] {pictogramHighfive, pictogramFist, pictogramElbow};
+		sequenceSprites = new Sprite[3] {pictogramHighfive, pictogramFist, pictogramElbow};
 		zDistanceBetweenPictograms = 1;
 		timeBetweenMoves = 0.2f;
 
@@ -36,11 +36,11 @@ public class Sequence_Queue : MonoBehaviour {
 		{
 			if (o.transform.localPosition.z == -1)
 			{
-				o.gameObject.guiTexture.enabled = true;
+				o.GetComponent<SpriteRenderer>().enabled = true;
 			}
 			else
 			{
-				o.gameObject.guiTexture.enabled = false;
+				o.GetComponent<SpriteRenderer>().enabled = false;
 			}
 		}
 		if (movesCorrect)
@@ -48,17 +48,17 @@ public class Sequence_Queue : MonoBehaviour {
 			movesCorrect = false;
 			foreach (GameObject o in sequenceObjects)
 			{
-				if (o.transform.localPosition.z == -1 & o.guiTexture.texture == pictogramHighfive)
+				if (o.transform.localPosition.z == -1 & o.GetComponent<SpriteRenderer>().sprite == pictogramHighfive)
 				{
-					o.guiTexture.texture = highSuccess;
+					o.GetComponent<SpriteRenderer>().sprite = highSuccess;
 				}
-				else if (o.transform.localPosition.z == -1 & o.guiTexture.texture == pictogramFist)
+				else if (o.transform.localPosition.z == -1 & o.GetComponent<SpriteRenderer>().sprite == pictogramFist)
 				{
-					o.guiTexture.texture = fistSuccess;
+					o.GetComponent<SpriteRenderer>().sprite = fistSuccess;
 				}
-				else if (o.transform.localPosition.z == -1 & o.guiTexture.texture == pictogramElbow)
+				else if (o.transform.localPosition.z == -1 & o.GetComponent<SpriteRenderer>().sprite == pictogramElbow)
 				{
-					o.guiTexture.texture = elbSuccess;
+					o.GetComponent<SpriteRenderer>().sprite = elbSuccess;
 				}
 			}
 		}
@@ -67,17 +67,17 @@ public class Sequence_Queue : MonoBehaviour {
 			movesFail = false;
 			foreach (GameObject o in sequenceObjects)
 			{
-				if (o.transform.localPosition.z == -1 & o.guiTexture.texture == pictogramHighfive)
+				if (o.transform.localPosition.z == -1 & o.GetComponent<SpriteRenderer>().sprite == pictogramHighfive)
 				{
-					o.guiTexture.texture = highFail;
+					o.GetComponent<SpriteRenderer>().sprite = highFail;
 				}
-				if (o.transform.localPosition.z == -1 & o.guiTexture.texture == pictogramFist)
+				if (o.transform.localPosition.z == -1 & o.GetComponent<SpriteRenderer>().sprite == pictogramFist)
 				{
-					o.guiTexture.texture = fistFail;
+					o.GetComponent<SpriteRenderer>().sprite = fistFail;
 				}
-				if (o.transform.localPosition.z == -1 & o.guiTexture.texture == pictogramElbow)
+				if (o.transform.localPosition.z == -1 & o.GetComponent<SpriteRenderer>().sprite == pictogramElbow)
 				{
-					o.guiTexture.texture = elbFail;
+					o.GetComponent<SpriteRenderer>().sprite = elbFail;
 				}
 				gameManager.GetComponent<GameControl>().enemyTurn();
 			}
@@ -94,36 +94,36 @@ public class Sequence_Queue : MonoBehaviour {
 	// Sets the appropriate pictogram sprites and visibility
 	public void LoadSequence (int[] seq, float delay) {
 		for (int i = 0; i < seq.Length; i++) {
-			sequenceObjects[i].guiTexture.enabled = true;
-			sequenceObjects[i].guiTexture.texture = sequenceSprites[seq[i]];
+			sequenceObjects[i].GetComponent<SpriteRenderer>().enabled = true;
+			sequenceObjects[i].GetComponent<SpriteRenderer>().sprite = sequenceSprites[seq[i]];
 			if (playerNum == 1)
 			{			
-				sequenceObjects[i].transform.localPosition = new Vector3 (0.15f, 0.72f, - zDistanceBetweenPictograms*(i+1));
+				sequenceObjects[i].transform.localPosition = new Vector3 (sequenceObjects[i].transform.localPosition.x, sequenceObjects[i].transform.localPosition.y, - zDistanceBetweenPictograms*(i+1));
 			}
 			else
 			{
-				sequenceObjects[i].transform.localPosition = new Vector3 (0.35f, 0.72f, - zDistanceBetweenPictograms*(i+1));
+				sequenceObjects[i].transform.localPosition = new Vector3 (sequenceObjects[i].transform.localPosition.x, sequenceObjects[i].transform.localPosition.y, - zDistanceBetweenPictograms*(i+1));
 			}
 		}
 		
 		for (int i = seq.Length; i < sequenceObjects.Length; i++) {
-			sequenceObjects[i].guiTexture.enabled = false;
+			sequenceObjects[i].GetComponent<SpriteRenderer>().enabled = false;
 		}
 
 	}
 	public void MoveSpriteForward(){
 		float zTranslation = zDistanceBetweenPictograms;
 		foreach (GameObject o in sequenceObjects) {
-			o.gameObject.transform.position = new Vector3 (o.gameObject.transform.position.x, o.gameObject.transform.position.y, 
-			o.gameObject.transform.position.z + zTranslation);
+			o.gameObject.transform.localPosition = new Vector3 (o.gameObject.transform.localPosition.x, o.gameObject.transform.localPosition.y, 
+			o.gameObject.transform.localPosition.z + zTranslation);
 			}
 		}
 	public void AfterFail(){
 		float zTranslation = zDistanceBetweenPictograms;
 		foreach (GameObject o in sequenceObjects)
 		{
-			o.gameObject.transform.position = new Vector3 (o.gameObject.transform.position.x, o.gameObject.transform.position.y, 
-			o.gameObject.transform.position.z + zTranslation * 10);
+			o.gameObject.transform.localPosition = new Vector3 (o.gameObject.transform.localPosition.x, o.gameObject.transform.localPosition.y, 
+			o.gameObject.transform.localPosition.z + zTranslation * 10);
 		}
 		gameManager.GetComponent<GameControl>().canEmit = false;
 
