@@ -19,7 +19,6 @@ public class tripleScript : MonoBehaviour {
 		triple1Right.enabled = false;
 		triple2Right.enabled = false;
 		triple3Right.enabled = false;
-	
 	}
 	
 	// Update is called once per frame
@@ -28,9 +27,68 @@ public class tripleScript : MonoBehaviour {
 	}
 
 	public void GenerateTriple (int makeTriple) {
+		triple1Left.enabled = true;
+		triple2Left.enabled = true;
+		triple3Left.enabled = true;
+		triple1Right.enabled = true;
+		triple2Right.enabled = true;
+		triple3Right.enabled = true;
 	switch (makeTriple){
-		case 1:
-
+		case 0:			
+			triple1Left.sprite = tripleFiveLeft;
+			triple2Left.sprite = tripleFiveLeft;
+			triple3Left.sprite = tripleFiveLeft;
+			triple1Right.sprite = tripleFiveRight;
+			triple2Right.sprite = tripleFiveRight;
+			triple3Right.sprite = tripleFiveRight;
+			break;
+		case 1:			
+			triple1Left.sprite = tripleFiveLeft;
+			triple2Left.sprite = tripleFistLeft;
+			triple3Left.sprite = tripleFiveLeft;
+			triple1Right.sprite = tripleFistRight;
+			triple2Right.sprite = tripleFiveRight;
+			triple3Right.sprite = tripleFistRight;
+			break;
+		case 2:			
+			triple1Left.sprite = tripleFistLeft;
+			triple2Left.sprite = tripleFiveLeft;
+			triple3Left.sprite = tripleFistLeft;
+			triple1Right.sprite = tripleFiveRight;
+			triple2Right.sprite = tripleFistRight;
+			triple3Right.sprite = tripleFiveRight;
+			break;
+		case 3:			
+			triple1Left.sprite = tripleFistLeft;
+			triple2Left.sprite = tripleElbowLeft;
+			triple3Left.sprite = tripleFistLeft;
+			triple1Right.sprite = tripleFistRight;
+			triple2Right.sprite = tripleElbowRight;
+			triple3Right.sprite = tripleFistRight;
+			break;
+		case 4:			
+			triple1Left.sprite = tripleFiveLeft;
+			triple2Left.sprite = tripleFistLeft;
+			triple3Left.sprite = tripleElbowLeft;
+			triple1Right.sprite = tripleFiveRight;
+			triple2Right.sprite = tripleFistRight;
+			triple3Right.sprite = tripleElbowRight;
+			break;
+		case 5:			
+			triple1Left.sprite = tripleElbowLeft;
+			triple2Left.sprite = tripleFistLeft;
+			triple3Left.sprite = tripleFiveLeft;
+			triple1Right.sprite = tripleElbowRight;
+			triple2Right.sprite = tripleFistRight;
+			triple3Right.sprite = tripleFiveRight;
+			break;
+		case 6:			
+			triple1Left.sprite = tripleElbowLeft;
+			triple2Left.sprite = tripleFistLeft;
+			triple3Left.sprite = tripleFiveLeft;
+			triple1Right.sprite = tripleFiveRight;
+			triple2Right.sprite = tripleFistRight;
+			triple3Right.sprite = tripleElbowRight;
 			break;
 		}
 	}

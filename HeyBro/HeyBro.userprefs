@@ -1,11 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\tripleScript.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Sequence_Queue.cs">
     <Files>
-      <File FileName="Assets\Scripts\SequenceControls.cs" Line="448" Column="1" />
-      <File FileName="Assets\Scripts\Sequence_Queue.cs" Line="15" Column="16" />
+      <File FileName="Assets\Scripts\tripleScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SequenceControls.cs" Line="272" Column="20" />
+      <File FileName="Assets\Scripts\Sequence_Queue.cs" Line="123" Column="3" />
       <File FileName="Assets\Scripts\GameControl.cs" Line="307" Column="21" />
-      <File FileName="Assets\Scripts\tripleScript.cs" Line="27" Column="2" />
+      <File FileName="Assets\Scripts\tripleScript.cs" Line="29" Column="28" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

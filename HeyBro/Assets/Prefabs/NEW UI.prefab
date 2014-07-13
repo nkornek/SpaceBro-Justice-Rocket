@@ -1207,6 +1207,9 @@ MonoBehaviour:
   - {fileID: 100020}
   - {fileID: 100018}
   gameManager: {fileID: 0}
+  seqLeft: {fileID: 0}
+  seqRight: {fileID: 0}
+  tripleManager: {fileID: 0}
   pictogramHighfive: {fileID: 21300000, guid: 1028bc21511b7564dab3c880bf4c55d8, type: 3}
   pictogramFist: {fileID: 21300000, guid: eb61afaf413b44c42a46b32ab330f905, type: 3}
   pictogramElbow: {fileID: 21300000, guid: 9558bea1d69e9e34aadc8eeceb4e64c7, type: 3}
@@ -1222,7 +1225,7 @@ MonoBehaviour:
   seqDelay: 0
   currentTime: 0
   zDistanceBetweenPictograms: 0
-  movingSpritesForward: 0
+  tripleMade: 0
   movesCorrect: 0
   movesFail: 0
   timeBetweenMoves: 0
@@ -1245,6 +1248,9 @@ MonoBehaviour:
   - {fileID: 100002}
   - {fileID: 100004}
   gameManager: {fileID: 0}
+  seqLeft: {fileID: 100026}
+  seqRight: {fileID: 100024}
+  tripleManager: {fileID: 100080}
   pictogramHighfive: {fileID: 21300000, guid: 4923986cc2072cf4cb002c952e5783ff, type: 3}
   pictogramFist: {fileID: 21300000, guid: c86d79345d464f84c8fa12a9841d85a2, type: 3}
   pictogramElbow: {fileID: 21300000, guid: 3e633bf4a2033904aabeca94c710262d, type: 3}
@@ -1260,7 +1266,7 @@ MonoBehaviour:
   seqDelay: 0
   currentTime: 0
   zDistanceBetweenPictograms: 0
-  movingSpritesForward: 0
+  tripleMade: 0
   movesCorrect: 0
   movesFail: 0
   timeBetweenMoves: 0

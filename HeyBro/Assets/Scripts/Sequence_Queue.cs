@@ -4,7 +4,7 @@ using System.Collections;
 public class Sequence_Queue : MonoBehaviour {
 
 	public GameObject[] sequenceObjects;
-	public GameObject gameManager;
+	public GameObject gameManager, seqLeft, seqRight, tripleManager;
 	private Sprite[] sequenceSprites;
 	
 	public Sprite pictogramHighfive, pictogramFist, pictogramElbow, pictogramTriple;
@@ -18,13 +18,13 @@ public class Sequence_Queue : MonoBehaviour {
 	public float currentTime;
 	public int zDistanceBetweenPictograms;
 	
-	public bool movingSpritesForward;
+	public bool tripleMade;
 	public bool movesCorrect, movesFail;
 	public float timeBetweenMoves;
 	
 	// Use this for initialization
 	void Start () {
-		sequenceSprites = new Sprite[3] {pictogramHighfive, pictogramFist, pictogramElbow};
+		sequenceSprites = new Sprite[4] {pictogramHighfive, pictogramFist, pictogramElbow, pictogramTriple};
 		zDistanceBetweenPictograms = 1;
 		timeBetweenMoves = 0.2f;
 
@@ -82,6 +82,17 @@ public class Sequence_Queue : MonoBehaviour {
 				gameManager.GetComponent<GameControl>().enemyTurn();
 			}
 		}
+
+		foreach (GameObject o in sequenceObjects)
+		{
+			if (o.transform.localPosition.z == -1 & o.GetComponent<SpriteRenderer>().sprite == pictogramTriple & !tripleMade)
+			{
+				seqLeft.GetComponent<Sequence_Queue>().tripleMade = true;
+				seqRight.GetComponent<Sequence_Queue>().tripleMade = true;
+				seqLeft.GetComponent<Sequence_Queue>().CreateTriples();
+				seqRight.GetComponent<Sequence_Queue>().CreateTriples();
+			}
+		}
 	
 	}
 	/*
@@ -111,6 +122,18 @@ public class Sequence_Queue : MonoBehaviour {
 		}
 
 	}
+	public void CreateTriples() {
+		foreach (GameObject o in sequenceObjects)
+		{
+			if (o.transform.localPosition.z == -1)
+			{
+				o.GetComponent<SpriteRenderer>().sprite = pictogramTriple;
+				int randomInt = Random.Range (0, 7);
+				tripleManager.GetComponent<tripleScript>().GenerateTriple(randomInt);
+			}
+		}
+	}
+
 	public void MoveSpriteForward(){
 		float zTranslation = zDistanceBetweenPictograms;
 		foreach (GameObject o in sequenceObjects) {

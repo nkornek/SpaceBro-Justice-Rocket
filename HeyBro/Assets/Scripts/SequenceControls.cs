@@ -26,7 +26,7 @@ public class SequenceControls : MonoBehaviour {
 	public int detectedA;
 	public int detectedB; 
 	public int minEnum = 0; 	// first index of the enum
-	public int maxEnum = 3;	// number of elements in the enum
+	public int maxEnum = 4;	// number of elements in the enum
 
 	// CONTACT INPUTS (person A and person B)
 	public bool palmA; 		// these will correspond to specific button inputs 
