@@ -123,13 +123,14 @@ public class Sequence_Queue : MonoBehaviour {
 
 	}
 	public void CreateTriples() {
+		gameManager.GetComponent<GameControl>().tripleActive = true;
+		int randomInt = Random.Range (0, 7);
+		tripleManager.GetComponent<tripleScript>().GenerateTriple(randomInt);
 		foreach (GameObject o in sequenceObjects)
 		{
 			if (o.transform.localPosition.z == -1)
 			{
 				o.GetComponent<SpriteRenderer>().sprite = pictogramTriple;
-				int randomInt = Random.Range (0, 7);
-				tripleManager.GetComponent<tripleScript>().GenerateTriple(randomInt);
 			}
 		}
 	}

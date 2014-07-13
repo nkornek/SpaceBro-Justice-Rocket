@@ -26,7 +26,8 @@ public class SequenceControls : MonoBehaviour {
 	public int detectedA;
 	public int detectedB; 
 	public int minEnum = 0; 	// first index of the enum
-	public int maxEnum = 4;	// number of elements in the enum
+	public int maxEnum = 4;	// number of elements in the enum	
+	public bool correctA, correctB;
 
 	// CONTACT INPUTS (person A and person B)
 	public bool palmA; 		// these will correspond to specific button inputs 
@@ -55,6 +56,7 @@ public class SequenceControls : MonoBehaviour {
 	public int currentMove; 		// the move we're at in the current sequence, used as index for contactA/contactB arrays to get the move we want 
 	public int correctMoves; 		// number of correctly done moves in the current sequence
 	public float currentSeqTime; 	// currently accumulated time since the sequence began
+	public int tripleInputA, tripleInputB;
 	
 	// PLAYER STUFF
 	public int hp;
@@ -66,6 +68,7 @@ public class SequenceControls : MonoBehaviour {
 
 	public int counterDamage;
 	public int turn;  
+	public GameControl game;
 
 	// ENEMY STUFF
 	public EnemyControls enemy; 
@@ -300,15 +303,22 @@ public class SequenceControls : MonoBehaviour {
 	 * -------------------------------------------------------------------------------------------------------------------------- */
 
 	 public bool checkBothEvents(){
-	 	bool correctA = checkTouchA(contactA[currentMove]);
-	 	bool correctB = checkTouchB(contactB[currentMove]); 
+		if (game.tripleActive == false)
+		{
+			correctA = checkTouchA(contactA[currentMove]);
+			correctB = checkTouchB(contactB[currentMove]);
+		}
+		else if (game.tripleActive == true)
+		{
+			correctA = checkTouchA(contactA[tripleInputA]);
+			correctB = checkTouchB(contactB[tripleInputB]);
+		}
 		if (correctA && correctB){
 			
 			//Hax
 			if (defending) {
 				blocked = true;
 				GameObject.Find("Forcefield").GetComponent<Display_Forcefield>().showField = true;
-				GameControl game = GameObject.Find ("Game").GetComponent<GameControl>();
 				game.srcSeqSound.clip = game.clipBlockSuccess;
 				game.srcSeqSound.Play ();
 			}

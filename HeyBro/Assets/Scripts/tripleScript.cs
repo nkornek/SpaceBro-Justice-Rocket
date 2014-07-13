@@ -10,6 +10,8 @@ public class tripleScript : MonoBehaviour {
 	public Sprite tripleFiveSuccessRight, tripleFistSuccessRight, tripleElbowSuccessRight;
 	public Sprite tripleFiveFailRight, tripleFistFailRight, tripleElbowFailRight;
 	public SpriteRenderer triple1Right, triple2Right, triple3Right;
+	public GameObject gameManager, seqControl, seqQueueLeft, seqQueueRight;
+	public int tripleSeqNum;
 
 	// Use this for initialization
 	void Start () {
@@ -23,7 +25,55 @@ public class tripleScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (gameManager.GetComponent<GameControl>().tripleActive)
+		{
+			SetAlphas(tripleSeqNum);
+			if (tripleSeqNum == 1)
+			{
+				if (triple1Left.sprite == tripleFiveLeft)
+				{seqControl.GetComponent<SequenceControls>().tripleInputA = 1;}
+				else if (triple1Left.sprite == tripleFistLeft)
+				{seqControl.GetComponent<SequenceControls>().tripleInputA = 2;}
+				else if (triple1Left.sprite == tripleElbowLeft)
+				{seqControl.GetComponent<SequenceControls>().tripleInputA = 3;}
+				if (triple1Right.sprite == tripleFiveRight)
+				{seqControl.GetComponent<SequenceControls>().tripleInputB = 1;}
+				else if (triple1Right.sprite == tripleFistRight)
+				{seqControl.GetComponent<SequenceControls>().tripleInputB = 2;}
+				else if (triple1Right.sprite == tripleElbowRight)
+				{seqControl.GetComponent<SequenceControls>().tripleInputB = 3;}
+			}
+			else if (tripleSeqNum == 2)
+			{
+				if (triple2Left.sprite == tripleFiveLeft)
+				{seqControl.GetComponent<SequenceControls>().tripleInputA = 1;}
+				else if (triple2Left.sprite == tripleFistLeft)
+				{seqControl.GetComponent<SequenceControls>().tripleInputA = 2;}
+				else if (triple2Left.sprite == tripleElbowLeft)
+				{seqControl.GetComponent<SequenceControls>().tripleInputA = 3;}
+				if (triple2Right.sprite == tripleFiveRight)
+				{seqControl.GetComponent<SequenceControls>().tripleInputB = 1;}
+				else if (triple2Right.sprite == tripleFistRight)
+				{seqControl.GetComponent<SequenceControls>().tripleInputB = 2;}
+				else if (triple2Right.sprite == tripleElbowRight)
+				{seqControl.GetComponent<SequenceControls>().tripleInputB = 3;}
+			}
+			else if (tripleSeqNum == 3)
+			{
+				if (triple3Left.sprite == tripleFiveLeft)
+				{seqControl.GetComponent<SequenceControls>().tripleInputA = 1;}
+				else if (triple3Left.sprite == tripleFistLeft)
+				{seqControl.GetComponent<SequenceControls>().tripleInputA = 2;}
+				else if (triple3Left.sprite == tripleElbowLeft)
+				{seqControl.GetComponent<SequenceControls>().tripleInputA = 3;}
+				if (triple3Right.sprite == tripleFiveRight)
+				{seqControl.GetComponent<SequenceControls>().tripleInputB = 1;}
+				else if (triple3Right.sprite == tripleFistRight)
+				{seqControl.GetComponent<SequenceControls>().tripleInputB = 2;}
+				else if (triple3Right.sprite == tripleElbowRight)
+				{seqControl.GetComponent<SequenceControls>().tripleInputB = 3;}
+			}
+		}	
 	}
 
 	public void GenerateTriple (int makeTriple) {
@@ -33,6 +83,7 @@ public class tripleScript : MonoBehaviour {
 		triple1Right.enabled = true;
 		triple2Right.enabled = true;
 		triple3Right.enabled = true;
+		tripleSeqNum = 1;
 	switch (makeTriple){
 		case 0:			
 			triple1Left.sprite = tripleFiveLeft;
@@ -89,6 +140,166 @@ public class tripleScript : MonoBehaviour {
 			triple1Right.sprite = tripleFiveRight;
 			triple2Right.sprite = tripleFistRight;
 			triple3Right.sprite = tripleElbowRight;
+			break;
+		}
+	}
+	public void SetAlphas (int switchAlpha) {
+		switch (switchAlpha) {
+		case 1:
+			triple1Left.color = new Color(1f, 1f, 1f, 1f);
+			triple1Right.color = new Color(1f, 1f, 1f, 1f);
+			triple2Left.color = new Color(1f, 1f, 1f, 0.5f);
+			triple2Right.color = new Color(1f, 1f, 1f, 0.5f);
+			triple3Left.color = new Color(1f, 1f, 1f, 0.5f);
+			triple3Right.color = new Color(1f, 1f, 1f, 0.5f);
+			break;
+		case 2:
+			triple1Left.color = new Color(1f, 1f, 1f, 0.5f);
+			triple1Right.color = new Color(1f, 1f, 1f, 0.5f);
+			triple2Left.color = new Color(1f, 1f, 1f, 1f);
+			triple2Right.color = new Color(1f, 1f, 1f, 1f);
+			triple3Left.color = new Color(1f, 1f, 1f, 0.5f);
+			triple3Right.color = new Color(1f, 1f, 1f, 0.5f);
+			break;
+		case 3:
+			triple1Left.color = new Color(1f, 1f, 1f, 0.5f);
+			triple1Right.color = new Color(1f, 1f, 1f, 0.5f);
+			triple2Left.color = new Color(1f, 1f, 1f, 0.5f);
+			triple2Right.color = new Color(1f, 1f, 1f, 0.5f);
+			triple3Left.color = new Color(1f, 1f, 1f, 1f);
+			triple3Right.color = new Color(1f, 1f, 1f, 1f);
+			break;
+		}
+	}
+	public void TripleSuccess1 (int SwitchSpritesSuccess1) {
+		switch (SwitchSpritesSuccess1){
+		case 1:
+			triple1Left.sprite = tripleFiveSuccessLeft;
+			break;
+		case 2:
+			triple1Left.sprite = tripleFistSuccessLeft;
+			break;
+		case 3:
+			triple1Left.sprite = tripleFistSuccessLeft;
+			break;
+		case 4:
+			triple1Right.sprite = tripleFiveSuccessRight;
+			break;
+		case 5:
+			triple1Right.sprite = tripleFistSuccessRight;
+			break;
+		case 6:
+			triple1Right.sprite = tripleFistSuccessRight;
+			break;
+		}
+	}
+	public void TripleSuccess2 (int SwitchSpritesSuccess2) {
+		switch (SwitchSpritesSuccess2){
+		case 1:
+			triple2Left.sprite = tripleFiveSuccessLeft;
+			break;
+		case 2:
+			triple2Left.sprite = tripleFistSuccessLeft;
+			break;
+		case 3:
+			triple2Left.sprite = tripleFistSuccessLeft;
+			break;
+		case 4:
+			triple2Right.sprite = tripleFiveSuccessRight;
+			break;
+		case 5:
+			triple2Right.sprite = tripleFistSuccessRight;
+			break;
+		case 6:
+			triple2Right.sprite = tripleFistSuccessRight;
+			break;
+		}
+	}
+	public void TripleSuccess3 (int SwitchSpritesSuccess3) {
+		switch (SwitchSpritesSuccess3){
+		case 1:
+			triple3Left.sprite = tripleFiveSuccessLeft;
+			break;
+		case 2:
+			triple3Left.sprite = tripleFistSuccessLeft;
+			break;
+		case 3:
+			triple3Left.sprite = tripleFistSuccessLeft;
+			break;
+		case 4:
+			triple3Right.sprite = tripleFiveSuccessRight;
+			break;
+		case 5:
+			triple3Right.sprite = tripleFistSuccessRight;
+			break;
+		case 6:
+			triple3Right.sprite = tripleFistSuccessRight;
+			break;
+		}
+	}
+	public void TripleFail1 (int SwitchSpritesFail1) {
+		switch (SwitchSpritesFail1){
+		case 1:
+			triple1Left.sprite = tripleFiveFailLeft;
+			break;
+		case 2:
+			triple1Left.sprite = tripleFistFailLeft;
+			break;
+		case 3:
+			triple1Left.sprite = tripleFistFailLeft;
+			break;
+		case 4:
+			triple1Right.sprite = tripleFiveFailRight;
+			break;
+		case 5:
+			triple1Right.sprite = tripleFistFailRight;
+			break;
+		case 6:
+			triple1Right.sprite = tripleFistFailRight;
+			break;
+		}
+	}
+	public void TripleFail2 (int SwitchSpritesFail2) {
+		switch (SwitchSpritesFail2){
+		case 1:
+			triple2Left.sprite = tripleFiveFailLeft;
+			break;
+		case 2:
+			triple2Left.sprite = tripleFistFailLeft;
+			break;
+		case 3:
+			triple2Left.sprite = tripleFistFailLeft;
+			break;
+		case 4:
+			triple2Right.sprite = tripleFiveFailRight;
+			break;
+		case 5:
+			triple2Right.sprite = tripleFistFailRight;
+			break;
+		case 6:
+			triple2Right.sprite = tripleFistFailRight;
+			break;
+		}
+	}
+	public void TripleFail3 (int SwitchSpritesFail3) {
+		switch (SwitchSpritesFail3){
+		case 1:
+			triple3Left.sprite = tripleFiveFailLeft;
+			break;
+		case 2:
+			triple3Left.sprite = tripleFistFailLeft;
+			break;
+		case 3:
+			triple3Left.sprite = tripleFistFailLeft;
+			break;
+		case 4:
+			triple3Right.sprite = tripleFiveFailRight;
+			break;
+		case 5:
+			triple3Right.sprite = tripleFistFailRight;
+			break;
+		case 6:
+			triple3Right.sprite = tripleFistFailRight;
 			break;
 		}
 	}

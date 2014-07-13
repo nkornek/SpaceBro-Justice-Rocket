@@ -37,7 +37,8 @@ public class GameControl : MonoBehaviour {
 	public Sprite timerYellow, timerGreen, timerRed;
 	public GameObject timerParticles, passfailParticles;
 
-	public bool sceneStarted;
+	public bool sceneStarted, tripleActive;
+	public tripleScript tripleScript;
 
 	void Start () {
 		moveTimeToFail = 4.0f;		
@@ -219,35 +220,62 @@ public class GameControl : MonoBehaviour {
 				}
 			}
 
+			//check pass/fail for regular inputs
+
 			if (pictogramsFailed ()) {
-				seqQueueLeft.GetComponent<Sequence_Queue>().movesFail = true;
-				seqQueueRight.GetComponent<Sequence_Queue>().movesFail = true;
-				seqQueueLeft.GetComponent<Sequence_Queue>().Invoke ("AfterFail", 1);
-				seqQueueRight.GetComponent<Sequence_Queue>().Invoke ("AfterFail", 1);
-				startEnemyTurn ();
-				canTime = false;
-				canEmit = false;
-				GameObject.Find ("Enemy_Face").GetComponent<Enemy_Faces>().SetSprite (2);
-				passfailParticles.particleSystem.startColor = Color.red;
-				passfailParticles.particleSystem.Emit(400);
+				if (!tripleActive)
+				{
+					seqQueueLeft.GetComponent<Sequence_Queue>().movesFail = true;
+					seqQueueRight.GetComponent<Sequence_Queue>().movesFail = true;
+					seqQueueLeft.GetComponent<Sequence_Queue>().Invoke ("AfterFail", 1);
+					seqQueueRight.GetComponent<Sequence_Queue>().Invoke ("AfterFail", 1);
+					startEnemyTurn ();
+					canTime = false;
+					canEmit = false;
+					GameObject.Find ("Enemy_Face").GetComponent<Enemy_Faces>().SetSprite (2);
+					passfailParticles.particleSystem.startColor = Color.red;
+					passfailParticles.particleSystem.Emit(400);
+				}
 			}
 			else if (player.checkBothEvents() && pictogramsInRange()){
-				hasResetInput = false;
-				seqQueueLeft.sequenceObjects[player.correctMoves].GetComponent<SpriteRenderer>().enabled = false;
-				seqQueueRight.sequenceObjects[player.correctMoves].GetComponent<SpriteRenderer>().enabled = false;
-				player.correctMoves++;
-				seqQueueLeft.GetComponent<Sequence_Queue>().movesCorrect = true;
-				seqQueueRight.GetComponent<Sequence_Queue>().movesCorrect = true;
-				seqQueueLeft.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
-				seqQueueRight.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
-				canTime = false;
-				passfailParticles.particleSystem.startColor = Color.green;
-				passfailParticles.particleSystem.Emit(400);
-				timerSprite.sprite = timerGreen; 
-				//seqQueueLeft.GetComponent<Sequence_Queue>().MoveSpriteForward();
-				//seqQueueRight.GetComponent<Sequence_Queue>().MoveSpriteForward();
-				//player.generateNextMove();
-			
+				if (!tripleActive)
+				{
+					hasResetInput = false;
+					player.correctMoves++;
+					seqQueueLeft.GetComponent<Sequence_Queue>().movesCorrect = true;
+					seqQueueRight.GetComponent<Sequence_Queue>().movesCorrect = true;
+					seqQueueLeft.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
+					seqQueueRight.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
+					canTime = false;
+					passfailParticles.particleSystem.startColor = Color.green;
+					passfailParticles.particleSystem.Emit(400);
+					timerSprite.sprite = timerGreen; 
+					//seqQueueLeft.GetComponent<Sequence_Queue>().MoveSpriteForward();
+					//seqQueueRight.GetComponent<Sequence_Queue>().MoveSpriteForward();
+					//player.generateNextMove();
+				}
+				else
+				{
+					hasResetInput = false;
+					if (tripleScript.tripleSeqNum == 1)
+					{
+						tripleScript.TripleSuccess1(player.tripleInputA);
+						tripleScript.TripleSuccess1(player.tripleInputB + 3);
+					}
+					else if (tripleScript.tripleSeqNum == 2)
+					{
+						tripleScript.TripleSuccess2(player.tripleInputA);
+						tripleScript.TripleSuccess2(player.tripleInputB + 3);
+					}
+					else if (tripleScript.tripleSeqNum == 3)
+					{
+						tripleScript.TripleSuccess3(player.tripleInputA);
+						tripleScript.TripleSuccess3(player.tripleInputB + 3);
+					}
+					passfailParticles.particleSystem.Emit(200);
+					tripleScript.tripleSeqNum ++;				
+				}
+
 				if (player.correctMoves < player.seqMoves) {
 					srcSeqSound.clip = clipMoveSuccess;
 					srcSeqSound.Play ();
