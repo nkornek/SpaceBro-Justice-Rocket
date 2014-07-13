@@ -522,14 +522,13 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400064}
-  - 114: {fileID: 11400008}
   m_Layer: 0
   m_Name: Right Triple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &100066
 GameObject:
   m_ObjectHideFlags: 1
@@ -634,14 +633,29 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400078}
-  - 114: {fileID: 11400010}
   m_Layer: 0
   m_Name: Left Triple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
+--- !u!1 &100080
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400080}
+  - 114: {fileID: 11400008}
+  m_Layer: 0
+  m_Name: Triple Input
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &400000
 Transform:
   m_ObjectHideFlags: 1
@@ -802,7 +816,6 @@ Transform:
   - {fileID: 400016}
   - {fileID: 400014}
   - {fileID: 400012}
-  - {fileID: 400064}
   m_Father: {fileID: 400028}
   m_RootOrder: 1
 --- !u!4 &400026
@@ -821,7 +834,6 @@ Transform:
   - {fileID: 400004}
   - {fileID: 400002}
   - {fileID: 400000}
-  - {fileID: 400078}
   m_Father: {fileID: 400028}
   m_RootOrder: 0
 --- !u!4 &400028
@@ -841,6 +853,7 @@ Transform:
   - {fileID: 400054}
   - {fileID: 400046}
   - {fileID: 400062}
+  - {fileID: 400080}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &400030
@@ -1066,14 +1079,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100064}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.0999999, y: 1.5, z: -3}
+  m_LocalPosition: {x: -34.36129, y: 7.27663422, z: -25.2797451}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400066}
   - {fileID: 400068}
   - {fileID: 400070}
-  m_Father: {fileID: 400024}
-  m_RootOrder: 6
+  m_Father: {fileID: 400080}
+  m_RootOrder: 1
 --- !u!4 &400066
 Transform:
   m_ObjectHideFlags: 1
@@ -1153,14 +1166,28 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100078}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.80000019, y: 1.5, z: -3}
+  m_LocalPosition: {x: -37.0612907, y: 7.27663422, z: -25.2797451}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400076}
   - {fileID: 400074}
   - {fileID: 400072}
-  m_Father: {fileID: 400026}
-  m_RootOrder: 6
+  m_Father: {fileID: 400080}
+  m_RootOrder: 0
+--- !u!4 &400080
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100080}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 31.2612915, y: -5.77663422, z: 22.2797451}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 400078}
+  - {fileID: 400064}
+  m_Father: {fileID: 400028}
+  m_RootOrder: 7
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1284,47 +1311,46 @@ MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100064}
+  m_GameObject: {fileID: 100080}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d8f48896aaf30740b5fc442e3d67862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tripleFive: {fileID: 21300000, guid: 1f07896b09f9326488e43a98c875c8e8, type: 3}
-  tripleFist: {fileID: 21300000, guid: de94f9d785a0b3a42a94397581d6dd84, type: 3}
-  tripleElbow: {fileID: 21300000, guid: f13dcdf4f970e6d46ab6525fdc8f200c, type: 3}
-  tripleFiveSuccess: {fileID: 21300000, guid: 8da243d69bf264f4ea65eb6be5816f35, type: 3}
-  tripleFistSuccess: {fileID: 21300000, guid: 7eee53df85b74354db928f1851bdb9fd, type: 3}
-  tripleElbowSuccess: {fileID: 21300000, guid: b00fe3a512170284a9f415640c3b1f64, type: 3}
-  tripleFiveFail: {fileID: 21300000, guid: 307a3a76e7ac79143867e1c07eaf507f, type: 3}
-  tripleFistFail: {fileID: 21300000, guid: da7c5216e5d53ce488237575e6ffb9dd, type: 3}
-  tripleElbowFail: {fileID: 21300000, guid: d0fd67b80a832b049bef64004c942e37, type: 3}
-  triple1: {fileID: 21200040}
-  triple2: {fileID: 21200042}
-  triple3: {fileID: 21200044}
---- !u!114 &11400010
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d8f48896aaf30740b5fc442e3d67862, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tripleFive: {fileID: 21300000, guid: e1f9facd5b698854592712e688db4403, type: 3}
-  tripleFist: {fileID: 21300000, guid: 4ad8a7f696652f049a99442ae59f6d7b, type: 3}
-  tripleElbow: {fileID: 21300000, guid: f8b6de3ce47678040ae4c8a900f4be2f, type: 3}
-  tripleFiveSuccess: {fileID: 21300000, guid: 0cf6e9322b5900a43931c954becbf1de, type: 3}
-  tripleFistSuccess: {fileID: 21300000, guid: c6371b677063d994395fa1d3ce79ca2a, type: 3}
-  tripleElbowSuccess: {fileID: 21300000, guid: ffdfcd5f14940f34480c9249ddd98f89, type: 3}
-  tripleFiveFail: {fileID: 21300000, guid: 734e6e93da05d024aa152275db53585f, type: 3}
-  tripleFistFail: {fileID: 21300000, guid: ef3b3c004dde67f46a91da91f51ff1f9, type: 3}
-  tripleElbowFail: {fileID: 21300000, guid: de6e5d0bdabc985469e4f89ec8f19c7b, type: 3}
-  triple1: {fileID: 21200050}
-  triple2: {fileID: 21200048}
-  triple3: {fileID: 21200046}
+  tripleFiveLeft: {fileID: 21300000, guid: e1f9facd5b698854592712e688db4403, type: 3}
+  tripleFistLeft: {fileID: 21300000, guid: 4ad8a7f696652f049a99442ae59f6d7b, type: 3}
+  tripleElbowLeft: {fileID: 21300000, guid: f8b6de3ce47678040ae4c8a900f4be2f, type: 3}
+  tripleFiveSuccessLeft: {fileID: 21300000, guid: 0cf6e9322b5900a43931c954becbf1de,
+    type: 3}
+  tripleFistSuccessLeft: {fileID: 21300000, guid: c6371b677063d994395fa1d3ce79ca2a,
+    type: 3}
+  tripleElbowSuccessLeft: {fileID: 21300000, guid: ffdfcd5f14940f34480c9249ddd98f89,
+    type: 3}
+  tripleFiveFailLeft: {fileID: 21300000, guid: 734e6e93da05d024aa152275db53585f, type: 3}
+  tripleFistFailLeft: {fileID: 21300000, guid: ef3b3c004dde67f46a91da91f51ff1f9, type: 3}
+  tripleElbowFailLeft: {fileID: 21300000, guid: de6e5d0bdabc985469e4f89ec8f19c7b,
+    type: 3}
+  triple1Left: {fileID: 21200050}
+  triple2Left: {fileID: 21200048}
+  triple3Left: {fileID: 21200046}
+  tripleFiveRight: {fileID: 21300000, guid: 1f07896b09f9326488e43a98c875c8e8, type: 3}
+  tripleFistRight: {fileID: 21300000, guid: de94f9d785a0b3a42a94397581d6dd84, type: 3}
+  tripleElbowRight: {fileID: 21300000, guid: f13dcdf4f970e6d46ab6525fdc8f200c, type: 3}
+  tripleFiveSuccessRight: {fileID: 21300000, guid: 0cf6e9322b5900a43931c954becbf1de,
+    type: 3}
+  tripleFistSuccessRight: {fileID: 21300000, guid: 7eee53df85b74354db928f1851bdb9fd,
+    type: 3}
+  tripleElbowSuccessRight: {fileID: 21300000, guid: b00fe3a512170284a9f415640c3b1f64,
+    type: 3}
+  tripleFiveFailRight: {fileID: 21300000, guid: 307a3a76e7ac79143867e1c07eaf507f,
+    type: 3}
+  tripleFistFailRight: {fileID: 21300000, guid: da7c5216e5d53ce488237575e6ffb9dd,
+    type: 3}
+  tripleElbowFailRight: {fileID: 21300000, guid: d0fd67b80a832b049bef64004c942e37,
+    type: 3}
+  triple1Right: {fileID: 21200040}
+  triple2Right: {fileID: 21200042}
+  triple3Right: {fileID: 21200044}
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1
