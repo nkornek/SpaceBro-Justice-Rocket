@@ -236,6 +236,36 @@ public class GameControl : MonoBehaviour {
 					passfailParticles.particleSystem.startColor = Color.red;
 					passfailParticles.particleSystem.Emit(400);
 				}
+				else 
+				{
+					if (tripleScript.tripleSeqNum == 1)
+					{
+						tripleScript.TripleFail1(player.tripleInputA);
+						tripleScript.TripleFail1(player.tripleInputB + 3);
+					}
+					else if (tripleScript.tripleSeqNum == 2)
+					{
+						tripleScript.TripleFail2(player.tripleInputA);
+						tripleScript.TripleFail2(player.tripleInputB + 3);
+					}
+					else if (tripleScript.tripleSeqNum == 3)
+					{
+						tripleScript.TripleFail3(player.tripleInputA);
+						tripleScript.TripleFail3(player.tripleInputB + 3);
+					}
+					seqQueueLeft.GetComponent<Sequence_Queue>().Invoke ("AfterFail", 1);
+					seqQueueRight.GetComponent<Sequence_Queue>().Invoke ("AfterFail", 1);
+					tripleScript.Invoke("TripleFailEnd", 1);
+					startEnemyTurn ();
+					canTime = false;
+					canEmit = false;
+					GameObject.Find ("Enemy_Face").GetComponent<Enemy_Faces>().SetSprite (2);
+					passfailParticles.particleSystem.startColor = Color.red;
+					passfailParticles.particleSystem.Emit(400);
+					tripleActive = false;
+					seqQueueLeft.tripleMade = false;
+					seqQueueRight.tripleMade = false;
+				}
 			}
 			else if (player.checkBothEvents() && pictogramsInRange()){
 				if (!tripleActive)
