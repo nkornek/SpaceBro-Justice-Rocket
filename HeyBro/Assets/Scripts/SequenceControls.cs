@@ -310,10 +310,6 @@ public class SequenceControls : MonoBehaviour {
 		}
 		else if (game.tripleActive == true)
 		{
-			print ("TRIPLE ACTIVE = TRUE");
-			print ("tripleInputA " + tripleInputA );
-			print ("tripleInputB " + tripleInputB );
-
 			correctA = checkTouchA(tripleInputA);
 			correctB = checkTouchB(tripleInputB);
 		}

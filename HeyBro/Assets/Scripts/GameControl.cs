@@ -29,7 +29,7 @@ public class GameControl : MonoBehaviour {
 	
 	public AudioSource srcRobot;
 	public AudioSource srcPlayersDie;
-	public float moveTimeToFail, timeLeft;
+	public float moveTimeToFail, timeLeft, tripleTimeToFail, baseBlockTime, maxTime, timerPercentage;
 	public bool canTime, canEmit;
 
 	public Transform timerBar;
@@ -41,10 +41,11 @@ public class GameControl : MonoBehaviour {
 	public tripleScript tripleScript;
 
 	void Start () {
-		moveTimeToFail = 4.0f;		
-		timeLeft = moveTimeToFail;
+		moveTimeToFail = 4.0f;	
+		tripleTimeToFail = 6.0f;
+		baseBlockTime = 1.0f;
+		maxTime = 4.0f;
 		sceneStarted = true;
-		//Invoke("GameStart", 3);
 	}
 
 	public void GameStart () {
@@ -57,6 +58,7 @@ public class GameControl : MonoBehaviour {
 	}
 
 	void Update () {
+		timerPercentage = timeLeft / maxTime;
 		if (timeLeft < 0)
 		{
 			timeLeft = 0;
@@ -71,13 +73,13 @@ public class GameControl : MonoBehaviour {
 			{
 				p.enableEmission = true;
 			}
-			if (timeLeft > 0.5f)
+			if (timerPercentage > 0.2f)
 			{
 				timerSprite.sprite = timerYellow;
 				foreach (ParticleSystem p in timerParticles.GetComponentsInChildren<ParticleSystem>())
 				{
 					p.startColor = Color.yellow;
-					p.startSpeed =  timeLeft / (1 - 0.1f * player.correctMoves);
+					p.startSpeed =  timerPercentage * 4;
 				}
 			}
 			else
@@ -100,7 +102,7 @@ public class GameControl : MonoBehaviour {
 			}
 		}
 		//set bar length
-		timerBar.localScale = new Vector3(timerBar.localScale.x, timeLeft / ((1 - 0.1f * player.correctMoves) * moveTimeToFail), timerBar.localScale.z);
+		timerBar.localScale = new Vector3(1.0f, timerPercentage, 1.0f);
 
 	/* --------------------------------------------------------------------------------------------------------------------------
 	 * ~ PLAYER'S TURN
@@ -155,12 +157,9 @@ public class GameControl : MonoBehaviour {
 
 	private void startPlayerTurn () {
 		playersTurn = true;
-		//seqQueueLeft.movingSpritesDown = true;
-		//seqQueueRight.movingSpritesDown = true;
 		seqGenerated = false;
 		canTime = true;
 		canEmit = true;
-		timeLeft = moveTimeToFail;
 		GameObject.Find ("Player_Left").GetComponent<PlayerAnim>().SetSprite (-1);
 		GameObject.Find ("Player_Right").GetComponent<PlayerAnim>().SetSprite (-1);
 	}
@@ -181,7 +180,7 @@ public class GameControl : MonoBehaviour {
 		if (!canTime)
 		{
 			canTime = true;
-			timeLeft = moveTimeToFail;
+			SetTimer(2);
 		}
 		//Hax!
 		//Invoke ("checkBlocked", 8.0f);
@@ -214,8 +213,7 @@ public class GameControl : MonoBehaviour {
 				if (pictogramsInRange ()) {
 					player.detectedA = -1;
 					player.detectedB = -2;
-					canTime = true;				
-					timeLeft = (1 - 0.1f * player.correctMoves) * moveTimeToFail;
+					canTime = true;
 					hasResetInput = true;
 				}
 			}
@@ -265,7 +263,6 @@ public class GameControl : MonoBehaviour {
 				}
 			}
 			else if (player.checkBothEvents() && pictogramsInRange()){
-				print ("other sequence" + tripleScript.tripleSeqNum);
 				if (!tripleActive)
 				{
 					hasResetInput = false;
@@ -284,8 +281,7 @@ public class GameControl : MonoBehaviour {
 				}
 				else
 				{
-					print ("sequence" + tripleScript.tripleSeqNum);
-					//hasResetInput = false;
+					hasResetInput = false;
 					if (tripleScript.tripleSeqNum == 1)
 					{
 						tripleScript.TripleSuccess1(player.tripleInputA);
@@ -318,6 +314,16 @@ public class GameControl : MonoBehaviour {
 					}
 					tripleScript.tripleSeqNum ++;				
 				}
+				if (tripleScript.tripleSeqNum > 3 & player.correctMoves < player.seqMoves )
+				{
+					tripleScript.tripleSeqNum = 1;
+					player.correctMoves++;
+					seqQueueLeft.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
+					seqQueueRight.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);		
+					tripleScript.Invoke("TripleEnd", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
+					canTime = false;
+					player.generateNextMove ();
+				}
 
 				if (player.correctMoves < player.seqMoves & !tripleActive) {
 					srcSeqSound.clip = clipMoveSuccess;
@@ -326,7 +332,7 @@ public class GameControl : MonoBehaviour {
 					GameObject.Find ("Player_Right").GetComponent<PlayerAnim>().SetSprite (player.contactB[player.currentMove]);
 					player.generateNextMove ();
 				}
-				else if (!tripleActive) {
+				if (player.correctMoves >= player.seqMoves) {
 					srcSeqSound.clip = clipWholeSeqSuccess;
 					srcSeqSound.Play ();
 					GameObject.Find ("Player_Left").GetComponent<PlayerAnim>().SetSprite (3);
@@ -450,6 +456,22 @@ public class GameControl : MonoBehaviour {
 
 	public bool pictogramsFailed () {
 		return (timeLeft <= 0);
+	}
+
+	public void SetTimer (int timerSwitch) {
+		switch (timerSwitch) {
+		case 0:
+			maxTime = moveTimeToFail - (0.25f * player.correctMoves) - (1 - GameObject.Find("Enemy Health Parent").GetComponent<HealthBarEnemy>().curPerc);
+			break;
+		case 1:
+			maxTime = tripleTimeToFail - (0.25f * player.correctMoves) - (1 - GameObject.Find("Enemy Health Parent").GetComponent<HealthBarEnemy>().curPerc);
+			break;
+		case 2:
+			maxTime = baseBlockTime + (2.0f * GameObject.Find("Enemy Health Parent").GetComponent<HealthBarEnemy>().curPerc);
+			break;
+				}
+		timeLeft = maxTime;
+
 	}
 
 	private void loadSplashScreen () {

@@ -10,7 +10,6 @@ public class Sequence_Queue : MonoBehaviour {
 	public Sprite pictogramHighfive, pictogramFist, pictogramElbow, pictogramTriple;
 	public Sprite highSuccess, fistSuccess, elbSuccess;
 	public Sprite highFail, fistFail, elbFail;
-	public int playerNum;
 
 	// delay stuff
 	public SequenceControls player; 
@@ -27,7 +26,6 @@ public class Sequence_Queue : MonoBehaviour {
 		sequenceSprites = new Sprite[4] {pictogramHighfive, pictogramFist, pictogramElbow, pictogramTriple};
 		zDistanceBetweenPictograms = 1;
 		timeBetweenMoves = 0.2f;
-
 	}
 	
 	// Update is called once per frame
@@ -107,14 +105,8 @@ public class Sequence_Queue : MonoBehaviour {
 		for (int i = 0; i < seq.Length; i++) {
 			sequenceObjects[i].GetComponent<SpriteRenderer>().enabled = true;
 			sequenceObjects[i].GetComponent<SpriteRenderer>().sprite = sequenceSprites[seq[i]];
-			if (playerNum == 1)
-			{			
-				sequenceObjects[i].transform.localPosition = new Vector3 (sequenceObjects[i].transform.localPosition.x, sequenceObjects[i].transform.localPosition.y, - zDistanceBetweenPictograms*(i+1));
-			}
-			else
-			{
-				sequenceObjects[i].transform.localPosition = new Vector3 (sequenceObjects[i].transform.localPosition.x, sequenceObjects[i].transform.localPosition.y, - zDistanceBetweenPictograms*(i+1));
-			}
+			sequenceObjects[i].transform.localPosition = new Vector3 (sequenceObjects[i].transform.localPosition.x, sequenceObjects[i].transform.localPosition.y, - zDistanceBetweenPictograms*(i+1));		
+			gameManager.GetComponent<GameControl> ().SetTimer (0);
 		}
 		
 		for (int i = seq.Length; i < sequenceObjects.Length; i++) {
@@ -125,7 +117,8 @@ public class Sequence_Queue : MonoBehaviour {
 	public void CreateTriples() {
 		gameManager.GetComponent<GameControl>().tripleActive = true;
 		int randomInt = Random.Range (0, 7);
-		tripleManager.GetComponent<tripleScript>().GenerateTriple(randomInt);
+		tripleManager.GetComponent<tripleScript>().GenerateTriple(randomInt);		
+		gameManager.GetComponent<GameControl> ().SetTimer (1);
 		foreach (GameObject o in sequenceObjects)
 		{
 			if (o.transform.localPosition.z == -1)
@@ -140,6 +133,7 @@ public class Sequence_Queue : MonoBehaviour {
 		foreach (GameObject o in sequenceObjects) {
 			o.gameObject.transform.localPosition = new Vector3 (o.gameObject.transform.localPosition.x, o.gameObject.transform.localPosition.y, 
 			o.gameObject.transform.localPosition.z + zTranslation);
+			gameManager.GetComponent<GameControl> ().SetTimer (0);
 			}
 		}
 	public void AfterFail(){

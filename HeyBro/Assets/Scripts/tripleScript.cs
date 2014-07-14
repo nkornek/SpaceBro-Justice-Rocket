@@ -25,18 +25,12 @@ public class tripleScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (tripleSeqNum > 3)
-		{
-			tripleSeqNum = 0;
-			seqControl.GetComponent<SequenceControls>().correctMoves++;
-			seqQueueLeft.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
-			seqQueueRight.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);		
-			Invoke("TripleEnd", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
-			gameManager.GetComponent<GameControl>().canTime = false;
-		}
 		if (gameManager.GetComponent<GameControl>().tripleActive)
 		{
-			SetAlphas(tripleSeqNum);
+			if (gameManager.GetComponent<GameControl>().canTime == true)
+			{
+				SetAlphas(tripleSeqNum);
+			}
 			if (tripleSeqNum == 1)
 			{
 				if (triple1Left.sprite == tripleFiveLeft)
