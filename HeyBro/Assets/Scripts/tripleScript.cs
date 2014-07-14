@@ -25,6 +25,15 @@ public class tripleScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (tripleSeqNum > 3)
+		{
+			tripleSeqNum = 0;
+			seqControl.GetComponent<SequenceControls>().correctMoves++;
+			seqQueueLeft.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
+			seqQueueRight.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);		
+			Invoke("TripleEnd", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
+			gameManager.GetComponent<GameControl>().canTime = false;
+		}
 		if (gameManager.GetComponent<GameControl>().tripleActive)
 		{
 			SetAlphas(tripleSeqNum);
@@ -134,12 +143,12 @@ public class tripleScript : MonoBehaviour {
 			triple3Right.sprite = tripleFiveRight;
 			break;
 		case 6:			
-			triple1Left.sprite = tripleElbowLeft;
+			triple1Left.sprite = tripleFiveLeft;
 			triple2Left.sprite = tripleFistLeft;
 			triple3Left.sprite = tripleFiveLeft;
 			triple1Right.sprite = tripleFiveRight;
 			triple2Right.sprite = tripleFistRight;
-			triple3Right.sprite = tripleElbowRight;
+			triple3Right.sprite = tripleFiveRight;
 			break;
 		}
 	}
@@ -246,7 +255,7 @@ public class tripleScript : MonoBehaviour {
 			triple1Left.sprite = tripleFistFailLeft;
 			break;
 		case 2:
-			triple1Left.sprite = tripleFistFailLeft;
+			triple1Left.sprite = tripleElbowFailLeft;
 			break;
 		case 3:
 			triple1Right.sprite = tripleFiveFailRight;
@@ -255,7 +264,7 @@ public class tripleScript : MonoBehaviour {
 			triple1Right.sprite = tripleFistFailRight;
 			break;
 		case 5:
-			triple1Right.sprite = tripleFistFailRight;
+			triple1Right.sprite = tripleElbowFailRight;
 			break;
 		}
 	}
@@ -268,7 +277,7 @@ public class tripleScript : MonoBehaviour {
 			triple2Left.sprite = tripleFistFailLeft;
 			break;
 		case 2:
-			triple2Left.sprite = tripleFistFailLeft;
+			triple2Left.sprite = tripleElbowFailLeft;
 			break;
 		case 3:
 			triple2Right.sprite = tripleFiveFailRight;
@@ -277,7 +286,7 @@ public class tripleScript : MonoBehaviour {
 			triple2Right.sprite = tripleFistFailRight;
 			break;
 		case 5:
-			triple2Right.sprite = tripleFistFailRight;
+			triple2Right.sprite = tripleElbowFailRight;
 			break;
 		}
 	}
@@ -290,7 +299,7 @@ public class tripleScript : MonoBehaviour {
 			triple3Left.sprite = tripleFistFailLeft;
 			break;
 		case 2:
-			triple3Left.sprite = tripleFistFailLeft;
+			triple3Left.sprite = tripleElbowFailLeft;
 			break;
 		case 3:
 			triple3Right.sprite = tripleFiveFailRight;
@@ -299,16 +308,19 @@ public class tripleScript : MonoBehaviour {
 			triple3Right.sprite = tripleFistFailRight;
 			break;
 		case 5:
-			triple3Right.sprite = tripleFistFailRight;
+			triple3Right.sprite = tripleElbowFailRight;
 			break;
 		}
 	}
-	public void TripleFailEnd () {
+	public void TripleEnd () {
 		triple1Left.enabled = false;
 		triple2Left.enabled = false;
 		triple3Left.enabled = false;
 		triple1Right.enabled = false;
 		triple2Right.enabled = false;
-		triple3Right.enabled = false;
+		triple3Right.enabled = false;	
+		gameManager.GetComponent<GameControl>().tripleActive = false;
+		seqQueueLeft.GetComponent<Sequence_Queue>().tripleMade = false;
+		seqQueueRight.GetComponent<Sequence_Queue>().tripleMade = false;
 	}
 }

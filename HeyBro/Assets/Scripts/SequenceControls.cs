@@ -26,7 +26,7 @@ public class SequenceControls : MonoBehaviour {
 	public int detectedA;
 	public int detectedB; 
 	public int minEnum = 0; 	// first index of the enum
-	public int maxEnum = 4;	// number of elements in the enum	
+	public int maxEnum = 3;	// number of elements in the enum	
 	public bool correctA, correctB;
 
 	// CONTACT INPUTS (person A and person B)
@@ -310,8 +310,12 @@ public class SequenceControls : MonoBehaviour {
 		}
 		else if (game.tripleActive == true)
 		{
-			correctA = checkTouchA(contactA[tripleInputA]);
-			correctB = checkTouchB(contactB[tripleInputB]);
+			print ("TRIPLE ACTIVE = TRUE");
+			print ("tripleInputA " + tripleInputA );
+			print ("tripleInputB " + tripleInputB );
+
+			correctA = checkTouchA(tripleInputA);
+			correctB = checkTouchB(tripleInputB);
 		}
 		if (correctA && correctB){
 			
