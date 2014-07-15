@@ -8,7 +8,6 @@ public class GameControl : MonoBehaviour {
 	public EnemyControls enemy; 	// enemy script
 	public Sequence_Queue seqQueueLeft;
 	public Sequence_Queue seqQueueRight;
-	public float seqObjectCloseEnoughDistance;
 
 	public int turn; 
 	public bool charging;
@@ -37,7 +36,7 @@ public class GameControl : MonoBehaviour {
 	public Sprite timerYellow, timerGreen, timerRed;
 	public GameObject timerParticles, passfailParticles;
 
-	public bool sceneStarted, tripleActive;
+	public bool sceneStarted, tripleActive, paused;
 	public tripleScript tripleScript;
 
 	void Start () {
@@ -46,63 +45,57 @@ public class GameControl : MonoBehaviour {
 		baseBlockTime = 1.0f;
 		maxTime = 4.0f;
 		sceneStarted = true;
+		paused = false;
 	}
 
 	public void GameStart () {
 		hi5 = true;
 		hasResetInput = false;
 		startPlayerTurn ();
-		seqObjectCloseEnoughDistance = 0.5f;
 		canTime = true;
 		canEmit = true;
 	}
 
 	void Update () {
-		timerPercentage = timeLeft / maxTime;
-		if (timeLeft < 0)
+		if (!paused) 
 		{
-			timeLeft = 0;
-		}
+			timerPercentage = timeLeft / maxTime;
+			if (timeLeft < 0) {
+				timeLeft = 0;
+			}
 
-		//set particle speed & ebable
-		if (canEmit)
-		{
-			timerSprite.enabled = true;			
-			timerOutline.enabled = true;
-			foreach (ParticleSystem p in timerParticles.GetComponentsInChildren<ParticleSystem>())
-			{
-				p.enableEmission = true;
-			}
-			if (timerPercentage > 0.2f)
-			{
-				timerSprite.sprite = timerYellow;
-				foreach (ParticleSystem p in timerParticles.GetComponentsInChildren<ParticleSystem>())
-				{
-					p.startColor = Color.yellow;
-					p.startSpeed =  timerPercentage * 4;
+			//set particle speed & ebable
+			if (canEmit) {
+				timerSprite.enabled = true;			
+				timerOutline.enabled = true;
+				foreach (ParticleSystem p in timerParticles.GetComponentsInChildren<ParticleSystem>()) {
+					p.enableEmission = true;
 				}
-			}
-			else
-				{
+			if (timerPercentage > 0.2f) {
+				timerSprite.sprite = timerYellow;
+				foreach (ParticleSystem p in timerParticles.GetComponentsInChildren<ParticleSystem>()) {
+					p.startColor = Color.yellow;
+					p.startSpeed = timerPercentage * 4;
+					}
+				} 
+				else {
 					timerSprite.sprite = timerRed;
-					foreach (ParticleSystem p in timerParticles.GetComponentsInChildren<ParticleSystem>())
-					{
+					foreach (ParticleSystem p in timerParticles.GetComponentsInChildren<ParticleSystem>()) {
 						p.startColor = Color.red;
 						p.startSpeed = 4;
 					}
 				}
+			} else {
+					timerSprite.enabled = false;
+					timerOutline.enabled = false;
+					foreach (ParticleSystem p in timerParticles.GetComponentsInChildren<ParticleSystem>()) {
+						p.enableEmission = false;
+					}
+				}
+			//set bar length
+			timerBar.localScale = new Vector3 (1.0f, timerPercentage, 1.0f);
 		}
-		else
-		{
-			timerSprite.enabled = false;
-			timerOutline.enabled = false;
-			foreach (ParticleSystem p in timerParticles.GetComponentsInChildren<ParticleSystem>())
-			{
-				p.enableEmission = false;
-			}
-		}
-		//set bar length
-		timerBar.localScale = new Vector3(1.0f, timerPercentage, 1.0f);
+	}
 
 	/* --------------------------------------------------------------------------------------------------------------------------
 	 * ~ PLAYER'S TURN
@@ -124,10 +117,10 @@ public class GameControl : MonoBehaviour {
 	 * PLAYER'S TURN AGAIN
 	 * -------------------------------------------------------------------------------------------------------------------------- */
 
-
-	}
+	
 
 	void FixedUpdate(){
+	if (!paused) {
 		responseTime += Time.deltaTime; 
 
 		if (hi5){
@@ -153,6 +146,7 @@ public class GameControl : MonoBehaviour {
 		}
 //		player.attacking = true; 
 //		player.defending = false; 
+	}
 	}
 
 	private void startPlayerTurn () {
@@ -208,7 +202,7 @@ public class GameControl : MonoBehaviour {
 			turn++;
 		}
 		
-		else {
+		else if (!paused) {
 			if (!hasResetInput) {
 				if (pictogramsInRange ()) {
 					player.detectedA = -1;
@@ -370,6 +364,8 @@ public class GameControl : MonoBehaviour {
 	}
 
 	public void enemyTurn(){
+		if (!paused)
+		{
 		//enemy.generateAttack(); 
 		responseTime = 0;
 		//playerResponse(); 
@@ -407,7 +403,8 @@ public class GameControl : MonoBehaviour {
 				}
 				
 			}
-		}	
+		}
+		}
 	}
 
 	private void playerResponse(){

@@ -7,45 +7,49 @@ public class CounterAnimations : MonoBehaviour {
 	public SplineNode[] ballSplines;
 	public SmoothCamera2D counterCamera;
 	public Transform playerTransform, enemyTransform;
-	public bool canTrack;
+	public bool toPlayer;
+	public ParticleSystem toPlayerPart, fromPlayerPart;
 
 	// Use this for initialization
 	void Start () {
-		canTrack = false;
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (canTrack)
+		if (energyBallObject.transform.localPosition.x > -12.0f & energyBallObject.transform.localPosition.x < 4.0f)
 		{
-			if (energyBallObject.transform.localPosition.x > -15.0f & energyBallObject.transform.localPosition.x < -2.0f)
+			counterCamera.target = energyBallObject.transform;
+			if (toPlayer)
 			{
-				counterCamera.target = energyBallObject.transform;
+				toPlayerPart.enableEmission = true;
+				fromPlayerPart.enableEmission = false;
 			}
-			else if (energyBallObject.transform.localPosition.x > -2.0f)
+			else
 			{
-				counterCamera.target = playerTransform;
+				toPlayerPart.enableEmission = false;
+				fromPlayerPart.enableEmission = true;
+			}
+		}
+		else if (energyBallObject.transform.localPosition.x > 4.0f)
+		{
+			counterCamera.target = playerTransform;
 			}
 			else
 			{
 				counterCamera.target = enemyTransform;
 			}
-		}
-		else
-		{
-			counterCamera.target = enemyTransform;
-		}
 	}
 
 	public void FireBall (){
 		energyBallObject.GetComponent<SplineController> ().enabled = true;
 		energyBallObject.GetComponent<SpriteRenderer> ().enabled = true;
 		ballCounterAnimator.SetBool ("hasFired", true);
-		canTrack = true;
+		toPlayer = true;
 	}
 
 	public void ReflectedBall () {
+		toPlayer = false;
 		foreach (SplineNode s in ballSplines)
 		{
 			s.speed += 5;
