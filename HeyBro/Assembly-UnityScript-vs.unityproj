@@ -5,11 +5,11 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{54C85195-B7CC-54D5-1D21-6A0D5F0E6841}</ProjectGuid>
+	<ProjectGuid>{2CD60522-85DA-6184-C54C-BB35FAF45B3A}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
-	<AssemblyName>Assembly-CSharp-Editor</AssemblyName>
+	<AssemblyName>Assembly-UnityScript</AssemblyName>
 	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
 	<FileAlignment>512</FileAlignment>
 	<BaseDirectory>Assets</BaseDirectory>
@@ -46,16 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Splines\Scripts\Editor\SplineControllerInspector.cs" />
-     <Compile Include="Assets\Splines\Scripts\Editor\SplineInspector.cs" />
-     <Compile Include="Assets\Splines\Scripts\Editor\SplineNodeInspector.cs" />
- <Reference Include="UnityEditor.Graphs">
- <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
- </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{9A8250A7-EC2C-B329-8DCB-1A2F0DB5F219}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
+     <Compile Include="Assets\SmoothCamera2D.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

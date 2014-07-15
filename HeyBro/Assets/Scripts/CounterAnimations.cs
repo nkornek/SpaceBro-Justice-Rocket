@@ -5,7 +5,7 @@ public class CounterAnimations : MonoBehaviour {
 	public GameObject energyBall, energyBallObject;
 	public Animator ballCounterAnimator;
 	public SplineNode[] ballSplines;
-	public SmoothFollow counterCamera;
+	public SmoothCamera2D counterCamera;
 	public Transform playerTransform, enemyTransform;
 	public bool canTrack;
 
@@ -23,9 +23,13 @@ public class CounterAnimations : MonoBehaviour {
 			{
 				counterCamera.target = energyBallObject.transform;
 			}
-			else if (energyBallObject.transform.localPosition.x < -2.0f)
+			else if (energyBallObject.transform.localPosition.x > -2.0f)
 			{
 				counterCamera.target = playerTransform;
+			}
+			else
+			{
+				counterCamera.target = enemyTransform;
 			}
 		}
 		else
