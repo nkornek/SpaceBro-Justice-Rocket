@@ -2,24 +2,25 @@
 using System.Collections;
 
 public class CounterControl : MonoBehaviour {
-	public SequenceControls player; 
-	public GameObject promptLeft, promptRight;
+	public GameObject promptLeft, promptRight, PlayerControl, EnemyControls;
 	public bool hasResetInput;
 	public CounterAnimations CounterAnimations;
-	public AudioSource srcSeqSound;
-	public AudioClip clipMoveSuccess;
-	public AudioClip clipWholeSeqSuccess;
+	public Camera counterCamera;
+	public Transform closeOutCamera;
 	public bool counterActive;
-	public int counterNum;
+	public Animator bgAnimator, enemyAnimator;
+	public int counterNum, damage;
 	public bool blocked, failed;
 	public Sprite p1FiveNorm, p1FistNorm, p1ElbowNorm, p2FiveNorm, p2FistNorm, p2ElbowNorm;
 	public Sprite p1FiveSuccess, p1FistSuccess, p1ElbowSuccess, p2FiveSuccess, p2FistSuccess, p2ElbowSuccess;
 	public Sprite p1FiveFail, p1FistFail, p1ElbowFail, p2FiveFail, p2FistFail, p2ElbowFail;
 
+
 	//specifict counter sequence variables
 	public GameObject energyBallObject;
 	public int ballReflected;
 	public SplineNode ballFirstSpline, ballLastSpline;
+	public ParticleSystem fireParticles;
 
 	// Use this for initialization
 	void Start () {
@@ -27,7 +28,10 @@ public class CounterControl : MonoBehaviour {
 		promptRight.GetComponent<SpriteRenderer> ().enabled = false;
 		counterNum = 1;
 		counterActive = true;
-	
+		damage = 50;
+		PlayerControl = GameObject.Find ("Players");
+		EnemyControls = GameObject.Find ("Enemy");
+		fireParticles.enableEmission = false;
 	}
 	
 	// Update is called once per frame
@@ -36,8 +40,8 @@ public class CounterControl : MonoBehaviour {
 		{
 			if (!hasResetInput) {
 				if (pictogramsInRange ()) {
-					player.detectedA = -1;
-					player.detectedB = -2;
+					PlayerControl.GetComponent<SequenceControls>().detectedA = -1;
+					PlayerControl.GetComponent<SequenceControls>().detectedB = -2;
 					hasResetInput = true;
 				}
 			}
@@ -52,8 +56,8 @@ public class CounterControl : MonoBehaviour {
 	public void counterSequence (int whichSequence) {
 		switch (whichSequence) {
 			case 1:
-			player.counterInputA = 0;
-			player.counterInputB = 0;
+			PlayerControl.GetComponent<SequenceControls>().counterInputA = 0;
+			PlayerControl.GetComponent<SequenceControls>().counterInputB = 0;
 			//energy ball counter
 			if (energyBallObject.transform.localPosition.x > 12.0f & !blocked & !failed)
 			{		
@@ -64,7 +68,7 @@ public class CounterControl : MonoBehaviour {
 				promptLeft.transform.localPosition = new Vector3 (-1 - (Mathf.Abs(energyBallObject.transform.localPosition.x - 27))/3, promptLeft.transform.localPosition.y, 1f);
 				promptRight.transform.localPosition = new Vector3 (1 + (Mathf.Abs(energyBallObject.transform.localPosition.x - 27))/3, promptRight.transform.localPosition.y, 1f);
 			}
-			if (player.checkBothEvents() && pictogramsInRange() & !blocked & !failed){
+			if (PlayerControl.GetComponent<SequenceControls>().checkBothEvents() && pictogramsInRange() & !blocked & !failed){
 				blocked = true;
 				ballReflected ++;
 				CounterAnimations.toPlayer = false;
@@ -91,19 +95,23 @@ public class CounterControl : MonoBehaviour {
 					energyBallObject.GetComponent<ParticleSystem>().enableEmission = false;
 					energyBallObject.GetComponent<SpriteRenderer>().enabled = false;				
 					Invoke ("hidePrompts", 0.2f);
-					ballLastSpline.type = SplineNode.Type.STOP;
+					ballLastSpline.type = SplineNode.Type.STOP;					
+					Invoke ("endCounter", 1);
 				}
 			}
 			//hit enemy
 			if (energyBallObject.transform.localPosition.x <= -18f & blocked)
 			{
 				blocked = false;
+				CounterAnimations.enemyHit();
 				if (ballReflected == 3)
 				{
 					energyBallObject.GetComponent<ParticleSystem>().Emit(800);
 					energyBallObject.GetComponent<ParticleSystem>().enableEmission = false;
 					energyBallObject.GetComponent<SpriteRenderer>().enabled = false;
 					ballFirstSpline.type = SplineNode.Type.STOP;
+					Invoke ("damageEnemy", 2);
+					Invoke ("endCounter", 1);
 				}
 			}
 			break;
@@ -115,6 +123,24 @@ public class CounterControl : MonoBehaviour {
 		promptRight.GetComponent<SpriteRenderer> ().enabled = false;
 		}
 	public void endCounter () {
+		counterActive = false;
+		counterCamera.GetComponent<SmoothCamera2D> ().target = closeOutCamera;
+		CounterAnimations.IntroOutro (2);
+		}
+	public void damageEnemy() {
+		EnemyControls.GetComponent<EnemyControls>().DamageEnemy (damage);
+		}
+
+	public void Reset () {
+		print ("test");
+		Destroy (gameObject);
+		GameObject go = Instantiate(Resources.Load("Counters")) as GameObject;
+		}
+
+	public void StartCounter () {	
+		fireParticles.enableEmission = false;
+		bgAnimator.SetTrigger ("In");
+		enemyAnimator.SetTrigger ("StartIntro");
 		}
 
 	private bool pictogramsInRange () {
@@ -123,4 +149,5 @@ public class CounterControl : MonoBehaviour {
 	private bool pictogramsFailed () {
 		return (Mathf.Abs (promptLeft.transform.localPosition.x - promptRight.transform.localPosition.x) <= 2.5);
 	}
+
 }

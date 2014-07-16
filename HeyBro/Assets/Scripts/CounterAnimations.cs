@@ -3,12 +3,13 @@ using System.Collections;
 
 public class CounterAnimations : MonoBehaviour {
 	public GameObject energyBall, energyBallObject;
-	public Animator ballCounterAnimator;
+	public Animator ballCounterAnimator, BG;
 	public SplineNode[] ballSplines;
 	public SmoothCamera2D counterCamera;
 	public Transform playerTransform, enemyTransform;
 	public bool toPlayer;
 	public ParticleSystem toPlayerPart, fromPlayerPart;
+	public CounterControl CounterControl;
 
 	// Use this for initialization
 	void Start () {	
@@ -19,27 +20,30 @@ public class CounterAnimations : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (energyBallObject.transform.localPosition.x > -12.0f & energyBallObject.transform.localPosition.x < 12.0f)
+		if (CounterControl.counterActive == true & CounterControl.counterNum == 1)
 		{
-			counterCamera.target = energyBallObject.transform;
-			if (toPlayer)
+			if (energyBallObject.transform.localPosition.x > -12.0f & energyBallObject.transform.localPosition.x < 12.0f)
 			{
-				toPlayerPart.enableEmission = true;
-				fromPlayerPart.enableEmission = false;
+				counterCamera.target = energyBallObject.transform;
+				if (toPlayer)
+				{
+					toPlayerPart.enableEmission = true;
+					fromPlayerPart.enableEmission = false;
+				}
+				else
+				{
+					toPlayerPart.enableEmission = false;
+					fromPlayerPart.enableEmission = true;
+				}
+			}
+			else if (energyBallObject.transform.localPosition.x > 12.0f)
+			{
+				counterCamera.target = playerTransform;
 			}
 			else
 			{
-				toPlayerPart.enableEmission = false;
-				fromPlayerPart.enableEmission = true;
+				counterCamera.target = enemyTransform;
 			}
-		}
-		else if (energyBallObject.transform.localPosition.x > 12.0f)
-		{
-			counterCamera.target = playerTransform;
-		}
-		else
-		{
-			counterCamera.target = enemyTransform;
 		}
 	}
 
@@ -49,5 +53,19 @@ public class CounterAnimations : MonoBehaviour {
 		energyBallObject.GetComponent<ParticleSystem> ().enableEmission = true;
 		ballCounterAnimator.SetBool ("hasFired", true);
 		toPlayer = true;
+	}
+	public void enemyHit () {
+		ballCounterAnimator.SetTrigger ("Hit");
+	}
+
+	public void IntroOutro(int bgTransition) {
+		switch (bgTransition) {
+		case 1:
+			BG.SetTrigger("In");
+			break;
+		case 2:
+			BG.SetTrigger("Out");
+			break;
+		}
 	}
 }

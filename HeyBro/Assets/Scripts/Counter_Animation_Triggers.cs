@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Counter_Animation_Triggers : MonoBehaviour {
 	public CounterAnimations masterCounterSystem;
+	public CounterControl CounterControl;
 
 	// Use this for initialization
 	void Start () {
@@ -16,5 +17,9 @@ public class Counter_Animation_Triggers : MonoBehaviour {
 
 	void FireBallTrigger() {
 		masterCounterSystem.FireBall();
+	}
+	
+	public void TriggerReset () {
+		CounterControl.Reset ();
 	}
 }

@@ -13,7 +13,7 @@ public class Cutscene_Camera : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (cutsceneOneMaster.transform.localScale.y == 0)
+		if (cutsceneOneMaster.transform.localScale.y <= 0.2)
 		{
 			foreach (ParticleSystem p in cutsceneOneParticles)
 			{
