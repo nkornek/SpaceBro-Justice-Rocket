@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: d5a3578a52c39874985dc714c1de506d
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: speedlines
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

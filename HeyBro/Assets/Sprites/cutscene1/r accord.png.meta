@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 915dd6217e8b2224ca65bfcaebbd0ba3
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: r accord
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

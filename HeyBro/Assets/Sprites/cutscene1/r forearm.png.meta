@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: fa3f903b58041a24b9afe4e75a10ddfc
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: r forearm
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

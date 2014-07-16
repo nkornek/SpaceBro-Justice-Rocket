@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 712a8ad85960838488aa25446a8909da
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: gator
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

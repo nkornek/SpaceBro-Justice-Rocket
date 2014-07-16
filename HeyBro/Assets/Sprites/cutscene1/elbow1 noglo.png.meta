@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 2c4631c140b3b3045baf829abfd9ce4e
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: elbow1 noglo
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
