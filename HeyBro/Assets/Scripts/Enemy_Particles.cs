@@ -12,6 +12,8 @@ public class Enemy_Particles : MonoBehaviour {
 	public float attackTime;
 	public BoxCollider forcefield;
 	public float rotation;
+	public Animator enemyAnimations;
+
 	// Use this for initialization
 	void Start () {
 		chargeVisible = false;
@@ -24,7 +26,6 @@ public class Enemy_Particles : MonoBehaviour {
 	void Update () {
 		if (chargeVisible)
 		{
-			GetComponentInParent<SpriteRenderer> ().sprite = GetComponentInParent<Enemy_Faces> ().laserCharge;
 			chargeParticles.GetComponent<ParticleSystem>().enableEmission = true;
 			rotation += 1.5f;
 			chargeParticles.transform.localRotation = Quaternion.Euler (0, 0, rotation);
@@ -37,7 +38,6 @@ public class Enemy_Particles : MonoBehaviour {
 	}
 
 	void FireLasers () {
-		GetComponentInParent<SpriteRenderer> ().sprite = GetComponentInParent<Enemy_Faces> ().laserAttack;
 		laser.enableEmission = true;
 		laser2.enableEmission = true;
 		Invoke ("EndLasers", attackTime);
@@ -47,7 +47,7 @@ public class Enemy_Particles : MonoBehaviour {
 			attackAudio.clip = laserSound;
 			attackAudio.Play ();
 		}
-		GameObject.Find ("Enemy_Face").GetComponent<Enemy_Faces> ().SetSprite (4);
+		enemyAnimations.SetTrigger("Fire Lasers");
 		if (GameObject.Find ("Players").GetComponent<SequenceControls> ().blocked) 
 		{
 			forcefield.enabled = true;
@@ -61,6 +61,6 @@ public class Enemy_Particles : MonoBehaviour {
 		laser.enableEmission = false;
 		laser2.enableEmission = false;
 		GameObject.Find("Forcefield").GetComponent<Display_Forcefield>().showField = false;
-		GameObject.Find ("Enemy_Face").GetComponent<Enemy_Faces>().SetSprite (0);
+		enemyAnimations.SetTrigger("LaserEnd");
 	}
 }

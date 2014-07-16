@@ -7,13 +7,8 @@ public class Enemy_Faces : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Invoke ("StartAnimation", 2);
 	}
 
-	public void StartAnimation () {
-		gameObject.GetComponent<SpriteRenderer> ().sprite = happy;
-		gameObject.GetComponent<Animation> ().Play ();
-		}
 	// Update is called once per frame
 	void Update () {
 		}
@@ -42,11 +37,5 @@ public class Enemy_Faces : MonoBehaviour {
 	public void ResetFace(){
 		gameObject.GetComponent<SpriteRenderer>().sprite = normal;
 		}
-
-	public void EndIntro(){
-		gameObject.GetComponent<Animation> ().Stop ();
-		gameObject.GetComponent<SpriteRenderer>().sprite = normal;
-		GameObject.Find ("Game").GetComponent<GameControl> ().Invoke("GameStart", 1);
-	}
 		
 }
