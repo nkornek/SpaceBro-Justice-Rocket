@@ -66,6 +66,7 @@
      <Compile Include="Assets\Scripts\Sequence_Queue.cs" />
      <Compile Include="Assets\Scripts\SmoothCamera2D.cs" />
      <Compile Include="Assets\Scripts\SplashScreen.cs" />
+     <Compile Include="Assets\Scripts\scrollingmaterial.cs" />
      <Compile Include="Assets\Scripts\tripleScript.cs" />
      <Compile Include="Assets\Splines\Scripts\HelperClasses\Set.cs" />
      <Compile Include="Assets\Splines\Scripts\HelperClasses\Utility.cs" />

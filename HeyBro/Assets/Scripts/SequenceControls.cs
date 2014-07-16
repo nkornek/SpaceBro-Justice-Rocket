@@ -56,7 +56,7 @@ public class SequenceControls : MonoBehaviour {
 	public int currentMove; 		// the move we're at in the current sequence, used as index for contactA/contactB arrays to get the move we want 
 	public int correctMoves; 		// number of correctly done moves in the current sequence
 	public float currentSeqTime; 	// currently accumulated time since the sequence began
-	public int tripleInputA, tripleInputB;
+	public int tripleInputA, tripleInputB, counterInputA, counterInputB;
 	
 	// PLAYER STUFF
 	public int hp;
@@ -69,6 +69,7 @@ public class SequenceControls : MonoBehaviour {
 	public int counterDamage;
 	public int turn;  
 	public GameControl game;
+	public CounterControl counterSystem;
 
 	// ENEMY STUFF
 	public EnemyControls enemy; 
@@ -303,15 +304,20 @@ public class SequenceControls : MonoBehaviour {
 	 * -------------------------------------------------------------------------------------------------------------------------- */
 
 	 public bool checkBothEvents(){
-		if (game.tripleActive == false)
+		if (game.tripleActive == false & counterSystem.counterActive == false)
 		{
 			correctA = checkTouchA(contactA[currentMove]);
 			correctB = checkTouchB(contactB[currentMove]);
 		}
-		else if (game.tripleActive == true)
+		else if (game.tripleActive == true & counterSystem.counterActive == false)
 		{
 			correctA = checkTouchA(tripleInputA);
 			correctB = checkTouchB(tripleInputB);
+		}
+		else if (game.tripleActive == false & counterSystem.counterActive == true)
+		{
+			correctA = checkTouchA(counterInputA);
+			correctB = checkTouchB(counterInputB);
 		}
 		if (correctA && correctB){
 			

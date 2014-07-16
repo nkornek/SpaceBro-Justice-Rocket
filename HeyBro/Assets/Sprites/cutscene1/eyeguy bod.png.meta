@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: cef6c215c48ce674b93f99f072366f5d
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: eyeguy bod
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

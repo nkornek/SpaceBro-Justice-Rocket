@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: f5ba1760a9916a6498092bc4ed4ac414
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: five1 noglo
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

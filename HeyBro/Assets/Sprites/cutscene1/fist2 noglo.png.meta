@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 1485ef090d22b1d4198e6d093585cc83
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: fist2 noglo
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
