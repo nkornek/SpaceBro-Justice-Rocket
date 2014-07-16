@@ -38,6 +38,8 @@ public class GameControl : MonoBehaviour {
 
 	public bool sceneStarted, tripleActive, paused;
 	public tripleScript tripleScript;
+	public Animator enemyAnimations;
+	public Enemy_Particles enemyParticleParent;
 
 	void Start () {
 		moveTimeToFail = 4.0f;	
@@ -170,7 +172,8 @@ public class GameControl : MonoBehaviour {
 		canEmit = true;
 		seqQueueLeft.LoadSequence (player.contactA, player.seqDelay);
 		seqQueueRight.LoadSequence (player.contactB, player.seqDelay);
-		GameObject.Find("Enemy Particle Parent").GetComponent<Enemy_Particles>().chargeVisible = true;
+		enemyParticleParent.chargeVisible = true;
+		enemyAnimations.SetTrigger ("StartCharge");
 		if (!canTime)
 		{
 			canTime = true;
@@ -182,8 +185,8 @@ public class GameControl : MonoBehaviour {
 		
 	private void checkBlocked () {
 		player.defending = false;
-		GameObject.Find ("Enemy Particle Parent").GetComponent<Enemy_Particles> ().chargeVisible = false;
-		GameObject.Find ("Enemy Particle Parent").GetComponent<Enemy_Particles> ().Invoke ("FireLasers", 0.7f);
+		enemyParticleParent.chargeVisible = false;
+		enemyParticleParent.Invoke ("FireLasers", 0.7f);
 
 	}
 
@@ -224,7 +227,7 @@ public class GameControl : MonoBehaviour {
 					startEnemyTurn ();
 					canTime = false;
 					canEmit = false;
-					GameObject.Find ("Enemy_Face").GetComponent<Enemy_Faces>().SetSprite (2);
+					enemyAnimations.SetTrigger("Laugh");
 					passfailParticles.particleSystem.startColor = Color.red;
 					passfailParticles.particleSystem.Emit(400);
 				}
@@ -251,7 +254,7 @@ public class GameControl : MonoBehaviour {
 					startEnemyTurn ();
 					canTime = false;
 					canEmit = false;
-					GameObject.Find ("Enemy_Face").GetComponent<Enemy_Faces>().SetSprite (2);
+					enemyAnimations.SetTrigger("Laugh");
 					passfailParticles.particleSystem.startColor = Color.red;
 					passfailParticles.particleSystem.Emit(400);
 				}
@@ -330,7 +333,8 @@ public class GameControl : MonoBehaviour {
 					srcSeqSound.clip = clipWholeSeqSuccess;
 					srcSeqSound.Play ();
 					GameObject.Find ("Player_Left").GetComponent<PlayerAnim>().SetSprite (3);
-					GameObject.Find ("Player_Right").GetComponent<PlayerAnim>().SetSprite (3);
+					GameObject.Find ("Player_Right").GetComponent<PlayerAnim>().SetSprite (3);			
+					enemyAnimations.SetTrigger("Hurt");
 					enemy.DamageEnemy (player.seqDamage);
 					canEmit = false;
 //					player.attacking = false;
