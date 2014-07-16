@@ -407,6 +407,8 @@ public class GameControl : MonoBehaviour {
 					canTime = false;
 					timerSprite.sprite = timerGreen;
 					paused = true;
+					enemyAnimations.SetTrigger("FailCharge");
+					enemyParticleParent.chargeVisible = false;
 				}
 				else
 				{
@@ -423,7 +425,6 @@ public class GameControl : MonoBehaviour {
 					canEmit = false;
 					canTime = false;
 					timerSprite.sprite = timerGreen;
-					enemyAnimations.SetTrigger("FailCharge");
 				}
 			}
 			if (pictogramsFailed ()) {
