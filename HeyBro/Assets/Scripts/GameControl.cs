@@ -40,6 +40,7 @@ public class GameControl : MonoBehaviour {
 	public tripleScript tripleScript;
 	public Animator enemyAnimations;
 	public Enemy_Particles enemyParticleParent;
+	public CounterControl counterController;
 
 	void Start () {
 		moveTimeToFail = 4.0f;	
@@ -390,21 +391,40 @@ public class GameControl : MonoBehaviour {
 			timeLeft -= Time.deltaTime;
 		}
 		if (player.defending) {
-		
 			if (player.checkBothEvents() && pictogramsInRange()) {
-				player.blocked = true;
-				checkBlocked ();
-				seqQueueLeft.sequenceObjects[0].GetComponent<SpriteRenderer>().enabled = false;
-				seqQueueRight.sequenceObjects[0].GetComponent<SpriteRenderer>().enabled = false;
-				seqQueueLeft.GetComponent<Sequence_Queue>().movesCorrect = true;
-				seqQueueRight.GetComponent<Sequence_Queue>().movesCorrect = true;
-				seqQueueLeft.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
-				seqQueueRight.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
-				passfailParticles.particleSystem.startColor = Color.green;
-				passfailParticles.particleSystem.Emit(400);
-				canEmit = false;
-				canTime = false;
-				timerSprite.sprite = timerGreen;
+				if (timerPercentage >= 0.6)
+				{
+					counterController.Invoke ("StartCounter", 0.3f);
+					seqQueueLeft.sequenceObjects[0].GetComponent<SpriteRenderer>().enabled = false;
+					seqQueueRight.sequenceObjects[0].GetComponent<SpriteRenderer>().enabled = false;
+					seqQueueLeft.GetComponent<Sequence_Queue>().movesCorrect = true;
+					seqQueueRight.GetComponent<Sequence_Queue>().movesCorrect = true;
+					seqQueueLeft.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
+					seqQueueRight.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
+					passfailParticles.particleSystem.startColor = Color.green;
+					passfailParticles.particleSystem.Emit(400);
+					canEmit = false;
+					canTime = false;
+					timerSprite.sprite = timerGreen;
+					paused = true;
+				}
+				else
+				{
+					player.blocked = true;
+					checkBlocked ();
+					seqQueueLeft.sequenceObjects[0].GetComponent<SpriteRenderer>().enabled = false;
+					seqQueueRight.sequenceObjects[0].GetComponent<SpriteRenderer>().enabled = false;
+					seqQueueLeft.GetComponent<Sequence_Queue>().movesCorrect = true;
+					seqQueueRight.GetComponent<Sequence_Queue>().movesCorrect = true;
+					seqQueueLeft.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
+					seqQueueRight.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
+					passfailParticles.particleSystem.startColor = Color.green;
+					passfailParticles.particleSystem.Emit(400);
+					canEmit = false;
+					canTime = false;
+					timerSprite.sprite = timerGreen;
+					enemyAnimations.SetTrigger("FailCharge");
+				}
 			}
 			if (pictogramsFailed ()) {
 				checkBlocked ();

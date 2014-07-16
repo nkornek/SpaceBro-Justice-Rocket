@@ -27,7 +27,6 @@ public class CounterControl : MonoBehaviour {
 		promptLeft.GetComponent<SpriteRenderer> ().enabled = false;
 		promptRight.GetComponent<SpriteRenderer> ().enabled = false;
 		counterNum = 1;
-		counterActive = true;
 		damage = 50;
 		PlayerControl = GameObject.Find ("Players");
 		EnemyControls = GameObject.Find ("Enemy");
@@ -132,15 +131,17 @@ public class CounterControl : MonoBehaviour {
 		}
 
 	public void Reset () {
-		print ("test");
+		GameObject.Find ("Game").GetComponent<GameControl> ().paused = false;
+		GameObject.Find ("Game").GetComponent<GameControl> ().Invoke ("startPlayerTurn", 1.0f);
 		Destroy (gameObject);
 		GameObject go = Instantiate(Resources.Load("Counters")) as GameObject;
 		}
 
 	public void StartCounter () {	
-		fireParticles.enableEmission = false;
+		fireParticles.enableEmission = true;
 		bgAnimator.SetTrigger ("In");
-		enemyAnimator.SetTrigger ("StartIntro");
+		enemyAnimator.SetTrigger ("StartIntro");		
+		counterActive = true;
 		}
 
 	private bool pictogramsInRange () {
