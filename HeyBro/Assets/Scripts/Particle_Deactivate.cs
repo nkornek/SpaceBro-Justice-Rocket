@@ -7,6 +7,8 @@ public class Particle_Deactivate : MonoBehaviour {
 	public float attackTime = 2.0f;
 	public ParticleSystem particle;
 	public ParticleSystem particle2;
+		
+	public GameControl game;
 	
 	// Use this for initialization
 	void Start () {
@@ -30,7 +32,8 @@ public class Particle_Deactivate : MonoBehaviour {
 			partVisible = false;
 			particle.enableEmission = false;
 			particle2.enableEmission = false;
-			attackTime = 2.0f;
+			attackTime = 2.0f;	
+			game.paused = false;
 		}
 	
 	}

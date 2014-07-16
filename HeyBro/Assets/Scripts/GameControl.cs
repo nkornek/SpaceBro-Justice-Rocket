@@ -59,15 +59,13 @@ public class GameControl : MonoBehaviour {
 	}
 
 	void Update () {
-		if (!paused) 
-		{
 			timerPercentage = timeLeft / maxTime;
 			if (timeLeft < 0) {
 				timeLeft = 0;
 			}
 
 			//set particle speed & ebable
-			if (canEmit) {
+			if (canEmit & !paused) {
 				timerSprite.enabled = true;			
 				timerOutline.enabled = true;
 				foreach (ParticleSystem p in timerParticles.GetComponentsInChildren<ParticleSystem>()) {
@@ -87,7 +85,8 @@ public class GameControl : MonoBehaviour {
 						p.startSpeed = 4;
 					}
 				}
-			} else {
+			} 
+			else {
 					timerSprite.enabled = false;
 					timerOutline.enabled = false;
 					foreach (ParticleSystem p in timerParticles.GetComponentsInChildren<ParticleSystem>()) {
@@ -96,7 +95,6 @@ public class GameControl : MonoBehaviour {
 				}
 			//set bar length
 			timerBar.localScale = new Vector3 (1.0f, timerPercentage, 1.0f);
-		}
 	}
 
 	/* --------------------------------------------------------------------------------------------------------------------------
@@ -152,19 +150,33 @@ public class GameControl : MonoBehaviour {
 	}
 
 	private void startPlayerTurn () {
-		playersTurn = true;
-		seqGenerated = false;
-		canTime = true;
-		canEmit = true;
-		GameObject.Find ("Player_Left").GetComponent<PlayerAnim>().SetSprite (-1);
-		GameObject.Find ("Player_Right").GetComponent<PlayerAnim>().SetSprite (-1);
+		if (!paused)
+		{
+			playersTurn = true;
+			seqGenerated = false;
+			canTime = true;
+			canEmit = true;
+			GameObject.Find ("Player_Left").GetComponent<PlayerAnim>().SetSprite (-1);
+			GameObject.Find ("Player_Right").GetComponent<PlayerAnim>().SetSprite (-1);
+		}
+		else
+		{
+			Invoke ("startPlayerTurn", 0.2f);
+		}
 	}
 	
 	private void startEnemyTurn () {
-		playersTurn = false;
-		Invoke ("createBlockSequence", 2);
-		//seqQueueLeft.movingSpritesDown = false;
-		//seqQueueRight.movingSpritesDown = false;
+		if (!paused)
+		{
+			playersTurn = false;
+			Invoke ("createBlockSequence", 2);
+			//seqQueueLeft.movingSpritesDown = false;
+			//seqQueueRight.movingSpritesDown = false;
+		}
+		else
+		{
+			Invoke ("startEnemyTurn", 0.2f);
+		}
 	}
 	
 	private void createBlockSequence () {
@@ -330,11 +342,11 @@ public class GameControl : MonoBehaviour {
 					player.generateNextMove ();
 				}
 				if (player.correctMoves >= player.seqMoves) {
+					paused = true;
 					srcSeqSound.clip = clipWholeSeqSuccess;
 					srcSeqSound.Play ();
 					GameObject.Find ("Player_Left").GetComponent<PlayerAnim>().SetSprite (3);
 					GameObject.Find ("Player_Right").GetComponent<PlayerAnim>().SetSprite (3);			
-					enemyAnimations.SetTrigger("Hurt");
 					enemy.DamageEnemy (player.seqDamage);
 					canEmit = false;
 //					player.attacking = false;

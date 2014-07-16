@@ -10,6 +10,9 @@ public class PlayerAnim : MonoBehaviour {
 	public Sprite punch;	
 	public Sprite sad;
 
+	public Cutscene_Camera cutscene;
+	public GameControl game;
+
 	// Use this for initialization
 	void Start () {
 		gameObject.GetComponent<SpriteRenderer>().sprite = handsUp;
@@ -36,7 +39,7 @@ public class PlayerAnim : MonoBehaviour {
 			break;
 		case 3:
 			gameObject.GetComponent<SpriteRenderer>().sprite = attack;
-			gameObject.transform.parent.GetComponentInChildren<Particle_Deactivate>().partVisible = true;
+			cutscene.triggerScene(1);
 			break;
 		case 4: 
 			gameObject.GetComponent<SpriteRenderer>().sprite = handsUp;

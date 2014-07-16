@@ -21589,4 +21589,11 @@ AnimationClip:
     path: r hand
     classID: 4
     script: {fileID: 0}
-  m_Events: []
+  m_Events:
+  - time: 6.0333333
+    functionName: FireStars
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
