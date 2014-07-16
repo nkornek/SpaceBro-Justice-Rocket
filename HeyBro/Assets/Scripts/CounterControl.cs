@@ -114,9 +114,11 @@ public class CounterControl : MonoBehaviour {
 		promptLeft.GetComponent<SpriteRenderer> ().enabled = false;
 		promptRight.GetComponent<SpriteRenderer> ().enabled = false;
 		}
+	public void endCounter () {
+		}
 
 	private bool pictogramsInRange () {
-		return (Mathf.Abs (promptLeft.transform.localPosition.x - promptRight.transform.localPosition.x) <= 3.5);
+		return (Mathf.Abs (promptLeft.transform.localPosition.x - promptRight.transform.localPosition.x) <= 4);
 	}
 	private bool pictogramsFailed () {
 		return (Mathf.Abs (promptLeft.transform.localPosition.x - promptRight.transform.localPosition.x) <= 2.5);
