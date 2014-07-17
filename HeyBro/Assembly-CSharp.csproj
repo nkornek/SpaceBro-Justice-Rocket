@@ -46,13 +46,13 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Cutscene_Triggers.cs" />
      <Compile Include="Assets\Scripts\Animation_Triggers.cs" />
      <Compile Include="Assets\Scripts\ArduinoRead.cs" />
      <Compile Include="Assets\Scripts\CounterAnimations.cs" />
      <Compile Include="Assets\Scripts\CounterControl.cs" />
      <Compile Include="Assets\Scripts\Counter_Animation_Triggers.cs" />
      <Compile Include="Assets\Scripts\Cutscene_Camera.cs" />
+     <Compile Include="Assets\Scripts\Cutscene_Triggers.cs" />
      <Compile Include="Assets\Scripts\Display_Forcefield.cs" />
      <Compile Include="Assets\Scripts\EnemyControls.cs" />
      <Compile Include="Assets\Scripts\Enemy_Particles.cs" />

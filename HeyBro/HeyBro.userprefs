@@ -1,26 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CounterControl.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameControl.cs">
     <Files>
-      <File FileName="Assets\Scripts\CounterControl.cs" Line="31" Column="45" />
-      <File FileName="Assets\Scripts\CounterAnimations.cs" Line="51" Column="58" />
-      <File FileName="Assets\Scripts\Counter_Animation_Triggers.cs" Line="19" Column="30" />
-      <File FileName="Assets\Splines\Scripts\SplineClasses\SplineController.cs" Line="202" Column="13" />
+      <File FileName="Assets\Scripts\GameControl.cs" Line="494" Column="9" />
+      <File FileName="Assets\Scripts\CounterControl.cs" Line="149" Column="64" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="Assembly-CSharp" expanded="True">
-            <Node name="Scripts" expanded="True">
-              <Node name="CounterControl.cs" selected="True" />
-            </Node>
-            <Node name="Splines" expanded="True">
-              <Node name="Scripts" expanded="True">
-                <Node name="SplineClasses" expanded="True" />
-              </Node>
-            </Node>
-          </Node>
-        </State>
+        <State expanded="True" selected="True" />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
