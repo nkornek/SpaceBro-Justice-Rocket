@@ -40,7 +40,9 @@ public class GameControl : MonoBehaviour {
 	public tripleScript tripleScript;
 	public Animator enemyAnimations;
 	public Enemy_Particles enemyParticleParent;
-	public CounterControl counterController;
+	
+	public bool counterActive;
+	public int counterNum;
 
 	void Start () {
 		moveTimeToFail = 4.0f;	
@@ -49,14 +51,15 @@ public class GameControl : MonoBehaviour {
 		maxTime = 4.0f;
 		sceneStarted = true;
 		paused = false;
+
 	}
 
 	public void GameStart () {
 		hi5 = true;
 		hasResetInput = false;
-		startPlayerTurn ();
 		canTime = true;
 		canEmit = true;
+		startPlayerTurn();
 	}
 
 	void Update () {
@@ -348,7 +351,6 @@ public class GameControl : MonoBehaviour {
 					srcSeqSound.Play ();
 					GameObject.Find ("Player_Left").GetComponent<PlayerAnim>().SetSprite (3);
 					GameObject.Find ("Player_Right").GetComponent<PlayerAnim>().SetSprite (3);			
-					enemy.DamageEnemy (player.seqDamage);
 					canEmit = false;
 //					player.attacking = false;
 //					player.defending = true;
@@ -394,7 +396,16 @@ public class GameControl : MonoBehaviour {
 			if (player.checkBothEvents() && pictogramsInRange()) {
 				if (timerPercentage >= 0.6)
 				{
-					counterController.Invoke ("StartCounter", 0.3f);
+					player.defending = false;
+					counterNum = 1;
+					if (GameObject.Find ("Counters"))
+					{
+						GameObject.Find ("Counters").GetComponent<CounterControl>().Invoke ("StartCounter", 0.3f);
+					}
+					else
+					{
+						GameObject.Find ("Counters(Clone)").GetComponent<CounterControl>().Invoke ("StartCounter", 0.3f);
+					}
 					seqQueueLeft.sequenceObjects[0].GetComponent<SpriteRenderer>().enabled = false;
 					seqQueueRight.sequenceObjects[0].GetComponent<SpriteRenderer>().enabled = false;
 					seqQueueLeft.GetComponent<Sequence_Queue>().movesCorrect = true;
@@ -409,6 +420,8 @@ public class GameControl : MonoBehaviour {
 					paused = true;
 					enemyAnimations.SetTrigger("FailCharge");
 					enemyParticleParent.chargeVisible = false;
+					player.counterInputA = 0;
+					player.counterInputB = 0;
 				}
 				else
 				{

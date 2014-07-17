@@ -69,7 +69,6 @@ public class SequenceControls : MonoBehaviour {
 	public int counterDamage;
 	public int turn;  
 	public GameControl game;
-	public CounterControl counterSystem;
 
 	// ENEMY STUFF
 	public EnemyControls enemy; 
@@ -304,17 +303,17 @@ public class SequenceControls : MonoBehaviour {
 	 * -------------------------------------------------------------------------------------------------------------------------- */
 
 	 public bool checkBothEvents(){
-		if (game.tripleActive == false & counterSystem.counterActive == false)
+		if (game.tripleActive == false & game.counterActive == false)
 		{
 			correctA = checkTouchA(contactA[currentMove]);
 			correctB = checkTouchB(contactB[currentMove]);
 		}
-		else if (game.tripleActive == true & counterSystem.counterActive == false)
+		else if (game.tripleActive == true & game.counterActive == false)
 		{
 			correctA = checkTouchA(tripleInputA);
 			correctB = checkTouchB(tripleInputB);
 		}
-		else if (game.tripleActive == false & counterSystem.counterActive == true)
+		else if (game.tripleActive == false & game.counterActive == true)
 		{
 			correctA = checkTouchA(counterInputA);
 			correctB = checkTouchB(counterInputB);

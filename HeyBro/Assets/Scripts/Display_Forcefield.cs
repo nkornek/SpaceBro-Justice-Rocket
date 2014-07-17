@@ -10,7 +10,6 @@ public class Display_Forcefield : MonoBehaviour {
 	void Start () {
 		forcefield.renderer.enabled = false;
 		showField = false;
-	
 	}
 	
 	// Update is called once per frame
