@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class Animation_Triggers : MonoBehaviour {
+	public GameControl game;
 
 	// Use this for initialization
 	void Start () {
@@ -14,6 +15,6 @@ public class Animation_Triggers : MonoBehaviour {
 	}
 
 	public void EndIntro(){
-		GameObject.Find ("Game").GetComponent<GameControl> ().Invoke("GameStart", 1);
+		game.GameStart ();
 	}
 }

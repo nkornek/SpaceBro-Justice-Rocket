@@ -10,17 +10,19 @@ public class CounterAnimations : MonoBehaviour {
 	public bool toPlayer;
 	public ParticleSystem toPlayerPart, fromPlayerPart;
 	public CounterControl CounterControl;
+	public GameControl game;
 
 	// Use this for initialization
 	void Start () {	
 		energyBallObject.GetComponent<SpriteRenderer> ().enabled = false;
 		energyBallObject.GetComponent<ParticleSystem> ().enableEmission = false;
+		game = GameObject.Find ("Game").GetComponent<GameControl>();
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (CounterControl.counterActive == true & CounterControl.counterNum == 1)
+		if (game.counterActive == true & game.counterNum == 1)
 		{
 			if (energyBallObject.transform.localPosition.x > -12.0f & energyBallObject.transform.localPosition.x < 12.0f)
 			{
