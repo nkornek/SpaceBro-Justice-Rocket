@@ -28,7 +28,6 @@ public class CounterControl : MonoBehaviour {
 	public Animator laserAnimator;
 	public Sprite[] p1laser;
 	public Sprite[] p2laser;
-	public GameObject counterTimer, counterTimerBarLeft, counterTimerBarRight;
 
 	// Use this for initialization
 	void Start () {
@@ -142,9 +141,6 @@ public class CounterControl : MonoBehaviour {
 	public void hidePrompts () {
 		promptLeft.GetComponent<SpriteRenderer> ().enabled = false;
 		promptRight.GetComponent<SpriteRenderer> ().enabled = false;
-		counterTimer.GetComponent<SpriteRenderer>().enabled = false;
-		counterTimerBarLeft.GetComponent<SpriteRenderer>().enabled = false;
-		counterTimerBarRight.GetComponent<SpriteRenderer>().enabled = false;
 		}
 	public void endCounter () {
 		GameManager.GetComponent<GameControl>().counterActive = false;
@@ -165,9 +161,6 @@ public class CounterControl : MonoBehaviour {
 	public void ShowBeamPrompts () {
 		promptLeft.GetComponent<SpriteRenderer>().enabled = true;
 		promptRight.GetComponent<SpriteRenderer>().enabled = true;
-		counterTimer.GetComponent<SpriteRenderer>().enabled = true;
-		counterTimerBarRight.GetComponent<SpriteRenderer>().enabled = true;	
-		counterTimerBarLeft.GetComponent<SpriteRenderer>().enabled = true;
 		}
 
 	public void StartCounter () {
@@ -184,6 +177,12 @@ public class CounterControl : MonoBehaviour {
 			laserAnimator.SetTrigger("StartCounter");
 			promptLeft.GetComponent<SpriteRenderer>().sprite = p1laser[0];		
 			promptRight.GetComponent<SpriteRenderer>().sprite = p2laser[0];
+			promptLeft.transform.localScale = new Vector3 (4, 4, 1);		
+			promptRight.transform.localScale = new Vector3 (4, 4, 1);
+			promptLeft.transform.localPosition = new Vector3 (-9.5f, 0, promptLeft.transform.localPosition.z);
+			promptRight.transform.localPosition = new Vector3 (3.5f, 7.5f, promptLeft.transform.localPosition.z);
+			promptLeft.transform.localRotation = Quaternion.Euler (0, 0, 30);			
+			promptRight.transform.localRotation = Quaternion.Euler (0, 0, 30);
 		}
 	}
 

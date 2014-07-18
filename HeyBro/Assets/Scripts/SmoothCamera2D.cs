@@ -5,7 +5,7 @@ public class SmoothCamera2D : MonoBehaviour {
 	
 	public float dampTime = 0.15f;
 	private Vector3 velocity = Vector3.zero;
-	public Transform target;
+	public Transform target, bg;
 	public bool cangrow;
 	
 	// Update is called once per frame
@@ -24,10 +24,11 @@ public class SmoothCamera2D : MonoBehaviour {
 		if (cangrow & gameObject.camera.orthographicSize < 14)
 		{
 			gameObject.camera.orthographicSize += 1;
+
 		}
 		else if (!cangrow & gameObject.camera.orthographicSize > 5)
 		{
-			gameObject.camera.orthographicSize -= 1;
+			gameObject.camera.orthographicSize -= 1;			
 		}
 	}
 }

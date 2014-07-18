@@ -230,7 +230,7 @@ GameObject:
   - 198: {fileID: 19800014}
   - 199: {fileID: 19900014}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: Particle System 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1400,6 +1400,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &100168
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400168}
+  m_Layer: 0
+  m_Name: Enemy Camera Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100170
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400170}
+  m_Layer: 0
+  m_Name: Player Camera Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &400000
 Transform:
   m_ObjectHideFlags: 1
@@ -1462,7 +1492,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.3542862, y: -16.1549778, z: -34.7999992}
+  m_LocalPosition: {x: -15.2337914, y: -16.1549778, z: -34.7999992}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400006}
@@ -1474,7 +1504,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.187233, y: -16.0115452, z: -34.3754883}
+  m_LocalPosition: {x: -18.0667381, y: -16.0115452, z: -34.3754883}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400006}
@@ -1592,6 +1622,8 @@ Transform:
   m_Children:
   - {fileID: 400006}
   - {fileID: 400000}
+  - {fileID: 400106}
+  - {fileID: 400170}
   m_Father: {fileID: 400140}
   m_RootOrder: 2
 --- !u!4 &400030
@@ -1607,7 +1639,7 @@ Transform:
   - {fileID: 400032}
   - {fileID: 400136}
   - {fileID: 400062}
-  - {fileID: 400106}
+  - {fileID: 400168}
   - {fileID: 400156}
   m_Father: {fileID: 400140}
   m_RootOrder: 1
@@ -1705,7 +1737,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100046}
   m_LocalRotation: {x: 0, y: 0, z: .20198442, w: .979388773}
-  m_LocalPosition: {x: 0, y: 0, z: 29.8485184}
+  m_LocalPosition: {x: 3.81469727e-06, y: 0, z: 42.252182}
   m_LocalScale: {x: 20, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 400104}
@@ -2094,12 +2126,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100108}
-  m_LocalRotation: {x: -4.3474806e-09, y: 1.19144588e-08, z: 1.66533454e-16, w: 1}
-  m_LocalPosition: {x: 10.2395782, y: 6.24517059, z: 2.47399998}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.0511741638, y: .46205616, z: 24.1477051}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 400030}
-  m_RootOrder: 3
+  m_Father: {fileID: 400028}
+  m_RootOrder: 2
 --- !u!4 &400108
 Transform:
   m_ObjectHideFlags: 1
@@ -2314,7 +2346,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100138}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -95.2479782, y: -5.32750702, z: 0}
+  m_LocalPosition: {x: -81.0505066, y: -5.32750702, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400104}
@@ -2451,6 +2483,30 @@ Transform:
   - {fileID: 400130}
   - {fileID: 400076}
   m_Father: {fileID: 400072}
+  m_RootOrder: 3
+--- !u!4 &400168
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100168}
+  m_LocalRotation: {x: -4.3474806e-09, y: 1.19144588e-08, z: 1.66533454e-16, w: 1}
+  m_LocalPosition: {x: 10.2395782, y: 6.24517059, z: 2.47399998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400030}
+  m_RootOrder: 3
+--- !u!4 &400170
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100170}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -29.1828117, y: -16.1735306, z: 24.6591988}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400028}
   m_RootOrder: 3
 --- !u!20 &2000000
 Camera:
@@ -3753,7 +3809,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: d3b6d588860e1a74ebd46a16847ec25d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_HasTransformHierarchy: 1
 --- !u!111 &11100000
 Animation:
@@ -4174,10 +4230,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   masterCounterSystem: {fileID: 11400028}
   CounterControl: {fileID: 11400026}
-  camera: {fileID: 0}
-  beamEnemyCamera: {fileID: 0}
-  beamPlayerCamera: {fileID: 0}
-  beamPointTarget: {fileID: 0}
+  camera: {fileID: 11400020}
+  beamEnemyCamera: {fileID: 400106}
+  beamPlayerCamera: {fileID: 400170}
+  beamPointTarget: {fileID: 400000}
+  backgroundAnimator: {fileID: 9500004}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4217,6 +4274,7 @@ MonoBehaviour:
   beamEnemyCamera: {fileID: 0}
   beamPlayerCamera: {fileID: 0}
   beamPointTarget: {fileID: 0}
+  backgroundAnimator: {fileID: 0}
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4370,7 +4428,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dampTime: .100000001
-  target: {fileID: 400106}
+  target: {fileID: 400168}
+  bg: {fileID: 400046}
   cangrow: 0
 --- !u!114 &11400022
 MonoBehaviour:
@@ -4473,19 +4532,36 @@ MonoBehaviour:
   ballFirstSpline: {fileID: 11400030}
   ballLastSpline: {fileID: 11400010}
   fireParticles: {fileID: 19800016}
-  p1Ball: []
-  p2Ball: []
+  p1Ball:
+  - {fileID: 21300000, guid: e448d9091ec55134c9f6e1fac7cfe5ac, type: 3}
+  - {fileID: 21300000, guid: 849c50ab90d41bd498ce673a0807dc11, type: 3}
+  - {fileID: 21300000, guid: 62d54894fda3713439380ba9865724c4, type: 3}
+  p2Ball:
+  - {fileID: 21300000, guid: 091e7b64d0b3fad45bccef728f0e7a54, type: 3}
+  - {fileID: 21300000, guid: 13802b29a7e57d14b99d928dea86f4e2, type: 3}
+  - {fileID: 21300000, guid: ffa7b94a79100894795a7e25d47a11b1, type: 3}
   canMoveContactPoint: 0
-  contactSphere: {fileID: 0}
-  enemyBeam: []
-  playerBeam: []
+  contactSphere: {fileID: 400018}
+  enemyBeam:
+  - {fileID: 19800006}
+  - {fileID: 19800000}
+  - {fileID: 19800012}
+  - {fileID: 19800014}
+  playerBeam:
+  - {fileID: 19800008}
+  - {fileID: 19800010}
+  - {fileID: 19800002}
+  - {fileID: 19800004}
   fivesLaser: 0
-  laserAnimator: {fileID: 0}
-  p1laser: []
-  p2laser: []
-  counterTimer: {fileID: 0}
-  counterTimerBarLeft: {fileID: 0}
-  counterTimerBarRight: {fileID: 0}
+  laserAnimator: {fileID: 9500000}
+  p1laser:
+  - {fileID: 21300000, guid: 4923986cc2072cf4cb002c952e5783ff, type: 3}
+  - {fileID: 21300000, guid: 570c09a3424fafb45860d89818ba5afe, type: 3}
+  - {fileID: 21300000, guid: 5864dce44fdd5054993249a017a4555b, type: 3}
+  p2laser:
+  - {fileID: 21300000, guid: 1028bc21511b7564dab3c880bf4c55d8, type: 3}
+  - {fileID: 21300000, guid: 120ead9e9cd18844983ca1b1ff4af84a, type: 3}
+  - {fileID: 21300000, guid: c426901ed5bb42747a7f5027225a0826, type: 3}
 --- !u!114 &11400028
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4508,7 +4584,7 @@ MonoBehaviour:
   - {fileID: 11400010}
   counterCamera: {fileID: 11400020}
   playerTransform: {fileID: 400038}
-  enemyTransform: {fileID: 400106}
+  enemyTransform: {fileID: 400168}
   toPlayer: 0
   toPlayerPart: {fileID: 19800022}
   fromPlayerPart: {fileID: 19800018}
@@ -4566,6 +4642,7 @@ MonoBehaviour:
   beamEnemyCamera: {fileID: 0}
   beamPlayerCamera: {fileID: 0}
   beamPointTarget: {fileID: 0}
+  backgroundAnimator: {fileID: 0}
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1
@@ -4674,7 +4751,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     startSpeed:
-      scalar: 50
+      scalar: 30
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -18223,7 +18300,7 @@ ParticleSystemRenderer:
   m_RenderMode: 1
   m_MaxParticleSize: .5
   m_CameraVelocityScale: 0
-  m_VelocityScale: -.0799999982
+  m_VelocityScale: -.119999997
   m_LengthScale: 1
   m_SortingFudge: 0
   m_NormalDirection: 1
@@ -18320,7 +18397,7 @@ ParticleSystemRenderer:
   m_MaxParticleSize: .5
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
-  m_LengthScale: 2
+  m_LengthScale: 1
   m_SortingFudge: 0
   m_NormalDirection: 1
   m_SortMode: 0
