@@ -28,6 +28,7 @@ public class CounterControl : MonoBehaviour {
 	public Animator laserAnimator;
 	public Sprite[] p1laser;
 	public Sprite[] p2laser;
+	public float enemyBeamPush;
 
 	// Use this for initialization
 	void Start () {
@@ -39,6 +40,7 @@ public class CounterControl : MonoBehaviour {
 		GameManager = GameObject.Find ("Game");
 		fireParticles.enableEmission = false;
 		fivesLaser = 10;
+		enemyBeamPush = 0.5f;
 	}
 	
 	// Update is called once per frame
@@ -53,6 +55,15 @@ public class CounterControl : MonoBehaviour {
 				}
 			}
 			counterSequence(GameManager.GetComponent<GameControl>().counterNum);
+			if (GameManager.GetComponent<GameControl>().counterNum == 2 & canMoveContactPoint)
+			{
+				enemyBeamPush -= Time.deltaTime;
+			}
+			if (enemyBeamPush <= 0)
+			{
+				fivesLaser -= 1;
+				enemyBeamPush = 0.5f;
+			}
 		}
 		else
 		{
@@ -131,7 +142,10 @@ public class CounterControl : MonoBehaviour {
 			//lasers counter
 			if (canMoveContactPoint)
 			{
-
+				if (PlayerControl.GetComponent<SequenceControls>().checkBothEvents() & pictogramsInRangeBall() & !failed)
+				{
+					fivesLaser += 1;
+				}
 
 			}
 			break;
@@ -192,5 +206,13 @@ public class CounterControl : MonoBehaviour {
 	private bool pictogramsFailedBall () {
 		return (Mathf.Abs (promptLeft.transform.localPosition.x - promptRight.transform.localPosition.x) <= 2.5);
 	}
+	private bool pictogramsInRangeLaser () {
+		//check left both are the same
+		return (promptLeft.GetComponent<SpriteRenderer>().sprite == p1laser[0]);
+	}
+	/*
+	private bool pictogramsFailedLaser () {
+		return (Mathf.Abs (promptLeft.transform.localPosition.x - promptRight.transform.localPosition.x) <= 2.5);
+	}*/
 
 }

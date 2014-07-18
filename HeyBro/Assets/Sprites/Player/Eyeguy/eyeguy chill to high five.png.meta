@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: c027bceda9ccd5f48a18f6ee5eb3a2aa
+guid: 93f015254cf427746bd05a5e7bd0d1dd
 TextureImporter:
   fileIDToRecycleName:
-    21300000: eyeguy hands up
+    21300000: eyeguy chill to high five
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -26,9 +26,9 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: 1
+    aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapMode: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
