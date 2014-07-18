@@ -390,6 +390,22 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11400026, guid: 2916b188e77c1c24f911e03c7cdce4ef, type: 2}
+      propertyPath: p1Ball.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400026, guid: 2916b188e77c1c24f911e03c7cdce4ef, type: 2}
+      propertyPath: p2Ball.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400026, guid: 2916b188e77c1c24f911e03c7cdce4ef, type: 2}
+      propertyPath: enemyBeam.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400026, guid: 2916b188e77c1c24f911e03c7cdce4ef, type: 2}
+      propertyPath: playerBeam.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 400140, guid: 2916b188e77c1c24f911e03c7cdce4ef, type: 2}
       propertyPath: m_LocalPosition.x
       value: -95.2479782
@@ -420,7 +436,73 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400140, guid: 2916b188e77c1c24f911e03c7cdce4ef, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400026, guid: 2916b188e77c1c24f911e03c7cdce4ef, type: 2}
+      propertyPath: p1Ball.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: e448d9091ec55134c9f6e1fac7cfe5ac,
+        type: 3}
+    - target: {fileID: 11400026, guid: 2916b188e77c1c24f911e03c7cdce4ef, type: 2}
+      propertyPath: p1Ball.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 849c50ab90d41bd498ce673a0807dc11,
+        type: 3}
+    - target: {fileID: 11400026, guid: 2916b188e77c1c24f911e03c7cdce4ef, type: 2}
+      propertyPath: p1Ball.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 62d54894fda3713439380ba9865724c4,
+        type: 3}
+    - target: {fileID: 11400026, guid: 2916b188e77c1c24f911e03c7cdce4ef, type: 2}
+      propertyPath: p2Ball.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 091e7b64d0b3fad45bccef728f0e7a54,
+        type: 3}
+    - target: {fileID: 11400026, guid: 2916b188e77c1c24f911e03c7cdce4ef, type: 2}
+      propertyPath: p2Ball.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 13802b29a7e57d14b99d928dea86f4e2,
+        type: 3}
+    - target: {fileID: 11400026, guid: 2916b188e77c1c24f911e03c7cdce4ef, type: 2}
+      propertyPath: p2Ball.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: ffa7b94a79100894795a7e25d47a11b1,
+        type: 3}
+    - target: {fileID: 11400026, guid: 2916b188e77c1c24f911e03c7cdce4ef, type: 2}
+      propertyPath: contactSphere
+      value: 
+      objectReference: {fileID: 896047842}
+    - target: {fileID: 19900006, guid: 2916b188e77c1c24f911e03c7cdce4ef, type: 2}
+      propertyPath: m_LengthScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400026, guid: 2916b188e77c1c24f911e03c7cdce4ef, type: 2}
+      propertyPath: enemyBeam.Array.data[0]
+      value: 
+      objectReference: {fileID: 896047844}
+    - target: {fileID: 11400026, guid: 2916b188e77c1c24f911e03c7cdce4ef, type: 2}
+      propertyPath: enemyBeam.Array.data[1]
+      value: 
+      objectReference: {fileID: 1352946458}
+    - target: {fileID: 11400026, guid: 2916b188e77c1c24f911e03c7cdce4ef, type: 2}
+      propertyPath: enemyBeam.Array.data[2]
+      value: 
+      objectReference: {fileID: 233701898}
+    - target: {fileID: 11400026, guid: 2916b188e77c1c24f911e03c7cdce4ef, type: 2}
+      propertyPath: enemyBeam.Array.data[3]
+      value: 
+      objectReference: {fileID: 1630075715}
+    - target: {fileID: 100026, guid: 2916b188e77c1c24f911e03c7cdce4ef, type: 2}
+      propertyPath: m_Name
+      value: Particle System 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 2916b188e77c1c24f911e03c7cdce4ef, type: 2}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900000, guid: 2916b188e77c1c24f911e03c7cdce4ef, type: 2}
+      propertyPath: m_VelocityScale
+      value: -.119999997
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2916b188e77c1c24f911e03c7cdce4ef, type: 2}
@@ -7103,7 +7185,7 @@ Transform:
   - {fileID: 1726635978}
   - {fileID: 492561889}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!114 &394999266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7136,12 +7218,26 @@ MonoBehaviour:
   ballFirstSpline: {fileID: 414929185}
   ballLastSpline: {fileID: 1944125169}
   fireParticles: {fileID: 858521802}
-  p1Ball: []
-  p2Ball: []
+  p1Ball:
+  - {fileID: 21300000, guid: e448d9091ec55134c9f6e1fac7cfe5ac, type: 3}
+  - {fileID: 21300000, guid: 849c50ab90d41bd498ce673a0807dc11, type: 3}
+  - {fileID: 21300000, guid: 62d54894fda3713439380ba9865724c4, type: 3}
+  p2Ball:
+  - {fileID: 21300000, guid: 091e7b64d0b3fad45bccef728f0e7a54, type: 3}
+  - {fileID: 21300000, guid: 13802b29a7e57d14b99d928dea86f4e2, type: 3}
+  - {fileID: 21300000, guid: ffa7b94a79100894795a7e25d47a11b1, type: 3}
   canMoveContactPoint: 0
-  contactSphere: {fileID: 0}
-  enemyBeam: []
-  playerBeam: []
+  contactSphere: {fileID: 896047842}
+  enemyBeam:
+  - {fileID: 896047844}
+  - {fileID: 1352946458}
+  - {fileID: 233701898}
+  - {fileID: 1630075715}
+  playerBeam:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   fivesLaser: 0
   laserAnimator: {fileID: 0}
   p1laser: []
@@ -17236,7 +17332,7 @@ ParticleSystemRenderer:
   m_MaxParticleSize: .5
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
-  m_LengthScale: 2
+  m_LengthScale: 1
   m_SortingFudge: 0
   m_NormalDirection: 1
   m_SortMode: 0
@@ -20961,7 +21057,7 @@ Transform:
   m_Children:
   - {fileID: 1536569933}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!114 &1057296445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27450,7 +27546,7 @@ ParticleSystemRenderer:
   m_RenderMode: 1
   m_MaxParticleSize: .5
   m_CameraVelocityScale: 0
-  m_VelocityScale: -.0799999982
+  m_VelocityScale: -.119999997
   m_LengthScale: 1
   m_SortingFudge: 0
   m_NormalDirection: 1
@@ -27510,7 +27606,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     startSpeed:
-      scalar: 50
+      scalar: 30
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -30778,7 +30874,7 @@ GameObject:
   - 198: {fileID: 1630075715}
   - 199: {fileID: 1630075714}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: Particle System 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
