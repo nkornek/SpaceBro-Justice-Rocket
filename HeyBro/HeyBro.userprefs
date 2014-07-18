@@ -1,13 +1,21 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameControl.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CounterControl.cs">
     <Files>
-      <File FileName="Assets\Scripts\GameControl.cs" Line="494" Column="9" />
-      <File FileName="Assets\Scripts\CounterControl.cs" Line="149" Column="64" />
+      <File FileName="Assets\Scripts\SmoothCamera2D.cs" Line="26" Column="43" />
+      <File FileName="Assets\Scripts\Counter_Animation_Triggers.cs" Line="43" Column="37" />
+      <File FileName="Assets\Scripts\CounterControl.cs" Line="180" Column="54" />
+      <File FileName="Assets\Scripts\SmoothCamera2D.cs" Line="33" Column="2" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
-        <State expanded="True" selected="True" />
+        <State expanded="True">
+          <Node name="Assembly-CSharp" expanded="True">
+            <Node name="Scripts" expanded="True">
+              <Node name="CounterControl.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

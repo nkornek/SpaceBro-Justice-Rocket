@@ -10,9 +10,6 @@ public class CounterControl : MonoBehaviour {
 	public Animator bgAnimator, enemyAnimator;
 	public int damage;
 	public bool blocked, failed, speedup;
-	public Sprite p1FiveNorm, p1FistNorm, p1ElbowNorm, p2FiveNorm, p2FistNorm, p2ElbowNorm;
-	public Sprite p1FiveSuccess, p1FistSuccess, p1ElbowSuccess, p2FiveSuccess, p2FistSuccess, p2ElbowSuccess;
-	public Sprite p1FiveFail, p1FistFail, p1ElbowFail, p2FiveFail, p2FistFail, p2ElbowFail;
 
 
 	//specifict counter sequence variables
@@ -20,6 +17,18 @@ public class CounterControl : MonoBehaviour {
 	public int ballReflected;
 	public SplineNode ballFirstSpline, ballLastSpline;
 	public ParticleSystem fireParticles;
+	public Sprite[] p1Ball;
+	public Sprite[] p2Ball;
+
+	public bool canMoveContactPoint;
+	public Transform contactSphere;
+	public ParticleSystem[] enemyBeam;
+	public ParticleSystem[] playerBeam;
+	public int fivesLaser;
+	public Animator laserAnimator;
+	public Sprite[] p1laser;
+	public Sprite[] p2laser;
+	public GameObject counterTimer, counterTimerBarLeft, counterTimerBarRight;
 
 	// Use this for initialization
 	void Start () {
@@ -30,6 +39,7 @@ public class CounterControl : MonoBehaviour {
 		EnemyControls = GameObject.Find ("Enemy");
 		GameManager = GameObject.Find ("Game");
 		fireParticles.enableEmission = false;
+		fivesLaser = 10;
 	}
 	
 	// Update is called once per frame
@@ -37,7 +47,7 @@ public class CounterControl : MonoBehaviour {
 		if (GameManager.GetComponent<GameControl>().counterActive)
 		{
 			if (!hasResetInput) {
-				if (pictogramsInRange ()) {
+				if (pictogramsInRangeBall ()) {
 					PlayerControl.GetComponent<SequenceControls>().detectedA = -1;
 					PlayerControl.GetComponent<SequenceControls>().detectedB = -2;
 					hasResetInput = true;
@@ -53,28 +63,28 @@ public class CounterControl : MonoBehaviour {
 	}
 	public void counterSequence (int whichSequence) {
 		switch (whichSequence) {
-			case 1:
+		case 1:
 			//energy ball counter
 			if (energyBallObject.transform.localPosition.x > 12.0f & !blocked & !failed)
 			{		
 				promptLeft.GetComponent<SpriteRenderer> ().enabled = true;
 				promptRight.GetComponent<SpriteRenderer> ().enabled = true;
-				promptLeft.GetComponent<SpriteRenderer>().sprite = p1FiveNorm;		
-				promptRight.GetComponent<SpriteRenderer>().sprite = p2FiveNorm;
+				promptLeft.GetComponent<SpriteRenderer>().sprite = p1Ball[0];		
+				promptRight.GetComponent<SpriteRenderer>().sprite = p2Ball[0];
 				promptLeft.transform.localPosition = new Vector3 (-1 - (Mathf.Abs(energyBallObject.transform.localPosition.x - 27))/3, promptLeft.transform.localPosition.y, 1f);
 				promptRight.transform.localPosition = new Vector3 (1 + (Mathf.Abs(energyBallObject.transform.localPosition.x - 27))/3, promptRight.transform.localPosition.y, 1f);
 			}
-			if (PlayerControl.GetComponent<SequenceControls>().checkBothEvents() && pictogramsInRange() & !blocked & !failed){
+			if (PlayerControl.GetComponent<SequenceControls>().checkBothEvents() && pictogramsInRangeBall() & !blocked & !failed){
 				blocked = true;
 				speedup = true;
 				ballReflected ++;
 				CounterAnimations.toPlayer = false;
-				promptLeft.GetComponent<SpriteRenderer>().sprite = p1FiveSuccess;		
-				promptRight.GetComponent<SpriteRenderer>().sprite = p2FiveSuccess;
+				promptLeft.GetComponent<SpriteRenderer>().sprite = p1Ball[1];		
+				promptRight.GetComponent<SpriteRenderer>().sprite = p2Ball[1];
 				Invoke ("hidePrompts", 0.2f);
 			}
 			//player fail
-			if (pictogramsFailed() & !failed)
+			if (pictogramsFailedBall() & !failed)
 			{
 				if (blocked)
 				{
@@ -90,8 +100,8 @@ public class CounterControl : MonoBehaviour {
 				else
 				{
 					failed = true;
-					promptLeft.GetComponent<SpriteRenderer>().sprite = p1FiveFail;		
-					promptRight.GetComponent<SpriteRenderer>().sprite = p2FiveFail;
+					promptLeft.GetComponent<SpriteRenderer>().sprite = p1Ball[2];		
+					promptRight.GetComponent<SpriteRenderer>().sprite = p2Ball[2];
 					energyBallObject.GetComponent<ParticleSystem>().Emit(800);
 					energyBallObject.GetComponent<ParticleSystem>().enableEmission = false;
 					energyBallObject.GetComponent<SpriteRenderer>().enabled = false;				
@@ -118,12 +128,23 @@ public class CounterControl : MonoBehaviour {
 				}
 			}
 			break;
+		case 2:
+			//lasers counter
+			if (canMoveContactPoint)
+			{
+
+
+			}
+			break;
 		}
 	}
 
 	public void hidePrompts () {
 		promptLeft.GetComponent<SpriteRenderer> ().enabled = false;
 		promptRight.GetComponent<SpriteRenderer> ().enabled = false;
+		counterTimer.GetComponent<SpriteRenderer>().enabled = false;
+		counterTimerBarLeft.GetComponent<SpriteRenderer>().enabled = false;
+		counterTimerBarRight.GetComponent<SpriteRenderer>().enabled = false;
 		}
 	public void endCounter () {
 		GameManager.GetComponent<GameControl>().counterActive = false;
@@ -141,19 +162,35 @@ public class CounterControl : MonoBehaviour {
 		GameObject go = Instantiate(Resources.Load("Counters")) as GameObject;
 		}
 
+	public void ShowBeamPrompts () {
+		promptLeft.GetComponent<SpriteRenderer>().enabled = true;
+		promptRight.GetComponent<SpriteRenderer>().enabled = true;
+		counterTimer.GetComponent<SpriteRenderer>().enabled = true;
+		counterTimerBarRight.GetComponent<SpriteRenderer>().enabled = true;	
+		counterTimerBarLeft.GetComponent<SpriteRenderer>().enabled = true;
+		}
+
 	public void StartCounter () {
 		GameObject.Find("Forcefield").GetComponent<Display_Forcefield>().showField = false;
-		fireParticles.enableEmission = true;
 		bgAnimator.SetTrigger ("In");
-		enemyAnimator.SetTrigger ("StartIntro");		
-		GameManager.GetComponent<GameControl>().counterActive = true;
-
+		if (GameManager.GetComponent<GameControl>().counterNum == 1)
+		{
+			fireParticles.enableEmission = true;
+			enemyAnimator.SetTrigger ("StartIntro");		
+			GameManager.GetComponent<GameControl>().counterActive = true;
+		}
+		else if (GameManager.GetComponent<GameControl>().counterNum == 2)
+		{
+			laserAnimator.SetTrigger("StartCounter");
+			promptLeft.GetComponent<SpriteRenderer>().sprite = p1laser[0];		
+			promptRight.GetComponent<SpriteRenderer>().sprite = p2laser[0];
+		}
 	}
 
-	private bool pictogramsInRange () {
+	private bool pictogramsInRangeBall () {
 		return (Mathf.Abs (promptLeft.transform.localPosition.x - promptRight.transform.localPosition.x) <= 4);
 	}
-	private bool pictogramsFailed () {
+	private bool pictogramsFailedBall () {
 		return (Mathf.Abs (promptLeft.transform.localPosition.x - promptRight.transform.localPosition.x) <= 2.5);
 	}
 
