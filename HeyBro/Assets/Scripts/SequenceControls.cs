@@ -349,9 +349,9 @@ public class SequenceControls : MonoBehaviour {
 		}
 		
 		else {
-			palmA 	= Input.GetKey(KeyCode.Alpha1); 		// these will correspond to specific button inputs 
+			palmA 	= Input.GetKey(KeyCode.Alpha3); 		// these will correspond to specific button inputs 
 			fistA 	= Input.GetKey(KeyCode.Alpha2);
-			elbowA	= Input.GetKey(KeyCode.Alpha3);
+			elbowA	= Input.GetKey(KeyCode.Alpha1);
 		}
 		// (1) touch detected from player A
 		touchDetectedA = true;
