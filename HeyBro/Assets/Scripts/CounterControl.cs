@@ -19,6 +19,7 @@ public class CounterControl : MonoBehaviour {
 	public ParticleSystem fireParticles;
 	public Sprite[] p1Ball;
 	public Sprite[] p2Ball;
+	public SpriteRenderer[] ballSprites;
 
 	public bool canMoveContactPoint;
 	public Transform contactSphere;
@@ -28,7 +29,8 @@ public class CounterControl : MonoBehaviour {
 	public Animator laserAnimator;
 	public Sprite[] p1laser;
 	public Sprite[] p2laser;
-	public float enemyBeamPush;
+	public float enemyBeamPush;	
+	public SpriteRenderer[] laserSprites;
 
 	// Use this for initialization
 	void Start () {
@@ -39,8 +41,17 @@ public class CounterControl : MonoBehaviour {
 		EnemyControls = GameObject.Find ("Enemy");
 		GameManager = GameObject.Find ("Game");
 		fireParticles.enableEmission = false;
-		fivesLaser = 10;
+		fivesLaser = 0;
 		enemyBeamPush = 0.5f;
+
+		foreach (SpriteRenderer r in ballSprites)
+		{
+			r.enabled = false;
+		}
+		foreach (SpriteRenderer r in laserSprites)
+		{
+			r.enabled = false;
+		}
 	}
 	
 	// Update is called once per frame
@@ -55,15 +66,6 @@ public class CounterControl : MonoBehaviour {
 				}
 			}
 			counterSequence(GameManager.GetComponent<GameControl>().counterNum);
-			if (GameManager.GetComponent<GameControl>().counterNum == 2 & canMoveContactPoint)
-			{
-				enemyBeamPush -= Time.deltaTime;
-			}
-			if (enemyBeamPush <= 0)
-			{
-				fivesLaser -= 1;
-				enemyBeamPush = 0.5f;
-			}
 		}
 		else
 		{
@@ -118,7 +120,7 @@ public class CounterControl : MonoBehaviour {
 					Invoke ("hidePrompts", 0.2f);
 					ballLastSpline.type = SplineNode.Type.STOP;					
 					Invoke ("endCounter", 1);
-					PlayerControl.GetComponent<SequenceControls>().hp -= 20;
+					damagePlayer();
 				}
 			}
 			//hit enemy
@@ -142,15 +144,72 @@ public class CounterControl : MonoBehaviour {
 			//lasers counter
 			if (canMoveContactPoint)
 			{
-				if (PlayerControl.GetComponent<SequenceControls>().checkBothEvents() & pictogramsInRangeBall() & !failed)
+				enemyBeamPush -= Time.deltaTime;
+				if (PlayerControl.GetComponent<SequenceControls>().checkBothEvents() & pictogramsInRangeLaser() & !failed)
 				{
 					fivesLaser += 1;
+					promptLeft.GetComponent<SpriteRenderer>().sprite = p1laser[1];
+					promptRight.GetComponent<SpriteRenderer>().sprite = p2laser[1];
+					Invoke ("ResetLaserPrompts", 0.1f);
+					contactSphere.Translate (Vector3.forward * 1.5f, Space.Self);
+					foreach (ParticleSystem pp in playerBeam)
+					{
+						pp.startLifetime += 0.06f;
+					}
+					foreach (ParticleSystem pe in enemyBeam)
+					{
+						pe.startLifetime -= 0.06f;
+					}
 				}
-
+				if (enemyBeamPush <= 0)
+				{
+					fivesLaser -= 1;
+					enemyBeamPush = 0.5f;
+					contactSphere.Translate (Vector3.back * 1.5f, Space.Self);
+					foreach (ParticleSystem pp in playerBeam)
+					{
+						pp.startLifetime -= 0.06f;
+					}
+					foreach (ParticleSystem pe in enemyBeam)
+					{
+						pe.startLifetime += 0.06f;
+					}
+				}
+				if (pictogramsWonLaser() || pictogramsFailedLaser() )
+				{
+					canMoveContactPoint = false;
+					laserAnimator.SetTrigger("EndCounter");
+					hidePrompts();
+					if (pictogramsWonLaser() )
+					{
+						laserAnimator.SetTrigger("PlayerWon");
+						Invoke ("damageEnemy", 1);
+						Invoke ("endCounter", 3);
+						foreach (ParticleSystem pe in enemyBeam)
+						{
+							pe.startLifetime = 0;
+						}
+					}
+					else if (pictogramsFailedLaser() )
+					{
+						laserAnimator.SetTrigger("EnemyWon");
+						Invoke ("damagePlayer", 1);
+						Invoke ("endCounter", 3);
+						foreach (ParticleSystem pp in playerBeam)
+						{
+							pp.startLifetime = 0;
+						}
+					}
+				}
 			}
-			break;
+		break;
 		}
 	}
+
+	public void ResetLaserPrompts () {
+		promptLeft.GetComponent<SpriteRenderer>().sprite = p1laser[0];
+		promptRight.GetComponent<SpriteRenderer>().sprite = p2laser[0];
+		}
 
 	public void hidePrompts () {
 		promptLeft.GetComponent<SpriteRenderer> ().enabled = false;
@@ -164,6 +223,9 @@ public class CounterControl : MonoBehaviour {
 	public void damageEnemy() {
 		EnemyControls.GetComponent<EnemyControls>().DamageEnemy (damage);
 		}
+	public void damagePlayer() {
+		PlayerControl.GetComponent<SequenceControls>().hp -= 20;
+		}
 
 	public void Reset () {
 		GameObject.Find ("Game").GetComponent<GameControl> ().paused = false;
@@ -175,16 +237,28 @@ public class CounterControl : MonoBehaviour {
 	public void ShowBeamPrompts () {
 		promptLeft.GetComponent<SpriteRenderer>().enabled = true;
 		promptRight.GetComponent<SpriteRenderer>().enabled = true;
+		foreach (ParticleSystem pp in playerBeam)
+		{
+			pp.startLifetime = 0.8f;
+		}
+		foreach (ParticleSystem pe in enemyBeam)
+		{
+			pe.startLifetime = 0.65f;
+		}
 		}
 
 	public void StartCounter () {
 		GameObject.Find("Forcefield").GetComponent<Display_Forcefield>().showField = false;
-		bgAnimator.SetTrigger ("In");
+		bgAnimator.SetTrigger ("In");	
+		GameManager.GetComponent<GameControl>().counterActive = true;
 		if (GameManager.GetComponent<GameControl>().counterNum == 1)
 		{
 			fireParticles.enableEmission = true;
-			enemyAnimator.SetTrigger ("StartIntro");		
-			GameManager.GetComponent<GameControl>().counterActive = true;
+			enemyAnimator.SetTrigger ("StartIntro");
+			foreach (SpriteRenderer r in ballSprites)
+			{
+				r.enabled = true;
+			}
 		}
 		else if (GameManager.GetComponent<GameControl>().counterNum == 2)
 		{
@@ -197,6 +271,10 @@ public class CounterControl : MonoBehaviour {
 			promptRight.transform.localPosition = new Vector3 (3.5f, 7.5f, promptLeft.transform.localPosition.z);
 			promptLeft.transform.localRotation = Quaternion.Euler (0, 0, 30);			
 			promptRight.transform.localRotation = Quaternion.Euler (0, 0, 30);
+			foreach (SpriteRenderer r in laserSprites)
+			{
+				r.enabled = enabled;
+			}
 		}
 	}
 
@@ -210,9 +288,10 @@ public class CounterControl : MonoBehaviour {
 		//check left both are the same
 		return (promptLeft.GetComponent<SpriteRenderer>().sprite == p1laser[0]);
 	}
-	/*
 	private bool pictogramsFailedLaser () {
-		return (Mathf.Abs (promptLeft.transform.localPosition.x - promptRight.transform.localPosition.x) <= 2.5);
-	}*/
-
+		return (fivesLaser <= -13);
+	}
+	private bool pictogramsWonLaser () {
+		return (fivesLaser >= 12);
+	}
 }

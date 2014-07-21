@@ -196,7 +196,7 @@ GameObject:
   - 198: {fileID: 19800010}
   - 199: {fileID: 19900010}
   m_Layer: 0
-  m_Name: Particle System 2
+  m_Name: Particle System 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -250,7 +250,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &100030
 GameObject:
   m_ObjectHideFlags: 0
@@ -1555,7 +1555,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100018}
   m_LocalRotation: {x: .183012769, y: -.683012724, z: -.183012769, w: -.683012724}
-  m_LocalPosition: {x: 2.61857224, y: -5.46798754, z: -30.7244034}
+  m_LocalPosition: {x: 2.5999999, y: -5.46798754, z: -30.7244034}
   m_LocalScale: {x: 2.71490693, y: 2.71490788, z: 2.71490812}
   m_Children:
   - {fileID: 400020}
@@ -4540,16 +4540,18 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 091e7b64d0b3fad45bccef728f0e7a54, type: 3}
   - {fileID: 21300000, guid: 13802b29a7e57d14b99d928dea86f4e2, type: 3}
   - {fileID: 21300000, guid: ffa7b94a79100894795a7e25d47a11b1, type: 3}
+  ballSprites:
+  - {fileID: 21200008}
+  - {fileID: 21200022}
+  - {fileID: 21200010}
+  - {fileID: 21200014}
   canMoveContactPoint: 0
   contactSphere: {fileID: 400018}
   enemyBeam:
-  - {fileID: 19800006}
   - {fileID: 19800000}
   - {fileID: 19800012}
   - {fileID: 19800014}
   playerBeam:
-  - {fileID: 19800008}
-  - {fileID: 19800010}
   - {fileID: 19800002}
   - {fileID: 19800004}
   fivesLaser: 0
@@ -4563,6 +4565,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 120ead9e9cd18844983ca1b1ff4af84a, type: 3}
   - {fileID: 21300000, guid: c426901ed5bb42747a7f5027225a0826, type: 3}
   enemyBeamPush: 0
+  laserSprites:
+  - {fileID: 21200000}
+  - {fileID: 21200002}
+  - {fileID: 21200004}
+  - {fileID: 21200006}
 --- !u!114 &11400028
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4719,7 +4726,7 @@ ParticleSystem:
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: 1
+      scalar: .649999976
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4946,7 +4953,7 @@ ParticleSystem:
       minMaxState: 0
     gravityModifier: 0
     inheritVelocity: 0
-    maxNumParticles: 1000
+    maxNumParticles: 3000
   ShapeModule:
     serializedVersion: 2
     enabled: 1
@@ -5761,7 +5768,7 @@ ParticleSystem:
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: 2
+      scalar: .800000012
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5978,7 +5985,7 @@ ParticleSystem:
       minMaxState: 0
     gravityModifier: 0
     inheritVelocity: 0
-    maxNumParticles: 2000
+    maxNumParticles: 3000
   ShapeModule:
     serializedVersion: 2
     enabled: 1
@@ -6803,7 +6810,7 @@ ParticleSystem:
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: 2
+      scalar: .800000012
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -7020,7 +7027,7 @@ ParticleSystem:
       minMaxState: 0
     gravityModifier: 0
     inheritVelocity: 0
-    maxNumParticles: 2000
+    maxNumParticles: 3000
   ShapeModule:
     serializedVersion: 2
     enabled: 1
@@ -11001,7 +11008,7 @@ ParticleSystem:
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: 2
+      scalar: .649999976
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -11228,7 +11235,7 @@ ParticleSystem:
       minMaxState: 0
     gravityModifier: 0
     inheritVelocity: 0
-    maxNumParticles: 2000
+    maxNumParticles: 3000
   ShapeModule:
     serializedVersion: 2
     enabled: 1
@@ -12053,7 +12060,7 @@ ParticleSystem:
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: 2
+      scalar: .649999976
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -12280,7 +12287,7 @@ ParticleSystem:
       minMaxState: 0
     gravityModifier: 0
     inheritVelocity: 0
-    maxNumParticles: 2000
+    maxNumParticles: 3000
   ShapeModule:
     serializedVersion: 2
     enabled: 1
