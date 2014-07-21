@@ -4,6 +4,9 @@ using System.Collections;
 public class Counter_Animation_Triggers : MonoBehaviour {
 	public CounterAnimations masterCounterSystem;
 	public CounterControl CounterControl;
+	public SmoothCamera2D camera;
+	public Transform beamEnemyCamera, beamPlayerCamera, beamPointTarget;
+	public Animator backgroundAnimator;
 
 	// Use this for initialization
 	void Start () {
@@ -21,5 +24,25 @@ public class Counter_Animation_Triggers : MonoBehaviour {
 	
 	public void TriggerReset () {
 		CounterControl.Reset ();
+	}
+
+	void BeamEnemyCameraTarget() {
+		camera.target = beamEnemyCamera;
+		camera.cangrow = false;
+
+	}
+	void BeamPlayerCameraTarget() {
+		camera.target = beamPlayerCamera;
+		camera.cangrow = false;
+	}
+	void BeamPointCameraTarget () {
+		camera.target = beamPointTarget;
+		camera.cangrow = true;
+		Invoke ("CanMoveBeamContact", 1);
+		backgroundAnimator.SetTrigger("scaleup");
+	}
+	void CanMoveBeamContact () {
+		CounterControl.canMoveContactPoint = true;
+		CounterControl.ShowBeamPrompts ();
 	}
 }

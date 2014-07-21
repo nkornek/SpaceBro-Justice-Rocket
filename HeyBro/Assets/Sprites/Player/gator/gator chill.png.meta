@@ -1,6 +1,8 @@
 fileFormatVersion: 2
-guid: 67f59410b056baf44b6fcad70a2d7892
+guid: ec0f4f5d50decae49a24a0c1ccfe4b81
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: gator chill
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

@@ -1,6 +1,8 @@
 fileFormatVersion: 2
-guid: c062c100373918a4bad3b8df8bd2b293
+guid: 6c72640470883b140b82f00dc5edd0ea
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: eyeguy chill
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

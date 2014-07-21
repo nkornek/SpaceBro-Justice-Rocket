@@ -1,6 +1,8 @@
 fileFormatVersion: 2
-guid: 98554bd44dd5ae242830566352b7ce26
+guid: 823130f924480184386c3bfd58db685c
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: eyeguy chill to attack
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
