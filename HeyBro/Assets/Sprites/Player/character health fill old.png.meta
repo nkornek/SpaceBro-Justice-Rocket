@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 5b31367f5f47aa744b2ae448d089a54b
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: character health fill old
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -24,9 +26,9 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 1
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
