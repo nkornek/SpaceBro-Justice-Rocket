@@ -11376,7 +11376,7 @@ MonoBehaviour:
   detectedA: 0
   detectedB: 0
   minEnum: 0
-  maxEnum: 4
+  maxEnum: 3
   correctA: 0
   correctB: 0
   palmA: 0
