@@ -45,4 +45,10 @@ public class Counter_Animation_Triggers : MonoBehaviour {
 		CounterControl.canMoveContactPoint = true;
 		CounterControl.ShowBeamPrompts ();
 	}
+
+	void endBeamBG () {
+		backgroundAnimator.SetTrigger("scaledown");
+		camera.cangrow = false;
+	}
+
 }

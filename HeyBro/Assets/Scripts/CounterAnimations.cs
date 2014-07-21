@@ -17,7 +17,8 @@ public class CounterAnimations : MonoBehaviour {
 		energyBallObject.GetComponent<SpriteRenderer> ().enabled = false;
 		energyBallObject.GetComponent<ParticleSystem> ().enableEmission = false;
 		game = GameObject.Find ("Game").GetComponent<GameControl>();
-	
+		toPlayerPart.enableEmission = false;
+		fromPlayerPart.enableEmission = false;
 	}
 	
 	// Update is called once per frame
