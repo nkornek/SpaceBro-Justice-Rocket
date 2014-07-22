@@ -9,9 +9,11 @@ public class HealthBarEnemy : MonoBehaviour {
 	
 	public float curPerc;
 	public float targetPerc;
-	public GameObject barLeft, healthBar;
+	public GameObject barLeft; //healthBar;
 	public bool CanFadeIn, fadeSwitch;
 	public float alpha;
+
+	public Transform[] hpParts;
 
 	// Use this for initialization
 	void Start () {
@@ -53,20 +55,34 @@ public class HealthBarEnemy : MonoBehaviour {
 				if (fadeSwitch & CanFadeIn)
 				{
 					fadeSwitch = false;
-					Invoke ("FadeOutStart", 0.7f);
+					Invoke ("FadeOutStart", 1f);
 				}
 			}
 			else {
 				CanFadeIn = true;
 				if (alpha > 0.9f)
 				{
-				curPerc = Mathf.Lerp (curPerc, targetPerc, 0.03f);
+				curPerc = Mathf.Lerp (curPerc, targetPerc, 0.05f);
 				}
 
-			}			
-			healthBar.transform.localScale = new Vector3 (max_XScale * curPerc, yScale, 1f);
-			barLeft.transform.localPosition = new Vector3 ( -1.84f - (max_XScale * curPerc * 1.13333333333333333f), barLeft.transform.localPosition.y, 0);
-		}		
+			}
+		}
+		for (int i = 0; i < 5; i++)
+		{
+			if (curPerc > 0.2f*i)
+			{
+				if (curPerc >= 0.2f*i + 0.2f)
+				{
+					hpParts[i].localScale = new Vector3 (hpParts[i].localScale.x, 1, hpParts[i].localScale.z);
+				}
+				else
+				{
+					hpParts[i].localScale = new Vector3 (hpParts[i].localScale.x, (curPerc - 0.2f*i)/0.2f, hpParts[i].localScale.z);
+				}
+			}
+		}
+			//healthBar.transform.localScale = new Vector3 (max_XScale * curPerc, yScale, 1f);
+			//barLeft.transform.localPosition = new Vector3 ( -1.84f - (max_XScale * curPerc * 1.13333333333333333f), barLeft.transform.localPosition.y, 0);
 	}
 public void FadeOutStart(){
 		CanFadeIn = false;
