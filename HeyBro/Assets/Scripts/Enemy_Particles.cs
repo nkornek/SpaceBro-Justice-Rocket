@@ -10,7 +10,7 @@ public class Enemy_Particles : MonoBehaviour {
 	public AudioClip laserSound;
 	public AudioSource attackAudio;
 	public float attackTime;
-	public BoxCollider forcefield;
+	public SphereCollider forcefield;
 	public float rotation;
 	public Animator enemyAnimations;
 

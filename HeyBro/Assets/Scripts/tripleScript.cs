@@ -87,6 +87,7 @@ public class tripleScript : MonoBehaviour {
 		triple2Right.enabled = true;
 		triple3Right.enabled = true;
 		tripleSeqNum = 1;
+		gameManager.GetComponent<GameControl> ().SetTimer (1);
 	switch (makeTriple){
 		case 0:			
 			triple1Left.sprite = tripleFiveLeft;
@@ -151,24 +152,24 @@ public class tripleScript : MonoBehaviour {
 		case 1:
 			triple1Left.color = new Color(1f, 1f, 1f, 1f);
 			triple1Right.color = new Color(1f, 1f, 1f, 1f);
-			triple2Left.color = new Color(1f, 1f, 1f, 0.5f);
-			triple2Right.color = new Color(1f, 1f, 1f, 0.5f);
-			triple3Left.color = new Color(1f, 1f, 1f, 0.5f);
-			triple3Right.color = new Color(1f, 1f, 1f, 0.5f);
+			triple2Left.color = new Color(1f, 1f, 1f, 0.35f);
+			triple2Right.color = new Color(1f, 1f, 1f, 0.35f);
+			triple3Left.color = new Color(1f, 1f, 1f, 0.35f);
+			triple3Right.color = new Color(1f, 1f, 1f, 0.35f);
 			break;
 		case 2:
-			triple1Left.color = new Color(1f, 1f, 1f, 0.5f);
-			triple1Right.color = new Color(1f, 1f, 1f, 0.5f);
+			triple1Left.color = new Color(1f, 1f, 1f, 0.35f);
+			triple1Right.color = new Color(1f, 1f, 1f, 0.35f);
 			triple2Left.color = new Color(1f, 1f, 1f, 1f);
 			triple2Right.color = new Color(1f, 1f, 1f, 1f);
-			triple3Left.color = new Color(1f, 1f, 1f, 0.5f);
-			triple3Right.color = new Color(1f, 1f, 1f, 0.5f);
+			triple3Left.color = new Color(1f, 1f, 1f, 0.35f);
+			triple3Right.color = new Color(1f, 1f, 1f, 0.35f);
 			break;
 		case 3:
-			triple1Left.color = new Color(1f, 1f, 1f, 0.5f);
-			triple1Right.color = new Color(1f, 1f, 1f, 0.5f);
-			triple2Left.color = new Color(1f, 1f, 1f, 0.5f);
-			triple2Right.color = new Color(1f, 1f, 1f, 0.5f);
+			triple1Left.color = new Color(1f, 1f, 1f, 0.35f);
+			triple1Right.color = new Color(1f, 1f, 1f, 0.35f);
+			triple2Left.color = new Color(1f, 1f, 1f, 0.35f);
+			triple2Right.color = new Color(1f, 1f, 1f, 0.35f);
 			triple3Left.color = new Color(1f, 1f, 1f, 1f);
 			triple3Right.color = new Color(1f, 1f, 1f, 1f);
 			break;
@@ -316,5 +317,5 @@ public class tripleScript : MonoBehaviour {
 		gameManager.GetComponent<GameControl>().tripleActive = false;
 		seqQueueLeft.GetComponent<Sequence_Queue>().tripleMade = false;
 		seqQueueRight.GetComponent<Sequence_Queue>().tripleMade = false;
-	}
+		}
 }
