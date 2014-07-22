@@ -13,12 +13,13 @@ public class HealthBarEnemy : MonoBehaviour {
 	public bool CanFadeIn, fadeSwitch;
 	public float alpha;
 
-	public Transform[] hpParts;
+	public SpriteRenderer[] healthPips;
+	public Sprite pipDead, pipRed, pipOrange;
 
 	// Use this for initialization
 	void Start () {
 		enemy = GameObject.Find ("Enemy").GetComponent<EnemyControls>();
-		curPerc = 0.1f;
+		curPerc = 0f;
 		targetPerc = 1f;
 		CanFadeIn = true;
 		alpha = 0f;
@@ -62,27 +63,27 @@ public class HealthBarEnemy : MonoBehaviour {
 				CanFadeIn = true;
 				if (alpha > 0.9f)
 				{
-				curPerc = Mathf.Lerp (curPerc, targetPerc, 0.05f);
+				curPerc = Mathf.Lerp (curPerc, targetPerc, 0.03f);
 				}
-
 			}
-		}
-		for (int i = 0; i < 5; i++)
-		{
-			if (curPerc > 0.2f*i)
+			//health pips
+			for (int i = 0; i < 25; i++)
 			{
-				if (curPerc >= 0.2f*i + 0.2f)
+				if (curPerc > (0.02f * i) + 0.5)
 				{
-					hpParts[i].localScale = new Vector3 (hpParts[i].localScale.x, 1, hpParts[i].localScale.z);
+					healthPips[i].sprite = pipOrange;
+				}
+				else if (curPerc > 0.02f * i)
+				{
+					healthPips[i].sprite = pipRed;
 				}
 				else
 				{
-					hpParts[i].localScale = new Vector3 (hpParts[i].localScale.x, (curPerc - 0.2f*i)/0.2f, hpParts[i].localScale.z);
+					healthPips[i].sprite = pipDead;
 				}
 			}
 		}
-			//healthBar.transform.localScale = new Vector3 (max_XScale * curPerc, yScale, 1f);
-			//barLeft.transform.localPosition = new Vector3 ( -1.84f - (max_XScale * curPerc * 1.13333333333333333f), barLeft.transform.localPosition.y, 0);
+
 	}
 public void FadeOutStart(){
 		CanFadeIn = false;

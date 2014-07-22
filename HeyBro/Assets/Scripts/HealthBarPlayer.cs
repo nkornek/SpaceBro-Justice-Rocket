@@ -12,6 +12,9 @@ public class HealthBarPlayer : MonoBehaviour {
 	public GameObject barRight, healthBar;
 	public bool CanFadeIn, fadeSwitch;
 	public float alpha;
+	
+	public SpriteRenderer[] healthPips;
+	public Sprite pipDead, pipFull;
 
 	// Use this for initialization
 	void Start () {
@@ -62,9 +65,21 @@ public class HealthBarPlayer : MonoBehaviour {
 				{
 					curPerc = Mathf.Lerp (curPerc, targetPerc, 0.03f);
 				}
-			}			
-			healthBar.transform.localScale = new Vector3 (max_XScale * curPerc, yScale, 1f);
-			barRight.transform.localPosition = new Vector3 ( 3.88f + (max_XScale * curPerc * 1.13f), barRight.transform.localPosition.y, 0);
+			}
+			//health pips
+			for (int i = 0; i < 20; i++)
+			{
+				if (curPerc > 0.05f * i)
+				{
+					healthPips[i].sprite = pipFull;
+				}
+				else
+				{
+					healthPips[i].sprite = pipDead;
+				}
+			}
+			//healthBar.transform.localScale = new Vector3 (max_XScale * curPerc, yScale, 1f);
+			//barRight.transform.localPosition = new Vector3 ( 3.88f + (max_XScale * curPerc * 1.13f), barRight.transform.localPosition.y, 0);
 		}		
 	}
 public void FadeOutStart(){
