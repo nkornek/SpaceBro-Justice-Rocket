@@ -314,7 +314,7 @@ public class tripleScript : MonoBehaviour {
 		triple1Right.enabled = false;
 		triple2Right.enabled = false;
 		triple3Right.enabled = false;	
-		gameManager.GetComponent<GameControl>().tripleActive = false;
+		//gameManager.GetComponent<GameControl>().tripleActive = false;
 		seqQueueLeft.GetComponent<Sequence_Queue>().tripleMade = false;
 		seqQueueRight.GetComponent<Sequence_Queue>().tripleMade = false;
 		}
