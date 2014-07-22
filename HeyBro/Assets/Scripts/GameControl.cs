@@ -327,14 +327,16 @@ public class GameControl : MonoBehaviour {
 					}
 					tripleScript.tripleSeqNum ++;				
 				}
-				if (tripleScript.tripleSeqNum > 3 & player.correctMoves < player.seqMoves )
+				if (tripleScript.tripleSeqNum > 3)
 				{
 					tripleScript.tripleSeqNum = 1;
-					player.correctMoves++;
 					seqQueueLeft.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
 					seqQueueRight.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);		
 					tripleScript.Invoke("TripleEnd", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
 					canTime = false;
+					tripleActive = false;
+					paused = true;
+					Invoke ("PlayerAttack", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
 					player.generateNextMove ();
 				}
 
@@ -345,22 +347,10 @@ public class GameControl : MonoBehaviour {
 					GameObject.Find ("Player_Right").GetComponent<PlayerAnim>().SetSprite (player.contactB[player.currentMove]);
 					player.generateNextMove ();
 				}
-				if (player.correctMoves >= player.seqMoves) {
-					paused = true;
-					srcSeqSound.clip = clipWholeSeqSuccess;
-					srcSeqSound.Play ();
-					GameObject.Find ("Player_Left").GetComponent<PlayerAnim>().SetSprite (3);
-					GameObject.Find ("Player_Right").GetComponent<PlayerAnim>().SetSprite (3);			
-					canEmit = false;
-//					player.attacking = false;
-//					player.defending = true;
-					if (enemy.hp <= 0) {
-						playersTurn = false;
-						srcRobot.Play ();
-					}
-					else {
-						startEnemyTurn ();
-					}	
+				if (player.correctMoves >= player.seqMoves & !tripleActive & !paused) {
+					int randomInt = Random.Range (0, 7);
+					tripleScript.GenerateTriple(randomInt);
+					tripleActive = true;
 				}
 			}
 
@@ -381,7 +371,22 @@ public class GameControl : MonoBehaviour {
 			*/			
 		}
 	}
-
+	public void PlayerAttack () {			
+			srcSeqSound.clip = clipWholeSeqSuccess;
+			srcSeqSound.Play ();
+			GameObject.Find ("Player_Left").GetComponent<PlayerAnim>().SetSprite (3);
+			GameObject.Find ("Player_Right").GetComponent<PlayerAnim>().SetSprite (3);			
+			canEmit = false;
+			//					player.attacking = false;
+			//					player.defending = true;
+			if (enemy.hp <= 0) {
+				playersTurn = false;
+				srcRobot.Play ();
+			}
+			else {
+				startEnemyTurn ();
+			}
+		}
 	public void enemyTurn(){
 		if (!paused)
 		{
@@ -498,7 +503,14 @@ public class GameControl : MonoBehaviour {
 	
 	private bool pictogramsInRange () {
 		//Just check left, they're the same
-		return (Mathf.Abs (seqQueueLeft.sequenceObjects[player.currentMove].transform.localPosition.z) == 1);
+		if (!tripleActive)
+		{
+			return (Mathf.Abs (seqQueueLeft.sequenceObjects[player.currentMove].transform.localPosition.z) == 1);
+		}
+		else
+		{
+			return (true);
+		}
 	}
 
 	public bool pictogramsFailed () {
@@ -511,7 +523,7 @@ public class GameControl : MonoBehaviour {
 			maxTime = moveTimeToFail - (0.25f * player.correctMoves) - (1 - GameObject.Find("Enemy Health Parent").GetComponent<HealthBarEnemy>().curPerc);
 			break;
 		case 1:
-			maxTime = tripleTimeToFail - (0.25f * player.correctMoves) - (1 - GameObject.Find("Enemy Health Parent").GetComponent<HealthBarEnemy>().curPerc);
+			maxTime = tripleTimeToFail - (1 - GameObject.Find("Enemy Health Parent").GetComponent<HealthBarEnemy>().curPerc);
 			break;
 		case 2:
 			maxTime = baseBlockTime + (2.0f * GameObject.Find("Enemy Health Parent").GetComponent<HealthBarEnemy>().curPerc);
