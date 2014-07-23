@@ -28,7 +28,7 @@ public class Enemy_Particles : MonoBehaviour {
 		{
 			chargeParticles.GetComponent<ParticleSystem>().enableEmission = true;
 			rotation += 1.5f;
-			chargeParticles.transform.localRotation = Quaternion.Euler (0, 0, rotation);
+			chargeParticles.transform.localRotation = Quaternion.Euler (333, 1.2f, rotation);
 		}
 		else
 		{
