@@ -216,6 +216,26 @@ Transition:
   m_Solo: 0
   m_Mute: 0
   m_CanTransitionToSelf: 0
+--- !u!1101 &110181167
+Transition:
+  serializedVersion: 2
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 110266119}
+  m_DstState: {fileID: 110206961}
+  m_TransitionDuration: 0
+  m_TransitionOffset: 0
+  m_Conditions:
+  - m_ConditionMode: 5
+    m_ConditionEvent: 
+    m_EventTreshold: 0
+    m_ExitTime: 1
+  m_Atomic: 1
+  m_Solo: 0
+  m_Mute: 0
+  m_CanTransitionToSelf: 0
 --- !u!1101 &110183685
 Transition:
   serializedVersion: 2
@@ -230,26 +250,6 @@ Transition:
   m_Conditions:
   - m_ConditionMode: 5
     m_ConditionEvent: Fire Lasers
-    m_EventTreshold: 0
-    m_ExitTime: .75
-  m_Atomic: 1
-  m_Solo: 0
-  m_Mute: 0
-  m_CanTransitionToSelf: 0
---- !u!1101 &110196172
-Transition:
-  serializedVersion: 2
-  m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_SrcState: {fileID: 110266119}
-  m_DstState: {fileID: 110206961}
-  m_TransitionDuration: .25
-  m_TransitionOffset: 0
-  m_Conditions:
-  - m_ConditionMode: 5
-    m_ConditionEvent: FailCharge
     m_EventTreshold: 0
     m_ExitTime: .75
   m_Atomic: 1
@@ -417,26 +417,13 @@ StateMachine:
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110266119}
+      first: {fileID: 110200000}
       second:
-      - {fileID: 110196172}
+      - {fileID: 110100000}
     data:
-      first: {fileID: 110227040}
+      first: {fileID: 110288290}
       second:
-      - {fileID: 110139689}
-    data:
-      first: {fileID: 110249293}
-      second:
-      - {fileID: 110127691}
-      - {fileID: 110172076}
-    data:
-      first: {fileID: 110225218}
-      second:
-      - {fileID: 110156676}
-    data:
-      first: {fileID: 110278806}
-      second:
-      - {fileID: 110183685}
+      - {fileID: 110102175}
     data:
       first: {fileID: 110206961}
       second:
@@ -444,13 +431,26 @@ StateMachine:
       - {fileID: 110164593}
       - {fileID: 110196374}
     data:
-      first: {fileID: 110288290}
+      first: {fileID: 110278806}
       second:
-      - {fileID: 110102175}
+      - {fileID: 110183685}
     data:
-      first: {fileID: 110200000}
+      first: {fileID: 110225218}
       second:
-      - {fileID: 110100000}
+      - {fileID: 110156676}
+    data:
+      first: {fileID: 110249293}
+      second:
+      - {fileID: 110127691}
+      - {fileID: 110172076}
+    data:
+      first: {fileID: 110227040}
+      second:
+      - {fileID: 110139689}
+    data:
+      first: {fileID: 110266119}
+      second:
+      - {fileID: 110181167}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
