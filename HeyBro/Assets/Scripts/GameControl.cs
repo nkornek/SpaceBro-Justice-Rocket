@@ -44,6 +44,8 @@ public class GameControl : MonoBehaviour {
 	public bool counterActive;
 	public int counterNum;
 
+	public cameraShake mainCamera;
+
 	void Start () {
 		moveTimeToFail = 4.0f;	
 		tripleTimeToFail = 6.0f;
@@ -491,6 +493,7 @@ public class GameControl : MonoBehaviour {
 	public void LaserDamage() {
 		if (!player.blocked) {
 			player.hp -= 20;
+			mainCamera.Shake();
 		}
 		if (player.hp <= 0) {
 			srcPlayersDie.Play ();

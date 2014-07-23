@@ -41,7 +41,7 @@ public class Enemy_Particles : MonoBehaviour {
 		laser.enableEmission = true;
 		laser2.enableEmission = true;
 		Invoke ("EndLasers", attackTime);
-		GameObject.Find ("Game").GetComponent<GameControl> ().Invoke ("LaserDamage", attackTime / 3);
+		GameObject.Find ("Game").GetComponent<GameControl> ().Invoke ("LaserDamage", attackTime / 2);
 		if (attackAudio.isPlaying == false) 
 		{
 			attackAudio.clip = laserSound;

@@ -63,7 +63,7 @@ public class HealthBarPlayer : MonoBehaviour {
 				CanFadeIn = true;
 				if (alpha > 0.9f)
 				{
-					curPerc = Mathf.Lerp (curPerc, targetPerc, 0.03f);
+					curPerc = Mathf.Lerp (curPerc, targetPerc, 0.02f);
 				}
 			}
 			//health pips
