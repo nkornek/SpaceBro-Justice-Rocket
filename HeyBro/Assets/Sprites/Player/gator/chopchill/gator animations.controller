@@ -35,6 +35,21 @@ State:
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
+--- !u!1102 &110211163
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: gatorsad
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: ea1b22f2bb4cba8458e537b748992d43, type: 2}
+  m_ParentStateMachine: {fileID: 110700000}
+  m_Position: {x: -61, y: 161, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
 --- !u!1102 &110232506
 State:
   m_ObjectHideFlags: 3
@@ -80,6 +95,21 @@ State:
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
+--- !u!1102 &110262289
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: gethit
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: 87ae579b27e7d1946ab4f1d20ff8d454, type: 2}
+  m_ParentStateMachine: {fileID: 110700000}
+  m_Position: {x: -26, y: 226, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
 --- !u!1107 &110700000
 StateMachine:
   serializedVersion: 2
@@ -93,6 +123,8 @@ StateMachine:
   - {fileID: 110232506}
   - {fileID: 110247831}
   - {fileID: 110239452}
+  - {fileID: 110211163}
+  - {fileID: 110262289}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions: {}
