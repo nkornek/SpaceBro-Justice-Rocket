@@ -10,6 +10,7 @@ public class CounterAnimations : MonoBehaviour {
 	public ParticleSystem toPlayerPart, fromPlayerPart;
 	public CounterControl CounterControl;
 	public GameControl game;
+	public SplineController splineControl;
 
 	// Use this for initialization
 	void Start () {	
@@ -54,6 +55,7 @@ public class CounterAnimations : MonoBehaviour {
 		energyBallObject.GetComponent<SpriteRenderer> ().enabled = true;
 		energyBallObject.GetComponent<ParticleSystem> ().enableEmission = true;
 		toPlayer = true;
+		splineControl.FollowSpline();
 	}
 	public void enemyHit () {
 		ballCounterAnimator.SetTrigger ("Hit");
