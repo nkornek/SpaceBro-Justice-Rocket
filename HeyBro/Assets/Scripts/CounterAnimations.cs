@@ -2,9 +2,8 @@
 using System.Collections;
 
 public class CounterAnimations : MonoBehaviour {
-	public GameObject energyBall, energyBallObject;
+	public GameObject energyBallObject;
 	public Animator ballCounterAnimator, BG;
-	public SplineNode[] ballSplines;
 	public SmoothCamera2D counterCamera;
 	public Transform playerTransform, enemyTransform;
 	public bool toPlayer;
@@ -51,10 +50,9 @@ public class CounterAnimations : MonoBehaviour {
 	}
 
 	public void FireBall (){
-		energyBallObject.GetComponent<SplineController> ().enabled = true;
+		//energyBallObject.GetComponent<SplineController> ().enabled = true;
 		energyBallObject.GetComponent<SpriteRenderer> ().enabled = true;
 		energyBallObject.GetComponent<ParticleSystem> ().enableEmission = true;
-		ballCounterAnimator.SetBool ("hasFired", true);
 		toPlayer = true;
 	}
 	public void enemyHit () {
