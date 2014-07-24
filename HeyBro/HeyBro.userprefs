@@ -1,20 +1,19 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\cameraShake.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Enemy_Particles.cs">
     <Files>
-      <File FileName="Assets\cameraShake.cs" Line="34" Column="2" />
-      <File FileName="Assets\cameraShake.cs" Line="30" Column="35" />
-      <File FileName="Assets\Scripts\StarSpeedControl.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GameControl.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Sequence_Queue.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SequenceControls.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\tripleScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Enemy_Particles.cs" Line="61" Column="3" />
+      <File FileName="Assets\Scripts\Cutscene_Triggers.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Enemy_Particles.cs" Line="61" Column="5" />
+      <File FileName="Assets\Scripts\GameControl.cs" Line="437" Column="28" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Assembly-CSharp" expanded="True">
-            <Node name="cameraShake.cs" selected="True" />
+            <Node name="Scripts" expanded="True">
+              <Node name="Enemy_Particles.cs" selected="True" />
+            </Node>
           </Node>
         </State>
       </Pad>

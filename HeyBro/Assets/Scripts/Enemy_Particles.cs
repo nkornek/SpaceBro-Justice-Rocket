@@ -24,11 +24,11 @@ public class Enemy_Particles : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		rotation += 1.5f;
+		chargeParticles.transform.localRotation = Quaternion.Euler (333, 1.2f, rotation);
 		if (chargeVisible)
 		{
 			chargeParticles.GetComponent<ParticleSystem>().enableEmission = true;
-			rotation += 1.5f;
-			chargeParticles.transform.localRotation = Quaternion.Euler (0, 0, rotation);
 		}
 		else
 		{
@@ -60,7 +60,10 @@ public class Enemy_Particles : MonoBehaviour {
 	void EndLasers () {
 		laser.enableEmission = false;
 		laser2.enableEmission = false;
-		GameObject.Find("Forcefield").GetComponent<Display_Forcefield>().showField = false;
+		Invoke ("EndField", 2);
 		enemyAnimations.SetTrigger("LaserEnd");
+	}
+	void EndField () {	
+		GameObject.Find("Forcefield").GetComponent<Display_Forcefield>().showField = false;
 	}
 }
