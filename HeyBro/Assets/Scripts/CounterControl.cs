@@ -7,16 +7,15 @@ public class CounterControl : MonoBehaviour {
 	public CounterAnimations CounterAnimations;
 	public Camera counterCamera;
 	public Transform closeOutCamera;
-	public Animator bgAnimator, enemyAnimator;
+	public Animator bgAnimator;
 	public int damage;
 	public bool blocked, failed, speedup;
+	public Animator counterAnimatorEnemy;
 
 
 	//specifict counter sequence variables
 	public GameObject energyBallObject;
 	public int ballReflected;
-	public SplineNode ballFirstSpline, ballLastSpline;
-	public ParticleSystem fireParticles;
 	public Sprite[] p1Ball;
 	public Sprite[] p2Ball;
 	public SpriteRenderer[] ballSprites;
@@ -26,7 +25,6 @@ public class CounterControl : MonoBehaviour {
 	public ParticleSystem[] enemyBeam;
 	public ParticleSystem[] playerBeam;
 	public int fivesLaser;
-	public Animator laserAnimator;
 	public Sprite[] p1laser;
 	public Sprite[] p2laser;
 	public float enemyBeamPush;	
@@ -34,13 +32,12 @@ public class CounterControl : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		promptLeft.GetComponent<SpriteRenderer> ().enabled = false;
-		promptRight.GetComponent<SpriteRenderer> ().enabled = false;
+		promptLeft = GameObject.Find ("P1_Prompt_back");
+		promptRight = GameObject.Find ("P2_Prompt_back");
 		damage = 50;
 		PlayerControl = GameObject.Find ("Players");
 		EnemyControls = GameObject.Find ("Enemy");
 		GameManager = GameObject.Find ("Game");
-		fireParticles.enableEmission = false;
 		fivesLaser = 0;
 		enemyBeamPush = 0.5f;
 
@@ -77,14 +74,15 @@ public class CounterControl : MonoBehaviour {
 		switch (whichSequence) {
 		case 1:
 			//energy ball counter
-			if (energyBallObject.transform.localPosition.x > 12.0f & !blocked & !failed)
+			if (energyBallObject.transform.localPosition.y < 0 & !blocked & !failed)
 			{		
+				print ("test");
 				promptLeft.GetComponent<SpriteRenderer> ().enabled = true;
 				promptRight.GetComponent<SpriteRenderer> ().enabled = true;
 				promptLeft.GetComponent<SpriteRenderer>().sprite = p1Ball[0];		
 				promptRight.GetComponent<SpriteRenderer>().sprite = p2Ball[0];
-				promptLeft.transform.localPosition = new Vector3 (-1 - (Mathf.Abs(energyBallObject.transform.localPosition.x - 27))/3, promptLeft.transform.localPosition.y, 1f);
-				promptRight.transform.localPosition = new Vector3 (1 + (Mathf.Abs(energyBallObject.transform.localPosition.x - 27))/3, promptRight.transform.localPosition.y, 1f);
+				promptLeft.transform.localPosition = new Vector3 (-1 - (Mathf.Abs(energyBallObject.transform.localPosition.y + 18))/4, promptLeft.transform.localPosition.y, 1f);
+				promptRight.transform.localPosition = new Vector3 (1 + (Mathf.Abs(energyBallObject.transform.localPosition.y + 18))/4, promptRight.transform.localPosition.y, 1f);
 			}
 			if (PlayerControl.GetComponent<SequenceControls>().checkBothEvents() && pictogramsInRangeBall() & !blocked & !failed){
 				blocked = true;
@@ -103,10 +101,7 @@ public class CounterControl : MonoBehaviour {
 					if (speedup)
 					{
 						speedup = false;
-						foreach (SplineNode s in CounterAnimations.ballSplines)
-						{
-							s.speed += 3;
-						}
+						////
 					}
 				}
 				else
@@ -117,24 +112,23 @@ public class CounterControl : MonoBehaviour {
 					energyBallObject.GetComponent<ParticleSystem>().Emit(800);
 					energyBallObject.GetComponent<ParticleSystem>().enableEmission = false;
 					energyBallObject.GetComponent<SpriteRenderer>().enabled = false;				
-					Invoke ("hidePrompts", 0.2f);
-					ballLastSpline.type = SplineNode.Type.STOP;					
+					Invoke ("hidePrompts", 0.2f);			
 					Invoke ("endCounter", 1);
 					damagePlayer();
 				}
 			}
 			//hit enemy
-			if (energyBallObject.transform.localPosition.x <= -18f & blocked)
+			if (energyBallObject.transform.localPosition.y >= 60 & blocked)
 			{
 				blocked = false;
 				CounterAnimations.enemyHit();
 				CounterAnimations.toPlayer = true;
+				energyBallObject.GetComponent<SplineController>().Duration -= 1;
 				if (ballReflected == 3)
 				{
 					energyBallObject.GetComponent<ParticleSystem>().Emit(800);
 					energyBallObject.GetComponent<ParticleSystem>().enableEmission = false;
 					energyBallObject.GetComponent<SpriteRenderer>().enabled = false;
-					ballFirstSpline.type = SplineNode.Type.STOP;
 					damageEnemy();
 					Invoke ("endCounter", 1);
 				}
@@ -178,11 +172,11 @@ public class CounterControl : MonoBehaviour {
 				if (pictogramsWonLaser() || pictogramsFailedLaser() )
 				{
 					canMoveContactPoint = false;
-					laserAnimator.SetTrigger("EndCounter");
+					counterAnimatorEnemy.SetTrigger("EndCounter");
 					hidePrompts();
 					if (pictogramsWonLaser() )
 					{
-						laserAnimator.SetTrigger("PlayerWon");
+						counterAnimatorEnemy.SetTrigger("PlayerWon");
 						Invoke ("damageEnemy", 1);
 						Invoke ("endCounter", 3);
 						foreach (ParticleSystem pe in enemyBeam)
@@ -192,7 +186,7 @@ public class CounterControl : MonoBehaviour {
 					}
 					else if (pictogramsFailedLaser() )
 					{
-						laserAnimator.SetTrigger("EnemyWon");
+						counterAnimatorEnemy.SetTrigger("EnemyWon");
 						Invoke ("damagePlayer", 1);
 						Invoke ("endCounter", 3);
 						foreach (ParticleSystem pp in playerBeam)
@@ -239,11 +233,11 @@ public class CounterControl : MonoBehaviour {
 		promptRight.GetComponent<SpriteRenderer>().enabled = true;
 		foreach (ParticleSystem pp in playerBeam)
 		{
-			pp.startLifetime = 0.8f;
+			pp.startLifetime = 1;
 		}
 		foreach (ParticleSystem pe in enemyBeam)
 		{
-			pe.startLifetime = 0.65f;
+			pe.startLifetime = 1;
 		}
 		}
 
@@ -253,8 +247,7 @@ public class CounterControl : MonoBehaviour {
 		GameManager.GetComponent<GameControl>().counterActive = true;
 		if (GameManager.GetComponent<GameControl>().counterNum == 1)
 		{
-			fireParticles.enableEmission = true;
-			enemyAnimator.SetTrigger ("StartIntro");
+			counterAnimatorEnemy.SetTrigger ("Start Ball");
 			foreach (SpriteRenderer r in ballSprites)
 			{
 				r.enabled = true;
@@ -262,7 +255,7 @@ public class CounterControl : MonoBehaviour {
 		}
 		else if (GameManager.GetComponent<GameControl>().counterNum == 2)
 		{
-			laserAnimator.SetTrigger("StartCounter");
+			counterAnimatorEnemy.SetTrigger("Start Laser");
 			promptLeft.GetComponent<SpriteRenderer>().sprite = p1laser[0];		
 			promptRight.GetComponent<SpriteRenderer>().sprite = p2laser[0];
 			promptLeft.transform.localScale = new Vector3 (4, 4, 1);		

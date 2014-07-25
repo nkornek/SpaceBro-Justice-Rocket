@@ -2,15 +2,17 @@
 using System.Collections;
 
 public class CounterAnimations : MonoBehaviour {
-	public GameObject energyBall, energyBallObject;
+	public GameObject energyBallObject;
 	public Animator ballCounterAnimator, BG;
-	public SplineNode[] ballSplines;
 	public SmoothCamera2D counterCamera;
 	public Transform playerTransform, enemyTransform;
 	public bool toPlayer;
 	public ParticleSystem toPlayerPart, fromPlayerPart;
 	public CounterControl CounterControl;
 	public GameControl game;
+	public ParticleSystem[] enemyBeam;
+	public ParticleSystem[] playerBeam;
+	public ParticleSystem[] sphere;
 
 	// Use this for initialization
 	void Start () {	
@@ -19,13 +21,25 @@ public class CounterAnimations : MonoBehaviour {
 		game = GameObject.Find ("Game").GetComponent<GameControl>();
 		toPlayerPart.enableEmission = false;
 		fromPlayerPart.enableEmission = false;
+		foreach (ParticleSystem pe in enemyBeam)
+		{
+			pe.enableEmission = false;
+		}
+		foreach (ParticleSystem pe in playerBeam)
+		{
+			pe.enableEmission = false;
+		}
+		foreach (ParticleSystem pe in sphere)
+		{
+			pe.enableEmission = false;
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (game.counterActive == true & game.counterNum == 1)
 		{
-			if (energyBallObject.transform.localPosition.x > -12.0f & energyBallObject.transform.localPosition.x < 12.0f)
+			if (energyBallObject.transform.localPosition.y > -10 & energyBallObject.transform.localPosition.y < 45)
 			{
 				counterCamera.target = energyBallObject.transform;
 				if (toPlayer)
@@ -39,22 +53,25 @@ public class CounterAnimations : MonoBehaviour {
 					fromPlayerPart.enableEmission = true;
 				}
 			}
-			else if (energyBallObject.transform.localPosition.x > 12.0f)
+			else if (energyBallObject.transform.localPosition.y < -10)
 			{
 				counterCamera.target = playerTransform;
+				fromPlayerPart.enableEmission = false;
+				toPlayerPart.enableEmission = false;
 			}
 			else
 			{
 				counterCamera.target = enemyTransform;
+				fromPlayerPart.enableEmission = false;
+				toPlayerPart.enableEmission = false;
 			}
 		}
 	}
 
 	public void FireBall (){
-		energyBallObject.GetComponent<SplineController> ().enabled = true;
 		energyBallObject.GetComponent<SpriteRenderer> ().enabled = true;
 		energyBallObject.GetComponent<ParticleSystem> ().enableEmission = true;
-		ballCounterAnimator.SetBool ("hasFired", true);
+		energyBallObject.GetComponent<SplineController> ().FollowSpline ();
 		toPlayer = true;
 	}
 	public void enemyHit () {
@@ -69,6 +86,25 @@ public class CounterAnimations : MonoBehaviour {
 		case 2:
 			BG.SetTrigger("Out");
 			break;
+		}
+	}
+
+	public void FireLasersEnemy () {
+		foreach (ParticleSystem pe in enemyBeam)
+		{
+			pe.enableEmission = true;
+		}
+	}
+	public void FireLasersPlayer () {
+		foreach (ParticleSystem pe in playerBeam)
+		{
+			pe.enableEmission = true;
+		}
+	}
+	public void SphereParticleClash () {
+		foreach (ParticleSystem pe in sphere)
+		{
+			pe.enableEmission = true;
 		}
 	}
 }

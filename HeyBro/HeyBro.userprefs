@@ -1,16 +1,18 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Sprites\overlay.shader">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CounterControl.cs">
     <Files>
-      <File FileName="Assets\Sprites\overlay.shader" Line="75" Column="2" />
+      <File FileName="Assets\Scripts\Counter_Animation_Triggers.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CounterControl.cs" Line="79" Column="7" />
+      <File FileName="Assets\Scripts\CounterAnimations.cs" Line="42" Column="45" />
+      <File FileName="Assets\Scripts\GameControl.cs" Line="408" Column="22" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Assembly-CSharp" expanded="True">
-            <Node name="Scripts" expanded="True" />
-            <Node name="Sprites" expanded="True">
-              <Node name="overlay.shader" selected="True" />
+            <Node name="Scripts" expanded="True">
+              <Node name="CounterControl.cs" selected="True" />
             </Node>
           </Node>
         </State>
