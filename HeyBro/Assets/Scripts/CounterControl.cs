@@ -10,6 +10,7 @@ public class CounterControl : MonoBehaviour {
 	public Animator bgAnimator;
 	public int damage;
 	public bool blocked, failed, speedup;
+	public Animator counterAnimatorEnemy;
 
 
 	//specifict counter sequence variables
@@ -18,14 +19,12 @@ public class CounterControl : MonoBehaviour {
 	public Sprite[] p1Ball;
 	public Sprite[] p2Ball;
 	public SpriteRenderer[] ballSprites;
-	public Animator BallAnimator;
 
 	public bool canMoveContactPoint;
 	public Transform contactSphere;
 	public ParticleSystem[] enemyBeam;
 	public ParticleSystem[] playerBeam;
 	public int fivesLaser;
-	public Animator laserAnimator;
 	public Sprite[] p1laser;
 	public Sprite[] p2laser;
 	public float enemyBeamPush;	
@@ -173,11 +172,11 @@ public class CounterControl : MonoBehaviour {
 				if (pictogramsWonLaser() || pictogramsFailedLaser() )
 				{
 					canMoveContactPoint = false;
-					laserAnimator.SetTrigger("EndCounter");
+					counterAnimatorEnemy.SetTrigger("EndCounter");
 					hidePrompts();
 					if (pictogramsWonLaser() )
 					{
-						laserAnimator.SetTrigger("PlayerWon");
+						counterAnimatorEnemy.SetTrigger("PlayerWon");
 						Invoke ("damageEnemy", 1);
 						Invoke ("endCounter", 3);
 						foreach (ParticleSystem pe in enemyBeam)
@@ -187,7 +186,7 @@ public class CounterControl : MonoBehaviour {
 					}
 					else if (pictogramsFailedLaser() )
 					{
-						laserAnimator.SetTrigger("EnemyWon");
+						counterAnimatorEnemy.SetTrigger("EnemyWon");
 						Invoke ("damagePlayer", 1);
 						Invoke ("endCounter", 3);
 						foreach (ParticleSystem pp in playerBeam)
@@ -248,7 +247,7 @@ public class CounterControl : MonoBehaviour {
 		GameManager.GetComponent<GameControl>().counterActive = true;
 		if (GameManager.GetComponent<GameControl>().counterNum == 1)
 		{
-			BallAnimator.SetTrigger ("Start Intro");
+			counterAnimatorEnemy.SetTrigger ("Start Ball");
 			foreach (SpriteRenderer r in ballSprites)
 			{
 				r.enabled = true;
@@ -256,7 +255,7 @@ public class CounterControl : MonoBehaviour {
 		}
 		else if (GameManager.GetComponent<GameControl>().counterNum == 2)
 		{
-			laserAnimator.SetTrigger("StartCounter");
+			counterAnimatorEnemy.SetTrigger("Start Laser");
 			promptLeft.GetComponent<SpriteRenderer>().sprite = p1laser[0];		
 			promptRight.GetComponent<SpriteRenderer>().sprite = p2laser[0];
 			promptLeft.transform.localScale = new Vector3 (4, 4, 1);		

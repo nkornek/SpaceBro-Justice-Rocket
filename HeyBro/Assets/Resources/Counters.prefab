@@ -1122,6 +1122,7 @@ MonoBehaviour:
   blocked: 0
   failed: 0
   speedup: 0
+  counterAnimatorEnemy: {fileID: 9500002}
   energyBallObject: {fileID: 100036}
   ballReflected: 0
   p1Ball:
@@ -1136,7 +1137,6 @@ MonoBehaviour:
   - {fileID: 21200010}
   - {fileID: 21200014}
   - {fileID: 21200000}
-  BallAnimator: {fileID: 9500002}
   canMoveContactPoint: 0
   contactSphere: {fileID: 400018}
   enemyBeam:
@@ -1146,7 +1146,6 @@ MonoBehaviour:
   - {fileID: 19800002}
   - {fileID: 19800004}
   fivesLaser: 0
-  laserAnimator: {fileID: 9500002}
   p1laser:
   - {fileID: 21300000, guid: 4923986cc2072cf4cb002c952e5783ff, type: 3}
   - {fileID: 21300000, guid: 570c09a3424fafb45860d89818ba5afe, type: 3}
@@ -1159,6 +1158,7 @@ MonoBehaviour:
   laserSprites:
   - {fileID: 21200004}
   - {fileID: 21200006}
+  - {fileID: 21200000}
 --- !u!114 &11400028
 MonoBehaviour:
   m_ObjectHideFlags: 1
