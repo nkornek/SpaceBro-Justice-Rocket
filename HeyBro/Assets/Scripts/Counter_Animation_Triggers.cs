@@ -8,6 +8,8 @@ public class Counter_Animation_Triggers : MonoBehaviour {
 	public Transform beamEnemyCamera, beamPlayerCamera, beamPointTarget;
 	public Animator backgroundAnimator;
 
+
+
 	// Use this for initialization
 	void Start () {
 	
@@ -46,9 +48,9 @@ public class Counter_Animation_Triggers : MonoBehaviour {
 		CounterControl.ShowBeamPrompts ();
 	}
 
-	void endBeamBG () {
-		backgroundAnimator.SetTrigger("scaledown");
-		camera.cangrow = false;
+	void enemyFireBeams () {
+		masterCounterSystem.FireLasers ();
 	}
+
 
 }

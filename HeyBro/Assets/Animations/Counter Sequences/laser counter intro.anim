@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: ball counter intro
+  m_Name: laser counter intro
   serializedVersion: 4
   m_AnimationType: 2
   m_Compressed: 0
@@ -17,22 +17,22 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: {x: 1.07281494, y: -31.1861649, z: 48.6922455}
-        inSlope: {x: 0, y: 75.3652802, z: 41.9260864}
-        outSlope: {x: 0, y: 75.3652802, z: 41.9260864}
-        tangentMode: 0
+        value: {x: .856811523, y: -96.2908096, z: 24.7988243}
+        inSlope: {x: 0, y: 103.115341, z: 0}
+        outSlope: {x: 0, y: 103.115341, z: 0}
+        tangentMode: 1
       - time: 1
-        value: {x: 1.07281494, y: 44.1791191, z: 90.6183319}
-        inSlope: {x: 0, y: 37.6826401, z: 20.9630432}
-        outSlope: {x: 0, y: 37.6826401, z: 20.9630432}
-        tangentMode: 3
+        value: {x: .856811523, y: 6.82453156, z: 24.7988243}
+        inSlope: {x: 0, y: 51.5576706, z: 0}
+        outSlope: {x: 0, y: 51.5576706, z: 0}
+        tangentMode: 0
       - time: 1.5
-        value: {x: 1.07281494, y: 44.1791191, z: 90.6183319}
+        value: {x: .856811523, y: 6.82453156, z: 24.7988243}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
       - time: 2
-        value: {x: 1.07281494, y: 44.1791191, z: 90.6183319}
+        value: {x: .856811523, y: 6.82453156, z: 24.7988243}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -78,22 +78,22 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: 1.07281494
+        value: .856811523
         inSlope: 0
         outSlope: 0
         tangentMode: 10
       - time: 1
-        value: 1.07281494
+        value: .856811523
         inSlope: 0
         outSlope: 0
         tangentMode: 10
       - time: 1.5
-        value: 1.07281494
+        value: .856811523
         inSlope: 0
         outSlope: 0
         tangentMode: 10
       - time: 2
-        value: 1.07281494
+        value: .856811523
         inSlope: 0
         outSlope: 0
         tangentMode: 10
@@ -107,22 +107,22 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: -31.1861649
-        inSlope: 75.3652802
-        outSlope: 75.3652802
+        value: -96.2908096
+        inSlope: 103.115341
+        outSlope: 103.115341
         tangentMode: 10
       - time: 1
-        value: 44.1791191
-        inSlope: 37.6826401
-        outSlope: 37.6826401
+        value: 6.82453156
+        inSlope: 51.5576706
+        outSlope: 51.5576706
         tangentMode: 10
       - time: 1.5
-        value: 44.1791191
+        value: 6.82453156
         inSlope: 0
         outSlope: 0
         tangentMode: 10
       - time: 2
-        value: 44.1791191
+        value: 6.82453156
         inSlope: 0
         outSlope: 0
         tangentMode: 10
@@ -136,22 +136,22 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: 48.6922455
-        inSlope: 41.9260864
-        outSlope: 41.9260864
+        value: 24.7988243
+        inSlope: 0
+        outSlope: 0
         tangentMode: 10
       - time: 1
-        value: 90.6183319
-        inSlope: 20.9630432
-        outSlope: 20.9630432
+        value: 24.7988243
+        inSlope: 0
+        outSlope: 0
         tangentMode: 10
       - time: 1.5
-        value: 90.6183319
+        value: 24.7988243
         inSlope: 0
         outSlope: 0
         tangentMode: 10
       - time: 2
-        value: 90.6183319
+        value: 24.7988243
         inSlope: 0
         outSlope: 0
         tangentMode: 10
@@ -164,7 +164,7 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_Events:
   - time: 2
-    functionName: FireBallTrigger
+    functionName: BeamPlayerCameraTarget
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

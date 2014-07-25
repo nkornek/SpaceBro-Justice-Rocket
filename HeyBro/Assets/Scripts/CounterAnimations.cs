@@ -10,7 +10,8 @@ public class CounterAnimations : MonoBehaviour {
 	public ParticleSystem toPlayerPart, fromPlayerPart;
 	public CounterControl CounterControl;
 	public GameControl game;
-	public SplineController splineControl;
+	public ParticleSystem[] enemyBeam;
+	public ParticleSystem[] playerBeam;
 
 	// Use this for initialization
 	void Start () {	
@@ -23,11 +24,12 @@ public class CounterAnimations : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (game.counterActive == true & game.counterNum == 1)
+		//if (game.counterActive == true & game.counterNum == 1)
 		{
-			if (energyBallObject.transform.localPosition.x > -12.0f & energyBallObject.transform.localPosition.x < 12.0f)
+			if (energyBallObject.transform.localPosition.y > -10 & energyBallObject.transform.localPosition.y < 45)
 			{
 				counterCamera.target = energyBallObject.transform;
+				print ("test");
 				if (toPlayer)
 				{
 					toPlayerPart.enableEmission = true;
@@ -39,13 +41,17 @@ public class CounterAnimations : MonoBehaviour {
 					fromPlayerPart.enableEmission = true;
 				}
 			}
-			else if (energyBallObject.transform.localPosition.x > 12.0f)
+			else if (energyBallObject.transform.localPosition.y < -10)
 			{
 				counterCamera.target = playerTransform;
+				fromPlayerPart.enableEmission = false;
+				toPlayerPart.enableEmission = false;
 			}
 			else
 			{
 				counterCamera.target = enemyTransform;
+				fromPlayerPart.enableEmission = false;
+				toPlayerPart.enableEmission = false;
 			}
 		}
 	}
@@ -54,8 +60,8 @@ public class CounterAnimations : MonoBehaviour {
 		//energyBallObject.GetComponent<SplineController> ().enabled = true;
 		energyBallObject.GetComponent<SpriteRenderer> ().enabled = true;
 		energyBallObject.GetComponent<ParticleSystem> ().enableEmission = true;
+		energyBallObject.GetComponent<SplineController> ().FollowSpline ();
 		toPlayer = true;
-		splineControl.FollowSpline();
 	}
 	public void enemyHit () {
 		ballCounterAnimator.SetTrigger ("Hit");
@@ -71,4 +77,7 @@ public class CounterAnimations : MonoBehaviour {
 			break;
 		}
 	}
+
+	public void FireLasers () {
+		}
 }
