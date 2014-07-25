@@ -401,7 +401,6 @@ public class GameControl : MonoBehaviour {
 		}
 		if (player.defending) {
 			if (player.checkBothEvents() && pictogramsInRange()) {
-					/*
 				if (timerPercentage >= 0.6)
 				{
 					player.defending = false;
@@ -433,7 +432,6 @@ public class GameControl : MonoBehaviour {
 				}
 				else
 				{
-				*/
 					player.blocked = true;
 					checkBlocked ();
 					seqQueueLeft.sequenceObjects[0].GetComponent<SpriteRenderer>().enabled = false;
@@ -447,7 +445,7 @@ public class GameControl : MonoBehaviour {
 					canEmit = false;
 					canTime = false;
 					timerSprite.sprite = timerGreen;
-				//}
+				}
 			}
 			if (pictogramsFailed ()) {
 				checkBlocked ();

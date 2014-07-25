@@ -69,7 +69,6 @@ public class CounterAnimations : MonoBehaviour {
 	}
 
 	public void FireBall (){
-		//energyBallObject.GetComponent<SplineController> ().enabled = true;
 		energyBallObject.GetComponent<SpriteRenderer> ().enabled = true;
 		energyBallObject.GetComponent<ParticleSystem> ().enableEmission = true;
 		energyBallObject.GetComponent<SplineController> ().FollowSpline ();

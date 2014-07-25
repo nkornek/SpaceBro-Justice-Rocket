@@ -41,7 +41,7 @@ public class CounterControl : MonoBehaviour {
 		GameManager = GameObject.Find ("Game");
 		fivesLaser = 0;
 		enemyBeamPush = 0.5f;
-		/*
+
 		foreach (SpriteRenderer r in ballSprites)
 		{
 			r.enabled = false;
@@ -50,7 +50,6 @@ public class CounterControl : MonoBehaviour {
 		{
 			r.enabled = false;
 		}
-		*/
 	}
 	
 	// Update is called once per frame
@@ -76,14 +75,14 @@ public class CounterControl : MonoBehaviour {
 		switch (whichSequence) {
 		case 1:
 			//energy ball counter
-			if (energyBallObject.transform.localPosition.x > 12.0f & !blocked & !failed)
+			if (energyBallObject.transform.localPosition.y < -10 & !blocked & !failed)
 			{		
 				promptLeft.GetComponent<SpriteRenderer> ().enabled = true;
 				promptRight.GetComponent<SpriteRenderer> ().enabled = true;
 				promptLeft.GetComponent<SpriteRenderer>().sprite = p1Ball[0];		
 				promptRight.GetComponent<SpriteRenderer>().sprite = p2Ball[0];
-				promptLeft.transform.localPosition = new Vector3 (-1 - (Mathf.Abs(energyBallObject.transform.localPosition.x - 27))/3, promptLeft.transform.localPosition.y, 1f);
-				promptRight.transform.localPosition = new Vector3 (1 + (Mathf.Abs(energyBallObject.transform.localPosition.x - 27))/3, promptRight.transform.localPosition.y, 1f);
+				promptLeft.transform.localPosition = new Vector3 (-1 - (Mathf.Abs(energyBallObject.transform.localPosition.x - -40))/7.5f, promptLeft.transform.localPosition.y, 1f);
+				promptRight.transform.localPosition = new Vector3 (1 + (Mathf.Abs(energyBallObject.transform.localPosition.x - -40))/7.5f, promptRight.transform.localPosition.y, 1f);
 			}
 			if (PlayerControl.GetComponent<SequenceControls>().checkBothEvents() && pictogramsInRangeBall() & !blocked & !failed){
 				blocked = true;

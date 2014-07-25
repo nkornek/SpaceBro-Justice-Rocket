@@ -20,18 +20,4 @@ public class SmoothCamera2D : MonoBehaviour {
 			transform.position = new Vector3 (target.position.x, transform.position.y, transform.position.z);
 		}		
 	}
-	void FixedUpdate ()
-	{
-		/*
-		if (cangrow & gameObject.camera.orthographicSize < 14)
-		{
-			gameObject.camera.orthographicSize += 1;
-
-		}
-		else if (!cangrow & gameObject.camera.orthographicSize > 5)
-		{
-			gameObject.camera.orthographicSize -= 1;			
-		}
-		*/
-	}
 }
