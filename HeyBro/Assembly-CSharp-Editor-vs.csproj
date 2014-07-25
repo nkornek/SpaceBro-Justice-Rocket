@@ -49,6 +49,7 @@
      <Compile Include="Assets\Splines\Scripts\Editor\SplineControllerInspector.cs" />
      <Compile Include="Assets\Splines\Scripts\Editor\SplineInspector.cs" />
      <Compile Include="Assets\Splines\Scripts\Editor\SplineNodeInspector.cs" />
+     <None Include="Assets\Sprites\overlay.shader" />
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
  </Reference>

@@ -1,18 +1,16 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Enemy_Particles.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Sprites\overlay.shader">
     <Files>
-      <File FileName="Assets\Scripts\Enemy_Particles.cs" Line="61" Column="3" />
-      <File FileName="Assets\Scripts\Cutscene_Triggers.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Enemy_Particles.cs" Line="61" Column="5" />
-      <File FileName="Assets\Scripts\GameControl.cs" Line="437" Column="28" />
+      <File FileName="Assets\Sprites\overlay.shader" Line="75" Column="2" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Assembly-CSharp" expanded="True">
-            <Node name="Scripts" expanded="True">
-              <Node name="Enemy_Particles.cs" selected="True" />
+            <Node name="Scripts" expanded="True" />
+            <Node name="Sprites" expanded="True">
+              <Node name="overlay.shader" selected="True" />
             </Node>
           </Node>
         </State>
