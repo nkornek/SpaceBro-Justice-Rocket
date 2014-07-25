@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: laser counter intro
+  m_Name: laser idle
   serializedVersion: 4
   m_AnimationType: 2
   m_Compressed: 0
@@ -17,21 +17,16 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: {x: .856811523, y: -96.2908096, z: 24.7988243}
-        inSlope: {x: 0, y: 103.115341, z: 0}
-        outSlope: {x: 0, y: 103.115341, z: 0}
-        tangentMode: 1
-      - time: 1
-        value: {x: .856811523, y: 6.82453156, z: 24.7988243}
-        inSlope: {x: 0, y: 51.5576706, z: 0}
-        outSlope: {x: 0, y: 51.5576706, z: 0}
-        tangentMode: 0
-      - time: 1.5
         value: {x: .856811523, y: 6.82453156, z: 24.7988243}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
-      - time: 2
+      - time: 1.5
+        value: {x: .856811523, y: 7.51662445, z: 24.7988243}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      - time: 3
         value: {x: .856811523, y: 6.82453156, z: 24.7988243}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
@@ -59,11 +54,11 @@ AnimationClip:
   m_AnimationClipSettings:
     serializedVersion: 2
     m_StartTime: 0
-    m_StopTime: 4.5
+    m_StopTime: 3
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
-    m_LoopTime: 0
+    m_LoopTime: 1
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
@@ -82,17 +77,12 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: 1
-        value: .856811523
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
       - time: 1.5
         value: .856811523
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: 2
+      - time: 3
         value: .856811523
         inSlope: 0
         outSlope: 0
@@ -107,25 +97,20 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: -96.2908096
-        inSlope: 103.115341
-        outSlope: 103.115341
-        tangentMode: 10
-      - time: 1
         value: 6.82453156
-        inSlope: 51.5576706
-        outSlope: 51.5576706
-        tangentMode: 10
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
       - time: 1.5
-        value: 6.82453156
+        value: 7.51662445
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: 2
+      - time: 3
         value: 6.82453156
         inSlope: 0
         outSlope: 0
-        tangentMode: 10
+        tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_LocalPosition.y
@@ -140,17 +125,12 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: 1
-        value: 24.7988243
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
       - time: 1.5
         value: 24.7988243
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: 2
+      - time: 3
         value: 24.7988243
         inSlope: 0
         outSlope: 0
@@ -162,53 +142,4 @@ AnimationClip:
     classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves: []
-  m_Events:
-  - time: 0
-    functionName: BeamEnemyCameraTarget
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 1.66666663
-    functionName: enemyFireBeams
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 2
-    functionName: BeamPlayerCameraTarget
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 3
-    functionName: playerFireBeams
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 3.98333335
-    functionName: sphereBeams
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 4
-    functionName: BeamPointCameraTarget
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 4.5
-    functionName: CanMoveBeamContact
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []

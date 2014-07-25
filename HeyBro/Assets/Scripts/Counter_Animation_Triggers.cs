@@ -49,7 +49,13 @@ public class Counter_Animation_Triggers : MonoBehaviour {
 	}
 
 	void enemyFireBeams () {
-		masterCounterSystem.FireLasers ();
+		masterCounterSystem.FireLasersEnemy ();
+	}
+	void playerFireBeams () {
+		masterCounterSystem.FireLasersPlayer ();
+	}
+	void sphereBeams () {
+		masterCounterSystem.SphereParticleClash ();
 	}
 
 

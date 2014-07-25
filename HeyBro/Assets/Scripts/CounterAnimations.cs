@@ -12,6 +12,7 @@ public class CounterAnimations : MonoBehaviour {
 	public GameControl game;
 	public ParticleSystem[] enemyBeam;
 	public ParticleSystem[] playerBeam;
+	public ParticleSystem[] sphere;
 
 	// Use this for initialization
 	void Start () {	
@@ -20,16 +21,27 @@ public class CounterAnimations : MonoBehaviour {
 		game = GameObject.Find ("Game").GetComponent<GameControl>();
 		toPlayerPart.enableEmission = false;
 		fromPlayerPart.enableEmission = false;
+		foreach (ParticleSystem pe in enemyBeam)
+		{
+			pe.enableEmission = false;
+		}
+		foreach (ParticleSystem pe in playerBeam)
+		{
+			pe.enableEmission = false;
+		}
+		foreach (ParticleSystem pe in sphere)
+		{
+			pe.enableEmission = false;
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		//if (game.counterActive == true & game.counterNum == 1)
+		if (game.counterActive == true & game.counterNum == 1)
 		{
 			if (energyBallObject.transform.localPosition.y > -10 & energyBallObject.transform.localPosition.y < 45)
 			{
 				counterCamera.target = energyBallObject.transform;
-				print ("test");
 				if (toPlayer)
 				{
 					toPlayerPart.enableEmission = true;
@@ -78,6 +90,22 @@ public class CounterAnimations : MonoBehaviour {
 		}
 	}
 
-	public void FireLasers () {
+	public void FireLasersEnemy () {
+		foreach (ParticleSystem pe in enemyBeam)
+		{
+			pe.enableEmission = true;
 		}
+	}
+	public void FireLasersPlayer () {
+		foreach (ParticleSystem pe in playerBeam)
+		{
+			pe.enableEmission = true;
+		}
+	}
+	public void SphereParticleClash () {
+		foreach (ParticleSystem pe in sphere)
+		{
+			pe.enableEmission = true;
+		}
+	}
 }
