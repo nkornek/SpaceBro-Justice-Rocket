@@ -75,14 +75,15 @@ public class CounterControl : MonoBehaviour {
 		switch (whichSequence) {
 		case 1:
 			//energy ball counter
-			if (energyBallObject.transform.localPosition.y < -10 & !blocked & !failed)
+			if (energyBallObject.transform.localPosition.y < 0 & !blocked & !failed)
 			{		
+				print ("test");
 				promptLeft.GetComponent<SpriteRenderer> ().enabled = true;
 				promptRight.GetComponent<SpriteRenderer> ().enabled = true;
 				promptLeft.GetComponent<SpriteRenderer>().sprite = p1Ball[0];		
 				promptRight.GetComponent<SpriteRenderer>().sprite = p2Ball[0];
-				promptLeft.transform.localPosition = new Vector3 (-1 - (Mathf.Abs(energyBallObject.transform.localPosition.x - -40))/7.5f, promptLeft.transform.localPosition.y, 1f);
-				promptRight.transform.localPosition = new Vector3 (1 + (Mathf.Abs(energyBallObject.transform.localPosition.x - -40))/7.5f, promptRight.transform.localPosition.y, 1f);
+				promptLeft.transform.localPosition = new Vector3 (-1 - (Mathf.Abs(energyBallObject.transform.localPosition.y + 18))/4, promptLeft.transform.localPosition.y, 1f);
+				promptRight.transform.localPosition = new Vector3 (1 + (Mathf.Abs(energyBallObject.transform.localPosition.y + 18))/4, promptRight.transform.localPosition.y, 1f);
 			}
 			if (PlayerControl.GetComponent<SequenceControls>().checkBothEvents() && pictogramsInRangeBall() & !blocked & !failed){
 				blocked = true;
@@ -118,11 +119,12 @@ public class CounterControl : MonoBehaviour {
 				}
 			}
 			//hit enemy
-			if (energyBallObject.transform.localPosition.x <= -18f & blocked)
+			if (energyBallObject.transform.localPosition.y >= 60 & blocked)
 			{
 				blocked = false;
 				CounterAnimations.enemyHit();
 				CounterAnimations.toPlayer = true;
+				energyBallObject.GetComponent<SplineController>().Duration -= 1;
 				if (ballReflected == 3)
 				{
 					energyBallObject.GetComponent<ParticleSystem>().Emit(800);
@@ -246,7 +248,7 @@ public class CounterControl : MonoBehaviour {
 		GameManager.GetComponent<GameControl>().counterActive = true;
 		if (GameManager.GetComponent<GameControl>().counterNum == 1)
 		{
-			BallAnimator.SetTrigger ("StartIntro");
+			BallAnimator.SetTrigger ("Start Intro");
 			foreach (SpriteRenderer r in ballSprites)
 			{
 				r.enabled = true;

@@ -404,7 +404,8 @@ public class GameControl : MonoBehaviour {
 				if (timerPercentage >= 0.6)
 				{
 					player.defending = false;
-					counterNum = Random.Range (1, 3);
+					//counterNum = Random.Range (1, 3);
+						counterNum = 1;
 					if (GameObject.Find ("Counters"))
 					{
 						GameObject.Find ("Counters").GetComponent<CounterControl>().Invoke ("StartCounter", 0.3f);
