@@ -56,7 +56,7 @@ public class HealthBarPlayer : MonoBehaviour {
 				if (fadeSwitch & CanFadeIn)
 				{
 					fadeSwitch = false;
-					Invoke ("FadeOutStart", 0.7f);
+					//Invoke ("FadeOutStart", 0.7f);
 				}
 			}
 			else {

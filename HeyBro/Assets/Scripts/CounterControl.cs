@@ -145,32 +145,32 @@ public class CounterControl : MonoBehaviour {
 					promptLeft.GetComponent<SpriteRenderer>().sprite = p1laser[1];
 					promptRight.GetComponent<SpriteRenderer>().sprite = p2laser[1];
 					Invoke ("ResetLaserPrompts", 0.1f);
-					contactSphere.Translate (Vector3.forward * 1.5f, Space.Self);
+					contactSphere.Translate (Vector3.forward * 2, Space.Self);
 					foreach (ParticleSystem pp in playerBeam)
 					{
-						//pp.startLifetime += 0.06f;
-						pp.startSpeed += 5;
+						pp.startLifetime += 0.06f;
+						pp.startSpeed += 1;
 					}
 					foreach (ParticleSystem pe in enemyBeam)
 					{
-						//pe.startLifetime -= 0.06f;
-						pe.startSpeed -= 5;
+						pe.startLifetime -= 0.06f;
+						pe.startSpeed -= 1;
 					}
 				}
 				if (enemyBeamPush <= 0)
 				{
 					fivesLaser -= 1;
 					enemyBeamPush = 0.5f;
-					contactSphere.Translate (Vector3.back * 1.5f, Space.Self);
+					contactSphere.Translate (Vector3.back * 2, Space.Self);
 					foreach (ParticleSystem pp in playerBeam)
 					{
-						//pp.startLifetime -= 0.06f;
-						pp.startSpeed -= 5;
+						pp.startLifetime -= 0.06f;
+						pp.startSpeed -= 1;
 					}
 					foreach (ParticleSystem pe in enemyBeam)
 					{
-						//pe.startLifetime += 0.06f;
-						pe.startSpeed += 5;
+						pe.startLifetime += 0.06f;
+						pe.startSpeed += 1;
 					}
 				}
 				if (pictogramsWonLaser() || pictogramsFailedLaser() )
@@ -292,6 +292,6 @@ public class CounterControl : MonoBehaviour {
 		return (fivesLaser <= -13);
 	}
 	private bool pictogramsWonLaser () {
-		return (fivesLaser >= 12);
+		return (fivesLaser >= 13);
 	}
 }

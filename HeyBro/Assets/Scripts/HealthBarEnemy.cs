@@ -56,7 +56,7 @@ public class HealthBarEnemy : MonoBehaviour {
 				if (fadeSwitch & CanFadeIn)
 				{
 					fadeSwitch = false;
-					Invoke ("FadeOutStart", 1f);
+					//Invoke ("FadeOutStart", 1f);
 				}
 			}
 			else {
