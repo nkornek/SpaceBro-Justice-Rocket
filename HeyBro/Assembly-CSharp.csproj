@@ -72,6 +72,7 @@
      <Compile Include="Assets\Scripts\scrollingmaterial.cs" />
      <Compile Include="Assets\Scripts\tripleScript.cs" />
      <Compile Include="Assets\cameraShake.cs" />
+     <None Include="Assets\Sprites\overlay.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
