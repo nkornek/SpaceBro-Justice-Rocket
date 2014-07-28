@@ -148,11 +148,13 @@ public class CounterControl : MonoBehaviour {
 					contactSphere.Translate (Vector3.forward * 1.5f, Space.Self);
 					foreach (ParticleSystem pp in playerBeam)
 					{
-						pp.startLifetime += 0.06f;
+						//pp.startLifetime += 0.06f;
+						pp.startSpeed += 5;
 					}
 					foreach (ParticleSystem pe in enemyBeam)
 					{
-						pe.startLifetime -= 0.06f;
+						//pe.startLifetime -= 0.06f;
+						pe.startSpeed -= 5;
 					}
 				}
 				if (enemyBeamPush <= 0)
@@ -162,16 +164,19 @@ public class CounterControl : MonoBehaviour {
 					contactSphere.Translate (Vector3.back * 1.5f, Space.Self);
 					foreach (ParticleSystem pp in playerBeam)
 					{
-						pp.startLifetime -= 0.06f;
+						//pp.startLifetime -= 0.06f;
+						pp.startSpeed -= 5;
 					}
 					foreach (ParticleSystem pe in enemyBeam)
 					{
-						pe.startLifetime += 0.06f;
+						//pe.startLifetime += 0.06f;
+						pe.startSpeed += 5;
 					}
 				}
 				if (pictogramsWonLaser() || pictogramsFailedLaser() )
 				{
 					canMoveContactPoint = false;
+					promptLeft.GetComponentInParent<Animator>().SetTrigger("BeamcounterEnd");
 					counterAnimatorEnemy.SetTrigger("EndCounter");
 					hidePrompts();
 					if (pictogramsWonLaser() )
@@ -181,7 +186,7 @@ public class CounterControl : MonoBehaviour {
 						Invoke ("endCounter", 3);
 						foreach (ParticleSystem pe in enemyBeam)
 						{
-							pe.startLifetime = 0;
+							pe.enableEmission = false;
 						}
 					}
 					else if (pictogramsFailedLaser() )
@@ -191,7 +196,7 @@ public class CounterControl : MonoBehaviour {
 						Invoke ("endCounter", 3);
 						foreach (ParticleSystem pp in playerBeam)
 						{
-							pp.startLifetime = 0;
+							pp.enableEmission = false;
 						}
 					}
 				}
@@ -213,6 +218,14 @@ public class CounterControl : MonoBehaviour {
 		GameManager.GetComponent<GameControl>().counterActive = false;
 		counterCamera.GetComponent<SmoothCamera2D> ().target = closeOutCamera;
 		CounterAnimations.IntroOutro (2);
+		foreach (ParticleSystem pe in enemyBeam)
+		{
+			pe.enableEmission = false;
+		}
+		foreach (ParticleSystem pp in playerBeam)
+		{
+			pp.enableEmission = false;
+		}
 		}
 	public void damageEnemy() {
 		EnemyControls.GetComponent<EnemyControls>().DamageEnemy (damage);
@@ -258,12 +271,6 @@ public class CounterControl : MonoBehaviour {
 			counterAnimatorEnemy.SetTrigger("Start Laser");
 			promptLeft.GetComponent<SpriteRenderer>().sprite = p1laser[0];		
 			promptRight.GetComponent<SpriteRenderer>().sprite = p2laser[0];
-			promptLeft.transform.localScale = new Vector3 (4, 4, 1);		
-			promptRight.transform.localScale = new Vector3 (4, 4, 1);
-			promptLeft.transform.localPosition = new Vector3 (-9.5f, 0, promptLeft.transform.localPosition.z);
-			promptRight.transform.localPosition = new Vector3 (3.5f, 7.5f, promptLeft.transform.localPosition.z);
-			promptLeft.transform.localRotation = Quaternion.Euler (0, 0, 30);			
-			promptRight.transform.localRotation = Quaternion.Euler (0, 0, 30);
 			foreach (SpriteRenderer r in laserSprites)
 			{
 				r.enabled = enabled;

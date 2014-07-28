@@ -1147,13 +1147,13 @@ MonoBehaviour:
   - {fileID: 19800004}
   fivesLaser: 0
   p1laser:
-  - {fileID: 21300000, guid: 4923986cc2072cf4cb002c952e5783ff, type: 3}
-  - {fileID: 21300000, guid: 570c09a3424fafb45860d89818ba5afe, type: 3}
-  - {fileID: 21300000, guid: 5864dce44fdd5054993249a017a4555b, type: 3}
+  - {fileID: 21300000, guid: e448d9091ec55134c9f6e1fac7cfe5ac, type: 3}
+  - {fileID: 21300000, guid: 849c50ab90d41bd498ce673a0807dc11, type: 3}
+  - {fileID: 21300000, guid: 62d54894fda3713439380ba9865724c4, type: 3}
   p2laser:
-  - {fileID: 21300000, guid: 1028bc21511b7564dab3c880bf4c55d8, type: 3}
-  - {fileID: 21300000, guid: 120ead9e9cd18844983ca1b1ff4af84a, type: 3}
-  - {fileID: 21300000, guid: c426901ed5bb42747a7f5027225a0826, type: 3}
+  - {fileID: 21300000, guid: 091e7b64d0b3fad45bccef728f0e7a54, type: 3}
+  - {fileID: 21300000, guid: 13802b29a7e57d14b99d928dea86f4e2, type: 3}
+  - {fileID: 21300000, guid: ffa7b94a79100894795a7e25d47a11b1, type: 3}
   enemyBeamPush: 0
   laserSprites:
   - {fileID: 21200004}
@@ -1494,7 +1494,7 @@ ParticleSystem:
       minMaxState: 0
     gravityModifier: 0
     inheritVelocity: 0
-    maxNumParticles: 3000
+    maxNumParticles: 10000
   ShapeModule:
     serializedVersion: 2
     enabled: 1
@@ -2526,7 +2526,7 @@ ParticleSystem:
       minMaxState: 0
     gravityModifier: 0
     inheritVelocity: 0
-    maxNumParticles: 3000
+    maxNumParticles: 10000
   ShapeModule:
     serializedVersion: 2
     enabled: 1
@@ -3568,7 +3568,7 @@ ParticleSystem:
       minMaxState: 0
     gravityModifier: 0
     inheritVelocity: 0
-    maxNumParticles: 3000
+    maxNumParticles: 10000
   ShapeModule:
     serializedVersion: 2
     enabled: 1
@@ -7776,7 +7776,7 @@ ParticleSystem:
       minMaxState: 0
     gravityModifier: 0
     inheritVelocity: 0
-    maxNumParticles: 3000
+    maxNumParticles: 10000
   ShapeModule:
     serializedVersion: 2
     enabled: 1
@@ -13274,7 +13274,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d5a3578a52c39874985dc714c1de506d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0d82f5a865d143f4daffb1bbdfbdce0d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21200014
 SpriteRenderer:

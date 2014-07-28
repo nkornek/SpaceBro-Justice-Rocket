@@ -19,7 +19,7 @@ public class HealthBarPlayer : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		player = GameObject.Find ("Players").GetComponent<SequenceControls>();
-		curPerc = 0.1f;
+		curPerc = 0f;
 		targetPerc = 1f;
 		CanFadeIn = true;
 		alpha = 0f;
@@ -63,7 +63,7 @@ public class HealthBarPlayer : MonoBehaviour {
 				CanFadeIn = true;
 				if (alpha > 0.9f)
 				{
-					curPerc = Mathf.Lerp (curPerc, targetPerc, 0.02f);
+					curPerc = Mathf.Lerp (curPerc, targetPerc, 0.05f);
 				}
 			}
 			//health pips
