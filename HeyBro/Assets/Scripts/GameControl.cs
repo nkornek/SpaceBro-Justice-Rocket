@@ -8,6 +8,7 @@ public class GameControl : MonoBehaviour {
 	public EnemyControls enemy; 	// enemy script
 	public Sequence_Queue seqQueueLeft;
 	public Sequence_Queue seqQueueRight;
+	public GameObject playerLeft, playerRight;
 
 	public int turn; 
 	public bool charging;
@@ -162,8 +163,8 @@ public class GameControl : MonoBehaviour {
 			seqGenerated = false;
 			canTime = true;
 			canEmit = true;
-			GameObject.Find ("Player_Left").GetComponent<PlayerAnim>().SetSprite (-1);
-			GameObject.Find ("Player_Right").GetComponent<PlayerAnim>().SetSprite (-1);
+			playerLeft.GetComponent<PlayerAnim>().SetSprite (-1);
+			playerRight.GetComponent<PlayerAnimations>().SetAnim (-1);
 		}
 		else
 		{
@@ -304,8 +305,8 @@ public class GameControl : MonoBehaviour {
 						passfailParticles.particleSystem.Emit(200);
 						srcSeqSound.clip = clipMoveSuccess;
 						srcSeqSound.Play ();
-						GameObject.Find ("Player_Left").GetComponent<PlayerAnim>().SetSprite (player.tripleInputA);
-						GameObject.Find ("Player_Right").GetComponent<PlayerAnim>().SetSprite (player.tripleInputA);
+						playerLeft.GetComponent<PlayerAnim>().SetSprite (player.tripleInputA);
+						playerRight.GetComponent<PlayerAnimations>().SetAnim (player.tripleInputA);
 					}
 					if (tripleScript.tripleSeqNum == 2)
 					{
@@ -314,8 +315,8 @@ public class GameControl : MonoBehaviour {
 						passfailParticles.particleSystem.Emit(300);
 						srcSeqSound.clip = clipMoveSuccess;
 						srcSeqSound.Play ();
-						GameObject.Find ("Player_Left").GetComponent<PlayerAnim>().SetSprite (player.tripleInputA);
-						GameObject.Find ("Player_Right").GetComponent<PlayerAnim>().SetSprite (player.tripleInputA);
+						playerLeft.GetComponent<PlayerAnim>().SetSprite (player.tripleInputA);
+						playerRight.GetComponent<PlayerAnimations>().SetAnim (player.tripleInputA);
 					}
 					if (tripleScript.tripleSeqNum == 3)
 					{
@@ -324,8 +325,8 @@ public class GameControl : MonoBehaviour {
 						passfailParticles.particleSystem.Emit(400);
 						srcSeqSound.clip = clipMoveSuccess;
 						srcSeqSound.Play ();
-						GameObject.Find ("Player_Left").GetComponent<PlayerAnim>().SetSprite (player.tripleInputA);
-						GameObject.Find ("Player_Right").GetComponent<PlayerAnim>().SetSprite (player.tripleInputA);
+						playerLeft.GetComponent<PlayerAnim>().SetSprite (player.tripleInputA);
+						playerRight.GetComponent<PlayerAnimations>().SetAnim (player.tripleInputA);
 					}
 					tripleScript.tripleSeqNum ++;				
 				}
@@ -345,8 +346,9 @@ public class GameControl : MonoBehaviour {
 				if (player.correctMoves < player.seqMoves & !tripleActive) {
 					srcSeqSound.clip = clipMoveSuccess;
 					srcSeqSound.Play ();
-					GameObject.Find ("Player_Left").GetComponent<PlayerAnim>().SetSprite (player.contactA[player.currentMove]);
-					GameObject.Find ("Player_Right").GetComponent<PlayerAnim>().SetSprite (player.contactB[player.currentMove]);
+					playerLeft.GetComponent<PlayerAnim>().SetSprite (player.contactA[player.currentMove]);
+					//GameObject.Find ("Player_Right").GetComponent<PlayerAnim>().SetSprite (player.contactB[player.currentMove]);
+
 					player.generateNextMove ();
 				}
 				if (player.correctMoves >= player.seqMoves & !tripleActive & !paused) {
@@ -376,8 +378,8 @@ public class GameControl : MonoBehaviour {
 	public void PlayerAttack () {			
 			srcSeqSound.clip = clipWholeSeqSuccess;
 			srcSeqSound.Play ();
-			GameObject.Find ("Player_Left").GetComponent<PlayerAnim>().SetSprite (3);
-			GameObject.Find ("Player_Right").GetComponent<PlayerAnim>().SetSprite (3);			
+			playerLeft.GetComponent<PlayerAnim>().SetSprite (3);
+			playerRight.GetComponent<PlayerAnimations>().SetAnim (3);			
 			canEmit = false;
 			//					player.attacking = false;
 			//					player.defending = true;

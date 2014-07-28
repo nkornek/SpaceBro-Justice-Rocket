@@ -35,7 +35,7 @@ public class PlayerAnim : MonoBehaviour {
 			gameObject.GetComponent<SpriteRenderer>().sprite = punch;
 			break;
 		case 2:
-			gameObject.GetComponent<SpriteRenderer>().sprite = elbow;
+			gameObject.GetComponent<SpriteRenderer>().sprite = elbow;			
 			break;
 		case 3:
 			gameObject.GetComponent<SpriteRenderer>().sprite = attack;

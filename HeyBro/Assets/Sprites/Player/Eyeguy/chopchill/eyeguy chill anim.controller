@@ -99,7 +99,7 @@ Transition:
   m_Name: 
   m_SrcState: {fileID: 110200000}
   m_DstState: {fileID: 110248553}
-  m_TransitionDuration: .150000006
+  m_TransitionDuration: .00288759382
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 1
@@ -395,15 +395,12 @@ StateMachine:
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
+      first: {fileID: 0}
+      second: []
+    data:
       first: {fileID: 110221330}
       second:
       - {fileID: 110182921}
-    data:
-      first: {fileID: 0}
-      second: []
-    data:
-      first: {fileID: 0}
-      second: []
     data:
       first: {fileID: 110200000}
       second:
