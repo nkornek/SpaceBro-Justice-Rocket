@@ -55,6 +55,8 @@ public class GameControl : MonoBehaviour {
 		sceneStarted = true;
 		paused = false;
 
+		//playerRight = GameObject.Find ("EyeGuy");
+
 	}
 
 	public void GameStart () {
@@ -66,6 +68,34 @@ public class GameControl : MonoBehaviour {
 	}
 
 	void Update () {
+
+		if (!paused) {
+			responseTime += Time.deltaTime; 
+			
+			if (hi5){
+				if (playersTurn) playerTurn ();
+				else enemyTurn ();
+			}
+			
+			//else if (player.detectedA == 1 && player.detectedB == 4){
+			else if (player.palmA && player.palmB){
+				hi5 = true; 
+			}	
+			
+			if (enemy.hp <= 0){
+				Debug.LogWarning ("Win");
+				Invoke ("loadSplashScreen", 5.0f);
+				//			Application.LoadLevel("Win");
+			}
+			
+			else if (player.hp <= 0){
+				Debug.LogWarning ("Lose");
+				player.sp.Close(); 
+				//			Application.LoadLevel("Lose");
+			}
+			//		player.attacking = true; 
+			//		player.defending = false; 
+		}
 			timerPercentage = timeLeft / maxTime;
 			if (timeLeft < 0) {
 				timeLeft = 0;
@@ -124,37 +154,7 @@ public class GameControl : MonoBehaviour {
 	 * PLAYER'S TURN AGAIN
 	 * -------------------------------------------------------------------------------------------------------------------------- */
 
-	
 
-	void FixedUpdate(){
-	if (!paused) {
-		responseTime += Time.deltaTime; 
-
-		if (hi5){
-			if (playersTurn) playerTurn ();
-			else enemyTurn ();
-		}
-
-		//else if (player.detectedA == 1 && player.detectedB == 4){
-		else if (player.palmA && player.palmB){
-			hi5 = true; 
-		}	
-
-		if (enemy.hp <= 0){
-			Debug.LogWarning ("Win");
-			Invoke ("loadSplashScreen", 5.0f);
-//			Application.LoadLevel("Win");
-		}
-
-		else if (player.hp <= 0){
-			Debug.LogWarning ("Lose");
-			player.sp.Close(); 
-//			Application.LoadLevel("Lose");
-		}
-//		player.attacking = true; 
-//		player.defending = false; 
-	}
-	}
 
 	private void startPlayerTurn () {
 		if (!paused)
@@ -164,7 +164,6 @@ public class GameControl : MonoBehaviour {
 			canTime = true;
 			canEmit = true;
 			playerLeft.GetComponent<PlayerAnim>().SetSprite (-1);
-			playerRight.GetComponent<PlayerAnimations>().SetAnim (-1);
 		}
 		else
 		{
@@ -237,6 +236,7 @@ public class GameControl : MonoBehaviour {
 			//check pass/fail for regular inputs
 
 			if (pictogramsFailed ()) {
+				playerRight.GetComponent<PlayerAnimations>().SetAnim(4);
 				if (!tripleActive)
 				{
 					seqQueueLeft.GetComponent<Sequence_Queue>().movesFail = true;
@@ -306,7 +306,7 @@ public class GameControl : MonoBehaviour {
 						srcSeqSound.clip = clipMoveSuccess;
 						srcSeqSound.Play ();
 						playerLeft.GetComponent<PlayerAnim>().SetSprite (player.tripleInputA);
-						playerRight.GetComponent<PlayerAnimations>().SetAnim (player.tripleInputA);
+						playerRight.GetComponent<PlayerAnimations>().SetAnim (player.tripleInputB);
 					}
 					if (tripleScript.tripleSeqNum == 2)
 					{
@@ -316,7 +316,7 @@ public class GameControl : MonoBehaviour {
 						srcSeqSound.clip = clipMoveSuccess;
 						srcSeqSound.Play ();
 						playerLeft.GetComponent<PlayerAnim>().SetSprite (player.tripleInputA);
-						playerRight.GetComponent<PlayerAnimations>().SetAnim (player.tripleInputA);
+						playerRight.GetComponent<PlayerAnimations>().SetAnim (player.tripleInputB);
 					}
 					if (tripleScript.tripleSeqNum == 3)
 					{
@@ -326,7 +326,7 @@ public class GameControl : MonoBehaviour {
 						srcSeqSound.clip = clipMoveSuccess;
 						srcSeqSound.Play ();
 						playerLeft.GetComponent<PlayerAnim>().SetSprite (player.tripleInputA);
-						playerRight.GetComponent<PlayerAnimations>().SetAnim (player.tripleInputA);
+						playerRight.GetComponent<PlayerAnimations>().SetAnim (player.tripleInputB);
 					}
 					tripleScript.tripleSeqNum ++;				
 				}
@@ -347,7 +347,7 @@ public class GameControl : MonoBehaviour {
 					srcSeqSound.clip = clipMoveSuccess;
 					srcSeqSound.Play ();
 					playerLeft.GetComponent<PlayerAnim>().SetSprite (player.contactA[player.currentMove]);
-					//GameObject.Find ("Player_Right").GetComponent<PlayerAnim>().SetSprite (player.contactB[player.currentMove]);
+					playerRight.GetComponent<PlayerAnimations>().SetAnim (player.contactB[player.currentMove]);
 
 					player.generateNextMove ();
 				}
@@ -403,6 +403,8 @@ public class GameControl : MonoBehaviour {
 		}
 		if (player.defending) {
 			if (player.checkBothEvents() && pictogramsInRange()) {
+				playerLeft.GetComponent<PlayerAnim>().SetSprite(player.contactA[player.currentMove]);
+				playerRight.GetComponent<PlayerAnimations>().SetAnim (player.contactB[player.currentMove]);
 				if (timerPercentage >= 0.6)
 				{
 					player.defending = false;
@@ -455,6 +457,7 @@ public class GameControl : MonoBehaviour {
 				for (int i = 0; i < 6; i++) {
 					seqQueueLeft.GetComponent<Sequence_Queue>().movesFail = true;
 					seqQueueRight.GetComponent<Sequence_Queue>().movesFail = true;
+					playerRight.GetComponent<PlayerAnimations>().SetAnim(4);
 					seqQueueLeft.GetComponent<Sequence_Queue>().Invoke ("AfterFail", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
 					seqQueueRight.GetComponent<Sequence_Queue>().Invoke ("AfterFail", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
 					passfailParticles.particleSystem.startColor = Color.red;
@@ -497,6 +500,7 @@ public class GameControl : MonoBehaviour {
 		if (!player.blocked) {
 			player.hp -= 20;
 			mainCamera.Shake();
+			playerRight.GetComponent<PlayerAnimations>().SetAnim(5);
 		}
 		if (player.hp <= 0) {
 			srcPlayersDie.Play ();

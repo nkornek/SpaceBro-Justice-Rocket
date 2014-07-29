@@ -22,17 +22,24 @@ public class PlayerAnimations : MonoBehaviour {
 			break;
 		case 0: 
 			characterAnims.SetTrigger("five");
+			print ("five");
 			break;
 		case 1:
 			characterAnims.SetTrigger("punch");
+			print ("punch");
 			break;
 		case 2:
-			characterAnims.SetTrigger("elbow");		
+			characterAnims.SetTrigger("elbow");	
+			print ("elbow");
 			break;
 		case 3:
 			cutscene.triggerScene(1);
 			break;
 		case 4: 
+			characterAnims.SetTrigger("sad");
+			break;
+		case 5:
+			characterAnims.SetTrigger("gethit");
 			break;
 		}
 	}

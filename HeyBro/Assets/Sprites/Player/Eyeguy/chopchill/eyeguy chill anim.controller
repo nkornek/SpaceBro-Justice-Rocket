@@ -223,7 +223,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: eye
+    m_ConditionEvent: five
     m_EventTreshold: 0
     m_ExitTime: 1.0016185
   m_Atomic: 1
@@ -326,7 +326,7 @@ State:
   m_Motions:
   - {fileID: 7400000, guid: 8ec364b2579770a4384345c169ddc501, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
-  m_Position: {x: 540, y: 120, z: 0}
+  m_Position: {x: 576, y: 108, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -341,7 +341,7 @@ State:
   m_Motions:
   - {fileID: 7400000, guid: 40dc4e918b2cdbc43b9273ae4ac49b5c, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
-  m_Position: {x: -12, y: 96, z: 0}
+  m_Position: {x: -36, y: 108, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
