@@ -72,9 +72,9 @@
      <Compile Include="Assets\Scripts\SplashScreen.cs" />
      <Compile Include="Assets\Scripts\StarSpeedControl.cs" />
      <Compile Include="Assets\Scripts\cameraShake.cs" />
+     <Compile Include="Assets\Scripts\menu_anim_triggers.cs" />
      <Compile Include="Assets\Scripts\scrollingmaterial.cs" />
      <Compile Include="Assets\Scripts\tripleScript.cs" />
-     <Compile Include="Assets\menu_anim_triggers.cs" />
      <None Include="Assets\Sprites\overlay.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
