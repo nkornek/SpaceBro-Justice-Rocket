@@ -56,14 +56,14 @@ public class HealthBarEnemy : MonoBehaviour {
 				if (fadeSwitch & CanFadeIn)
 				{
 					fadeSwitch = false;
-					Invoke ("FadeOutStart", 1f);
+					//Invoke ("FadeOutStart", 1f);
 				}
 			}
 			else {
 				CanFadeIn = true;
 				if (alpha > 0.9f)
 				{
-				curPerc = Mathf.Lerp (curPerc, targetPerc, 0.03f);
+				curPerc = Mathf.Lerp (curPerc, targetPerc, 0.05f);
 				}
 			}
 			//health pips

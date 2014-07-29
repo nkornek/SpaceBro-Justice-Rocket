@@ -40,8 +40,8 @@ public class Counter_Animation_Triggers : MonoBehaviour {
 	void BeamPointCameraTarget () {
 		camera.target = beamPointTarget;
 		camera.cangrow = true;
-		Invoke ("CanMoveBeamContact", 1);
-		backgroundAnimator.SetTrigger("scaleup");
+		Invoke ("CanMoveBeamContact", 1);		
+		CounterControl.promptLeft.GetComponentInParent<Animator>().SetTrigger("BeamcounterStart");
 	}
 	void CanMoveBeamContact () {
 		CounterControl.canMoveContactPoint = true;
