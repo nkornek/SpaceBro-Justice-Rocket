@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scripts\Hermite Spline\MathUtils.cs" />
      <Compile Include="Assets\Scripts\Hermite Spline\SplineController.cs" />
      <Compile Include="Assets\Scripts\Hermite Spline\SplineInterpolator.cs" />
+     <Compile Include="Assets\Scripts\MenuControl.cs" />
      <Compile Include="Assets\Scripts\Particle_Deactivate.cs" />
      <Compile Include="Assets\Scripts\PlayerAnim.cs" />
      <Compile Include="Assets\Scripts\PlayerAnimations.cs" />
