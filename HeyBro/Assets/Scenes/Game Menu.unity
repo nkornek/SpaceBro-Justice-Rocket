@@ -228,6 +228,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 69511565}
   - 95: {fileID: 69511566}
+  - 114: {fileID: 69511567}
   m_Layer: 0
   m_Name: Camera Mover
   m_TagString: Untagged
@@ -262,6 +263,19 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+--- !u!114 &69511567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 69511564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 928b616a3dd5c7f4091cf0e146edaab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infoPrompts: {fileID: 1679157401}
+  menu: {fileID: 2144949165}
 --- !u!1 &83271119
 GameObject:
   m_ObjectHideFlags: 0
@@ -1625,7 +1639,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 212929573}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: -2, z: 0}
+  m_LocalPosition: {x: 3, y: -2, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2144949164}
@@ -2919,7 +2933,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 422879164}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.20000005, y: -.200000048, z: 0}
+  m_LocalPosition: {x: -1.20000005, y: -.200000048, z: .75}
   m_LocalScale: {x: .649999976, y: .649999976, z: 1}
   m_Children:
   - {fileID: 289485697}
@@ -3111,7 +3125,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 677180539}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: -.696253777, z: -.269634247}
+  m_LocalPosition: {x: -1, y: -.696253777, z: -.5}
   m_LocalScale: {x: .800000012, y: .800000012, z: 1}
   m_Children:
   - {fileID: 1927690318}
@@ -4430,7 +4444,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 914908731}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -.200000003}
+  m_LocalPosition: {x: 0, y: 0, z: -.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1829609791}
@@ -9709,7 +9723,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1667800976}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: -2.76999998, z: 0}
+  m_LocalPosition: {x: -2, y: -2.76999998, z: 1.5}
   m_LocalScale: {x: .600000024, y: .600000024, z: 1}
   m_Children:
   - {fileID: 1961673326}
@@ -9795,6 +9809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoPrompts: {fileID: 1000517865}
+  menu: {fileID: 0}
 --- !u!1 &1728949178
 GameObject:
   m_ObjectHideFlags: 0
@@ -12200,7 +12215,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1812757753}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.20000005, y: -.200000048, z: 0}
+  m_LocalPosition: {x: 1.20000005, y: -.200000048, z: .75}
   m_LocalScale: {x: .649999976, y: .649999976, z: 1}
   m_Children:
   - {fileID: 1894984701}
@@ -12353,7 +12368,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1876453072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: -2.76999998, z: 0}
+  m_LocalPosition: {x: 2, y: -2.76999998, z: 1.5}
   m_LocalScale: {x: .600000024, y: .600000024, z: 1}
   m_Children:
   - {fileID: 260237280}
@@ -12609,7 +12624,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1947366597}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: -.696253777, z: -.269634247}
+  m_LocalPosition: {x: 1, y: -.696253777, z: -.5}
   m_LocalScale: {x: .800000012, y: .800000012, z: 1}
   m_Children:
   - {fileID: 1799069029}
@@ -12806,7 +12821,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2017785858}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: .75, z: 0}
+  m_LocalPosition: {x: -3, y: .75, z: .75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2144949164}
@@ -13037,13 +13052,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e66565d5d4b58b4e8307064981e093e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyControl: 0
+  keyControl: 1
   arduino: {fileID: 1301280210}
   byteBuffer: 
   byteOffset: 0
   byteCount: 0
   current: 0
-  allMenu: []
-  fivesChange: []
-  fistChange: []
-  elbowChange: []
+  detectedA: 0
+  detectedB: 0
+  minEnum: 0
+  maxEnum: 3
+  palmA: 0
+  fistA: 0
+  elbowA: 0
+  palmB: 0
+  fistB: 0
+  elbowB: 0
+  touchDetectedA: 0
+  touchDetectedB: 0
+  canMenu: 0
+  mainMenu: 0
+  hasResetInput: 0
+  cameraMovement: {fileID: 69511566}
+  whichMenu: {fileID: 1679157401}
