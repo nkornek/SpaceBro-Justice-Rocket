@@ -2852,6 +2852,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 668513244}
+  - 114: {fileID: 668513245}
   m_Layer: 0
   m_Name: Gator
   m_TagString: Untagged
@@ -2872,6 +2873,21 @@ Transform:
   - {fileID: 1533055146}
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!114 &668513245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: ac7fb4070fecc114bb9d5f0a89ccba38,
+    type: 2}
+  m_PrefabInternal: {fileID: 1640606869}
+  m_GameObject: {fileID: 668513243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1121034189ec44b4f809ec690befe7df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cutscene: {fileID: 0}
+  game: {fileID: 0}
+  characterAnims: {fileID: 1533055147}
 --- !u!1 &787678710
 GameObject:
   m_ObjectHideFlags: 0
