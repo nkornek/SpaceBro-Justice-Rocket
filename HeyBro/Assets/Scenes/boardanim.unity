@@ -199,7 +199,7 @@ Transform:
   m_PrefabInternal: {fileID: 1774772693}
   m_GameObject: {fileID: 212171539}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: -.680159688, y: -.461232364, z: .5}
+  m_LocalPosition: {x: -.680159688, y: -.461232364, z: .100000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 616157071}
@@ -1449,7 +1449,7 @@ Transform:
   m_PrefabInternal: {fileID: 1774772693}
   m_GameObject: {fileID: 386689976}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: -.680159688, y: -.535637081, z: .5}
+  m_LocalPosition: {x: -.680159688, y: -.535637081, z: .100000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 616157071}
@@ -2700,6 +2700,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 551571860}
+  - 114: {fileID: 551571861}
   m_Layer: 0
   m_Name: EyeGuy
   m_TagString: Untagged
@@ -2720,6 +2721,21 @@ Transform:
   - {fileID: 1971946356}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &551571861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: 41421ecd796ac7a49a9a6429dd2532be,
+    type: 2}
+  m_PrefabInternal: {fileID: 1774772693}
+  m_GameObject: {fileID: 551571859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1121034189ec44b4f809ec690befe7df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cutscene: {fileID: 0}
+  game: {fileID: 0}
+  characterAnims: {fileID: 1971946358}
 --- !u!1 &583062369
 GameObject:
   m_ObjectHideFlags: 0
@@ -5419,7 +5435,7 @@ Transform:
   m_PrefabInternal: {fileID: 1774772693}
   m_GameObject: {fileID: 1413853448}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: .72328043, y: -.554795444, z: .5}
+  m_LocalPosition: {x: .72328043, y: -.554795444, z: .100000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 616157071}
@@ -6534,7 +6550,7 @@ Transform:
   m_PrefabInternal: {fileID: 1774772693}
   m_GameObject: {fileID: 1472675025}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: .677723765, y: -.535637081, z: .5}
+  m_LocalPosition: {x: .677723765, y: -.535637081, z: .100000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 616157071}
