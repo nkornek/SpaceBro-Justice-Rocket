@@ -19,7 +19,7 @@ public class Cutscene_Triggers : MonoBehaviour {
 	}
 
 	public void FireStars(){
-		playerParticles.partVisible = true;
+		playerParticles.partVisible();
 		enemyAnimations.SetTrigger("Hurt");
 		enemy.DamageEnemy (player.seqDamage);
 		}

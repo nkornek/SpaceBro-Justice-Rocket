@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Particle_Deactivate : MonoBehaviour {
 
-	public bool partVisible;
 	public float attackTime = 2.0f;
 	public ParticleSystem particle;
 	public ParticleSystem particle2;
@@ -12,7 +11,6 @@ public class Particle_Deactivate : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		partVisible = false;
 		particle.enableEmission = false;
 		particle2.enableEmission = false;
 	
@@ -20,23 +18,22 @@ public class Particle_Deactivate : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		}
 
-		if (partVisible == true)
-		{
-			particle.Play();
-			particle2.Play();
-			particle.enableEmission = true;
-			particle2.enableEmission = true;
-			attackTime -= Time.deltaTime;
-		}
-		if (attackTime <= 0)
-		{
-			partVisible = false;
-			particle.enableEmission = false;
-			particle2.enableEmission = false;
-			attackTime = 2.0f;	
-			game.paused = false;
-		}
-	
+	public void partVisible() {
+		particle.Play();
+		particle2.Play();
+		particle.enableEmission = true;
+		particle2.enableEmission = true;
+		Invoke ("endParticles", attackTime);
 	}
+
+	public void endParticles() {
+		particle.enableEmission = false;
+		particle2.enableEmission = false;
+		attackTime = 2.0f;	
+		game.paused = false;
+	}
+	
+	
 }

@@ -14,7 +14,6 @@ public class GameControl : MonoBehaviour {
 	public bool charging;
 	public bool playersTurn;
 
-	public bool hi5; 				// begin and end a battle with a hi5
 	public bool seqGenerated; 		// true if a sequence has been generated but not completed 
 	public bool hasResetInput;		// Used to detect if we've reset input already
 
@@ -58,7 +57,6 @@ public class GameControl : MonoBehaviour {
 	}
 
 	public void GameStart () {
-		hi5 = true;
 		hasResetInput = false;
 		canTime = true;
 		canEmit = true;
@@ -69,16 +67,9 @@ public class GameControl : MonoBehaviour {
 
 		if (!paused) {
 			responseTime += Time.deltaTime; 
-			
-			if (hi5){
-				if (playersTurn) playerTurn ();
-				else enemyTurn ();
-			}
-			
-			//else if (player.detectedA == 1 && player.detectedB == 4){
-			else if (player.palmA && player.palmB){
-				hi5 = true; 
-			}	
+			if (playersTurn) playerTurn ();
+			else enemyTurn ();
+
 			
 			if (enemy.hp <= 0){
 				Debug.LogWarning ("Win");
@@ -407,8 +398,7 @@ public class GameControl : MonoBehaviour {
 				if (timerPercentage >= 0.6)
 				{
 					player.defending = false;
-					//counterNum = Random.Range (1, 3);
-						counterNum = 2;
+					counterNum = Random.Range (1, 3);
 					if (GameObject.Find ("Counters"))
 					{
 						GameObject.Find ("Counters").GetComponent<CounterControl>().Invoke ("StartCounter", 0.3f);
