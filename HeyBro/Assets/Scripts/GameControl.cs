@@ -99,11 +99,12 @@ public class GameControl : MonoBehaviour {
 				timeLeft = 0;
 			}
 
-			//set particle speed & ebable
+			//set particle speed & enable
 			if (canEmit & !paused) {
 				timerSprite.enabled = true;			
 				timerOutline.enabled = true;
 				foreach (ParticleSystem p in timerParticles.GetComponentsInChildren<ParticleSystem>()) {
+					p.Play();
 					p.enableEmission = true;
 				}
 			if (timerPercentage > 0.2f) {

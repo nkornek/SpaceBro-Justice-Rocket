@@ -3096,6 +3096,18 @@ Prefab:
       propertyPath: InitialModule.startLifetime.scalar
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: 698315fea1a74cb41bfd9aa65c3e722e, type: 2}
+      propertyPath: m_BackGroundColor.r
+      value: .0151622808
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: 698315fea1a74cb41bfd9aa65c3e722e, type: 2}
+      propertyPath: m_BackGroundColor.b
+      value: .0955882072
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: 698315fea1a74cb41bfd9aa65c3e722e, type: 2}
+      propertyPath: m_BackGroundColor.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400000, guid: 698315fea1a74cb41bfd9aa65c3e722e, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 698315fea1a74cb41bfd9aa65c3e722e, type: 2}
@@ -12984,7 +12996,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .0143001862, g: 0, b: .0441176295, a: .0196078438}
+  m_BackGroundColor: {r: .0151622808, g: 0, b: .0955882072, a: 1}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -13073,5 +13085,9 @@ MonoBehaviour:
   canMenu: 0
   mainMenu: 0
   hasResetInput: 0
+  canSpeedUp: 0
+  starParticles: {fileID: 1594286398}
   cameraMovement: {fileID: 69511566}
   whichMenu: {fileID: 1679157401}
+  playerLeft: {fileID: 2007045360}
+  playerRight: {fileID: 1196642742}

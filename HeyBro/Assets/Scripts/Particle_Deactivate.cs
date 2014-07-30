@@ -23,6 +23,8 @@ public class Particle_Deactivate : MonoBehaviour {
 
 		if (partVisible == true)
 		{
+			particle.Play();
+			particle2.Play();
 			particle.enableEmission = true;
 			particle2.enableEmission = true;
 			attackTime -= Time.deltaTime;

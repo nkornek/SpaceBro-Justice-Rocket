@@ -28,6 +28,7 @@ public class Enemy_Particles : MonoBehaviour {
 		chargeParticles.transform.localRotation = Quaternion.Euler (333, 1.2f, rotation);
 		if (chargeVisible)
 		{
+			chargeParticles.GetComponent<ParticleSystem>().Play();
 			chargeParticles.GetComponent<ParticleSystem>().enableEmission = true;
 		}
 		else
@@ -38,6 +39,8 @@ public class Enemy_Particles : MonoBehaviour {
 	}
 
 	void FireLasers () {
+		laser.Play ();
+		laser2.Play ();
 		laser.enableEmission = true;
 		laser2.enableEmission = true;
 		Invoke ("EndLasers", attackTime);

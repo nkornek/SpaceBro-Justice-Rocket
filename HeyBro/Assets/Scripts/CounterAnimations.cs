@@ -92,18 +92,21 @@ public class CounterAnimations : MonoBehaviour {
 	public void FireLasersEnemy () {
 		foreach (ParticleSystem pe in enemyBeam)
 		{
+			pe.Play();
 			pe.enableEmission = true;
 		}
 	}
 	public void FireLasersPlayer () {
 		foreach (ParticleSystem pe in playerBeam)
 		{
+			pe.Play();
 			pe.enableEmission = true;
 		}
 	}
 	public void SphereParticleClash () {
 		foreach (ParticleSystem pe in sphere)
 		{
+			pe.Play();
 			pe.enableEmission = true;
 		}
 	}
