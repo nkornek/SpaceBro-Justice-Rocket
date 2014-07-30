@@ -3047,6 +3047,9 @@ MonoBehaviour:
   pipDead: {fileID: 21300000, guid: 840922979b957fe4da3c0885f5648f6e, type: 3}
   pipRed: {fileID: 21300000, guid: fbf36d4e87796f44688dc8963fe4d91c, type: 3}
   pipOrange: {fileID: 21300000, guid: 23140ce5705bfca4f8a2fa84f1496ff0, type: 3}
+  damageParticles:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3197,7 +3200,6 @@ MonoBehaviour:
   turn: 0
   charging: 0
   playersTurn: 0
-  hi5: 0
   seqGenerated: 0
   hasResetInput: 0
   responseTime: 0
