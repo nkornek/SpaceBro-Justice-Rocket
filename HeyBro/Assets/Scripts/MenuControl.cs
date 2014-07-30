@@ -39,8 +39,10 @@ public class MenuControl : MonoBehaviour {
 
 	public bool canMenu, mainMenu;
 	public bool hasResetInput;
+	public bool canSpeedUp;
+	public ParticleSystem starParticles;
 
-	public Animator cameraMovement, whichMenu;
+	public Animator cameraMovement, whichMenu, playerLeft, playerRight;
 
 	//check moves
 	bool checkfivesA, checkfivesB, checkfistA, checkfistB, checkelbowA, checkelbowB;
@@ -69,25 +71,36 @@ public class MenuControl : MonoBehaviour {
 		}
 		else if (canMenu)
 		{
-			hasResetInput = false;
 			if (checkFives())
 			{
+				playerLeft.SetTrigger("five");
+				playerRight.SetTrigger("five");
+				menuSelect(0);
 				canMenu = false;
 				mainMenu = false;
-				menuSelect(0);
 			}
 			else if (checkFist())
 			{
+				playerLeft.SetTrigger("punch");
+				playerRight.SetTrigger("punch");
 				canMenu = false;
 				mainMenu = false;
 				menuSelect(1);
 			}
 			else if (checkElbow())
 			{
+				playerLeft.SetTrigger("elbow");
+				playerRight.SetTrigger("elbow");
 				canMenu = false;
 				mainMenu = false;
 				menuSelect(2);
 			}
+			hasResetInput = false;
+		}
+		if (canSpeedUp & starParticles.startSpeed < 50.5)
+		{
+			print ("test");
+			starParticles.startSpeed = Mathf.Lerp (starParticles.startSpeed, 50.5f, 1);
 		}
 
 
@@ -247,8 +260,8 @@ public class MenuControl : MonoBehaviour {
 			if (mainMenu)
 			{
 				cameraMovement.SetTrigger("toinfo");
-				Invoke ("loadLevel", 1.5f);
-				mainMenu = true;
+				Invoke ("loadLevel", 3f);
+				canSpeedUp = true;
 			}
 			else
 			{

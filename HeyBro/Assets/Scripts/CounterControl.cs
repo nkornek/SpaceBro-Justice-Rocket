@@ -11,6 +11,8 @@ public class CounterControl : MonoBehaviour {
 	public int damage;
 	public bool blocked, failed, speedup;
 	public Animator counterAnimatorEnemy;
+	public GameObject[] counterSpritesPlayers;
+	public GameObject[] counterSpritesEnemy;
 
 
 	//specifict counter sequence variables
@@ -18,7 +20,6 @@ public class CounterControl : MonoBehaviour {
 	public int ballReflected;
 	public Sprite[] p1Ball;
 	public Sprite[] p2Ball;
-	public SpriteRenderer[] ballSprites;
 
 	public bool canMoveContactPoint;
 	public Transform contactSphere;
@@ -27,13 +28,14 @@ public class CounterControl : MonoBehaviour {
 	public int fivesLaser;
 	public Sprite[] p1laser;
 	public Sprite[] p2laser;
-	public float enemyBeamPush;	
-	public SpriteRenderer[] laserSprites;
+	public float enemyBeamPush;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		promptLeft = GameObject.Find ("P1_Prompt_back");
 		promptRight = GameObject.Find ("P2_Prompt_back");
+		promptLeft.transform.localPosition = new Vector3 (-4, 0, 0);
+		promptRight.transform.localPosition = new Vector3 (4, 0, 0);
 		damage = 50;
 		PlayerControl = GameObject.Find ("Players");
 		EnemyControls = GameObject.Find ("Enemy");
@@ -41,13 +43,26 @@ public class CounterControl : MonoBehaviour {
 		fivesLaser = 0;
 		enemyBeamPush = 0.5f;
 
-		foreach (SpriteRenderer r in ballSprites)
+		foreach (GameObject g in counterSpritesPlayers)
 		{
-			r.enabled = false;
+			foreach (SpriteRenderer r in g.GetComponentsInChildren<SpriteRenderer>())
+			{
+				r.enabled = false;
+			}
+			foreach (ParticleSystem p in g.GetComponentsInChildren<ParticleSystem>())
+			{
+				p.enableEmission = false;
+			}
 		}
-		foreach (SpriteRenderer r in laserSprites)
+		foreach (GameObject g in counterSpritesEnemy)
 		{
-			r.enabled = false;
+			g.GetComponent<SpriteRenderer>().enabled = false;
+			/*
+			foreach (SpriteRenderer r in g.GetComponentsInChildren<SpriteRenderer>())
+			{
+				r.enabled = false;
+			}
+			*/
 		}
 	}
 	
@@ -76,7 +91,6 @@ public class CounterControl : MonoBehaviour {
 			//energy ball counter
 			if (energyBallObject.transform.localPosition.y < 0 & !blocked & !failed)
 			{		
-				print ("test");
 				promptLeft.GetComponent<SpriteRenderer> ().enabled = true;
 				promptRight.GetComponent<SpriteRenderer> ().enabled = true;
 				promptLeft.GetComponent<SpriteRenderer>().sprite = p1Ball[0];		
@@ -261,9 +275,26 @@ public class CounterControl : MonoBehaviour {
 		if (GameManager.GetComponent<GameControl>().counterNum == 1)
 		{
 			counterAnimatorEnemy.SetTrigger ("Start Ball");
-			foreach (SpriteRenderer r in ballSprites)
+			foreach (GameObject g in counterSpritesPlayers)
 			{
-				r.enabled = true;
+				foreach (SpriteRenderer r in g.GetComponentsInChildren<SpriteRenderer>())
+				{
+					r.enabled = true;
+				}
+				foreach (ParticleSystem p in g.GetComponentsInChildren<ParticleSystem>())
+				{
+					p.enableEmission = true;
+				}
+			}
+			foreach (GameObject g in counterSpritesEnemy)
+			{
+				g.GetComponent<SpriteRenderer>().enabled = true;
+				/*
+			foreach (SpriteRenderer r in g.GetComponentsInChildren<SpriteRenderer>())
+			{
+				r.enabled = false;
+			}
+			*/
 			}
 		}
 		else if (GameManager.GetComponent<GameControl>().counterNum == 2)
@@ -271,9 +302,26 @@ public class CounterControl : MonoBehaviour {
 			counterAnimatorEnemy.SetTrigger("Start Laser");
 			promptLeft.GetComponent<SpriteRenderer>().sprite = p1laser[0];		
 			promptRight.GetComponent<SpriteRenderer>().sprite = p2laser[0];
-			foreach (SpriteRenderer r in laserSprites)
+			foreach (GameObject g in counterSpritesPlayers)
 			{
-				r.enabled = enabled;
+				foreach (SpriteRenderer r in g.GetComponentsInChildren<SpriteRenderer>())
+				{
+					r.enabled = true;
+				}
+				foreach (ParticleSystem p in g.GetComponentsInChildren<ParticleSystem>())
+				{
+					p.enableEmission = true;
+				}
+			}
+			foreach (GameObject g in counterSpritesEnemy)
+			{
+				g.GetComponent<SpriteRenderer>().enabled = true;
+				/*
+			foreach (SpriteRenderer r in g.GetComponentsInChildren<SpriteRenderer>())
+			{
+				r.enabled = false;
+			}
+			*/
 			}
 		}
 	}
