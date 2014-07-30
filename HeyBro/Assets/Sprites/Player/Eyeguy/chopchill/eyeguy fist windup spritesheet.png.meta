@@ -36,7 +36,7 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 1024
   textureSettings:
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: -1
     wrapMode: 1
@@ -52,7 +52,11 @@ TextureImporter:
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
-  buildTargetSettings: []
+  buildTargetSettings:
+  - buildTarget: Standalone
+    maxTextureSize: 4096
+    textureFormat: -3
+    compressionQuality: 50
   spriteSheet:
     sprites:
     - name: eyeguy fist windup spritesheet_0
@@ -62,8 +66,8 @@ TextureImporter:
         y: 0
         width: 251
         height: 284
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .754323483, y: .108586945}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eyeguy fist windup spritesheet_1
       rect:
@@ -72,8 +76,8 @@ TextureImporter:
         y: 0
         width: 251
         height: 284
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .754323483, y: .1085869}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eyeguy fist windup spritesheet_2
       rect:
@@ -82,8 +86,8 @@ TextureImporter:
         y: 0
         width: 251
         height: 284
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .754323483, y: .1085869}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eyeguy fist windup spritesheet_3
       rect:
@@ -92,8 +96,8 @@ TextureImporter:
         y: 0
         width: 251
         height: 284
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .754323483, y: .1085869}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eyeguy fist windup spritesheet_4
       rect:
@@ -102,8 +106,8 @@ TextureImporter:
         y: 0
         width: 251
         height: 284
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .754323483, y: .1085869}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eyeguy fist windup spritesheet_5
       rect:
@@ -112,8 +116,8 @@ TextureImporter:
         y: 0
         width: 251
         height: 284
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .754323483, y: .1085869}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eyeguy fist windup spritesheet_6
       rect:
@@ -122,8 +126,8 @@ TextureImporter:
         y: 0
         width: 251
         height: 284
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .754323483, y: .1085869}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eyeguy fist windup spritesheet_7
       rect:
@@ -132,8 +136,8 @@ TextureImporter:
         y: 0
         width: 251
         height: 284
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .754323483, y: .1085869}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eyeguy fist windup spritesheet_8
       rect:
@@ -142,8 +146,8 @@ TextureImporter:
         y: 0
         width: 251
         height: 284
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .754323483, y: .1085869}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eyeguy fist windup spritesheet_9
       rect:
@@ -152,8 +156,8 @@ TextureImporter:
         y: 0
         width: 251
         height: 284
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .754323483, y: .1085869}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eyeguy fist windup spritesheet_10
       rect:
@@ -162,8 +166,8 @@ TextureImporter:
         y: 0
         width: 251
         height: 284
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .754323483, y: .1085869}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
