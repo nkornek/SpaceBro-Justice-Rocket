@@ -43,15 +43,8 @@ public class Sequence_Queue : MonoBehaviour {
 	
 	// Sets the appropriate pictogram sprites and visibility
 	public void LoadSequence (int[] seq, float delay) {
-		for (int i = 0; i < seq.Length; i++) {
-			gameManager.GetComponent<GameControl> ().SetTimer (0);
-		}
-		
-		for (int i = seq.Length; i < sequenceObjects.Length; i++) {
-
 		}
 
-	}
 	public void CreateTriples() {
 
 	}

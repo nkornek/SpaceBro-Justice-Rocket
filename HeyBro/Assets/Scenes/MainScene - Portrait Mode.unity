@@ -7523,45 +7523,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d8f48896aaf30740b5fc442e3d67862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tripleFiveLeft: {fileID: 21300000, guid: e1f9facd5b698854592712e688db4403, type: 3}
-  tripleFistLeft: {fileID: 21300000, guid: 4ad8a7f696652f049a99442ae59f6d7b, type: 3}
-  tripleElbowLeft: {fileID: 21300000, guid: f8b6de3ce47678040ae4c8a900f4be2f, type: 3}
-  tripleFiveSuccessLeft: {fileID: 21300000, guid: 0cf6e9322b5900a43931c954becbf1de,
-    type: 3}
-  tripleFistSuccessLeft: {fileID: 21300000, guid: c6371b677063d994395fa1d3ce79ca2a,
-    type: 3}
-  tripleElbowSuccessLeft: {fileID: 21300000, guid: ffdfcd5f14940f34480c9249ddd98f89,
-    type: 3}
-  tripleFiveFailLeft: {fileID: 21300000, guid: 734e6e93da05d024aa152275db53585f, type: 3}
-  tripleFistFailLeft: {fileID: 21300000, guid: ef3b3c004dde67f46a91da91f51ff1f9, type: 3}
-  tripleElbowFailLeft: {fileID: 21300000, guid: de6e5d0bdabc985469e4f89ec8f19c7b,
-    type: 3}
-  triple1Left: {fileID: 1083792378}
-  triple2Left: {fileID: 2007238930}
-  triple3Left: {fileID: 1235845052}
-  tripleFiveRight: {fileID: 21300000, guid: 1f07896b09f9326488e43a98c875c8e8, type: 3}
-  tripleFistRight: {fileID: 21300000, guid: de94f9d785a0b3a42a94397581d6dd84, type: 3}
-  tripleElbowRight: {fileID: 21300000, guid: f13dcdf4f970e6d46ab6525fdc8f200c, type: 3}
-  tripleFiveSuccessRight: {fileID: 21300000, guid: 8da243d69bf264f4ea65eb6be5816f35,
-    type: 3}
-  tripleFistSuccessRight: {fileID: 21300000, guid: 7eee53df85b74354db928f1851bdb9fd,
-    type: 3}
-  tripleElbowSuccessRight: {fileID: 21300000, guid: b00fe3a512170284a9f415640c3b1f64,
-    type: 3}
-  tripleFiveFailRight: {fileID: 21300000, guid: 307a3a76e7ac79143867e1c07eaf507f,
-    type: 3}
-  tripleFistFailRight: {fileID: 21300000, guid: da7c5216e5d53ce488237575e6ffb9dd,
-    type: 3}
-  tripleElbowFailRight: {fileID: 21300000, guid: d0fd67b80a832b049bef64004c942e37,
-    type: 3}
-  triple1Right: {fileID: 1466370316}
-  triple2Right: {fileID: 760912271}
-  triple3Right: {fileID: 452785056}
-  gameManager: {fileID: 2061117478}
-  seqControl: {fileID: 608541067}
-  seqQueueLeft: {fileID: 1499499072}
-  seqQueueRight: {fileID: 744893776}
-  tripleSeqNum: 0
 --- !u!1 &394767035
 GameObject:
   m_ObjectHideFlags: 0
@@ -14310,7 +14271,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 608541068}
   - 114: {fileID: 608541069}
-  - 114: {fileID: 608541070}
   m_Layer: 0
   m_Name: Players
   m_TagString: Untagged
@@ -14352,14 +14312,15 @@ MonoBehaviour:
   byteOffset: 0
   byteCount: 0
   current: 0
-  contactA: 
-  contactB: 
+  contactA: 0
+  contactB: 0
   detectedA: 0
   detectedB: 0
   minEnum: 0
   maxEnum: 3
   correctA: 0
   correctB: 0
+  currentSeq: 0
   palmA: 0
   fistA: 0
   elbowA: 0
@@ -14370,60 +14331,21 @@ MonoBehaviour:
   touchDetectedB: 0
   hi5: 0
   seqGenerated: 0
-  currentSeq: 0
-  seqMoves: 0
-  seqDamage: 0
-  seqDelay: 0
-  seqWindow: 0
   currentMove: 0
+  seqMoves: 0
   correctMoves: 0
-  currentSeqTime: 0
-  tripleInputA: 0
-  tripleInputB: 0
   counterInputA: 0
   counterInputB: 0
+  minSeqLength: 0
+  maxSeqLength: 0
   hp: 100
   maxHP: 0
   defending: 0
   blocked: 0
-  counterDamage: 10
-  turn: 0
   game: {fileID: 2061117479}
+  playerLeft: {fileID: 1439067657}
+  playerRight: {fileID: 1595299481}
   enemy: {fileID: 1918594872}
---- !u!114 &608541070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 608541067}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27b3456f1abb26949b771e6c0ce3e2e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sequenceObjects: []
-  gameManager: {fileID: 2061117478}
-  seqLeft: {fileID: 0}
-  seqRight: {fileID: 0}
-  tripleManager: {fileID: 0}
-  pictogramHighfive: {fileID: 0}
-  pictogramFist: {fileID: 0}
-  pictogramElbow: {fileID: 0}
-  pictogramTriple: {fileID: 0}
-  highSuccess: {fileID: 0}
-  fistSuccess: {fileID: 0}
-  elbSuccess: {fileID: 0}
-  highFail: {fileID: 0}
-  fistFail: {fileID: 0}
-  elbFail: {fileID: 0}
-  player: {fileID: 0}
-  seqDelay: 0
-  currentTime: 0
-  zDistanceBetweenPictograms: 0
-  tripleMade: 0
-  movesCorrect: 0
-  movesFail: 0
-  timeBetweenMoves: 0
 --- !u!1 &609504462
 GameObject:
   m_ObjectHideFlags: 0
@@ -16126,31 +16048,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27b3456f1abb26949b771e6c0ce3e2e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sequenceObjects:
-  - {fileID: 1531989707}
-  - {fileID: 845984669}
-  - {fileID: 802900009}
-  - {fileID: 438883824}
-  - {fileID: 1178724350}
-  - {fileID: 2132072217}
   gameManager: {fileID: 2061117478}
-  seqLeft: {fileID: 1499499072}
-  seqRight: {fileID: 744893776}
-  tripleManager: {fileID: 380960712}
-  pictogramHighfive: {fileID: 21300000, guid: 1028bc21511b7564dab3c880bf4c55d8, type: 3}
-  pictogramFist: {fileID: 21300000, guid: eb61afaf413b44c42a46b32ab330f905, type: 3}
-  pictogramElbow: {fileID: 21300000, guid: 9558bea1d69e9e34aadc8eeceb4e64c7, type: 3}
-  pictogramTriple: {fileID: 21300000, guid: c35d192ba9fb67e47a08293d2d2f62ba, type: 3}
-  highSuccess: {fileID: 21300000, guid: 120ead9e9cd18844983ca1b1ff4af84a, type: 3}
-  fistSuccess: {fileID: 21300000, guid: fb887aa55e2a1994aa2e9955cb587299, type: 3}
-  elbSuccess: {fileID: 21300000, guid: dfe97361b88379d4ab30f0789cba6d67, type: 3}
-  highFail: {fileID: 21300000, guid: c426901ed5bb42747a7f5027225a0826, type: 3}
-  fistFail: {fileID: 21300000, guid: b9c9ac57c561e7542afd380633fae0a3, type: 3}
-  elbFail: {fileID: 21300000, guid: fd49271d6eb68e345bc433040bb91cbe, type: 3}
+  playerLeft: {fileID: 0}
+  playerRight: {fileID: 0}
   player: {fileID: 0}
-  seqDelay: 0
-  currentTime: 0
-  zDistanceBetweenPictograms: 0
   tripleMade: 0
   movesCorrect: 0
   movesFail: 0
@@ -40858,31 +40759,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27b3456f1abb26949b771e6c0ce3e2e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sequenceObjects:
-  - {fileID: 1892994161}
-  - {fileID: 1162480935}
-  - {fileID: 1752685543}
-  - {fileID: 1434606901}
-  - {fileID: 481635948}
-  - {fileID: 154575140}
   gameManager: {fileID: 2061117478}
-  seqLeft: {fileID: 1499499072}
-  seqRight: {fileID: 744893776}
-  tripleManager: {fileID: 380960712}
-  pictogramHighfive: {fileID: 21300000, guid: 4923986cc2072cf4cb002c952e5783ff, type: 3}
-  pictogramFist: {fileID: 21300000, guid: c86d79345d464f84c8fa12a9841d85a2, type: 3}
-  pictogramElbow: {fileID: 21300000, guid: 3e633bf4a2033904aabeca94c710262d, type: 3}
-  pictogramTriple: {fileID: 21300000, guid: 137811aca9212244ea81e7febea84937, type: 3}
-  highSuccess: {fileID: 21300000, guid: 570c09a3424fafb45860d89818ba5afe, type: 3}
-  fistSuccess: {fileID: 21300000, guid: 5baf5630931e35e4384c1cfcdc8ec208, type: 3}
-  elbSuccess: {fileID: 21300000, guid: 00d8d9ec0a8fdd740b3078d74982eaab, type: 3}
-  highFail: {fileID: 21300000, guid: 5864dce44fdd5054993249a017a4555b, type: 3}
-  fistFail: {fileID: 21300000, guid: 6db1d6998b317974bad0cae9995cfa30, type: 3}
-  elbFail: {fileID: 21300000, guid: 244d5286f6a0107478fc9e6755c479c5, type: 3}
+  playerLeft: {fileID: 0}
+  playerRight: {fileID: 0}
   player: {fileID: 0}
-  seqDelay: 0
-  currentTime: 0
-  zDistanceBetweenPictograms: 0
   tripleMade: 0
   movesCorrect: 0
   movesFail: 0

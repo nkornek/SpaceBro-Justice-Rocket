@@ -178,8 +178,6 @@ public class GameControl : MonoBehaviour {
 	private void createBlockSequence () {
 		player.generateBlockSequence ();		
 		canEmit = true;
-		seqQueueLeft.LoadSequence (player.contactA, player.seqDelay);
-		seqQueueRight.LoadSequence (player.contactB, player.seqDelay);
 		enemyParticleParent.chargeVisible = true;
 		enemyAnimations.SetTrigger ("StartCharge");
 		if (!canTime)
@@ -205,10 +203,7 @@ public class GameControl : MonoBehaviour {
 		}
 		// (1) generate a sequence
 		if (!seqGenerated){
-			player.generateSeqParams(); 
-			player.generateSequence(player.currentSeq);
-			seqQueueLeft.LoadSequence (player.contactA, player.seqDelay);
-			seqQueueRight.LoadSequence (player.contactB, player.seqDelay);
+			player.generateSequence();
 			seqGenerated = true; 
 			turn++;
 		}
@@ -275,22 +270,15 @@ public class GameControl : MonoBehaviour {
 				{
 					hasResetInput = false;
 				}
-				if (tripleScript.tripleSeqNum > 3)
-				{
 
-				}
 
 				if (player.correctMoves < player.seqMoves & !tripleActive) {
 					srcSeqSound.clip = clipMoveSuccess;
 					srcSeqSound.Play ();
-					playerLeft.GetComponent<PlayerAnimations>().SetAnim (player.contactA[player.currentMove]);
-					playerRight.GetComponent<PlayerAnimations>().SetAnim (player.contactB[player.currentMove]);
 
-					player.generateNextMove ();
 				}
 				if (player.correctMoves >= player.seqMoves & !tripleActive & !paused) {
 					int randomInt = Random.Range (0, 7);
-					tripleScript.GenerateTriple(randomInt);
 					tripleActive = true;
 				}
 			}
@@ -340,8 +328,6 @@ public class GameControl : MonoBehaviour {
 		}
 		if (player.defending) {
 			if (player.checkBothEvents() && pictogramsInRange()) {
-				playerLeft.GetComponent<PlayerAnimations>().SetAnim(player.contactA[player.currentMove]);
-				playerRight.GetComponent<PlayerAnimations>().SetAnim (player.contactB[player.currentMove]);
 				if (timerPercentage >= 0.6)
 				{
 					player.defending = false;
@@ -407,32 +393,6 @@ public class GameControl : MonoBehaviour {
 		}
 	}
 
-	private void playerResponse(){
-		int resp = player.enemyResponse(); 
-		switch (resp){
-			case (int) reaction.counter:
-				if (responseTime <= enemy.attackParams[(int) enemy.currentAttack][3]){
-					gameObject.SendMessage("DamageEnemy", player.counterDamage); 
-					responseTime = 0; 
-				}
-				break;
-
-
-			case (int) reaction.fail:
-				if (responseTime <= enemy.attackParams[(int) enemy.currentAttack][2]){
-				//	player.hp -= (int) enemy.attackParams[(int) enemy.currentAttack][0]; 
-					responseTime = 0;
-				}
-				break; 
-
-			case (int) reaction.block:
-				break;
-
-			default:
-				break; 
-		}
-	}
-
 	public void LaserDamage() {
 		if (!player.blocked) {
 			player.hp -= 20;
@@ -452,11 +412,6 @@ public class GameControl : MonoBehaviour {
 	
 	private bool pictogramsInRange () {
 		//Just check left, they're the same
-		if (!tripleActive)
-		{
-			return (Mathf.Abs (seqQueueLeft.sequenceObjects[player.currentMove].transform.localPosition.z) == 1);
-		}
-		else
 		{
 			return (true);
 		}
