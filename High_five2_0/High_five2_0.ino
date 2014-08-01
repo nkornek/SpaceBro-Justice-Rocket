@@ -1,7 +1,6 @@
 
-int threshhold = 177;
+int target = 1023;
 int state[6] = {0, 0, 0, 0, 0, 0};
-int willDisplay[6] = {0, 0, 0, 0, 0, 0};
 
 void setup() {
   
@@ -11,12 +10,12 @@ void setup() {
 void loop() {
   for(int pin=0; pin < 6; pin++)
   {
-    if (analogRead(pin) == threshhold & state[pin] == 0)
+    if (analogRead(pin) == target & state[pin] == 0)
     {
       Serial.println (pin+1);
       state[pin] = 1;
     }
-    else if (analogRead(pin) < threshhold & state[pin] == 1)
+    else if (analogRead(pin) < target & state[pin] == 1)
     {
       state[pin] = 0;
     }

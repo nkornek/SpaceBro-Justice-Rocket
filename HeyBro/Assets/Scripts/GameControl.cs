@@ -178,8 +178,6 @@ public class GameControl : MonoBehaviour {
 	private void createBlockSequence () {
 		player.generateBlockSequence ();		
 		canEmit = true;
-		seqQueueLeft.LoadSequence (player.contactA, player.seqDelay);
-		seqQueueRight.LoadSequence (player.contactB, player.seqDelay);
 		enemyParticleParent.chargeVisible = true;
 		enemyAnimations.SetTrigger ("StartCharge");
 		if (!canTime)
@@ -205,10 +203,7 @@ public class GameControl : MonoBehaviour {
 		}
 		// (1) generate a sequence
 		if (!seqGenerated){
-			player.generateSeqParams(); 
-			player.generateSequence(player.currentSeq);
-			seqQueueLeft.LoadSequence (player.contactA, player.seqDelay);
-			seqQueueRight.LoadSequence (player.contactB, player.seqDelay);
+			player.generateSequence();
 			seqGenerated = true; 
 			turn++;
 		}
@@ -243,21 +238,6 @@ public class GameControl : MonoBehaviour {
 				}
 				else 
 				{
-					if (tripleScript.tripleSeqNum == 1)
-					{
-						tripleScript.TripleFail1(player.tripleInputA);
-						tripleScript.TripleFail1(player.tripleInputB + 3);
-					}
-					else if (tripleScript.tripleSeqNum == 2)
-					{
-						tripleScript.TripleFail2(player.tripleInputA);
-						tripleScript.TripleFail2(player.tripleInputB + 3);
-					}
-					else if (tripleScript.tripleSeqNum == 3)
-					{
-						tripleScript.TripleFail3(player.tripleInputA);
-						tripleScript.TripleFail3(player.tripleInputB + 3);
-					}
 					seqQueueLeft.GetComponent<Sequence_Queue>().Invoke ("AfterFail", 1);
 					seqQueueRight.GetComponent<Sequence_Queue>().Invoke ("AfterFail", 1);
 					tripleScript.Invoke("TripleEnd", 1);
@@ -289,62 +269,16 @@ public class GameControl : MonoBehaviour {
 				else
 				{
 					hasResetInput = false;
-					if (tripleScript.tripleSeqNum == 1)
-					{
-						tripleScript.TripleSuccess1(player.tripleInputA);
-						tripleScript.TripleSuccess1(player.tripleInputB + 3);
-						passfailParticles.particleSystem.Emit(200);
-						srcSeqSound.clip = clipMoveSuccess;
-						srcSeqSound.Play ();
-						playerLeft.GetComponent<PlayerAnimations>().SetAnim (player.tripleInputA);
-						playerRight.GetComponent<PlayerAnimations>().SetAnim (player.tripleInputB);
-					}
-					if (tripleScript.tripleSeqNum == 2)
-					{
-						tripleScript.TripleSuccess2(player.tripleInputA);
-						tripleScript.TripleSuccess2(player.tripleInputB + 3);
-						passfailParticles.particleSystem.Emit(300);
-						srcSeqSound.clip = clipMoveSuccess;
-						srcSeqSound.Play ();
-						playerLeft.GetComponent<PlayerAnimations>().SetAnim (player.tripleInputA);
-						playerRight.GetComponent<PlayerAnimations>().SetAnim (player.tripleInputB);
-					}
-					if (tripleScript.tripleSeqNum == 3)
-					{
-						tripleScript.TripleSuccess3(player.tripleInputA);
-						tripleScript.TripleSuccess3(player.tripleInputB + 3);
-						passfailParticles.particleSystem.Emit(400);
-						srcSeqSound.clip = clipMoveSuccess;
-						srcSeqSound.Play ();
-						playerLeft.GetComponent<PlayerAnimations>().SetAnim (player.tripleInputA);
-						playerRight.GetComponent<PlayerAnimations>().SetAnim (player.tripleInputB);
-					}
-					tripleScript.tripleSeqNum ++;				
 				}
-				if (tripleScript.tripleSeqNum > 3)
-				{
-					tripleScript.tripleSeqNum = 1;
-					seqQueueLeft.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
-					seqQueueRight.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);		
-					tripleScript.Invoke("TripleEnd", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
-					canTime = false;
-					tripleActive = false;
-					paused = true;
-					Invoke ("PlayerAttack", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
-					player.generateNextMove ();
-				}
+
 
 				if (player.correctMoves < player.seqMoves & !tripleActive) {
 					srcSeqSound.clip = clipMoveSuccess;
 					srcSeqSound.Play ();
-					playerLeft.GetComponent<PlayerAnimations>().SetAnim (player.contactA[player.currentMove]);
-					playerRight.GetComponent<PlayerAnimations>().SetAnim (player.contactB[player.currentMove]);
 
-					player.generateNextMove ();
 				}
 				if (player.correctMoves >= player.seqMoves & !tripleActive & !paused) {
 					int randomInt = Random.Range (0, 7);
-					tripleScript.GenerateTriple(randomInt);
 					tripleActive = true;
 				}
 			}
@@ -394,8 +328,6 @@ public class GameControl : MonoBehaviour {
 		}
 		if (player.defending) {
 			if (player.checkBothEvents() && pictogramsInRange()) {
-				playerLeft.GetComponent<PlayerAnimations>().SetAnim(player.contactA[player.currentMove]);
-				playerRight.GetComponent<PlayerAnimations>().SetAnim (player.contactB[player.currentMove]);
 				if (timerPercentage >= 0.6)
 				{
 					player.defending = false;
@@ -408,8 +340,8 @@ public class GameControl : MonoBehaviour {
 					{
 						GameObject.Find ("Counters(Clone)").GetComponent<CounterControl>().Invoke ("StartCounter", 0.3f);
 					}
-					seqQueueLeft.sequenceObjects[0].GetComponent<SpriteRenderer>().enabled = false;
-					seqQueueRight.sequenceObjects[0].GetComponent<SpriteRenderer>().enabled = false;
+					//seqQueueLeft.sequenceObjects[0].GetComponent<SpriteRenderer>().enabled = false;
+					//seqQueueRight.sequenceObjects[0].GetComponent<SpriteRenderer>().enabled = false;
 					seqQueueLeft.GetComponent<Sequence_Queue>().movesCorrect = true;
 					seqQueueRight.GetComponent<Sequence_Queue>().movesCorrect = true;
 					seqQueueLeft.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
@@ -429,8 +361,8 @@ public class GameControl : MonoBehaviour {
 				{
 					player.blocked = true;
 					checkBlocked ();
-					seqQueueLeft.sequenceObjects[0].GetComponent<SpriteRenderer>().enabled = false;
-					seqQueueRight.sequenceObjects[0].GetComponent<SpriteRenderer>().enabled = false;
+					//seqQueueLeft.sequenceObjects[0].GetComponent<SpriteRenderer>().enabled = false;
+					//seqQueueRight.sequenceObjects[0].GetComponent<SpriteRenderer>().enabled = false;
 					seqQueueLeft.GetComponent<Sequence_Queue>().movesCorrect = true;
 					seqQueueRight.GetComponent<Sequence_Queue>().movesCorrect = true;
 					seqQueueLeft.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
@@ -461,32 +393,6 @@ public class GameControl : MonoBehaviour {
 		}
 	}
 
-	private void playerResponse(){
-		int resp = player.enemyResponse(); 
-		switch (resp){
-			case (int) reaction.counter:
-				if (responseTime <= enemy.attackParams[(int) enemy.currentAttack][3]){
-					gameObject.SendMessage("DamageEnemy", player.counterDamage); 
-					responseTime = 0; 
-				}
-				break;
-
-
-			case (int) reaction.fail:
-				if (responseTime <= enemy.attackParams[(int) enemy.currentAttack][2]){
-				//	player.hp -= (int) enemy.attackParams[(int) enemy.currentAttack][0]; 
-					responseTime = 0;
-				}
-				break; 
-
-			case (int) reaction.block:
-				break;
-
-			default:
-				break; 
-		}
-	}
-
 	public void LaserDamage() {
 		if (!player.blocked) {
 			player.hp -= 20;
@@ -506,11 +412,6 @@ public class GameControl : MonoBehaviour {
 	
 	private bool pictogramsInRange () {
 		//Just check left, they're the same
-		if (!tripleActive)
-		{
-			return (Mathf.Abs (seqQueueLeft.sequenceObjects[player.currentMove].transform.localPosition.z) == 1);
-		}
-		else
 		{
 			return (true);
 		}
