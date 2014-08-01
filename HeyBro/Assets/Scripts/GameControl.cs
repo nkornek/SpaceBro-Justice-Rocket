@@ -74,6 +74,7 @@ public class GameControl : MonoBehaviour {
 			if (enemy.hp <= 0){
 				Debug.LogWarning ("Win");
 				Invoke ("loadSplashScreen", 5.0f);
+				paused = true;
 				//			Application.LoadLevel("Win");
 			}
 			
@@ -495,7 +496,8 @@ public class GameControl : MonoBehaviour {
 		}
 		if (player.hp <= 0) {
 			srcPlayersDie.Play ();
-			Invoke ("loadSplashScreen", 5.0f);			
+			Invoke ("loadSplashScreen", 5.0f);
+			paused = true;
 		}
 		else {
 			Invoke ("startPlayerTurn", 5.0f);
@@ -535,7 +537,7 @@ public class GameControl : MonoBehaviour {
 	}
 
 	private void loadSplashScreen () {
-		Application.LoadLevel ("SplashScreenScene");
+		Application.LoadLevel (0);
 	}
 
 }

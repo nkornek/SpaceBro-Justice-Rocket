@@ -15,6 +15,8 @@ public class HealthBarEnemy : MonoBehaviour {
 
 	public SpriteRenderer[] healthPips;
 	public Sprite pipDead, pipRed, pipOrange;
+	public ParticleSystem[] damageParticles;
+	public bool canEmit;
 
 	// Use this for initialization
 	void Start () {
@@ -24,10 +26,15 @@ public class HealthBarEnemy : MonoBehaviour {
 		CanFadeIn = true;
 		alpha = 0f;
 		fadeSwitch = true;
+		canEmit = true;
+		foreach (ParticleSystem p in damageParticles)
+		{
+			p.enableEmission = false;
+		}
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		//float percHealth = (float) enemy.hp / (float) enemy.maxHP
 		//transform.localScale = new Vector3 (max_XScale * percHealth, yScale, 1f);
 		targetPerc = (float) enemy.hp / (float) enemy.maxHP;
@@ -63,7 +70,7 @@ public class HealthBarEnemy : MonoBehaviour {
 				CanFadeIn = true;
 				if (alpha > 0.9f)
 				{
-				curPerc = Mathf.Lerp (curPerc, targetPerc, 0.05f);
+					curPerc = Mathf.Lerp (curPerc, targetPerc, 0.05f);
 				}
 			}
 			//health pips
@@ -81,6 +88,19 @@ public class HealthBarEnemy : MonoBehaviour {
 				{
 					healthPips[i].sprite = pipDead;
 				}
+			}
+			//damage particles
+			if (curPerc > targetPerc & canEmit)
+			{
+				canEmit = false;
+			    foreach (ParticleSystem p in damageParticles)
+			    {
+					p.Emit(4);
+				}
+			}
+			else if (curPerc <= targetPerc)
+			{
+				canEmit = true;
 			}
 		}
 

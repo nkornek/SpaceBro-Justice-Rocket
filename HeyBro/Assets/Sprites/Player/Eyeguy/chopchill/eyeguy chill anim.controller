@@ -296,7 +296,7 @@ State:
   m_Motions:
   - {fileID: 7400000, guid: 86ffd8410b8bc244b9a97426b9b33186, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
-  m_Position: {x: 358, y: 22, z: 0}
+  m_Position: {x: 528, y: 12, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -342,6 +342,21 @@ State:
   - {fileID: 7400000, guid: 8ec364b2579770a4384345c169ddc501, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
   m_Position: {x: 576, y: 108, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
+--- !u!1102 &110233314
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: eyeelbow slomo
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: f83b5a4bf72a32e47a42a8ac6801448b, type: 2}
+  m_ParentStateMachine: {fileID: 110700000}
+  m_Position: {x: 552, y: 288, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -405,6 +420,21 @@ State:
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
+--- !u!1102 &110297627
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: eyefive windup
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: 36f70c8998c11a04196e83b95d88eaec, type: 2}
+  m_ParentStateMachine: {fileID: 110700000}
+  m_Position: {x: 393, y: 87, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
 --- !u!1107 &110700000
 StateMachine:
   serializedVersion: 2
@@ -423,6 +453,8 @@ StateMachine:
   - {fileID: 110221330}
   - {fileID: 110291228}
   - {fileID: 110208554}
+  - {fileID: 110297627}
+  - {fileID: 110233314}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:

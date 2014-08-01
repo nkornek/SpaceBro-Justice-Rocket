@@ -62,12 +62,12 @@ TextureImporter:
     - name: eyeguy five windup_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
         width: 214
         height: 477
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .714145184, y: .0885737464}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eyeguy five windup_1
       rect:
@@ -76,18 +76,18 @@ TextureImporter:
         y: 0
         width: 214
         height: 477
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .714145184, y: .0885737464}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eyeguy five windup_2
       rect:
         serializedVersion: 2
-        x: 428
+        x: 429
         y: 0
         width: 214
         height: 477
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .714145184, y: .0885737464}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eyeguy five windup_3
       rect:
@@ -96,8 +96,8 @@ TextureImporter:
         y: 0
         width: 214
         height: 477
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .714145184, y: .0885737464}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eyeguy five windup_4
       rect:
@@ -106,8 +106,8 @@ TextureImporter:
         y: 0
         width: 214
         height: 477
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .714145541, y: .045258712}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eyeguy five windup_5
       rect:
@@ -116,8 +116,8 @@ TextureImporter:
         y: 0
         width: 214
         height: 477
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .714145184, y: .0885737464}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eyeguy five windup_6
       rect:
@@ -126,18 +126,18 @@ TextureImporter:
         y: 0
         width: 214
         height: 477
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .714145184, y: .0885737464}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eyeguy five windup_7
       rect:
         serializedVersion: 2
-        x: 1498
+        x: 1499
         y: 0
         width: 214
         height: 477
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .714145184, y: .0885737464}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eyeguy five windup_8
       rect:
@@ -146,8 +146,8 @@ TextureImporter:
         y: 0
         width: 214
         height: 477
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .714145184, y: .0885737464}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eyeguy five windup_9
       rect:
@@ -156,8 +156,8 @@ TextureImporter:
         y: 0
         width: 214
         height: 477
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .714145184, y: .0885737464}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eyeguy five windup_10
       rect:
@@ -166,8 +166,8 @@ TextureImporter:
         y: 0
         width: 214
         height: 477
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .714145184, y: .0885737464}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
