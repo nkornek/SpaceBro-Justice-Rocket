@@ -78,13 +78,6 @@
      <Compile Include="Assets\Scripts\tripleScript.cs" />
      <Compile Include="Assets\Webcam.cs" />
      <None Include="Assets\Sprites\overlay.shader" />
- <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>C:/Users/research.HEX-DEVP-WKS09/Documents/SpaceBro-Justice-Rocket/HeyBro/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
- </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
-      <Project>{D30D99B8-DF0B-5D2A-CF7C-02673562DED6}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

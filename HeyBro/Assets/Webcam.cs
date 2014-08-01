@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Webcam : MonoBehaviour {
 	WebCamTexture _CamTex;
-	private string _SavePath = "C:/WebcamSnaps/";
+	private string _SavePath = Application.dataPath + "/Snaps/";
 	int _CaptureCounter = 0;
 
 	void Start() {

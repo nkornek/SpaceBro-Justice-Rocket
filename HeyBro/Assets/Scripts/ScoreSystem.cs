@@ -7,6 +7,7 @@ public class ScoreSystem : MonoBehaviour {
 
 	void Start() {
 		hiScore = PlayerPrefs.GetInt ("HighScore");
+		System.IO.Directory.CreateDirectory (Application.dataPath + "/Snaps/");
 	}
 
 	void Update() {
