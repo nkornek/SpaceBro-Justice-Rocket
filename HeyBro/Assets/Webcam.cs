@@ -24,7 +24,7 @@ public class Webcam : MonoBehaviour {
 		snap.SetPixels(_CamTex.GetPixels());
 		snap.Apply();
 		
-		System.IO.File.WriteAllBytes(_SavePath + _CaptureCounter.ToString() + ".png", snap.EncodeToPNG());
+		System.IO.File.WriteAllBytes(_SavePath + "highscore.png", snap.EncodeToPNG());
 		++_CaptureCounter;
 	}
 	

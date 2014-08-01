@@ -5,12 +5,14 @@ public class ScoreSystem : MonoBehaviour {
 	public int hiScore, score;
 
 
-	void Start() {
+	void Awake() {
 		hiScore = PlayerPrefs.GetInt ("HighScore");
 		System.IO.Directory.CreateDirectory (Application.dataPath + "/Snaps/");
+		var url = "Application.dataPath"+"/Snaps/highscore.png";
 	}
 
 	void Update() {
+
 	
 	
 	}
