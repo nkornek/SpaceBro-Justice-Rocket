@@ -4,7 +4,7 @@ using System.Collections;
 public class ScoreSystem : MonoBehaviour {
 	public int hiScore, score;
 
-	//public Material defaultMaterial; //prefab material set already
+	public Material defaultMaterial; //prefab material set already
 
 	void Awake() {
 		hiScore = PlayerPrefs.GetInt ("HighScore");
@@ -22,7 +22,7 @@ public class ScoreSystem : MonoBehaviour {
 		sprite = Sprite.Create(www.texture, new Rect(0, 0, 170, 170),new Vector2(0, 0),100.0f);
 		
 		renderer.sprite = sprite;
-		//renderer.material = mat;
+		renderer.material = defaultMaterial;
 	}
 
 

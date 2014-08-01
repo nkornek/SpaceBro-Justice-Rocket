@@ -189,6 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hiScore: 0
   score: 0
+  defaultMaterial: {fileID: 0}
 --- !u!4 &1911185566
 Transform:
   m_ObjectHideFlags: 0
