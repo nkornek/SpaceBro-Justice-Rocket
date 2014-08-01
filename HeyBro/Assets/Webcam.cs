@@ -2,11 +2,14 @@
 using System.Collections;
 
 public class Webcam : MonoBehaviour {
-
 	WebCamTexture _CamTex;
 	private string _SavePath = "C:/WebcamSnaps/";
 	int _CaptureCounter = 0;
 
+	void Start() {
+		_CamTex = new WebCamTexture();
+		_CamTex.Play ();
+	}
 	void Update() {
 		if (Input.GetKeyDown(KeyCode.A))
 		{
