@@ -3,15 +3,26 @@ using System.Collections;
 
 public class Webcam : MonoBehaviour {
 
-	public WebCamTexture webcamTexture;
-	public Color32[] data;
-	void Start() {
-		webcamTexture = new WebCamTexture();
-		webcamTexture.Play();
-		data = new Color32[webcamTexture.width * webcamTexture.height];
-	}
+	WebCamTexture _CamTex;
+	private string _SavePath = "C:/WebcamSnaps/";
+	int _CaptureCounter = 0;
+
 	void Update() {
-		webcamTexture.GetPixels32(data);
+		if (Input.GetKeyDown(KeyCode.A))
+		{
+			TakeSnapshot();
+		}
+	
 	}
 
+	void TakeSnapshot()
+	{
+		Texture2D snap = new Texture2D(_CamTex.width, _CamTex.height);
+		snap.SetPixels(_CamTex.GetPixels());
+		snap.Apply();
+		
+		System.IO.File.WriteAllBytes(_SavePath + _CaptureCounter.ToString() + ".png", snap.EncodeToPNG());
+		++_CaptureCounter;
+	}
+	
 }
