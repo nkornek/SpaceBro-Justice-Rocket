@@ -5,11 +5,11 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{9A8250A7-EC2C-B329-8DCB-1A2F0DB5F219}</ProjectGuid>
+	<ProjectGuid>{D30D99B8-DF0B-5D2A-CF7C-02673562DED6}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
-	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
 	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
 	<FileAlignment>512</FileAlignment>
 	<BaseDirectory>Assets</BaseDirectory>
@@ -46,37 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Animation_Triggers.cs" />
-     <Compile Include="Assets\Scripts\ArduinoRead.cs" />
-     <Compile Include="Assets\Scripts\CounterAnimations.cs" />
-     <Compile Include="Assets\Scripts\CounterControl.cs" />
-     <Compile Include="Assets\Scripts\Counter_Animation_Triggers.cs" />
-     <Compile Include="Assets\Scripts\Cutscene_Camera.cs" />
-     <Compile Include="Assets\Scripts\Cutscene_Triggers.cs" />
-     <Compile Include="Assets\Scripts\Display_Forcefield.cs" />
-     <Compile Include="Assets\Scripts\EnemyControls.cs" />
-     <Compile Include="Assets\Scripts\Enemy_Particles.cs" />
-     <Compile Include="Assets\Scripts\GameControl.cs" />
-     <Compile Include="Assets\Scripts\HealthBarEnemy.cs" />
-     <Compile Include="Assets\Scripts\HealthBarPlayer.cs" />
-     <Compile Include="Assets\Scripts\Hermite Spline\MathUtils.cs" />
-     <Compile Include="Assets\Scripts\Hermite Spline\SplineController.cs" />
-     <Compile Include="Assets\Scripts\Hermite Spline\SplineInterpolator.cs" />
-     <Compile Include="Assets\Scripts\MenuControl.cs" />
-     <Compile Include="Assets\Scripts\Particle_Deactivate.cs" />
-     <Compile Include="Assets\Scripts\PlayerAnim.cs" />
-     <Compile Include="Assets\Scripts\PlayerAnimations.cs" />
-     <Compile Include="Assets\Scripts\ScoreSystem.cs" />
-     <Compile Include="Assets\Scripts\SequenceControls.cs" />
-     <Compile Include="Assets\Scripts\Sequence_Queue.cs" />
-     <Compile Include="Assets\Scripts\SmoothCamera2D.cs" />
-     <Compile Include="Assets\Scripts\SplashScreen.cs" />
-     <Compile Include="Assets\Scripts\StarSpeedControl.cs" />
-     <Compile Include="Assets\Scripts\cameraShake.cs" />
-     <Compile Include="Assets\Scripts\menu_anim_triggers.cs" />
-     <Compile Include="Assets\Scripts\scrollingmaterial.cs" />
-     <Compile Include="Assets\Scripts\tripleScript.cs" />
-     <Compile Include="Assets\Webcam.cs" />
+     <Compile Include="Assets\Standard Assets\PlayerPrefsX.cs" />
      <None Include="Assets\Sprites\overlay.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
