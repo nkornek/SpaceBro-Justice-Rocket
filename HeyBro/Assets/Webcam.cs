@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Webcam : MonoBehaviour {
 	WebCamTexture _CamTex;
-	private string _SavePath = Application.dataPath + "/Snaps/";
+	private string _SavePath = Application.dataPath + "/Resources/";
 	int _CaptureCounter = 0;
 	public Material defaultMaterial; //prefab material set already
 
