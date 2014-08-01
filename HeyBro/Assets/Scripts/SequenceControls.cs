@@ -55,8 +55,7 @@ public class SequenceControls : MonoBehaviour {
 
 	public int currentMove; 		// the move we're at in the current sequence, used as index for contactA/contactB arrays to get the move we want 
 	public int correctMoves; 		// number of correctly done moves in the current sequence
-	public float currentSeqTime; 	// currently accumulated time since the sequence began
-	public int tripleInputA, tripleInputB, counterInputA, counterInputB;
+	public int counterInputA, counterInputB;
 	
 	// PLAYER STUFF
 	public int hp;
@@ -73,28 +72,11 @@ public class SequenceControls : MonoBehaviour {
 	// ENEMY STUFF
 	public EnemyControls enemy; 
 
-	// 0: num moves per sequence, 1: dmg, 2: delay, 3: window
-	public float[][] sequences = 	new float[4][] { new float[] { 3, 50, .9f, .175f }, new float[]{ 4, 75, .8f, .150f }, 
-													 new float[] { 5, 100, .75f, .150f }, new float[] { 6, 150, .7f, .125f }};	
+	// 0: num moves per sequence, 1: dmg
+	public float[][] sequences = 	new float[4][] { new float[] { 4, 50 }, new float[]{ 5, 75 }, 
+													 new float[] { 6, 100 }, new float[] { 7, 150 }};	
 
 	void Start(){
-		/**
-		if (keyControl){
-			palmA 	= Input.GetKeyDown(KeyCode.Alpha1); 		// these will correspond to specific button inputs 
-			fistA 	= Input.GetKeyDown(KeyCode.Alpha2);
-			elbowA	= Input.GetKeyDown(KeyCode.Alpha3);
-
-			palmB	= Input.GetKeyDown(KeyCode.Alpha8); 
-			fistB	= Input.GetKeyDown(KeyCode.Alpha9);
-			elbowB	= Input.GetKeyDown(KeyCode.Alpha0);
-		}
-		*/
-		/*
-		if (!keyControl) {
-			// ARDUINO STUFF
-			sp.Open();				// open the port
-			sp.ReadTimeout = 1; 	// how often unity checks (throws exception if isn't open)
-		}*/
 
 		touchDetectedA = false; 
 		touchDetectedB = false;
@@ -113,30 +95,6 @@ public class SequenceControls : MonoBehaviour {
 	void Update(){
 		detectedA = arduino.in1; 
 		detectedB = arduino.in2;
-	}
-
-	void FixedUpdate(){
-		currentSeqTime += Time.deltaTime; 
-/**	
-		if (sp.IsOpen){
-			try{
-				if (!keyControl){
-					readFromArduino(); 
-				}
-			}
-			catch (System.Exception) {}
-		}
-*/		/**
-		else {
-			palmA 	= Input.GetKey(KeyCode.Alpha1); 		// these will correspond to specific button inputs 
-			fistA 	= Input.GetKey(KeyCode.Alpha2);
-			elbowA	= Input.GetKey(KeyCode.Alpha3);
-			
-			palmB	= Input.GetKey(KeyCode.Alpha8); 
-			fistB	= Input.GetKey(KeyCode.Alpha9);
-			elbowB	= Input.GetKey(KeyCode.Alpha0);
-		}
-		*/
 	}
 
 	/* --------------------------------------------------------------------------------------------------------------------------

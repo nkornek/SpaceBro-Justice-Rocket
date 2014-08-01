@@ -3,19 +3,11 @@ using System.Collections;
 
 public class Sequence_Queue : MonoBehaviour {
 
-	public GameObject[] sequenceObjects;
-	public GameObject gameManager, seqLeft, seqRight, tripleManager;
-	private Sprite[] sequenceSprites;
-	
-	public Sprite pictogramHighfive, pictogramFist, pictogramElbow, pictogramTriple;
-	public Sprite highSuccess, fistSuccess, elbSuccess;
-	public Sprite highFail, fistFail, elbFail;
+	public GameObject gameManager;
+	public Animator playerLeft, playerRight;
 
 	// delay stuff
-	public SequenceControls player; 
-	public float seqDelay;
-	public float currentTime;
-	public int zDistanceBetweenPictograms;
+	public SequenceControls player;
 	
 	public bool tripleMade;
 	public bool movesCorrect, movesFail;
@@ -23,74 +15,23 @@ public class Sequence_Queue : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		sequenceSprites = new Sprite[3] {pictogramHighfive, pictogramFist, pictogramElbow};
-		zDistanceBetweenPictograms = 1;
 		timeBetweenMoves = 0.2f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		foreach (GameObject o in sequenceObjects)
-		{
-			if (o.transform.localPosition.z == -1)
-			{
-				o.GetComponent<SpriteRenderer>().enabled = true;
-			}
-			else
-			{
-				o.GetComponent<SpriteRenderer>().enabled = false;
-			}
-		}
+
 		if (movesCorrect)
 		{
 			movesCorrect = false;
-			foreach (GameObject o in sequenceObjects)
-			{
-				if (o.transform.localPosition.z == -1 & o.GetComponent<SpriteRenderer>().sprite == pictogramHighfive)
-				{
-					o.GetComponent<SpriteRenderer>().sprite = highSuccess;
-				}
-				else if (o.transform.localPosition.z == -1 & o.GetComponent<SpriteRenderer>().sprite == pictogramFist)
-				{
-					o.GetComponent<SpriteRenderer>().sprite = fistSuccess;
-				}
-				else if (o.transform.localPosition.z == -1 & o.GetComponent<SpriteRenderer>().sprite == pictogramElbow)
-				{
-					o.GetComponent<SpriteRenderer>().sprite = elbSuccess;
-				}
-			}
+
 		}
 		if (movesFail)
 		{
 			movesFail = false;
-			foreach (GameObject o in sequenceObjects)
-			{
-				if (o.transform.localPosition.z == -1 & o.GetComponent<SpriteRenderer>().sprite == pictogramHighfive)
-				{
-					o.GetComponent<SpriteRenderer>().sprite = highFail;
-				}
-				if (o.transform.localPosition.z == -1 & o.GetComponent<SpriteRenderer>().sprite == pictogramFist)
-				{
-					o.GetComponent<SpriteRenderer>().sprite = fistFail;
-				}
-				if (o.transform.localPosition.z == -1 & o.GetComponent<SpriteRenderer>().sprite == pictogramElbow)
-				{
-					o.GetComponent<SpriteRenderer>().sprite = elbFail;
-				}
-				gameManager.GetComponent<GameControl>().enemyTurn();
-			}
-		}
 
-		foreach (GameObject o in sequenceObjects)
-		{
-			if (o.transform.localPosition.z == -1 & o.GetComponent<SpriteRenderer>().sprite == pictogramTriple & !tripleMade)
-			{
-				seqLeft.GetComponent<Sequence_Queue>().tripleMade = true;
-				seqRight.GetComponent<Sequence_Queue>().tripleMade = true;
-				seqLeft.GetComponent<Sequence_Queue>().CreateTriples();
-				seqRight.GetComponent<Sequence_Queue>().CreateTriples();
-			}
 		}
+		
 	
 	}
 	/*
@@ -103,47 +44,20 @@ public class Sequence_Queue : MonoBehaviour {
 	// Sets the appropriate pictogram sprites and visibility
 	public void LoadSequence (int[] seq, float delay) {
 		for (int i = 0; i < seq.Length; i++) {
-			sequenceObjects[i].GetComponent<SpriteRenderer>().enabled = true;
-			sequenceObjects[i].GetComponent<SpriteRenderer>().sprite = sequenceSprites[seq[i]];
-			sequenceObjects[i].transform.localPosition = new Vector3 (sequenceObjects[i].transform.localPosition.x, sequenceObjects[i].transform.localPosition.y, - zDistanceBetweenPictograms*(i+1));		
 			gameManager.GetComponent<GameControl> ().SetTimer (0);
 		}
 		
 		for (int i = seq.Length; i < sequenceObjects.Length; i++) {
-			sequenceObjects[i].GetComponent<SpriteRenderer>().enabled = false;
+
 		}
 
 	}
 	public void CreateTriples() {
-		gameManager.GetComponent<GameControl>().tripleActive = true;
-		int randomInt = Random.Range (0, 7);
-		tripleManager.GetComponent<tripleScript>().GenerateTriple(randomInt);		
-		gameManager.GetComponent<GameControl> ().SetTimer (1);
-		foreach (GameObject o in sequenceObjects)
-		{
-			if (o.transform.localPosition.z == -1)
-			{
-				o.GetComponent<SpriteRenderer>().sprite = pictogramTriple;
-			}
-		}
+
 	}
 
-	public void MoveSpriteForward(){
-		float zTranslation = zDistanceBetweenPictograms;
-		foreach (GameObject o in sequenceObjects) {
-			o.gameObject.transform.localPosition = new Vector3 (o.gameObject.transform.localPosition.x, o.gameObject.transform.localPosition.y, 
-			o.gameObject.transform.localPosition.z + zTranslation);
-			gameManager.GetComponent<GameControl> ().SetTimer (0);
-			}
-		}
+
 	public void AfterFail(){
-		float zTranslation = zDistanceBetweenPictograms;
-		foreach (GameObject o in sequenceObjects)
-		{
-			o.gameObject.transform.localPosition = new Vector3 (o.gameObject.transform.localPosition.x, o.gameObject.transform.localPosition.y, 
-			o.gameObject.transform.localPosition.z + zTranslation * 10);
-		}
-		gameManager.GetComponent<GameControl>().canEmit = false;
 
 	}
 
