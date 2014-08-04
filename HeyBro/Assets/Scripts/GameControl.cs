@@ -203,14 +203,12 @@ public class GameControl : MonoBehaviour {
 	public void enemyTurn(){
 		if (!paused)
 		{
-		if (canTime)
-		{
-		}
 		if (player.defending) {
 			if (player.checkBothEvents() && pictogramsInRange) {
+					playerLeft.GetComponent<PlayerAnimations>().characterAnims.SetBool ("Blocking", false);
 					player.onSuccess();
 					pictogramsInRange = false;	
-				if (canCounter = true)
+				if (canCounter)
 				{
 					canCounter = false;
 					player.defending = false;
@@ -227,18 +225,18 @@ public class GameControl : MonoBehaviour {
 					paused = true;
 					enemyAnimations.SetTrigger("FailCharge");
 					enemyParticleParent.chargeVisible = false;
-					player.counterInputA = 0;
-					player.counterInputB = 0;
+					player.contactA = 0;
+					player.contactB = 0;
+					player.defending = false;
 				}
 				else
 				{
-					player.blocked = true;
+					playerLeft.GetComponent<PlayerAnimations>().characterAnims.SetBool ("Blocking", false);					player.blocked = true;
 					checkBlocked ();
 				}
 			}
 			if (pictogramsFailed) {
 				checkBlocked ();
-
 				
 			}
 		}

@@ -46,6 +46,7 @@ public class PlayerAnimations : MonoBehaviour {
 	void inRangeDef () {
 		game.pictogramsInRange = true;
 		game.canCounter = true;
+
 	}
 
 	void failCounter () {

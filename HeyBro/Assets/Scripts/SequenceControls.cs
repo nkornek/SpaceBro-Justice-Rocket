@@ -104,6 +104,7 @@ public class SequenceControls : MonoBehaviour {
 	public void generateBlockSequence () {
 		defending = true;
 		blocked = false;
+		playerLeft.characterAnims.SetBool ("Blocking", true);
 		currentMove = 0;
 		correctMoves = 0;
 		contactA = 1;
