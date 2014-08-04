@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: fist slomo
+  m_Name: fist slomo - Block
   serializedVersion: 4
   m_AnimationType: 2
   m_Compressed: 0
@@ -73431,7 +73431,14 @@ AnimationClip:
     script: {fileID: 0}
   m_Events:
   - time: 0
-    functionName: inRange
+    functionName: inRangeDef
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2
+    functionName: failCounter
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

@@ -6,6 +6,7 @@ public class PlayerAnimations : MonoBehaviour {
 	public Cutscene_Camera cutscene;
 	public GameControl game;
 	public Animator characterAnims;
+	public SequenceControls player;
 	
 	// Use this for initialization
 	void Start () {
@@ -18,8 +19,6 @@ public class PlayerAnimations : MonoBehaviour {
 	
 	public void SetAnim (int anim) {
 		switch (anim) {
-		case -1: 
-			break;
 		case 0: 
 			characterAnims.SetTrigger("five");
 			break;
@@ -30,7 +29,6 @@ public class PlayerAnimations : MonoBehaviour {
 			characterAnims.SetTrigger("elbow");	
 			break;
 		case 3:
-			cutscene.triggerScene(1);
 			break;
 		case 4: 
 			characterAnims.SetTrigger("sad");
@@ -39,5 +37,38 @@ public class PlayerAnimations : MonoBehaviour {
 			characterAnims.SetTrigger("gethit");
 			break;
 		}
+	}
+	//the following are only checked on left player since both are the same
+	void inRange () {
+		game.pictogramsInRange = true;
+	}
+
+	void inRangeDef () {
+		game.pictogramsInRange = true;
+		game.canCounter = true;
+	}
+
+	void failCounter () {
+		game.canCounter = false;
+	}
+
+	void failure () {
+		game.pictogramsInRange = false;
+		game.pictogramsFailed = true;
+	}
+
+	void success () {
+		if (player.correctMoves < player.seqMoves)
+		{
+			player.generateMove ();
+		}
+		else 
+		{
+			game.StartPlayerAttack();
+		}
+	}
+
+	public void moveSuccess () {
+		characterAnims.SetTrigger ("success");
 	}
 }

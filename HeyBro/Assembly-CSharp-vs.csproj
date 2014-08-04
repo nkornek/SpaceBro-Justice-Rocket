@@ -64,11 +64,9 @@
      <Compile Include="Assets\Scripts\Hermite Spline\SplineInterpolator.cs" />
      <Compile Include="Assets\Scripts\MenuControl.cs" />
      <Compile Include="Assets\Scripts\Particle_Deactivate.cs" />
-     <Compile Include="Assets\Scripts\PlayerAnim.cs" />
      <Compile Include="Assets\Scripts\PlayerAnimations.cs" />
      <Compile Include="Assets\Scripts\ScoreSystem.cs" />
      <Compile Include="Assets\Scripts\SequenceControls.cs" />
-     <Compile Include="Assets\Scripts\Sequence_Queue.cs" />
      <Compile Include="Assets\Scripts\SmoothCamera2D.cs" />
      <Compile Include="Assets\Scripts\SplashScreen.cs" />
      <Compile Include="Assets\Scripts\StarSpeedControl.cs" />

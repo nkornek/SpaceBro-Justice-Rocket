@@ -8,7 +8,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400000}
-  - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: Gator
   m_TagString: Untagged
@@ -124,6 +123,7 @@ GameObject:
   - 4: {fileID: 400014}
   - 95: {fileID: 9500000}
   - 212: {fileID: 21200008}
+  - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: gator animations
   m_TagString: Untagged
@@ -697,7 +697,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -.0920696259, y: 1.98758125, z: -1.98724747}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400014}
@@ -1267,7 +1267,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
+  m_GameObject: {fileID: 100014}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1121034189ec44b4f809ec690befe7df, type: 3}
@@ -1276,6 +1276,7 @@ MonoBehaviour:
   cutscene: {fileID: 0}
   game: {fileID: 0}
   characterAnims: {fileID: 9500000}
+  player: {fileID: 0}
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1

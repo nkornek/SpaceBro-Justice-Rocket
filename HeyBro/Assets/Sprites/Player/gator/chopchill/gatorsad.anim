@@ -20,7 +20,7 @@ AnimationClip:
         value: {x: 0, y: 0, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 117555824
+        tangentMode: 104529956
       - time: .574999988
         value: {x: 0, y: -.136977941, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
@@ -30,7 +30,7 @@ AnimationClip:
         value: {x: 0, y: 0, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 0
+        tangentMode: 107794232
       m_PreInfinity: 2
       m_PostInfinity: 2
     path: 
@@ -158,4 +158,11 @@ AnimationClip:
     classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves: []
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: failure
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

@@ -82,12 +82,7 @@ public class SequenceControls : MonoBehaviour {
 		detectedB = arduino.in2;
 	}
 
-	
-	public void generateMove(){
-		contactA = Random.Range (minEnum, maxEnum);
-		contactB = Random.Range (minEnum, maxEnum);
-		setWindup ();
-	 	}
+
 
 
 	/*-----------------------------------
@@ -115,12 +110,25 @@ public class SequenceControls : MonoBehaviour {
 		contactB = 1;	
 		setWindup ();
 	}
+	
+	public void generateMove(){
+		if (!game.counterActive)
+		{
+			contactA = Random.Range (minEnum, maxEnum);
+			contactB = Random.Range (minEnum, maxEnum);
+			setWindup ();
+		}
+	}
 
 	public void setWindup() {
 		playerLeft.GetComponent<PlayerAnimations>().SetAnim(contactA);
 		playerRight.GetComponent<PlayerAnimations>().SetAnim (contactB);
 		}
-
+	
+	public void onSuccess() {
+		playerLeft.moveSuccess ();
+		playerRight.moveSuccess ();
+	}
 
 	/* --------------------------------------------------------------------------------------------------------------------------
 	 * NO ARGS. 
@@ -261,5 +269,6 @@ public class SequenceControls : MonoBehaviour {
 		hp -= damage; 
 	}
 	//test change
+
 
 }

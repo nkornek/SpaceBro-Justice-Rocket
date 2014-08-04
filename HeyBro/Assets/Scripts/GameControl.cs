@@ -6,8 +6,6 @@ public class GameControl : MonoBehaviour {
 	//public SequenceControls player;	// player script
 	public SequenceControls player; 
 	public EnemyControls enemy; 	// enemy script
-	public Sequence_Queue seqQueueLeft;
-	public Sequence_Queue seqQueueRight;
 	public GameObject playerLeft, playerRight;
 
 	public int turn; 
@@ -17,10 +15,6 @@ public class GameControl : MonoBehaviour {
 	public bool seqGenerated; 		// true if a sequence has been generated but not completed 
 	public bool hasResetInput;		// Used to detect if we've reset input already
 
-	public enum reaction { block, counter, fail };
-
-	public float responseTime; 
-
 	public AudioSource srcSeqSound;
 	public AudioClip clipMoveSuccess;
 	public AudioClip clipWholeSeqSuccess;
@@ -28,29 +22,27 @@ public class GameControl : MonoBehaviour {
 	
 	public AudioSource srcRobot;
 	public AudioSource srcPlayersDie;
-	public float moveTimeToFail, timeLeft, tripleTimeToFail, baseBlockTime, maxTime, timerPercentage;
-	public bool canTime, canEmit;
 
-	public Transform timerBar;
-	public SpriteRenderer timerSprite, timerOutline;
-	public Sprite timerYellow, timerGreen, timerRed;
-	public GameObject timerParticles, passfailParticles;
+	public bool canTime;
 
 	public bool sceneStarted, tripleActive, paused;
 	public tripleScript tripleScript;
 	public Animator enemyAnimations;
 	public Enemy_Particles enemyParticleParent;
+	public Particle_Deactivate playerParticles;	
 	
 	public bool counterActive;
 	public int counterNum;
+	public bool pictogramsInRange, pictogramsFailed, canCounter;
 
 	public cameraShake mainCamera;
+	public Animator cutsceneAnim;
 
 	void Start () {
-		moveTimeToFail = 4.0f;	
-		tripleTimeToFail = 6.0f;
-		baseBlockTime = 1.0f;
-		maxTime = 4.0f;
+		//moveTimeToFail = 4.0f;	
+		//tripleTimeToFail = 6.0f;
+		//baseBlockTime = 1.0f;
+		//maxTime = 4.0f;
 		sceneStarted = true;
 		paused = false;
 	
@@ -59,14 +51,12 @@ public class GameControl : MonoBehaviour {
 	public void GameStart () {
 		hasResetInput = false;
 		canTime = true;
-		canEmit = true;
 		startPlayerTurn();
 	}
 
 	void Update () {
 
 		if (!paused) {
-			responseTime += Time.deltaTime; 
 			if (playersTurn) playerTurn ();
 			else enemyTurn ();
 
@@ -75,54 +65,14 @@ public class GameControl : MonoBehaviour {
 				Debug.LogWarning ("Win");
 				Invoke ("loadSplashScreen", 5.0f);
 				paused = true;
-				//			Application.LoadLevel("Win");
 			}
 			
 			else if (player.hp <= 0){
 				Debug.LogWarning ("Lose");
 				player.sp.Close(); 
-				//			Application.LoadLevel("Lose");
 			}
-			//		player.attacking = true; 
-			//		player.defending = false; 
 		}
-			timerPercentage = timeLeft / maxTime;
-			if (timeLeft < 0) {
-				timeLeft = 0;
-			}
 
-			//set particle speed & enable
-			if (canEmit & !paused) {
-				timerSprite.enabled = true;			
-				timerOutline.enabled = true;
-				foreach (ParticleSystem p in timerParticles.GetComponentsInChildren<ParticleSystem>()) {
-					p.Play();
-					p.enableEmission = true;
-				}
-			if (timerPercentage > 0.2f) {
-				timerSprite.sprite = timerYellow;
-				foreach (ParticleSystem p in timerParticles.GetComponentsInChildren<ParticleSystem>()) {
-					p.startColor = Color.yellow;
-					p.startSpeed = timerPercentage * 4;
-					}
-				} 
-				else {
-					timerSprite.sprite = timerRed;
-					foreach (ParticleSystem p in timerParticles.GetComponentsInChildren<ParticleSystem>()) {
-						p.startColor = Color.red;
-						p.startSpeed = 4;
-					}
-				}
-			} 
-			else {
-					timerSprite.enabled = false;
-					timerOutline.enabled = false;
-					foreach (ParticleSystem p in timerParticles.GetComponentsInChildren<ParticleSystem>()) {
-						p.enableEmission = false;
-					}
-				}
-			//set bar length
-			timerBar.localScale = new Vector3 (1.0f, timerPercentage, 1.0f);
 	}
 
 	/* --------------------------------------------------------------------------------------------------------------------------
@@ -135,7 +85,7 @@ public class GameControl : MonoBehaviour {
 	 * 
 	 * ~ ENEMY'S TURN 
 	 * (6)	randomly generate an attack	
-	 * (7)	if player counters within counter window => damage enemy
+	 * (7)	if player counters within counter window => counter minigame
 	 * (8)	else if player blocks within block window => nothing happens
 	 * (9)	else if player fails => damage player
 	 * 
@@ -153,7 +103,6 @@ public class GameControl : MonoBehaviour {
 			playersTurn = true;
 			seqGenerated = false;
 			canTime = true;
-			canEmit = true;
 		}
 		else
 		{
@@ -166,8 +115,6 @@ public class GameControl : MonoBehaviour {
 		{
 			playersTurn = false;
 			Invoke ("createBlockSequence", 2);
-			//seqQueueLeft.movingSpritesDown = false;
-			//seqQueueRight.movingSpritesDown = false;
 		}
 		else
 		{
@@ -176,17 +123,9 @@ public class GameControl : MonoBehaviour {
 	}
 	
 	private void createBlockSequence () {
-		player.generateBlockSequence ();		
-		canEmit = true;
+		player.generateBlockSequence ();	
 		enemyParticleParent.chargeVisible = true;
 		enemyAnimations.SetTrigger ("StartCharge");
-		if (!canTime)
-		{
-			canTime = true;
-			SetTimer(2);
-		}
-		//Hax!
-		//Invoke ("checkBlocked", 8.0f);
 	}
 		
 	private void checkBlocked () {
@@ -199,7 +138,7 @@ public class GameControl : MonoBehaviour {
 	private void playerTurn(){
 		if (canTime)
 		{
-			timeLeft -= Time.deltaTime;
+			//timeLeft -= Time.deltaTime;
 		}
 		// (1) generate a sequence
 		if (!seqGenerated){
@@ -210,7 +149,7 @@ public class GameControl : MonoBehaviour {
 		
 		else if (!paused) {
 			if (!hasResetInput) {
-				if (pictogramsInRange ()) {
+				if (pictogramsInRange) {
 					player.detectedA = -1;
 					player.detectedB = -2;
 					canTime = true;
@@ -220,94 +159,39 @@ public class GameControl : MonoBehaviour {
 
 			//check pass/fail for regular inputs
 
-			if (pictogramsFailed ()) {
-				playerLeft.GetComponent<PlayerAnimations>().SetAnim(4);
-				playerRight.GetComponent<PlayerAnimations>().SetAnim(4);
-				if (!tripleActive)
-				{
-					seqQueueLeft.GetComponent<Sequence_Queue>().movesFail = true;
-					seqQueueRight.GetComponent<Sequence_Queue>().movesFail = true;
-					seqQueueLeft.GetComponent<Sequence_Queue>().Invoke ("AfterFail", 1);
-					seqQueueRight.GetComponent<Sequence_Queue>().Invoke ("AfterFail", 1);
-					startEnemyTurn ();
-					canTime = false;
-					canEmit = false;
-					enemyAnimations.SetTrigger("Laugh");
-					passfailParticles.particleSystem.startColor = Color.red;
-					passfailParticles.particleSystem.Emit(400);
-				}
-				else 
-				{
-					seqQueueLeft.GetComponent<Sequence_Queue>().Invoke ("AfterFail", 1);
-					seqQueueRight.GetComponent<Sequence_Queue>().Invoke ("AfterFail", 1);
-					tripleScript.Invoke("TripleEnd", 1);
-					startEnemyTurn ();
-					canTime = false;
-					canEmit = false;
-					enemyAnimations.SetTrigger("Laugh");
-					passfailParticles.particleSystem.startColor = Color.red;
-					passfailParticles.particleSystem.Emit(400);
-				}
+			if (pictogramsFailed) {
+				pictogramsFailed = false;
+				Invoke ("startEnemyTurn", 1f);
+
 			}
-			else if (player.checkBothEvents() && pictogramsInRange()){
-				if (!tripleActive)
-				{
-					hasResetInput = false;
-					player.correctMoves++;
-					seqQueueLeft.GetComponent<Sequence_Queue>().movesCorrect = true;
-					seqQueueRight.GetComponent<Sequence_Queue>().movesCorrect = true;
-					seqQueueLeft.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
-					seqQueueRight.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
-					canTime = false;
-					passfailParticles.particleSystem.startColor = Color.green;
-					passfailParticles.particleSystem.Emit(400);
-					timerSprite.sprite = timerGreen; 
-					//seqQueueLeft.GetComponent<Sequence_Queue>().MoveSpriteForward();
-					//seqQueueRight.GetComponent<Sequence_Queue>().MoveSpriteForward();
-					//player.generateNextMove();
-				}
-				else
-				{
-					hasResetInput = false;
-				}
+			else if (player.checkBothEvents() && pictogramsInRange){
+				hasResetInput = false;
+				player.onSuccess();
+				pictogramsInRange = false;		
+				player.correctMoves++;
 
 
 				if (player.correctMoves < player.seqMoves & !tripleActive) {
 					srcSeqSound.clip = clipMoveSuccess;
+					srcSeqSound.Play ();	
+				}
+				else if (player.correctMoves == player.seqMoves)
+				{					
+					srcSeqSound.clip = clipWholeSeqSuccess;
 					srcSeqSound.Play ();
-
-				}
-				if (player.correctMoves >= player.seqMoves & !tripleActive & !paused) {
-					int randomInt = Random.Range (0, 7);
-					tripleActive = true;
 				}
 			}
-
-			/** Yeah fuck all this  
-			player.seqMoves--; 
-			// check if sequence is finished
-			if (player.seqMoves <= 0){
-				// check if all moves in sequence were correctly done  
-				if (player.correctMoves >= player.seqMoves){ 
-					//deal damage
-				//	enemy.DamageEnemy(player.seqDamage);
-				}
-				player.seqGenerated = false; // to generate a new sequence 
-				player.attacking = false;
-				player.defending = true;
-				//playersTurn = false;
-			}
-			*/			
 		}
 	}
+	public void StartPlayerAttack () {
+			cutsceneAnim.SetTrigger("Cutscene 1");
+	}
 	public void PlayerAttack () {			
-			srcSeqSound.clip = clipWholeSeqSuccess;
-			srcSeqSound.Play ();
 			playerLeft.GetComponent<PlayerAnimations>().SetAnim (3);
-			playerRight.GetComponent<PlayerAnimations>().SetAnim (3);			
-			canEmit = false;
-			//					player.attacking = false;
-			//					player.defending = true;
+			playerRight.GetComponent<PlayerAnimations>().SetAnim (3);
+			playerParticles.partVisible();
+			enemyAnimations.SetTrigger("Hurt");
+			enemy.DamageEnemy (player.seqMoves * 20);
 			if (enemy.hp <= 0) {
 				playersTurn = false;
 				srcRobot.Play ();
@@ -319,17 +203,16 @@ public class GameControl : MonoBehaviour {
 	public void enemyTurn(){
 		if (!paused)
 		{
-		//enemy.generateAttack(); 
-		responseTime = 0;
-		//playerResponse(); 
 		if (canTime)
 		{
-			timeLeft -= Time.deltaTime;
 		}
 		if (player.defending) {
-			if (player.checkBothEvents() && pictogramsInRange()) {
-				if (timerPercentage >= 0.6)
+			if (player.checkBothEvents() && pictogramsInRange) {
+					player.onSuccess();
+					pictogramsInRange = false;	
+				if (canCounter = true)
 				{
+					canCounter = false;
 					player.defending = false;
 					counterNum = Random.Range (1, 3);
 					if (GameObject.Find ("Counters"))
@@ -340,17 +223,7 @@ public class GameControl : MonoBehaviour {
 					{
 						GameObject.Find ("Counters(Clone)").GetComponent<CounterControl>().Invoke ("StartCounter", 0.3f);
 					}
-					//seqQueueLeft.sequenceObjects[0].GetComponent<SpriteRenderer>().enabled = false;
-					//seqQueueRight.sequenceObjects[0].GetComponent<SpriteRenderer>().enabled = false;
-					seqQueueLeft.GetComponent<Sequence_Queue>().movesCorrect = true;
-					seqQueueRight.GetComponent<Sequence_Queue>().movesCorrect = true;
-					seqQueueLeft.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
-					seqQueueRight.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
-					passfailParticles.particleSystem.startColor = Color.green;
-					passfailParticles.particleSystem.Emit(400);
-					canEmit = false;
-					canTime = false;
-					timerSprite.sprite = timerGreen;
+
 					paused = true;
 					enemyAnimations.SetTrigger("FailCharge");
 					enemyParticleParent.chargeVisible = false;
@@ -361,32 +234,11 @@ public class GameControl : MonoBehaviour {
 				{
 					player.blocked = true;
 					checkBlocked ();
-					//seqQueueLeft.sequenceObjects[0].GetComponent<SpriteRenderer>().enabled = false;
-					//seqQueueRight.sequenceObjects[0].GetComponent<SpriteRenderer>().enabled = false;
-					seqQueueLeft.GetComponent<Sequence_Queue>().movesCorrect = true;
-					seqQueueRight.GetComponent<Sequence_Queue>().movesCorrect = true;
-					seqQueueLeft.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
-					seqQueueRight.GetComponent<Sequence_Queue>().Invoke ("MoveSpriteForward", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
-					passfailParticles.particleSystem.startColor = Color.green;
-					passfailParticles.particleSystem.Emit(400);
-					canEmit = false;
-					canTime = false;
-					timerSprite.sprite = timerGreen;
 				}
 			}
-			if (pictogramsFailed ()) {
+			if (pictogramsFailed) {
 				checkBlocked ();
-				for (int i = 0; i < 6; i++) {
-					seqQueueLeft.GetComponent<Sequence_Queue>().movesFail = true;
-					seqQueueRight.GetComponent<Sequence_Queue>().movesFail = true;
-					playerLeft.GetComponent<PlayerAnimations>().SetAnim(4);
-					playerRight.GetComponent<PlayerAnimations>().SetAnim(4);
-					seqQueueLeft.GetComponent<Sequence_Queue>().Invoke ("AfterFail", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
-					seqQueueRight.GetComponent<Sequence_Queue>().Invoke ("AfterFail", seqQueueLeft.GetComponent<Sequence_Queue>().timeBetweenMoves);
-					passfailParticles.particleSystem.startColor = Color.red;
-					passfailParticles.particleSystem.Emit(400);
-					canTime = false;
-				}
+
 				
 			}
 		}
@@ -408,33 +260,6 @@ public class GameControl : MonoBehaviour {
 		else {
 			Invoke ("startPlayerTurn", 5.0f);
 		}
-	}
-	
-	private bool pictogramsInRange () {
-		//Just check left, they're the same
-		{
-			return (true);
-		}
-	}
-
-	public bool pictogramsFailed () {
-		return (timeLeft <= 0);
-	}
-
-	public void SetTimer (int timerSwitch) {
-		switch (timerSwitch) {
-		case 0:
-			maxTime = moveTimeToFail - (0.25f * player.correctMoves) - (1 - GameObject.Find("Enemy Health Parent").GetComponent<HealthBarEnemy>().curPerc);
-			break;
-		case 1:
-			maxTime = tripleTimeToFail - (1 - GameObject.Find("Enemy Health Parent").GetComponent<HealthBarEnemy>().curPerc);
-			break;
-		case 2:
-			maxTime = baseBlockTime + (2.0f * GameObject.Find("Enemy Health Parent").GetComponent<HealthBarEnemy>().curPerc);
-			break;
-				}
-		timeLeft = maxTime;
-
 	}
 
 	private void loadSplashScreen () {
