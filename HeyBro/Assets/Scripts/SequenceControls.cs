@@ -107,6 +107,7 @@ public class SequenceControls : MonoBehaviour {
 		playerLeft.characterAnims.SetBool ("Blocking", true);
 		currentMove = 0;
 		correctMoves = 0;
+		seqMoves = 1;
 		contactA = 1;
 		contactB = 1;	
 		setWindup ();

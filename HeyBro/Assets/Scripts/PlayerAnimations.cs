@@ -30,9 +30,11 @@ public class PlayerAnimations : MonoBehaviour {
 			break;
 		case 3:
 			break;
+			/*
 		case 4: 
 			characterAnims.SetTrigger("sad");
 			break;
+			*/
 		case 5:
 			characterAnims.SetTrigger("gethit");
 			break;
@@ -66,6 +68,13 @@ public class PlayerAnimations : MonoBehaviour {
 		else 
 		{
 			game.StartPlayerAttack();
+		}
+	}
+
+	public void nextTurn () {
+		if (game.playersTurn)
+		{
+			game.Invoke ("startEnemyTurn", 1f);
 		}
 	}
 

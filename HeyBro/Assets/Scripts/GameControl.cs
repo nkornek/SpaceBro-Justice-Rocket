@@ -25,7 +25,7 @@ public class GameControl : MonoBehaviour {
 
 	public bool canTime;
 
-	public bool sceneStarted, tripleActive, paused;
+	public bool tripleActive, paused;
 	public tripleScript tripleScript;
 	public Animator enemyAnimations;
 	public Enemy_Particles enemyParticleParent;
@@ -43,7 +43,6 @@ public class GameControl : MonoBehaviour {
 		//tripleTimeToFail = 6.0f;
 		//baseBlockTime = 1.0f;
 		//maxTime = 4.0f;
-		sceneStarted = true;
 		paused = false;
 	
 	}
@@ -161,7 +160,6 @@ public class GameControl : MonoBehaviour {
 
 			if (pictogramsFailed) {
 				pictogramsFailed = false;
-				Invoke ("startEnemyTurn", 1f);
 
 			}
 			else if (player.checkBothEvents() && pictogramsInRange){
@@ -236,6 +234,7 @@ public class GameControl : MonoBehaviour {
 				}
 			}
 			if (pictogramsFailed) {
+				pictogramsFailed = false;
 				checkBlocked ();
 				
 			}
