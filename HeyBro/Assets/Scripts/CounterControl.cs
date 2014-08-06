@@ -98,7 +98,7 @@ public class CounterControl : MonoBehaviour {
 				promptLeft.transform.localPosition = new Vector3 (-1 - (Mathf.Abs(energyBallObject.transform.localPosition.y + 18))/4, promptLeft.transform.localPosition.y, 1f);
 				promptRight.transform.localPosition = new Vector3 (1 + (Mathf.Abs(energyBallObject.transform.localPosition.y + 18))/4, promptRight.transform.localPosition.y, 1f);
 			}
-			if (PlayerControl.GetComponent<SequenceControls>().checkBothEvents() && pictogramsInRangeBall() & !blocked & !failed){
+			if (PlayerControl.GetComponent<SequenceControls>().checkBothEvents() && pictogramsInRangeBall() & !blocked & !failed & energyBallObject.transform.localPosition.y < 0){
 				blocked = true;
 				speedup = true;
 				ballReflected ++;
@@ -115,7 +115,6 @@ public class CounterControl : MonoBehaviour {
 					if (speedup)
 					{
 						speedup = false;
-						////
 					}
 				}
 				else
