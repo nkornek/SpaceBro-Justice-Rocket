@@ -1,5 +1,5 @@
 
-int target = 1023;
+int target = 1020;
 int state[6] = {0, 0, 0, 0, 0, 0};
 
 void setup() {
@@ -10,7 +10,7 @@ void setup() {
 void loop() {
   for(int pin=0; pin < 6; pin++)
   {
-    if (analogRead(pin) == target & state[pin] == 0)
+    if (analogRead(pin) >= target & state[pin] == 0)
     {
       Serial.println (pin+1);
       state[pin] = 1;
