@@ -70,11 +70,13 @@ public class ArduinoRead : MonoBehaviour {
 		if (!inputted1 && !inputted2) {
 			if (current > 0 && current <= 3){
 				in1 = current; 
-				inputted1 = true; 
+				inputted1 = true;
+				Invoke ("resetArduino", 0.1f);
 			}
 			else if (current > 3){
 				in2 = current; 
 				inputted2 = true; 
+				Invoke ("resetArduino", 0.1f);
 			}
 		}
 		
@@ -82,6 +84,7 @@ public class ArduinoRead : MonoBehaviour {
 			if (current > 3){
 				in2 = current;
 				inputted2 = true; 
+				Invoke ("resetArduino", 0.1f);
 			}
 		}
 		
@@ -89,8 +92,14 @@ public class ArduinoRead : MonoBehaviour {
 			if (current > 0 && current <= 3){
 				in1 = current;
 				inputted1 = true; 
+				Invoke ("resetArduino", 0.1f);
 			}
 		}
+	}
+
+	void resetArduino () {
+		in1 = -1;
+		in2 = -2;
 	}
 
 }
