@@ -728,7 +728,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.66284704, y: .151546776, z: 4.92488623}
+  m_LocalPosition: {x: 4.39215851, y: 1.98758125, z: -1.98724651}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400014}
@@ -1334,6 +1334,7 @@ MonoBehaviour:
   game: {fileID: 0}
   characterAnims: {fileID: 9500000}
   player: {fileID: 0}
+  enHP: {fileID: 0}
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -7,6 +7,7 @@ public class PlayerAnimations : MonoBehaviour {
 	public GameControl game;
 	public Animator characterAnims;
 	public SequenceControls player;
+	public HealthBarEnemy enHP;
 	
 	// Use this for initialization
 	void Start () {
@@ -61,6 +62,7 @@ public class PlayerAnimations : MonoBehaviour {
 	}
 
 	void success () {
+		resetSpeed ();
 		if (player.correctMoves < player.seqMoves)
 		{
 			player.generateMove ();
@@ -80,5 +82,14 @@ public class PlayerAnimations : MonoBehaviour {
 
 	public void moveSuccess () {
 		characterAnims.SetTrigger ("success");
+		resetSpeed ();
+	}
+
+	void setSpeed () {
+		characterAnims.speed = 1 + Mathf.Abs (enHP.curPerc - 1);
+	}
+
+	void resetSpeed () {
+		characterAnims.speed = 1;
 	}
 }

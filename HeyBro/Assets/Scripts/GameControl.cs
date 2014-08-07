@@ -39,10 +39,6 @@ public class GameControl : MonoBehaviour {
 	public Animator cutsceneAnim;
 
 	void Start () {
-		//moveTimeToFail = 4.0f;	
-		//tripleTimeToFail = 6.0f;
-		//baseBlockTime = 1.0f;
-		//maxTime = 4.0f;
 		paused = false;
 	
 	}
@@ -135,10 +131,6 @@ public class GameControl : MonoBehaviour {
 	}
 
 	private void playerTurn(){
-		if (canTime)
-		{
-			//timeLeft -= Time.deltaTime;
-		}
 		// (1) generate a sequence
 		if (!seqGenerated){
 			player.generateSequence();
@@ -146,7 +138,7 @@ public class GameControl : MonoBehaviour {
 			turn++;
 		}
 		
-		else if (!paused) {
+		else if (!paused & playersTurn) {
 			if (!hasResetInput) {
 				if (pictogramsInRange) {
 					player.detectedA = -1;
@@ -206,7 +198,7 @@ public class GameControl : MonoBehaviour {
 					playerLeft.GetComponent<PlayerAnimations>().characterAnims.SetBool ("Blocking", false);
 					playerRight.GetComponent<PlayerAnimations>().characterAnims.SetBool ("Blocking", false);
 					player.onSuccess();
-					pictogramsInRange = false;	
+					pictogramsInRange = false;
 				if (canCounter)
 				{
 					canCounter = false;
