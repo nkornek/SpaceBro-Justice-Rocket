@@ -38,7 +38,7 @@ public class MenuControl : MonoBehaviour {
 	public bool touchDetectedB; 
 
 	public bool canMenu, mainMenu;
-	public bool hasResetInput;
+	//public bool hasResetInput;
 	public bool canSpeedUp;
 	public ParticleSystem starParticles;
 
@@ -63,39 +63,44 @@ public class MenuControl : MonoBehaviour {
 	void Update () {
 		detectedA = arduino.in1; 
 		detectedB = arduino.in2;
+		/*
 		if (!hasResetInput)
 		{
 			detectedA = -1;
 			detectedB = -2;
 			hasResetInput = true;
 		}
-		else if (canMenu)
+		else
 		{
-			if (checkFives())
-			{
-				playerLeft.SetTrigger("five");
-				playerRight.SetTrigger("five");
-				menuSelect(0);
-				canMenu = false;
-				mainMenu = false;
-			}
-			else if (checkFist())
-			{
-				playerLeft.SetTrigger("punch");
-				playerRight.SetTrigger("punch");
-				canMenu = false;
-				mainMenu = false;
-				menuSelect(1);
-			}
-			else if (checkElbow())
-			{
-				playerLeft.SetTrigger("elbow");
-				playerRight.SetTrigger("elbow");
-				canMenu = false;
-				mainMenu = false;
-				menuSelect(2);
-			}
 			hasResetInput = false;
+			*/
+			if (canMenu) {
+				if (checkFives())
+				{
+					playerLeft.SetTrigger("five");
+					playerRight.SetTrigger("five");
+					menuSelect(0);
+					canMenu = false;
+					mainMenu = false;
+				}
+				else if (checkFist())
+				{
+					playerLeft.SetTrigger("punch");
+					playerRight.SetTrigger("punch");
+					canMenu = false;
+					mainMenu = false;
+					menuSelect(1);
+				}
+				else if (checkElbow())
+				{
+					playerLeft.SetTrigger("elbow");
+					playerRight.SetTrigger("elbow");
+					canMenu = false;
+					mainMenu = false;
+					menuSelect(2);
+				}
+			//}
+
 		}
 		if (canSpeedUp & starParticles.startSpeed < 50.5)
 		{
