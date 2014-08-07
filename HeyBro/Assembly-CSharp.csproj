@@ -68,6 +68,7 @@
      <Compile Include="Assets\Scripts\ScoreSystem.cs" />
      <Compile Include="Assets\Scripts\SequenceControls.cs" />
      <Compile Include="Assets\Scripts\SmoothCamera2D.cs" />
+     <Compile Include="Assets\Scripts\SplashControl.cs" />
      <Compile Include="Assets\Scripts\SplashScreen.cs" />
      <Compile Include="Assets\Scripts\StarSpeedControl.cs" />
      <Compile Include="Assets\Scripts\Webcam.cs" />
