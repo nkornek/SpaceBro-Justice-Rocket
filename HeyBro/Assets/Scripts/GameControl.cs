@@ -204,6 +204,7 @@ public class GameControl : MonoBehaviour {
 		if (player.defending) {
 			if (player.checkBothEvents() && pictogramsInRange) {
 					playerLeft.GetComponent<PlayerAnimations>().characterAnims.SetBool ("Blocking", false);
+					playerRight.GetComponent<PlayerAnimations>().characterAnims.SetBool ("Blocking", false);
 					player.onSuccess();
 					pictogramsInRange = false;	
 				if (canCounter)
@@ -229,7 +230,9 @@ public class GameControl : MonoBehaviour {
 				}
 				else
 				{
-					playerLeft.GetComponent<PlayerAnimations>().characterAnims.SetBool ("Blocking", false);					player.blocked = true;
+					playerLeft.GetComponent<PlayerAnimations>().characterAnims.SetBool ("Blocking", false);	
+					playerRight.GetComponent<PlayerAnimations>().characterAnims.SetBool ("Blocking", false);
+					player.blocked = true;
 					checkBlocked ();
 				}
 			}

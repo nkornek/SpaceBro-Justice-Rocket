@@ -72,7 +72,7 @@ public class PlayerAnimations : MonoBehaviour {
 	}
 
 	public void nextTurn () {
-		if (game.playersTurn)
+		if (game.playersTurn == true)
 		{
 			game.Invoke ("startEnemyTurn", 1f);
 		}

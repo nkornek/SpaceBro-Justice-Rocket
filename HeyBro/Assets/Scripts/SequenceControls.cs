@@ -105,6 +105,7 @@ public class SequenceControls : MonoBehaviour {
 		defending = true;
 		blocked = false;
 		playerLeft.characterAnims.SetBool ("Blocking", true);
+		playerRight.characterAnims.SetBool ("Blocking", true);
 		currentMove = 0;
 		correctMoves = 0;
 		seqMoves = 1;
