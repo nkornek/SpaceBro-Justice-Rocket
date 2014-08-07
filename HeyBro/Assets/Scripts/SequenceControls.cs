@@ -125,7 +125,7 @@ public class SequenceControls : MonoBehaviour {
 
 	public void setWindup() {
 		playerLeft.GetComponent<PlayerAnimations>().SetAnim(contactA);
-		playerRight.GetComponent<PlayerAnimations>().SetAnim (contactB);
+		playerRight.GetComponent<PlayerAnimations>().SetAnim(contactB);
 		}
 	
 	public void onSuccess() {

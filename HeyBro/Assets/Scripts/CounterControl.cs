@@ -16,11 +16,13 @@ public class CounterControl : MonoBehaviour {
 
 
 	//specifict counter sequence variables
+	//ball
 	public GameObject energyBallObject;
 	public int ballReflected;
 	public Sprite[] p1Ball;
 	public Sprite[] p2Ball;
 
+	//beam
 	public bool canMoveContactPoint;
 	public Transform contactSphere;
 	public ParticleSystem[] enemyBeam;
@@ -29,6 +31,12 @@ public class CounterControl : MonoBehaviour {
 	public Sprite[] p1laser;
 	public Sprite[] p2laser;
 	public float enemyBeamPush;
+
+	//roulette
+	public int roulettePrompt;
+	public Sprite[] rouletteLeft;
+	public Sprite[] rouletteRight;
+	public bool spinning;
 
 	// Use this for initialization
 	void Awake () {
@@ -57,12 +65,6 @@ public class CounterControl : MonoBehaviour {
 		foreach (GameObject g in counterSpritesEnemy)
 		{
 			g.GetComponent<SpriteRenderer>().enabled = false;
-			/*
-			foreach (SpriteRenderer r in g.GetComponentsInChildren<SpriteRenderer>())
-			{
-				r.enabled = false;
-			}
-			*/
 		}
 	}
 	
@@ -214,7 +216,26 @@ public class CounterControl : MonoBehaviour {
 					}
 				}
 			}
-		break;
+			break;
+		case 3:
+			if (spinning)
+			{
+				roulettePrompt ++;
+				if (roulettePrompt > 2)	{roulettePrompt = 0;}
+				promptLeft.GetComponent<SpriteRenderer>().sprite = rouletteLeft[roulettePrompt];
+				promptRight.GetComponent<SpriteRenderer>().sprite = rouletteRight[roulettePrompt];
+			}
+			else
+			{				
+				PlayerControl.GetComponent<SequenceControls>().contactA = roulettePrompt;
+				PlayerControl.GetComponent<SequenceControls>().contactB = roulettePrompt;
+			}
+			if (PlayerControl.GetComponent<SequenceControls>().checkBothEvents() & pictogramsInRangeRoulette() & !failed)
+			{
+				promptLeft.GetComponent<SpriteRenderer>().sprite = rouletteLeft[roulettePrompt + 3];
+				promptRight.GetComponent<SpriteRenderer>().sprite = rouletteRight[roulettePrompt + 3];
+			}
+			break;
 		}
 	}
 
@@ -265,7 +286,11 @@ public class CounterControl : MonoBehaviour {
 		{
 			pe.startLifetime = 1;
 		}
-		}
+	}
+	public void showRoulette() {
+		promptLeft.GetComponent<SpriteRenderer>().enabled = true;
+		promptRight.GetComponent<SpriteRenderer>().enabled = true;
+	}
 
 	public void StartCounter () {
 		GameObject.Find("Forcefield").GetComponent<Display_Forcefield>().showField = false;
@@ -288,12 +313,7 @@ public class CounterControl : MonoBehaviour {
 			foreach (GameObject g in counterSpritesEnemy)
 			{
 				g.GetComponent<SpriteRenderer>().enabled = true;
-				/*
-			foreach (SpriteRenderer r in g.GetComponentsInChildren<SpriteRenderer>())
-			{
-				r.enabled = false;
-			}
-			*/
+
 			}
 		}
 		else if (GameManager.GetComponent<GameControl>().counterNum == 2)
@@ -315,12 +335,29 @@ public class CounterControl : MonoBehaviour {
 			foreach (GameObject g in counterSpritesEnemy)
 			{
 				g.GetComponent<SpriteRenderer>().enabled = true;
-				/*
-			foreach (SpriteRenderer r in g.GetComponentsInChildren<SpriteRenderer>())
-			{
-				r.enabled = false;
+
 			}
-			*/
+		}
+		else if (GameManager.GetComponent<GameControl>().counterNum == 3)
+		{
+			counterAnimatorEnemy.SetTrigger("Start Roulette");
+			spinning = true;
+			roulettePrompt = Random.Range (0, 3);
+			foreach (GameObject g in counterSpritesPlayers)
+			{
+				foreach (SpriteRenderer r in g.GetComponentsInChildren<SpriteRenderer>())
+				{
+					r.enabled = true;
+				}
+				foreach (ParticleSystem p in g.GetComponentsInChildren<ParticleSystem>())
+				{
+					p.enableEmission = true;
+				}
+			}
+			foreach (GameObject g in counterSpritesEnemy)
+			{
+				g.GetComponent<SpriteRenderer>().enabled = true;
+				
 			}
 		}
 	}
@@ -340,5 +377,8 @@ public class CounterControl : MonoBehaviour {
 	}
 	private bool pictogramsWonLaser () {
 		return (fivesLaser >= 13);
+	}
+	private bool pictogramsInRangeRoulette () {
+		return (!spinning);
 	}
 }

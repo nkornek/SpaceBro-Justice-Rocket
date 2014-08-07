@@ -138,7 +138,7 @@ public class GameControl : MonoBehaviour {
 			turn++;
 		}
 		
-		else if (!paused & playersTurn) {
+		else if (!paused) {
 			if (!hasResetInput) {
 				if (pictogramsInRange) {
 					player.detectedA = -1;
@@ -203,7 +203,8 @@ public class GameControl : MonoBehaviour {
 				{
 					canCounter = false;
 					player.defending = false;
-					counterNum = Random.Range (1, 3);
+					//counterNum = Random.Range (1, 3);
+						counterNum = 3;
 					if (GameObject.Find ("Counters"))
 					{
 						GameObject.Find ("Counters").GetComponent<CounterControl>().Invoke ("StartCounter", 0.3f);
