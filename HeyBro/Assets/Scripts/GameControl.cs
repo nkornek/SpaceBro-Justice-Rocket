@@ -222,13 +222,13 @@ public class GameControl : MonoBehaviour {
 				}
 				else
 				{
-					playerLeft.GetComponent<PlayerAnimations>().characterAnims.SetBool ("Blocking", false);	
-					playerRight.GetComponent<PlayerAnimations>().characterAnims.SetBool ("Blocking", false);
 					player.blocked = true;
 					checkBlocked ();
 				}
 			}
 			if (pictogramsFailed) {
+				playerLeft.GetComponent<PlayerAnimations>().characterAnims.SetBool ("Blocking", false);
+				playerRight.GetComponent<PlayerAnimations>().characterAnims.SetBool ("Blocking", false);
 				pictogramsFailed = false;
 				checkBlocked ();
 				

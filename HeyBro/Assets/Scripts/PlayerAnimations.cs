@@ -87,6 +87,7 @@ public class PlayerAnimations : MonoBehaviour {
 
 	void setSpeed () {
 		characterAnims.speed = 1 + Mathf.Abs (enHP.curPerc - 1);
+		print (characterAnims.speed);
 	}
 
 	void resetSpeed () {

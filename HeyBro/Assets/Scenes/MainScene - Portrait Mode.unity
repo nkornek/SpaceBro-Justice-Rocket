@@ -44206,6 +44206,10 @@ Prefab:
       propertyPath: enHP
       value: 
       objectReference: {fileID: 651386216}
+    - target: {fileID: 100032, guid: ac7fb4070fecc114bb9d5f0a89ccba38, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ac7fb4070fecc114bb9d5f0a89ccba38, type: 2}
   m_RootGameObject: {fileID: 1439067655}

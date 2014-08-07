@@ -1,14 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ArduinoRead.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerAnimations.cs">
     <Files>
-      <File FileName="Assets\Scripts\GameControl.cs" Line="258" Column="37" />
-      <File FileName="Assets\Scripts\SequenceControls.cs" Line="127" Column="48" />
-      <File FileName="Assets\Scripts\PlayerAnimations.cs" Line="71" Column="4" />
-      <File FileName="Assets\Scripts\GameControl.cs" Line="162" Column="30" />
-      <File FileName="Assets\Scripts\EnemyControls.cs" Line="65" Column="4" />
-      <File FileName="Assets\Scripts\Enemy_Particles.cs" Line="54" Column="20" />
-      <File FileName="Assets\Scripts\ArduinoRead.cs" Line="37" Column="24" />
+      <File FileName="Assets\Scripts\GameControl.cs" Line="42" Column="18" />
+      <File FileName="Assets\Scripts\SequenceControls.cs" Line="121" Column="31" />
+      <File FileName="Assets\Scripts\PlayerAnimations.cs" Line="31" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -16,7 +12,7 @@
           <Node name="Assembly-CSharp" expanded="True">
             <Node name="Scripts" expanded="True">
               <Node name="Hermite Spline" expanded="True" />
-              <Node name="ArduinoRead.cs" selected="True" />
+              <Node name="PlayerAnimations.cs" selected="True" />
             </Node>
           </Node>
         </State>
