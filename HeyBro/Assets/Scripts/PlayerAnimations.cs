@@ -15,6 +15,10 @@ public class PlayerAnimations : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (Application.loadedLevel == 0)
+		{
+			characterAnims.SetTrigger("success");
+		}
 		
 	}
 	
@@ -43,7 +47,9 @@ public class PlayerAnimations : MonoBehaviour {
 	}
 	//the following are only checked on left player since both are the same
 	void inRange () {
+		if (game) {
 		game.pictogramsInRange = true;
+		}
 	}
 
 	void inRangeDef () {
@@ -57,19 +63,23 @@ public class PlayerAnimations : MonoBehaviour {
 	}
 
 	void failure () {
+		if (game) {
 		game.pictogramsInRange = false;
 		game.pictogramsFailed = true;
+		}
 	}
 
 	void success () {
 		resetSpeed ();
-		if (player.correctMoves < player.seqMoves)
-		{
-			player.generateMove ();
-		}
-		else 
-		{
-			game.StartPlayerAttack();
+		if (game) {
+			if (player.correctMoves < player.seqMoves)
+			{
+				player.generateMove ();
+			}
+			else 
+			{
+				game.StartPlayerAttack();
+			}
 		}
 	}
 
@@ -86,8 +96,9 @@ public class PlayerAnimations : MonoBehaviour {
 	}
 
 	void setSpeed () {
+		if (enHP) {
 		characterAnims.speed = 1 + Mathf.Abs (enHP.curPerc - 1);
-		print (characterAnims.speed);
+		}
 	}
 
 	void resetSpeed () {

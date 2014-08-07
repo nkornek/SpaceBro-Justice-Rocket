@@ -169,6 +169,7 @@ MonoBehaviour:
   game: {fileID: 0}
   characterAnims: {fileID: 1196642742}
   player: {fileID: 0}
+  enHP: {fileID: 0}
 --- !u!1 &29284147
 GameObject:
   m_ObjectHideFlags: 0
@@ -2133,7 +2134,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: f13dcdf4f970e6d46ab6525fdc8f200c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 32214e12f1f291e43a241ec2ad532e9e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &261079715
 GameObject:
@@ -7265,6 +7266,7 @@ MonoBehaviour:
   game: {fileID: 0}
   characterAnims: {fileID: 2007045360}
   player: {fileID: 0}
+  enHP: {fileID: 0}
 --- !u!1 &1151389263
 GameObject:
   m_ObjectHideFlags: 0
@@ -15156,7 +15158,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: f13dcdf4f970e6d46ab6525fdc8f200c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 32214e12f1f291e43a241ec2ad532e9e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1882767142
 GameObject:
@@ -15869,7 +15871,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e66565d5d4b58b4e8307064981e093e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyControl: 0
+  keyControl: 1
   arduino: {fileID: 1301280210}
   byteBuffer: 
   byteOffset: 0
