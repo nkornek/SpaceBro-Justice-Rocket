@@ -1,24 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ArduinoRead.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameControl.cs">
     <Files>
-      <File FileName="Assets\Scripts\PlayerAnimations.cs" Line="11" Column="2" />
-      <File FileName="Assets\Scripts\GameControl.cs" Line="227" Column="6" />
-      <File FileName="Assets\Scripts\SequenceControls.cs" Line="121" Column="31" />
-      <File FileName="Assets\Scripts\PlayerAnimations.cs" Line="108" Column="1" />
-      <File FileName="Assets\Scripts\MenuControl.cs" Line="64" Column="28" />
-      <File FileName="Assets\Scripts\ArduinoRead.cs" Line="70" Column="34" />
+      <File FileName="Assets\Scripts\MenuControl.cs" Line="286" Column="1" />
+      <File FileName="Assets\Scripts\GameControl.cs" Line="252" Column="9" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="Assembly-CSharp" expanded="True">
-            <Node name="Scripts" expanded="True">
-              <Node name="Hermite Spline" expanded="True" />
-              <Node name="ArduinoRead.cs" selected="True" />
-            </Node>
-          </Node>
-        </State>
+        <State expanded="True" selected="True" />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

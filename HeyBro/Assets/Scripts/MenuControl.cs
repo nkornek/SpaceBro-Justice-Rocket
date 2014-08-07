@@ -288,6 +288,6 @@ public class MenuControl : MonoBehaviour {
 
 	void loadLevel ()
 	{
-		Application.LoadLevel (1);
+		Application.LoadLevel (2);
 	}
 }

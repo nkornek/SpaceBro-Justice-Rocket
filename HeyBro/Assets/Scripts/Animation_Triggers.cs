@@ -16,5 +16,6 @@ public class Animation_Triggers : MonoBehaviour {
 
 	public void EndIntro(){
 		game.GameStart ();
+		print ("start");
 	}
 }
