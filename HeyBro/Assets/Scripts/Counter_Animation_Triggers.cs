@@ -67,7 +67,7 @@ public class Counter_Animation_Triggers : MonoBehaviour {
 		CounterControl.showRoulette ();
 	}
 	void decideRoulette () {
-		CounterControl.spinning = false;
+		CounterControl.slowing = true;
 	}
 	void failedRoulette () {
 		CounterControl.failed = true;

@@ -18,13 +18,13 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: {x: 27.5260906, y: 15.3825903, z: 3.93154097}
-        inSlope: {x: 9.53674316e-07, y: 0, z: 0}
-        outSlope: {x: 9.53674316e-07, y: 0, z: 0}
+        inSlope: {x: 6.35782897e-07, y: 0, z: 0}
+        outSlope: {x: 6.35782897e-07, y: 0, z: 0}
         tangentMode: 0
-      - time: 2
+      - time: 3
         value: {x: 27.5260925, y: 13.6844244, z: 3.93154097}
-        inSlope: {x: 9.53674316e-07, y: 0, z: 0}
-        outSlope: {x: 9.53674316e-07, y: 0, z: 0}
+        inSlope: {x: 6.35782897e-07, y: 0, z: 0}
+        outSlope: {x: 6.35782897e-07, y: 0, z: 0}
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -69,7 +69,7 @@ AnimationClip:
   m_AnimationClipSettings:
     serializedVersion: 2
     m_StartTime: 0
-    m_StopTime: 2
+    m_StopTime: 3
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -89,13 +89,13 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: 27.5260906
-        inSlope: 9.53674316e-07
-        outSlope: 9.53674316e-07
+        inSlope: 6.35782897e-07
+        outSlope: 6.35782897e-07
         tangentMode: 10
-      - time: 2
+      - time: 3
         value: 27.5260925
-        inSlope: 9.53674316e-07
-        outSlope: 9.53674316e-07
+        inSlope: 6.35782897e-07
+        outSlope: 6.35782897e-07
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -111,7 +111,7 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 0
-      - time: 2
+      - time: 3
         value: 13.6844244
         inSlope: 0
         outSlope: 0
@@ -130,7 +130,7 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: 2
+      - time: 3
         value: 3.93154097
         inSlope: 0
         outSlope: 0
@@ -157,14 +157,14 @@ AnimationClip:
     script: {fileID: 0}
   m_EulerEditorCurves: []
   m_Events:
-  - time: .5
+  - time: 1
     functionName: decideRoulette
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 2
+  - time: 3
     functionName: failedRoulette
     data: 
     objectReferenceParameter: {fileID: 0}

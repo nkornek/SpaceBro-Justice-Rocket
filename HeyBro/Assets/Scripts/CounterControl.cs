@@ -36,7 +36,8 @@ public class CounterControl : MonoBehaviour {
 	public int roulettePrompt;
 	public Sprite[] rouletteLeft;
 	public Sprite[] rouletteRight;
-	public bool spinning;
+	public bool spinning, canSwitchRoulette, RouletteSpeed, slowing;
+	public float rouletteChangeTime;
 
 	// Use this for initialization
 	void Awake () {
@@ -50,6 +51,7 @@ public class CounterControl : MonoBehaviour {
 		GameManager = GameObject.Find ("Game");
 		fivesLaser = 0;
 		enemyBeamPush = 0.5f;
+		rouletteChangeTime = 0.1f;
 
 		foreach (GameObject g in counterSpritesPlayers)
 		{
@@ -220,10 +222,15 @@ public class CounterControl : MonoBehaviour {
 		case 3:
 			if (spinning)
 			{
-				roulettePrompt ++;
-				if (roulettePrompt > 2)	{roulettePrompt = 0;}
-				promptLeft.GetComponent<SpriteRenderer>().sprite = rouletteLeft[roulettePrompt];
-				promptRight.GetComponent<SpriteRenderer>().sprite = rouletteRight[roulettePrompt];
+				if (canSwitchRoulette) 
+				{
+					Invoke ("spinRoulette", rouletteChangeTime);
+					canSwitchRoulette = false;
+				}
+				if (slowing & spinning & rouletteChangeTime < 0.6f)
+				{
+					rouletteChangeTime += 0.05f;
+				}
 			}
 			else
 			{				
@@ -292,6 +299,21 @@ public class CounterControl : MonoBehaviour {
 		promptRight.GetComponent<SpriteRenderer>().enabled = true;
 	}
 
+	public void spinRoulette () {
+		roulettePrompt ++;
+		if (roulettePrompt > 2)	{roulettePrompt = 0;}
+		promptLeft.GetComponent<SpriteRenderer>().sprite = rouletteLeft[roulettePrompt];
+		promptRight.GetComponent<SpriteRenderer>().sprite = rouletteRight[roulettePrompt];
+		canSwitchRoulette = true;
+		if (rouletteChangeTime >= 0.5f)
+		{
+			spinning = false;
+			canSwitchRoulette = false;
+			promptLeft.GetComponent<ParticleSystem>().Emit(200);
+			promptRight.GetComponent<ParticleSystem>().Emit(200);
+		}
+		}
+
 	public void StartCounter () {
 		GameObject.Find("Forcefield").GetComponent<Display_Forcefield>().showField = false;
 		bgAnimator.SetTrigger ("In");	
@@ -342,6 +364,7 @@ public class CounterControl : MonoBehaviour {
 		{
 			counterAnimatorEnemy.SetTrigger("Start Roulette");
 			spinning = true;
+			canSwitchRoulette = true;
 			roulettePrompt = Random.Range (0, 3);
 			foreach (GameObject g in counterSpritesPlayers)
 			{
