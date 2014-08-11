@@ -7,6 +7,7 @@ public class Cutscene_Triggers : MonoBehaviour {
 	public Animator enemyAnimations;
 	public EnemyControls enemy;
 	public SequenceControls player;
+	public AudioSource clapSound;
 
 	// Use this for initialization
 	void Start () {
@@ -21,4 +22,8 @@ public class Cutscene_Triggers : MonoBehaviour {
 	public void FireStars(){
 		game.PlayerAttack ();
 		}
+
+	public void Clap () {
+		clapSound.Play ();
+	}
 }

@@ -21590,6 +21590,27 @@ AnimationClip:
     classID: 4
     script: {fileID: 0}
   m_Events:
+  - time: .183333337
+    functionName: Clap
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.16666663
+    functionName: Clap
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.13333344
+    functionName: Clap
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 6.0333333
     functionName: FireStars
     data: 

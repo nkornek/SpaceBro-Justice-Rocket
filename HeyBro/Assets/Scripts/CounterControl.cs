@@ -38,6 +38,7 @@ public class CounterControl : MonoBehaviour {
 	public Sprite[] rouletteRight;
 	public bool spinning, canSwitchRoulette, RouletteSpeed, slowing;
 	public float rouletteChangeTime;
+	public AudioClip rouletteDing;
 
 	// Use this for initialization
 	void Awake () {
@@ -110,6 +111,7 @@ public class CounterControl : MonoBehaviour {
 				promptLeft.GetComponent<SpriteRenderer>().sprite = p1Ball[1];		
 				promptRight.GetComponent<SpriteRenderer>().sprite = p2Ball[1];
 				Invoke ("hidePrompts", 0.2f);
+				gameObject.GetComponent<AudioSource>().Play();
 			}
 			//player fail
 			if (pictogramsFailedBall() & !failed)
@@ -305,6 +307,11 @@ public class CounterControl : MonoBehaviour {
 		promptLeft.GetComponent<SpriteRenderer>().sprite = rouletteLeft[roulettePrompt];
 		promptRight.GetComponent<SpriteRenderer>().sprite = rouletteRight[roulettePrompt];
 		canSwitchRoulette = true;
+		if (promptLeft.GetComponent<SpriteRenderer>().enabled == true)
+		{
+			gameObject.GetComponent<AudioSource> ().clip = rouletteDing;
+			gameObject.GetComponent<AudioSource> ().Play ();
+		}
 		if (rouletteChangeTime >= 0.5f)
 		{
 			spinning = false;

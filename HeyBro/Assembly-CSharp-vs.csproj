@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Prompts.cs" />
      <Compile Include="Assets\Scripts\Animation_Triggers.cs" />
      <Compile Include="Assets\Scripts\ArduinoRead.cs" />
      <Compile Include="Assets\Scripts\CounterAnimations.cs" />
@@ -62,12 +63,15 @@
      <Compile Include="Assets\Scripts\Hermite Spline\MathUtils.cs" />
      <Compile Include="Assets\Scripts\Hermite Spline\SplineController.cs" />
      <Compile Include="Assets\Scripts\Hermite Spline\SplineInterpolator.cs" />
+     <Compile Include="Assets\Scripts\LoadingMessage.cs" />
      <Compile Include="Assets\Scripts\MenuControl.cs" />
+     <Compile Include="Assets\Scripts\Menu_Music.cs" />
      <Compile Include="Assets\Scripts\Particle_Deactivate.cs" />
      <Compile Include="Assets\Scripts\PlayerAnimations.cs" />
      <Compile Include="Assets\Scripts\ScoreSystem.cs" />
      <Compile Include="Assets\Scripts\SequenceControls.cs" />
      <Compile Include="Assets\Scripts\SmoothCamera2D.cs" />
+     <Compile Include="Assets\Scripts\Sound_Triggers_Players.cs" />
      <Compile Include="Assets\Scripts\SplashControl.cs" />
      <Compile Include="Assets\Scripts\StarSpeedControl.cs" />
      <Compile Include="Assets\Scripts\Webcam.cs" />
