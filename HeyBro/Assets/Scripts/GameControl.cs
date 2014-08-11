@@ -38,9 +38,10 @@ public class GameControl : MonoBehaviour {
 	public cameraShake mainCamera;
 	public Animator cutsceneAnim;
 
+	public Prompts prompts;
+
 	void Start () {
 		paused = false;
-	
 	}
 
 	public void GameStart () {
@@ -57,14 +58,13 @@ public class GameControl : MonoBehaviour {
 
 			
 			if (enemy.hp <= 0){
-				Debug.LogWarning ("Win");
 				Invoke ("loadSplashScreen", 5.0f);
 				paused = true;
 			}
 			
 			else if (player.hp <= 0){
-				Debug.LogWarning ("Lose");
-				player.sp.Close(); 
+				Invoke ("loadSplashScreen", 5.0f);
+				paused = true;
 			}
 		}
 
@@ -109,7 +109,8 @@ public class GameControl : MonoBehaviour {
 		if (!paused)
 		{
 			playersTurn = false;
-			Invoke ("createBlockSequence", 2);
+			Invoke ("createBlockSequence", 1.3f);
+			prompts.showPrompt(2);
 		}
 		else
 		{
@@ -169,6 +170,7 @@ public class GameControl : MonoBehaviour {
 				{					
 					srcSeqSound.clip = clipWholeSeqSuccess;
 					srcSeqSound.Play ();
+					prompts.sequenceSuccess();
 				}
 			}
 		}
@@ -187,7 +189,7 @@ public class GameControl : MonoBehaviour {
 				srcRobot.Play ();
 			}
 			else {
-				startEnemyTurn ();
+				Invoke ("startEnemyTurn", 2);
 			}
 		}
 	public void enemyTurn(){
@@ -201,10 +203,11 @@ public class GameControl : MonoBehaviour {
 					pictogramsInRange = false;
 				if (canCounter)
 				{
+					prompts.showPrompt(3);
 					canCounter = false;
 					player.defending = false;
-					counterNum = Random.Range (1, 3);
-						//counterNum = 3;
+					//counterNum = Random.Range (1, 3);
+						counterNum = 3;
 					if (GameObject.Find ("Counters"))
 					{
 						GameObject.Find ("Counters").GetComponent<CounterControl>().Invoke ("StartCounter", 0.3f);
@@ -225,6 +228,7 @@ public class GameControl : MonoBehaviour {
 				{
 					player.blocked = true;
 					checkBlocked ();
+					prompts.showPrompt(4);
 				}
 			}
 			if (pictogramsFailed) {

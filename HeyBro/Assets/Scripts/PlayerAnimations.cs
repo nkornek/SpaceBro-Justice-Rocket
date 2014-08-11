@@ -8,6 +8,7 @@ public class PlayerAnimations : MonoBehaviour {
 	public Animator characterAnims;
 	public SequenceControls player;
 	public HealthBarEnemy enHP;
+	public Prompts prompts;
 	
 	// Use this for initialization
 	void Start () {
@@ -66,6 +67,7 @@ public class PlayerAnimations : MonoBehaviour {
 		if (game) {
 		game.pictogramsInRange = false;
 		game.pictogramsFailed = true;
+		prompts.sequenceFail();
 		}
 	}
 

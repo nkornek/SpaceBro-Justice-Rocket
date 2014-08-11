@@ -7,7 +7,7 @@ public class Enemy_Particles : MonoBehaviour {
 	public ParticleSystem laser;
 	public ParticleSystem laser2;
 	public GameObject chargeParticles;
-	public AudioClip laserSound;
+	public AudioClip laserSound, laserCharge;
 	public AudioSource attackAudio;
 	public float attackTime;
 	public SphereCollider forcefield;
@@ -30,6 +30,13 @@ public class Enemy_Particles : MonoBehaviour {
 		{
 			chargeParticles.GetComponent<ParticleSystem>().Play();
 			chargeParticles.GetComponent<ParticleSystem>().enableEmission = true;
+			if (attackAudio.isPlaying == false)
+			{
+				attackAudio.clip = laserCharge;
+				attackAudio.Play ();
+				attackAudio.loop = true;
+			}
+			
 		}
 		else
 		{
@@ -39,6 +46,8 @@ public class Enemy_Particles : MonoBehaviour {
 	}
 
 	void FireLasers () {
+		attackAudio.loop = false;
+		attackAudio.Stop ();
 		laser.Play ();
 		laser2.Play ();
 		laser.enableEmission = true;

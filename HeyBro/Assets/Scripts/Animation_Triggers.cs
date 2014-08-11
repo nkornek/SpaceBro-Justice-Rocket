@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Animation_Triggers : MonoBehaviour {
 	public GameControl game;
+	public Prompts prompts;
 
 	// Use this for initialization
 	void Start () {
@@ -16,6 +17,14 @@ public class Animation_Triggers : MonoBehaviour {
 
 	public void EndIntro(){
 		game.GameStart ();
-		print ("start");
+
+	}
+
+	void readyPrompt () {
+		prompts.showPrompt (0);
+	}
+
+	void goPrompts () {
+		prompts.showPrompt (1);
 	}
 }

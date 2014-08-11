@@ -60,6 +60,7 @@ public class SequenceControls : MonoBehaviour {
 
 	public GameControl game;
 	public PlayerAnimations playerLeft, playerRight;
+	public Prompts prompts;
 
 	// ENEMY STUFF
 	public EnemyControls enemy; 
@@ -126,6 +127,7 @@ public class SequenceControls : MonoBehaviour {
 	public void setWindup() {
 		playerLeft.GetComponent<PlayerAnimations>().SetAnim(contactA);
 		playerRight.GetComponent<PlayerAnimations>().SetAnim(contactB);
+		prompts.moveCallout ();
 		}
 	
 	public void onSuccess() {
