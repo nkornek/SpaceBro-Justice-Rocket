@@ -11,3 +11,10 @@ echo: 0.1del 0.2Dec
 phaser (default)
 paulstretch 1, 0.05
 jess l me r
+
+enemy
+echo: 0.1del 0.2Dec
+phaser (default)
+paulstretch 1, 0.1
+speed -10
+pitch -10

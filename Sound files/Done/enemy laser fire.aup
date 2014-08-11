@@ -1,0 +1,34 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="enemy laser fire_data" version="1.3.0" audacityversion="2.0.5" sel0="16.3932879819" sel1="16.8054421769" vpos="0" h="15.3077551020" zoom="172.2656250000" rate="44100.0">
+	<tags/>
+	<wavetrack name="Audio Track" channel="2" linked="0" mute="1" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="808704">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000b82.au" len="262144" min="-0.419164" max="0.50827" rms="0.054887"/>
+				</waveblock>
+				<waveblock start="262144">
+					<simpleblockfile filename="e0000b15.au" len="262144" min="-0.440565" max="0.484923" rms="0.056632"/>
+				</waveblock>
+				<waveblock start="524288">
+					<simpleblockfile filename="e0000a57.au" len="243968" min="-0.581324" max="0.994166" rms="0.084993"/>
+				</waveblock>
+				<waveblock start="768256">
+					<simpleblockfile filename="e000080d.au" len="40448" min="-0.056907" max="0.082296" rms="0.005926"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Audio Track" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="16.39328798">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="18176">
+				<waveblock start="0">
+					<simpleblockfile filename="e00002bd.au" len="18176" min="-1.0" max="1.0" rms="0.158807"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>
