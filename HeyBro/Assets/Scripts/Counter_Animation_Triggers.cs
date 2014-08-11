@@ -20,6 +20,11 @@ public class Counter_Animation_Triggers : MonoBehaviour {
 	
 	}
 
+	void setAngle() {
+		float randomAngle = Random.Range (86, 94);
+		transform.localRotation = Quaternion.Euler (0, 0, randomAngle);
+		}
+
 	void FireBallTrigger() {
 		masterCounterSystem.FireBall();
 	}
@@ -56,6 +61,16 @@ public class Counter_Animation_Triggers : MonoBehaviour {
 	}
 	void sphereBeams () {
 		masterCounterSystem.SphereParticleClash ();
+	}
+
+	void showRoulette () {
+		CounterControl.showRoulette ();
+	}
+	void decideRoulette () {
+		CounterControl.slowing = true;
+	}
+	void failedRoulette () {
+		CounterControl.failed = true;
 	}
 
 
