@@ -15,7 +15,7 @@ public class PlayerAnimations : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Application.loadedLevel == 0)
+		if (Application.loadedLevel == 1)
 		{
 			characterAnims.SetTrigger("success");
 		}
@@ -71,20 +71,23 @@ public class PlayerAnimations : MonoBehaviour {
 
 	void success () {
 		resetSpeed ();
-		if (game & game.playersTurn) {
-			if (player.correctMoves < player.seqMoves)
+		if (game) {
+			if (game.playersTurn)
 			{
-				player.generateMove ();
-			}
-			else 
-			{
-				game.StartPlayerAttack();
+				if (player.correctMoves < player.seqMoves)
+				{
+					player.generateMove ();
+				}
+				else 
+				{
+					game.StartPlayerAttack();
+				}
 			}
 		}
 	}
 
 	public void nextTurn () {
-		if (game & game.playersTurn)
+		if (game && game.playersTurn)
 		{
 			game.Invoke ("startEnemyTurn", 1f);
 		}

@@ -43,6 +43,8 @@ public class MenuControl : MonoBehaviour {
 	public ParticleSystem starParticles;
 
 	public Animator cameraMovement, whichMenu, playerLeft, playerRight;
+	public Sound_Triggers_Players sounds;
+	public AudioSource menuMusic;
 
 	//check moves
 	bool checkfivesA, checkfivesB, checkfistA, checkfistB, checkelbowA, checkelbowB;
@@ -55,6 +57,7 @@ public class MenuControl : MonoBehaviour {
 		touchDetectedB = false;
 		canMenu = true;
 		mainMenu = true;
+		menuMusic = GameObject.Find ("MenuMusic").GetComponent<AudioSource> ();
 
 	
 	}
@@ -83,6 +86,7 @@ public class MenuControl : MonoBehaviour {
 					canMenu = false;
 					mainMenu = false;
 				}
+			/*
 				else if (checkFist())
 				{
 					playerLeft.SetTrigger("punch");
@@ -91,21 +95,25 @@ public class MenuControl : MonoBehaviour {
 					mainMenu = false;
 					menuSelect(1);
 				}
+				*/
 				else if (checkElbow())
 				{
 					playerLeft.SetTrigger("elbow");
 					playerRight.SetTrigger("elbow");
 					canMenu = false;
 					mainMenu = false;
-					menuSelect(2);
+					menuSelect(1);
 				}
 			//}
 
 		}
 		if (canSpeedUp & starParticles.startSpeed < 50.5)
 		{
-			print ("test");
 			starParticles.startSpeed = Mathf.Lerp (starParticles.startSpeed, 50.5f, 1);
+		}
+		if (canSpeedUp & menuMusic.volume > 0)
+		{
+			menuMusic.volume -= 0.002f;
 		}
 
 
@@ -267,16 +275,19 @@ public class MenuControl : MonoBehaviour {
 				cameraMovement.SetTrigger("toinfo");
 				Invoke ("loadLevel", 3f);
 				canSpeedUp = true;
+				sounds.ClipLetsDoThis();
 			}
 			else
 			{
 				cameraMovement.SetTrigger("return");
 				whichMenu.SetTrigger("return");
+				sounds.ClipCelebrate();
 			}
 			break;
 		case 1:
 			cameraMovement.SetTrigger("toinfo");
 			whichMenu.SetTrigger("howto");
+			sounds.ClipGatorShort();
 			break;
 		case 2:
 			cameraMovement.SetTrigger("toinfo");

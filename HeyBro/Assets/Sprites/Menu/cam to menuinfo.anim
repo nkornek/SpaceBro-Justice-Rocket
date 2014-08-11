@@ -123,6 +123,20 @@ AnimationClip:
     script: {fileID: 0}
   m_EulerEditorCurves: []
   m_Events:
+  - time: 2.2166667
+    functionName: talkerIn
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.63333344
+    functionName: ClipEyeguyLong
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 2.95000005
     functionName: canMenu
     data: 

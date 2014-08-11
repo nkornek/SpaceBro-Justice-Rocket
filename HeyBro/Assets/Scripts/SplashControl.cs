@@ -3,10 +3,12 @@ using System.Collections;
 
 public class SplashControl : MonoBehaviour {
 	public StarSpeedControl starparticles;
+	public SpriteRenderer loader;
 
 	// Use this for initialization
 	void Start () {
 		Invoke ("fadeOut", 2);
+		loader = GameObject.Find ("loading").GetComponent<SpriteRenderer> ();
 	
 	}
 	
@@ -25,5 +27,8 @@ public class SplashControl : MonoBehaviour {
 	}
 	void slowstars () {
 		starparticles.slowdown = true;
+	}
+	void showLoading () {
+		loader.enabled = true;
 	}
 }

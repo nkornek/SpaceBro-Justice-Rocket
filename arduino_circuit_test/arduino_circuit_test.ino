@@ -1,4 +1,4 @@
-int pinvolt = analogRead(0);
+int pinvolt = analogRead(1);
 
 void setup() {
   
