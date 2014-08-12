@@ -347,6 +347,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &100042
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400042}
+  m_Layer: 0
+  m_Name: Enemy Camera Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &100044
 GameObject:
   m_ObjectHideFlags: 1
@@ -1367,7 +1382,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400168}
   m_Layer: 0
-  m_Name: Enemy Camera Target
+  m_Name: Enemy Gun Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1604,7 +1619,7 @@ Transform:
   m_Children:
   - {fileID: 400044}
   - {fileID: 400050}
-  - {fileID: 400168}
+  - {fileID: 400042}
   - {fileID: 400108}
   - {fileID: 400110}
   m_Father: {fileID: 400140}
@@ -1865,6 +1880,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 400010}
   m_RootOrder: 3
+--- !u!4 &400042
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100042}
+  m_LocalRotation: {x: 4.3474806e-09, y: -1.19144588e-08, z: -1.66533454e-16, w: -1}
+  m_LocalPosition: {x: 0, y: -4.63750172, z: -24.8308411}
+  m_LocalScale: {x: .25, y: .25, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400002}
+  m_RootOrder: 2
 --- !u!4 &400044
 Transform:
   m_ObjectHideFlags: 1
@@ -2527,6 +2554,7 @@ Transform:
   - {fileID: 400142}
   - {fileID: 400138}
   - {fileID: 400136}
+  - {fileID: 400168}
   m_Father: {fileID: 400110}
   m_RootOrder: 10
 --- !u!4 &400146
@@ -2674,12 +2702,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100168}
-  m_LocalRotation: {x: 4.3474806e-09, y: -1.19144588e-08, z: -1.66533454e-16, w: -1}
-  m_LocalPosition: {x: 0, y: 1.86077023, z: -7.35876083}
-  m_LocalScale: {x: .25, y: .25, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.57540631, y: -4.26002121, z: 0}
+  m_LocalScale: {x: .300000042, y: .300000042, z: .25}
   m_Children: []
-  m_Father: {fileID: 400002}
-  m_RootOrder: 2
+  m_Father: {fileID: 400144}
+  m_RootOrder: 3
 --- !u!4 &400170
 Transform:
   m_ObjectHideFlags: 1
@@ -3352,7 +3380,7 @@ MonoBehaviour:
   masterCounterSystem: {fileID: 11400028}
   CounterControl: {fileID: 11400026}
   camera: {fileID: 11400034}
-  beamEnemyCamera: {fileID: 400168}
+  beamEnemyCamera: {fileID: 400042}
   beamPlayerCamera: {fileID: 400170}
   beamPointTarget: {fileID: 400000}
   backgroundAnimator: {fileID: 9500004}
@@ -3498,7 +3526,7 @@ MonoBehaviour:
   BG: {fileID: 9500004}
   counterCamera: {fileID: 11400034}
   playerTransform: {fileID: 400024}
-  enemyTransform: {fileID: 400168}
+  enemyTransform: {fileID: 400042}
   toPlayer: 0
   toPlayerPart: {fileID: 19800020}
   fromPlayerPart: {fileID: 19800022}

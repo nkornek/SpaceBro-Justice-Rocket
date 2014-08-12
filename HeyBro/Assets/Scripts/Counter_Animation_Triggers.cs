@@ -5,7 +5,7 @@ public class Counter_Animation_Triggers : MonoBehaviour {
 	public CounterAnimations masterCounterSystem;
 	public CounterControl CounterControl;
 	public SmoothCamera2D camera;
-	public Transform beamEnemyCamera, beamPlayerCamera, beamPointTarget;
+	public Transform beamEnemyCamera, beamPlayerCamera, beamPointTarget, ballPointTarget, gunPointTarget;
 	public Animator backgroundAnimator;
 
 
@@ -74,6 +74,12 @@ public class Counter_Animation_Triggers : MonoBehaviour {
 		{
 		CounterControl.failed = true;
 		}
+	}
+	void energyBallCameraTarget () {
+		camera.target = ballPointTarget;
+	}
+	void gunCameraTarget () {
+		camera.target = gunPointTarget;
 	}
 
 

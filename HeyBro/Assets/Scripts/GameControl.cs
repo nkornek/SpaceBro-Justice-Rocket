@@ -206,8 +206,8 @@ public class GameControl : MonoBehaviour {
 					prompts.showPrompt(3);
 					canCounter = false;
 					player.defending = false;
-					counterNum = Random.Range (1, 4);
-						//counterNum = 3;
+					//counterNum = Random.Range (1, 4);
+						counterNum = 1;
 					if (GameObject.Find ("Counters"))
 					{
 						GameObject.Find ("Counters").GetComponent<CounterControl>().Invoke ("StartCounter", 0.3f);
