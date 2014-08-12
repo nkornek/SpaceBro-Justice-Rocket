@@ -155,12 +155,11 @@ public class GameControl : MonoBehaviour {
 				pictogramsFailed = false;
 
 			}
-			else if (player.checkBothEvents() && pictogramsInRange){
+			else if (player.checkBothEvents() & pictogramsInRange){
 				hasResetInput = false;
 				player.onSuccess();
 				pictogramsInRange = false;		
 				player.correctMoves++;
-
 
 				if (player.correctMoves < player.seqMoves & !tripleActive) {
 					srcSeqSound.clip = clipMoveSuccess;

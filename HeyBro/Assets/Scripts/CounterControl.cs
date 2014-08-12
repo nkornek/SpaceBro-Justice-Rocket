@@ -141,7 +141,7 @@ public class CounterControl : MonoBehaviour {
 			if (energyBallObject.transform.localPosition.y >= 60 & blocked)
 			{
 				blocked = false;
-				CounterAnimations.enemyHit();
+				//CounterAnimations.enemyHit();
 				CounterAnimations.toPlayer = true;
 				energyBallObject.GetComponent<SplineController>().Duration -= 1;
 				if (ballReflected == 3)
