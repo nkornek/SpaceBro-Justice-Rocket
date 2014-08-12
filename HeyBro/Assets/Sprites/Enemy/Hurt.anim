@@ -19703,4 +19703,11 @@ AnimationClip:
     path: left hand/l hand
     classID: 4
     script: {fileID: 0}
-  m_Events: []
+  m_Events:
+  - time: .216666669
+    functionName: gruntClip
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
