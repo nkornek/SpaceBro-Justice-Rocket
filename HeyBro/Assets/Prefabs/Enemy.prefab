@@ -114,6 +114,9 @@ GameObject:
   - 95: {fileID: 9500002}
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400006}
+  - 82: {fileID: 8200006}
+  - 82: {fileID: 8200004}
+  - 82: {fileID: 8200002}
   m_Layer: 0
   m_Name: Angry Robot
   m_TagString: Untagged
@@ -837,7 +840,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 27.1310349, z: 60}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 400012}
@@ -1369,6 +1372,180 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!82 &8200002
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100012}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!82 &8200004
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100012}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!82 &8200006
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100012}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!95 &9500000
 Animator:
   serializedVersion: 3
@@ -1476,6 +1653,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6987fa49ae89a1f4fbf56c59d1d5bba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyAudio: {fileID: 8200006}
+  rocketAudio: {fileID: 8200004}
+  enemyEffects: {fileID: 8200002}
+  grunt:
+  - {fileID: 8300000, guid: 65412eee9012d594f809e707f524e667, type: 3}
+  - {fileID: 8300000, guid: 1779051c06d22804db1af08987c50a3d, type: 3}
+  - {fileID: 8300000, guid: b5f55418e5b98284ca2176b750c242d8, type: 3}
+  - {fileID: 8300000, guid: 1e35847cf4f095e44bff04a18a9391ec, type: 3}
+  - {fileID: 8300000, guid: 6490254f0622be3448cc121ccf7edc58, type: 3}
+  - {fileID: 8300000, guid: 45366c22e54450649a80d496ff515e8f, type: 3}
+  - {fileID: 8300000, guid: 0085d748b07204b4ab3c81e49b919efc, type: 3}
+  - {fileID: 8300000, guid: 5c74f137835fa4449acea372835a40ff, type: 3}
+  - {fileID: 8300000, guid: e5672aebd1d95a641ad0c2d181f5829e, type: 3}
+  laugh:
+  - {fileID: 8300000, guid: 7c40d94475467fd4d818ea6c82d32572, type: 3}
+  - {fileID: 8300000, guid: d27c4b70249e95249990fb4e0d2b1b86, type: 3}
+  roar:
+  - {fileID: 8300000, guid: 2b3cc172b967b244e8f2a8df17e9b3c2, type: 3}
+  - {fileID: 8300000, guid: affc227df0f08664faebf1d752b95f5b, type: 3}
+  - {fileID: 8300000, guid: 8541438de2012974fb8497efe536d43f, type: 3}
+  longRoar: {fileID: 8300000, guid: 6acfdb1dd09cba84a9aa5614cacf9344, type: 3}
+  servo:
+  - {fileID: 8300000, guid: 944472c522d79b141a58023e08db2457, type: 3}
+  - {fileID: 8300000, guid: 29b98b6b59f711b4f9f47090c00d909f, type: 3}
+  - {fileID: 8300000, guid: b8fde32534c08374fa790fbfaec08d89, type: 3}
+  - {fileID: 8300000, guid: be6ae8bf42a2bdf4b894ae51e7b151f7, type: 3}
+  - {fileID: 8300000, guid: 0d38b478982d2a041b063cf8b87cf784, type: 3}
+  rocket:
+  - {fileID: 8300000, guid: def301a675baa4d4ea55097f4386ac1f, type: 3}
+  - {fileID: 8300000, guid: 75bc7add9cd1ffe4591699e4cbaf677a, type: 3}
+  explosion:
+  - {fileID: 8300000, guid: c26a397ccb2f32745b406a706cf9ae40, type: 3}
+  - {fileID: 8300000, guid: 37576eb04f8377a46b1d8b4686104dce, type: 3}
+  siphon: {fileID: 8300000, guid: 492e3df9d78ea35478b5cb6392fe7b31, type: 3}
+  laserCharge: {fileID: 8300000, guid: 31dc84a598306c347ab7b276502feb5b, type: 3}
+  laserFire: {fileID: 8300000, guid: d6ac3b5836d98534fa4ae613f133e63d, type: 3}
+  wubwub: {fileID: 8300000, guid: 4ff7b9818daa4a34798be7c88507193f, type: 3}
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1
