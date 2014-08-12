@@ -203,11 +203,12 @@ public class GameControl : MonoBehaviour {
 					pictogramsInRange = false;
 				if (canCounter)
 				{
+					enemyParticleParent.attackAudio.Stop ();
 					prompts.showPrompt(3);
 					canCounter = false;
 					player.defending = false;
-					//counterNum = Random.Range (1, 3);
-						counterNum = 3;
+					counterNum = Random.Range (1, 4);
+						//counterNum = 3;
 					if (GameObject.Find ("Counters"))
 					{
 						GameObject.Find ("Counters").GetComponent<CounterControl>().Invoke ("StartCounter", 0.3f);

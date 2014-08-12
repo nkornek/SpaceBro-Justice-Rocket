@@ -1,21 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CounterControl.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Enemy_Particles.cs">
     <Files>
-      <File FileName="Assets\Scripts\CounterControl.cs" Line="255" Column="1" />
-      <File FileName="Assets\Scripts\GameControl.cs" Line="254" Column="38" />
+      <File FileName="Assets\Scripts\CounterControl.cs" Line="244" Column="5" />
+      <File FileName="Assets\Scripts\Counter_Animation_Triggers.cs" Line="81" Column="1" />
+      <File FileName="Assets\Scripts\Enemy_Particles.cs" Line="36" Column="5" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="Assembly-CSharp" expanded="True">
-            <Node name="Scripts" expanded="True">
-              <Node name="CounterControl.cs" selected="True" />
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
