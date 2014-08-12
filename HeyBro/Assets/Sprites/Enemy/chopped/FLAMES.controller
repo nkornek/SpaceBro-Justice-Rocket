@@ -35,18 +35,18 @@ State:
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
---- !u!1102 &110265175
+--- !u!1102 &110209862
 State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Fire flamin
+  m_Name: Fire flamin 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: 551946fff9fd1824a973654e8a817ca9, type: 2}
+  - {fileID: 7400000, guid: fbdb1cf3f40c00841a1b52bab1ac148a, type: 2}
   m_ParentStateMachine: {fileID: 110765175}
-  m_Position: {x: 50, y: 50, z: 0}
+  m_Position: {x: 24, y: 96, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -73,9 +73,9 @@ StateMachine:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Base Layer
-  m_DefaultState: {fileID: 110265175}
+  m_DefaultState: {fileID: 110209862}
   m_States:
-  - {fileID: 110265175}
+  - {fileID: 110209862}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions: {}

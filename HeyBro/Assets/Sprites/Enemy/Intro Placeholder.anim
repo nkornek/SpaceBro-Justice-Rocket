@@ -47,17 +47,17 @@ AnimationClip:
         outSlope: {x: 0, y: -23.7543201, z: 32.6210327}
         tangentMode: 0
       - time: 5.98333311
-        value: {x: 0, y: -.963609695, z: 11.0289345}
-        inSlope: {x: 0, y: .151795134, z: 29.6131268}
-        outSlope: {x: 0, y: .151795134, z: 29.6131268}
+        value: {x: 0, y: -.963609695, z: 4.61363411}
+        inSlope: {x: 0, y: .151795134, z: 9.08710289}
+        outSlope: {x: 0, y: .151795134, z: 9.08710289}
         tangentMode: 0
       - time: 7.01666689
-        value: {x: 0, y: -.958897114, z: 23.8695564}
+        value: {x: 0, y: -.958897114, z: 0}
         inSlope: {x: 0, y: -.0389404781, z: -12.8049955}
         outSlope: {x: 0, y: -.0389404781, z: -12.8049955}
         tangentMode: 0
       - time: 7.23333311
-        value: {x: 0, y: -.963609695, z: 24}
+        value: {x: 0, y: -.963609695, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 4
@@ -101,25 +101,6 @@ AnimationClip:
     path: FLAMES
     classID: 1
     script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 31
-      - time: 7.23333311
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 31
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: m_Enabled
-    path: FLAMES
-    classID: 111
-    script: {fileID: 0}
   m_PPtrCurves: []
   m_SampleRate: 60
   m_WrapMode: 0
@@ -144,12 +125,6 @@ AnimationClip:
       attribute: 2086281974
       script: {fileID: 0}
       classID: 1
-      customType: 0
-      isPPtrCurve: 0
-    - path: 3511052127
-      attribute: 3305885265
-      script: {fileID: 0}
-      classID: 111
       customType: 0
       isPPtrCurve: 0
     pptrCurveMapping: []
@@ -248,12 +223,12 @@ AnimationClip:
         outSlope: 32.6210327
         tangentMode: 0
       - time: 7.01666689
-        value: 23.8695564
+        value: 0
         inSlope: -12.8049955
         outSlope: -12.8049955
         tangentMode: 0
       - time: 7.23333311
-        value: 24
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -338,25 +313,6 @@ AnimationClip:
     attribute: m_IsActive
     path: FLAMES
     classID: 1
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 31
-      - time: 7.23333311
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 31
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: m_Enabled
-    path: FLAMES
-    classID: 111
     script: {fileID: 0}
   m_EulerEditorCurves: []
   m_Events:
