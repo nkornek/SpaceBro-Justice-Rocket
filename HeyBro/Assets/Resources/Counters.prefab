@@ -2130,6 +2130,8 @@ MonoBehaviour:
   RouletteSpeed: 0
   slowing: 0
   rouletteChangeTime: 0
+  rouletteDing: {fileID: 8300000, guid: ec66226eeb712184bbc006d0b78692c2, type: 3}
+  canRoulette: 0
 --- !u!114 &11400028
 MonoBehaviour:
   m_ObjectHideFlags: 1
