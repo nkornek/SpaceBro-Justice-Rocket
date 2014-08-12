@@ -381,6 +381,21 @@ State:
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
+--- !u!1102 &110281725
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Siphoning Grasp
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: 0eb144bb0ab50714aaad75a7b684b5ef, type: 2}
+  m_ParentStateMachine: {fileID: 110700000}
+  m_Position: {x: 407, y: 413, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
 --- !u!1102 &110288290
 State:
   m_ObjectHideFlags: 3
@@ -413,6 +428,7 @@ StateMachine:
   - {fileID: 110249293}
   - {fileID: 110227040}
   - {fileID: 110266119}
+  - {fileID: 110281725}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
