@@ -347,6 +347,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &100042
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400042}
+  m_Layer: 0
+  m_Name: Enemy Camera Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &100044
 GameObject:
   m_ObjectHideFlags: 1
@@ -867,6 +882,7 @@ GameObject:
   - 20: {fileID: 2000000}
   - 124: {fileID: 12400000}
   - 92: {fileID: 9200000}
+  - 114: {fileID: 11400016}
   m_Layer: 0
   m_Name: Counter BG Camera
   m_TagString: Untagged
@@ -1318,6 +1334,7 @@ GameObject:
   - 124: {fileID: 12400002}
   - 92: {fileID: 9200002}
   - 114: {fileID: 11400034}
+  - 114: {fileID: 11400014}
   m_Layer: 0
   m_Name: Counter Camera
   m_TagString: Untagged
@@ -1365,7 +1382,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400168}
   m_Layer: 0
-  m_Name: Enemy Camera Target
+  m_Name: Enemy Gun Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1602,7 +1619,7 @@ Transform:
   m_Children:
   - {fileID: 400044}
   - {fileID: 400050}
-  - {fileID: 400168}
+  - {fileID: 400042}
   - {fileID: 400108}
   - {fileID: 400110}
   m_Father: {fileID: 400140}
@@ -1863,6 +1880,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 400010}
   m_RootOrder: 3
+--- !u!4 &400042
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100042}
+  m_LocalRotation: {x: 4.3474806e-09, y: -1.19144588e-08, z: -1.66533454e-16, w: -1}
+  m_LocalPosition: {x: 0, y: -4.63750172, z: -24.8308411}
+  m_LocalScale: {x: .25, y: .25, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400002}
+  m_RootOrder: 2
 --- !u!4 &400044
 Transform:
   m_ObjectHideFlags: 1
@@ -2525,6 +2554,7 @@ Transform:
   - {fileID: 400142}
   - {fileID: 400138}
   - {fileID: 400136}
+  - {fileID: 400168}
   m_Father: {fileID: 400110}
   m_RootOrder: 10
 --- !u!4 &400146
@@ -2672,12 +2702,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100168}
-  m_LocalRotation: {x: 4.3474806e-09, y: -1.19144588e-08, z: -1.66533454e-16, w: -1}
-  m_LocalPosition: {x: 0, y: 1.86077023, z: -7.35876083}
-  m_LocalScale: {x: .25, y: .25, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.57540631, y: -4.26002121, z: 0}
+  m_LocalScale: {x: .300000042, y: .300000042, z: .25}
   m_Children: []
-  m_Father: {fileID: 400002}
-  m_RootOrder: 2
+  m_Father: {fileID: 400144}
+  m_RootOrder: 3
 --- !u!4 &400170
 Transform:
   m_ObjectHideFlags: 1
@@ -3273,17 +3303,40 @@ MonoBehaviour:
   enemyAudio: {fileID: 8200006}
   rocketAudio: {fileID: 8200004}
   enemyEffects: {fileID: 8200002}
-  grunt: []
-  laugh: []
-  roar: []
-  longRoar: {fileID: 0}
-  servo: []
-  rocket: []
-  explosion: []
-  siphon: {fileID: 0}
-  laserCharge: {fileID: 0}
-  laserFire: {fileID: 0}
-  wubwub: {fileID: 0}
+  grunt:
+  - {fileID: 8300000, guid: 65412eee9012d594f809e707f524e667, type: 3}
+  - {fileID: 8300000, guid: 1779051c06d22804db1af08987c50a3d, type: 3}
+  - {fileID: 8300000, guid: b5f55418e5b98284ca2176b750c242d8, type: 3}
+  - {fileID: 8300000, guid: 1e35847cf4f095e44bff04a18a9391ec, type: 3}
+  - {fileID: 8300000, guid: 6490254f0622be3448cc121ccf7edc58, type: 3}
+  - {fileID: 8300000, guid: 45366c22e54450649a80d496ff515e8f, type: 3}
+  - {fileID: 8300000, guid: 0085d748b07204b4ab3c81e49b919efc, type: 3}
+  - {fileID: 8300000, guid: 5c74f137835fa4449acea372835a40ff, type: 3}
+  - {fileID: 8300000, guid: e5672aebd1d95a641ad0c2d181f5829e, type: 3}
+  laugh:
+  - {fileID: 8300000, guid: 7c40d94475467fd4d818ea6c82d32572, type: 3}
+  - {fileID: 8300000, guid: d27c4b70249e95249990fb4e0d2b1b86, type: 3}
+  roar:
+  - {fileID: 8300000, guid: 2b3cc172b967b244e8f2a8df17e9b3c2, type: 3}
+  - {fileID: 8300000, guid: affc227df0f08664faebf1d752b95f5b, type: 3}
+  - {fileID: 8300000, guid: 8541438de2012974fb8497efe536d43f, type: 3}
+  longRoar: {fileID: 8300000, guid: 6acfdb1dd09cba84a9aa5614cacf9344, type: 3}
+  servo:
+  - {fileID: 8300000, guid: 944472c522d79b141a58023e08db2457, type: 3}
+  - {fileID: 8300000, guid: 29b98b6b59f711b4f9f47090c00d909f, type: 3}
+  - {fileID: 8300000, guid: b8fde32534c08374fa790fbfaec08d89, type: 3}
+  - {fileID: 8300000, guid: be6ae8bf42a2bdf4b894ae51e7b151f7, type: 3}
+  - {fileID: 8300000, guid: 0d38b478982d2a041b063cf8b87cf784, type: 3}
+  rocket:
+  - {fileID: 8300000, guid: def301a675baa4d4ea55097f4386ac1f, type: 3}
+  - {fileID: 8300000, guid: 75bc7add9cd1ffe4591699e4cbaf677a, type: 3}
+  explosion:
+  - {fileID: 8300000, guid: c26a397ccb2f32745b406a706cf9ae40, type: 3}
+  - {fileID: 8300000, guid: 37576eb04f8377a46b1d8b4686104dce, type: 3}
+  siphon: {fileID: 8300000, guid: 492e3df9d78ea35478b5cb6392fe7b31, type: 3}
+  laserCharge: {fileID: 8300000, guid: 31dc84a598306c347ab7b276502feb5b, type: 3}
+  laserFire: {fileID: 8300000, guid: d6ac3b5836d98534fa4ae613f133e63d, type: 3}
+  wubwub: {fileID: 8300000, guid: 4ff7b9818daa4a34798be7c88507193f, type: 3}
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3327,7 +3380,7 @@ MonoBehaviour:
   masterCounterSystem: {fileID: 11400028}
   CounterControl: {fileID: 11400026}
   camera: {fileID: 11400034}
-  beamEnemyCamera: {fileID: 400168}
+  beamEnemyCamera: {fileID: 400042}
   beamPlayerCamera: {fileID: 400170}
   beamPointTarget: {fileID: 400000}
   backgroundAnimator: {fileID: 9500004}
@@ -3345,6 +3398,32 @@ MonoBehaviour:
   cutsceneOneMaster: {fileID: 0}
   cutsceneOneParticles: []
   cutsceneNum: 0
+--- !u!114 &11400014
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f2fb843a9a637040b07353e5f06d64f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetAspectWidth: 9
+  targetAspectHeight: 16
+--- !u!114 &11400016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f2fb843a9a637040b07353e5f06d64f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetAspectWidth: 9
+  targetAspectHeight: 16
 --- !u!114 &11400026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3374,8 +3453,7 @@ MonoBehaviour:
   counterSpritesPlayers:
   - {fileID: 100100}
   - {fileID: 100064}
-  counterSpritesEnemy:
-  - {fileID: 100002}
+  counterSpritesEnemy: {fileID: 100002}
   energyBallObject: {fileID: 100036}
   ballReflected: 0
   p1Ball:
@@ -3448,7 +3526,7 @@ MonoBehaviour:
   BG: {fileID: 9500004}
   counterCamera: {fileID: 11400034}
   playerTransform: {fileID: 400024}
-  enemyTransform: {fileID: 400168}
+  enemyTransform: {fileID: 400042}
   toPlayer: 0
   toPlayerPart: {fileID: 19800020}
   fromPlayerPart: {fileID: 19800022}

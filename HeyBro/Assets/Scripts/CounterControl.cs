@@ -12,7 +12,7 @@ public class CounterControl : MonoBehaviour {
 	public bool blocked, failed, speedup;
 	public Animator counterAnimatorEnemy;
 	public GameObject[] counterSpritesPlayers;
-	public GameObject[] counterSpritesEnemy;
+	public GameObject counterSpritesEnemy;
 
 
 	//specifict counter sequence variables
@@ -66,9 +66,9 @@ public class CounterControl : MonoBehaviour {
 				p.enableEmission = false;
 			}
 		}
-		foreach (GameObject g in counterSpritesEnemy)
+		foreach (SpriteRenderer g in counterSpritesEnemy.GetComponentsInChildren<SpriteRenderer>())
 		{
-			g.GetComponent<SpriteRenderer>().enabled = false;
+			g.enabled = false;
 		}
 	}
 	
@@ -355,10 +355,9 @@ public class CounterControl : MonoBehaviour {
 					p.enableEmission = true;
 				}
 			}
-			foreach (GameObject g in counterSpritesEnemy)
+			foreach (SpriteRenderer g in counterSpritesEnemy.GetComponentsInChildren<SpriteRenderer>())
 			{
-				g.GetComponent<SpriteRenderer>().enabled = true;
-
+				g.enabled = true;
 			}
 		}
 		else if (GameManager.GetComponent<GameControl>().counterNum == 2)
@@ -377,10 +376,9 @@ public class CounterControl : MonoBehaviour {
 					p.enableEmission = true;
 				}
 			}
-			foreach (GameObject g in counterSpritesEnemy)
+			foreach (SpriteRenderer g in counterSpritesEnemy.GetComponentsInChildren<SpriteRenderer>())
 			{
-				g.GetComponent<SpriteRenderer>().enabled = true;
-
+				g.enabled = true;
 			}
 		}
 		else if (GameManager.GetComponent<GameControl>().counterNum == 3)
@@ -400,10 +398,9 @@ public class CounterControl : MonoBehaviour {
 					p.enableEmission = true;
 				}
 			}
-			foreach (GameObject g in counterSpritesEnemy)
+			foreach (SpriteRenderer g in counterSpritesEnemy.GetComponentsInChildren<SpriteRenderer>())
 			{
-				g.GetComponent<SpriteRenderer>().enabled = true;
-				
+				g.enabled = true;
 			}
 		}
 	}

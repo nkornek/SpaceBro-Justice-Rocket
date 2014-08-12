@@ -86,6 +86,7 @@ GameObject:
   - 92: {fileID: 922500649}
   - 124: {fileID: 922500648}
   - 81: {fileID: 922500647}
+  - 114: {fileID: 922500652}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -158,6 +159,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &922500652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 922500646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f2fb843a9a637040b07353e5f06d64f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetAspectWidth: 9
+  targetAspectHeight: 16
 --- !u!1001 &934611444
 Prefab:
   m_ObjectHideFlags: 0
@@ -554,6 +568,7 @@ GameObject:
   - 20: {fileID: 1685816370}
   - 124: {fileID: 1685816369}
   - 92: {fileID: 1685816368}
+  - 114: {fileID: 1685816371}
   m_Layer: 0
   m_Name: Star Camera
   m_TagString: Untagged
@@ -623,6 +638,19 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+--- !u!114 &1685816371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1685816366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f2fb843a9a637040b07353e5f06d64f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetAspectWidth: 9
+  targetAspectHeight: 16
 --- !u!1 &1704550154
 GameObject:
   m_ObjectHideFlags: 0

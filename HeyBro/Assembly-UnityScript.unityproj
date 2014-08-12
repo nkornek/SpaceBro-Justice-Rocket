@@ -46,7 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\PlayerPrefsX.js" />
+     <Compile Include="Assets\$cameraaspectratio_901.js" />
      <None Include="Assets\Sprites\overlay.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

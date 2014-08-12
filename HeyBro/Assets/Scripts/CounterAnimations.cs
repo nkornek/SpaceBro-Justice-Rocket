@@ -41,7 +41,6 @@ public class CounterAnimations : MonoBehaviour {
 		{
 			if (energyBallObject.transform.localPosition.y > -10 & energyBallObject.transform.localPosition.y < 45)
 			{
-				counterCamera.target = energyBallObject.transform;
 				if (toPlayer)
 				{
 					toPlayerPart.enableEmission = true;
@@ -55,13 +54,11 @@ public class CounterAnimations : MonoBehaviour {
 			}
 			else if (energyBallObject.transform.localPosition.y < -10)
 			{
-				counterCamera.target = playerTransform;
 				fromPlayerPart.enableEmission = false;
 				toPlayerPart.enableEmission = false;
 			}
 			else
 			{
-				counterCamera.target = enemyTransform;
 				fromPlayerPart.enableEmission = false;
 				toPlayerPart.enableEmission = false;
 			}

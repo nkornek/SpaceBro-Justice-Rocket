@@ -36,7 +36,8 @@ public class Enemy_Sounds : MonoBehaviour {
 
 	public void laughClip () {
 		enemyAudio.loop = true;
-		int randomInt = Random.Range (0, 2);
+		//int randomInt = Random.Range (0, 2);
+		int randomInt = 1;
 		enemyAudio.clip = laugh[randomInt];
 		enemyAudio.Play ();
 	}
