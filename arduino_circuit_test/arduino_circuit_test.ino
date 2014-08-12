@@ -6,7 +6,7 @@ void setup() {
 }
 
 void loop() {
-  pinvolt = analogRead(5);
+  pinvolt = analogRead(3);
   Serial.println (pinvolt);
   
 }
