@@ -70,7 +70,10 @@ public class Counter_Animation_Triggers : MonoBehaviour {
 		CounterControl.slowing = true;
 	}
 	void failedRoulette () {
+		if (!CounterControl.failed)
+		{
 		CounterControl.failed = true;
+		}
 	}
 
 
