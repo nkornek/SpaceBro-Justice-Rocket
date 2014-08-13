@@ -256,6 +256,8 @@ MonoBehaviour:
   laserFire: {fileID: 8300000, guid: d6ac3b5836d98534fa4ae613f133e63d, type: 3}
   wubwub: {fileID: 8300000, guid: 4ff7b9818daa4a34798be7c88507193f, type: 3}
   slowmo: {fileID: 0}
+  RPE: []
+  RPEnum: 0
 --- !u!82 &9682879
 AudioSource:
   m_ObjectHideFlags: 0
