@@ -2234,6 +2234,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a76d62a95bae52643b982e0f978e597d, type: 3}
   - {fileID: 21300000, guid: 6266c5a336d023142ac99f8b2e675272, type: 3}
   - {fileID: 21300000, guid: a1e15f22b60e305408ff5a4c315d1a1b, type: 3}
+  - {fileID: 21300000, guid: c44ea81aa0afbe24899a2a56c3d04215, type: 3}
+  - {fileID: 21300000, guid: 1505e4a8c99d26148a8d01cba2c8e30b, type: 3}
   promptAudio:
   - {fileID: 8300000, guid: 7df9f979d1983a44698b1f1941d00c9a, type: 3}
   - {fileID: 8300000, guid: 1f6028e7b34c132429f5bc9cf670e4df, type: 3}
@@ -2267,6 +2269,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4bdfb3373132fb34b88cfe0e8d7df1b0, type: 3}
   playerhp: {fileID: 11400000}
   enemyhp: {fileID: 11400002}
+  winAudio: {fileID: 8300000, guid: 2b8068fd32f3de14fbe0bf8a97b8517a, type: 3}
+  loseAudio: {fileID: 8300000, guid: ae94d0aa56f212c44adf6048486c707b, type: 3}
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2307,6 +2311,7 @@ MonoBehaviour:
   canCounter: 0
   mainCamera: {fileID: 0}
   cutsceneAnim: {fileID: 0}
+  attackNum: 0
   prompts: {fileID: 11400004}
 --- !u!124 &12400000
 Behaviour:
