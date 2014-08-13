@@ -133,10 +133,13 @@ public class Enemy_Sounds : MonoBehaviour {
 	}
 
 	public void RPEcallout () {
-		enemyAudio.loop = false;
-		enemyAudio.clip = RPE[RPEnum];
-		enemyAudio.Play ();
-		RPEnum ++;
+		if (RPEnum <4) 
+		{
+			enemyAudio.loop = false;
+			enemyAudio.clip = RPE[RPEnum];
+			enemyAudio.Play ();
+			RPEnum ++;
+		}
 	}
 
 }

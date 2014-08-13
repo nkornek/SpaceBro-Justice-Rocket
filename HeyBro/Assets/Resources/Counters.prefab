@@ -3273,6 +3273,8 @@ MonoBehaviour:
   counterCameraShake: {fileID: 11400012}
   playerLeft: {fileID: 9500000}
   playerRight: {fileID: 9500006}
+  forcefield: {fileID: 11400018}
+  mainForcefield: {fileID: 0}
   energyBallObject: {fileID: 100036}
   ballReflected: 0
   p1Ball:
