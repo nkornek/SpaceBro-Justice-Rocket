@@ -3125,6 +3125,12 @@ MonoBehaviour:
   laserFire: {fileID: 8300000, guid: d6ac3b5836d98534fa4ae613f133e63d, type: 3}
   wubwub: {fileID: 8300000, guid: 4ff7b9818daa4a34798be7c88507193f, type: 3}
   slowmo: {fileID: 8300000, guid: 38f6029583de2de45b8eb96dcff5d0b1, type: 3}
+  RPE:
+  - {fileID: 8300000, guid: 8832351f876daa643933c2b9697646bf, type: 3}
+  - {fileID: 8300000, guid: 4e2e0dff091e71d46916e91a0d90d182, type: 3}
+  - {fileID: 8300000, guid: 651c512c081362548846f5f215660453, type: 3}
+  - {fileID: 8300000, guid: ac6945e90f4c801438a181ec65103a1f, type: 3}
+  RPEnum: 0
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3267,6 +3273,8 @@ MonoBehaviour:
   counterCameraShake: {fileID: 11400012}
   playerLeft: {fileID: 9500000}
   playerRight: {fileID: 9500006}
+  forcefield: {fileID: 11400018}
+  mainForcefield: {fileID: 0}
   energyBallObject: {fileID: 100036}
   ballReflected: 0
   p1Ball:
@@ -3305,6 +3313,7 @@ MonoBehaviour:
   rouletteChangeTime: 0
   rouletteDing: {fileID: 8300000, guid: ec66226eeb712184bbc006d0b78692c2, type: 3}
   canRoulette: 0
+  canRPE: 0
 --- !u!114 &11400028
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15320,7 +15329,7 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
-  m_SortingOrder: 10
+  m_SortingOrder: -11
   m_Sprite: {fileID: 21300000, guid: 12490e553c5e4cb4bb883b3545ef166f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21200002
@@ -15848,7 +15857,7 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 5f08b97f70ccc32419553858ac081a0d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21200050
@@ -15870,7 +15879,7 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: a9f96a62593b2c245ac3459649aeeeca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21200052

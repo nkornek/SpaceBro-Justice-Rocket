@@ -15,6 +15,7 @@ public class CounterControl : MonoBehaviour {
 	public GameObject counterSpritesEnemy;
 	public cameraShake counterCameraShake;
 	public Animator playerLeft, playerRight;
+	public Display_Forcefield forcefield, mainForcefield;
 
 
 	//specifict counter sequence variables
@@ -23,6 +24,7 @@ public class CounterControl : MonoBehaviour {
 	public int ballReflected;
 	public Sprite[] p1Ball;
 	public Sprite[] p2Ball;
+
 
 
 	//roulette
@@ -48,6 +50,8 @@ public class CounterControl : MonoBehaviour {
 		EnemyControls = GameObject.Find ("Enemy");
 		GameManager = GameObject.Find ("Game");
 		rouletteChangeTime = 0.1f;
+		forcefield.showField = false;
+		mainForcefield = GameObject.FindWithTag("mainField").GetComponent<Display_Forcefield>();
 
 		foreach (GameObject g in counterSpritesPlayers)
 		{
@@ -112,6 +116,7 @@ public class CounterControl : MonoBehaviour {
 				gameObject.GetComponent<AudioSource>().Play();
 				playerLeft.SetTrigger("five");
 				playerRight.SetTrigger("five");
+				forcefield.showField = true;
 			}
 			//player fail
 			if (pictogramsFailedBall() & !failed)
@@ -140,6 +145,7 @@ public class CounterControl : MonoBehaviour {
 			if (energyBallObject.transform.localPosition.y >= 60 & blocked)
 			{
 				blocked = false;
+				forcefield.showField = false;
 				//CounterAnimations.enemyHit();
 				CounterAnimations.toPlayer = true;
 				if (ballReflected == 3)
@@ -153,14 +159,24 @@ public class CounterControl : MonoBehaviour {
 			}
 			break;
 		case 2:
-			if (PlayerControl.GetComponent<SequenceControls>().checkBothEvents() & pictogramsInRangeRPE() & !failed & canRPE)
+			if (PlayerControl.GetComponent<SequenceControls>().checkBothEvents() & pictogramsInRangeRPE() & !failed)
 			{
 				canRPE = false;
 				counterAnimatorEnemy.SetTrigger("Won");
 				int whichRPE = PlayerControl.GetComponent<SequenceControls>().contactA;
+				forcefield.showField = true;
 				switch (whichRPE) {
 				case 0:
-
+					playerLeft.SetTrigger("five");
+					playerRight.SetTrigger("five");
+					break;
+				case 1:
+					playerLeft.SetTrigger("fist");
+					playerRight.SetTrigger("fist");
+					break;
+				case 2:
+					playerLeft.SetTrigger("elbow");
+					playerRight.SetTrigger("elbow");
 					break;
 				}
 			}
@@ -196,6 +212,7 @@ public class CounterControl : MonoBehaviour {
 				canRoulette = false;
 				promptLeft.GetComponent<SpriteRenderer>().sprite = rouletteLeft[roulettePrompt + 3];
 				promptRight.GetComponent<SpriteRenderer>().sprite = rouletteRight[roulettePrompt + 3];
+				forcefield.showField = true;
 				counterAnimatorEnemy.SetTrigger("Won");
 				Invoke ("hidePrompts", 0.2f);
 			}
@@ -261,7 +278,7 @@ public class CounterControl : MonoBehaviour {
 		}
 
 	public void StartCounter () {
-		GameObject.Find("Forcefield").GetComponent<Display_Forcefield>().showField = false;
+		mainForcefield.showField = false;
 		bgAnimator.SetTrigger ("In");	
 		GameManager.GetComponent<GameControl>().counterActive = true;
 		if (GameManager.GetComponent<GameControl>().counterNum == 1)
