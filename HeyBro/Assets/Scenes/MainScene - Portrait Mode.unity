@@ -4982,6 +4982,7 @@ MonoBehaviour:
   beamPlayerCamera: {fileID: 870670640}
   ballPointTarget: {fileID: 1311615823}
   gunPointTarget: {fileID: 1258794547}
+  fistPointTarget: {fileID: 0}
   backgroundAnimator: {fileID: 1943187217}
   enemyAnimator: {fileID: 194658192}
 --- !u!82 &194658194
@@ -34484,6 +34485,7 @@ MonoBehaviour:
   beamPlayerCamera: {fileID: 870670640}
   ballPointTarget: {fileID: 1311615823}
   gunPointTarget: {fileID: 0}
+  fistPointTarget: {fileID: 0}
   backgroundAnimator: {fileID: 0}
   enemyAnimator: {fileID: 194658192}
 --- !u!199 &1311615820
@@ -48553,6 +48555,7 @@ MonoBehaviour:
   beamPlayerCamera: {fileID: 0}
   ballPointTarget: {fileID: 0}
   gunPointTarget: {fileID: 0}
+  fistPointTarget: {fileID: 0}
   backgroundAnimator: {fileID: 1943187217}
   enemyAnimator: {fileID: 0}
 --- !u!95 &1943187217
