@@ -9,6 +9,8 @@ public class Prompts : MonoBehaviour {
 	public int moveNum;
 	public AudioClip[] yeah;
 	public AudioClip[] aww;
+	public HealthBarPlayer playerhp;
+	public HealthBarEnemy enemyhp;
 
 	// Use this for initialization
 	void Start () {
@@ -27,6 +29,11 @@ public class Prompts : MonoBehaviour {
 		gameObject.GetComponent<AudioSource> ().clip = promptAudio [sprite];
 		gameObject.GetComponent<AudioSource> ().Play();
 		Invoke ("hidePrompt", 1);
+		if (sprite == 0)
+		{
+			playerhp.CanFadeIn = true;
+			enemyhp.CanFadeIn = true;
+		}
 	}
 
 	public void hidePrompt () {

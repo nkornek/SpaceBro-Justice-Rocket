@@ -16,6 +16,7 @@ public class Enemy_Sounds : MonoBehaviour {
 	public AudioClip laserCharge;
 	public AudioClip laserFire;
 	public AudioClip wubwub;
+	public AudioClip slowmo;
 
 	// Use this for initialization
 	void Start () {
@@ -53,6 +54,18 @@ public class Enemy_Sounds : MonoBehaviour {
 		enemyAudio.loop = false;
 		int randomInt = Random.Range (0, 5);
 		enemyAudio.clip = servo[randomInt];
+		enemyAudio.Play ();
+	}
+
+	public void servo2Clip () {
+		enemyAudio.loop = false;
+		enemyAudio.clip = servo[2];
+		enemyAudio.Play ();
+	}
+
+	public void servo3Clip () {
+		enemyAudio.loop = false;
+		enemyAudio.clip = servo[3];
 		enemyAudio.Play ();
 	}
 
@@ -96,6 +109,12 @@ public class Enemy_Sounds : MonoBehaviour {
 	public void wubwubAudio () {
 		enemyEffects.loop = true;
 		enemyEffects.clip = wubwub;
+		enemyEffects.Play ();
+	}
+
+	public void slowmoAudio () {
+		enemyEffects.loop = false;
+		enemyEffects.clip = slowmo;
 		enemyEffects.Play ();
 	}
 

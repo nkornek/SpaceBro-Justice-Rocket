@@ -36,11 +36,6 @@ public class PlayerAnimations : MonoBehaviour {
 			break;
 		case 3:
 			break;
-			/*
-		case 4: 
-			characterAnims.SetTrigger("sad");
-			break;
-			*/
 		case 5:
 			characterAnims.SetTrigger("gethit");
 			break;

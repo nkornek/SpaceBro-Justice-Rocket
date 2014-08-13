@@ -23,7 +23,7 @@ public class HealthBarEnemy : MonoBehaviour {
 		enemy = GameObject.Find ("Enemy").GetComponent<EnemyControls>();
 		curPerc = 0f;
 		targetPerc = 1f;
-		CanFadeIn = true;
+		CanFadeIn = false;
 		alpha = 0f;
 		fadeSwitch = true;
 		canEmit = true;
@@ -67,7 +67,6 @@ public class HealthBarEnemy : MonoBehaviour {
 				}
 			}
 			else {
-				CanFadeIn = true;
 				if (alpha > 0.9f)
 				{
 					curPerc = Mathf.Lerp (curPerc, targetPerc, 0.05f);

@@ -2265,6 +2265,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 10d97aad237c6c04e8555c9d74fe4e73, type: 3}
   - {fileID: 8300000, guid: 49977b4ad0de2484da4e3719b0edba55, type: 3}
   - {fileID: 8300000, guid: 4bdfb3373132fb34b88cfe0e8d7df1b0, type: 3}
+  playerhp: {fileID: 11400000}
+  enemyhp: {fileID: 11400002}
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1

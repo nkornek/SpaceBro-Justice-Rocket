@@ -27468,6 +27468,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 3.58333325
+    functionName: fistCameraTarget
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 4.98333311
     functionName: showRoulette
     data: 
