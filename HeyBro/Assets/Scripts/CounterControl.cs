@@ -129,8 +129,7 @@ public class CounterControl : MonoBehaviour {
 					energyBallObject.GetComponent<ParticleSystem>().Emit(800);
 					energyBallObject.GetComponent<ParticleSystem>().enableEmission = false;
 					energyBallObject.GetComponent<SpriteRenderer>().enabled = false;				
-					Invoke ("hidePrompts", 0.2f);			
-					Invoke ("endCounter", 1);
+					Invoke ("hidePrompts", 0.2f);	
 					damagePlayer();
 				}
 			}
@@ -176,8 +175,6 @@ public class CounterControl : MonoBehaviour {
 				canRoulette = false;
 				promptLeft.GetComponent<SpriteRenderer>().sprite = rouletteLeft[roulettePrompt + 6];
 				promptRight.GetComponent<SpriteRenderer>().sprite = rouletteRight[roulettePrompt + 6];
-				damagePlayer();
-				Invoke ("endCounter", 3);
 				Invoke ("hidePrompts", 0.2f);
 			}
 			else if (PlayerControl.GetComponent<SequenceControls>().checkBothEvents() & pictogramsInRangeRoulette() & !failed & canRoulette)
@@ -185,9 +182,7 @@ public class CounterControl : MonoBehaviour {
 				canRoulette = false;
 				promptLeft.GetComponent<SpriteRenderer>().sprite = rouletteLeft[roulettePrompt + 3];
 				promptRight.GetComponent<SpriteRenderer>().sprite = rouletteRight[roulettePrompt + 3];
-				Invoke ("damageEnemy", 1);
 				Invoke ("hidePrompts", 0.2f);
-				Invoke ("endCounter", 3);
 			}
 
 			break;
@@ -207,12 +202,14 @@ public class CounterControl : MonoBehaviour {
 	public void damageEnemy() {
 		EnemyControls.GetComponent<EnemyControls>().DamageEnemy (damage);
 		counterCameraShake.Shake();
+		Invoke ("endCounter", 1);
 		}
 	public void damagePlayer() {
 		PlayerControl.GetComponent<SequenceControls>().hp -= 20;
 		counterCameraShake.Shake();
 		playerLeft.SetTrigger ("gethit");
 		playerRight.SetTrigger ("gethit");
+		Invoke ("endCounter", 1);
 		}
 
 	public void Reset () {

@@ -1,14 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Counter_Animation_Triggers.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Enemy_Sounds.cs">
     <Files>
-      <File FileName="Assets\Scripts\SequenceControls.cs" Line="2" Column="15" />
-      <File FileName="Assets\Scripts\cameraShake.cs" Line="11" Column="16" />
-      <File FileName="Assets\Scripts\CounterControl.cs" Line="106" Column="59" />
-      <File FileName="Assets\Scripts\Counter_Animation_Triggers.cs" Line="61" Column="3" />
-      <File FileName="Assets\Scripts\MenuControl.cs" Line="24" Column="31" />
-      <File FileName="Assets\Scripts\GameControl.cs" Line="130" Column="3" />
-      <File FileName="Assets\Scripts\HealthBarPlayer.cs" Line="55" Column="26" />
+      <File FileName="Assets\Scripts\CounterControl.cs" Line="180" Column="30" />
+      <File FileName="Assets\Enemy_Sounds.cs" Line="106" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
