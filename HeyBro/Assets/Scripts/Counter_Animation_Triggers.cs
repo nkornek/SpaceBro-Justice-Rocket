@@ -72,5 +72,10 @@ public class Counter_Animation_Triggers : MonoBehaviour {
 			enemyAnimator.SetTrigger("Hit");
 		}
 	}
-
+	void damagePlayer () {
+		CounterControl.damagePlayer ();
+	}
+	void damageEnemy () {
+		CounterControl.damageEnemy ();
+	}
 }

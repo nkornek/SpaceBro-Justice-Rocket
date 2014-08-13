@@ -13,6 +13,8 @@ public class CounterControl : MonoBehaviour {
 	public Animator counterAnimatorEnemy;
 	public GameObject[] counterSpritesPlayers;
 	public GameObject counterSpritesEnemy;
+	public cameraShake counterCameraShake;
+	public Animator playerLeft, playerRight;
 
 
 	//specifict counter sequence variables
@@ -105,6 +107,8 @@ public class CounterControl : MonoBehaviour {
 				promptRight.GetComponent<SpriteRenderer>().sprite = p2Ball[1];
 				Invoke ("hidePrompts", 0.2f);
 				gameObject.GetComponent<AudioSource>().Play();
+				playerLeft.SetTrigger("five");
+				playerRight.SetTrigger("five");
 			}
 			//player fail
 			if (pictogramsFailedBall() & !failed)
@@ -202,9 +206,13 @@ public class CounterControl : MonoBehaviour {
 		}
 	public void damageEnemy() {
 		EnemyControls.GetComponent<EnemyControls>().DamageEnemy (damage);
+		counterCameraShake.Shake();
 		}
 	public void damagePlayer() {
 		PlayerControl.GetComponent<SequenceControls>().hp -= 20;
+		counterCameraShake.Shake();
+		playerLeft.SetTrigger ("gethit");
+		playerRight.SetTrigger ("gethit");
 		}
 
 	public void Reset () {
