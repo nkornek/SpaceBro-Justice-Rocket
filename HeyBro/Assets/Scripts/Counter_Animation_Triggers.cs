@@ -6,7 +6,8 @@ public class Counter_Animation_Triggers : MonoBehaviour {
 	public CounterControl CounterControl;
 	public SmoothCamera2D camera;
 	public Transform beamEnemyCamera, beamPlayerCamera, beamPointTarget, ballPointTarget, gunPointTarget;
-	public Animator backgroundAnimator;
+	public Animator backgroundAnimator, enemyAnimator;
+
 
 
 
@@ -81,6 +82,15 @@ public class Counter_Animation_Triggers : MonoBehaviour {
 	void gunCameraTarget () {
 		camera.target = gunPointTarget;
 	}
-
+	void reflectBall () {
+		if (CounterControl.ballReflected < 3)
+		{
+			enemyAnimator.SetTrigger("ReflectBall");
+		}
+		else
+		{
+			enemyAnimator.SetTrigger("Hit");
+		}
+	}
 
 }

@@ -108,6 +108,8 @@ public class CounterControl : MonoBehaviour {
 				blocked = true;
 				speedup = true;
 				ballReflected ++;
+				energyBallObject.GetComponent<Animator>().SetInteger("ReturnedNum", ballReflected);
+				energyBallObject.GetComponent<Animator>().SetTrigger("Return");
 				CounterAnimations.toPlayer = false;
 				promptLeft.GetComponent<SpriteRenderer>().sprite = p1Ball[1];		
 				promptRight.GetComponent<SpriteRenderer>().sprite = p2Ball[1];
@@ -127,6 +129,7 @@ public class CounterControl : MonoBehaviour {
 				else
 				{
 					failed = true;
+					energyBallObject.GetComponent<Animator>().SetTrigger("Failed");
 					promptLeft.GetComponent<SpriteRenderer>().sprite = p1Ball[2];		
 					promptRight.GetComponent<SpriteRenderer>().sprite = p2Ball[2];
 					energyBallObject.GetComponent<ParticleSystem>().Emit(800);
@@ -143,7 +146,6 @@ public class CounterControl : MonoBehaviour {
 				blocked = false;
 				//CounterAnimations.enemyHit();
 				CounterAnimations.toPlayer = true;
-				energyBallObject.GetComponent<SplineController>().Duration -= 1;
 				if (ballReflected == 3)
 				{
 					energyBallObject.GetComponent<ParticleSystem>().Emit(800);

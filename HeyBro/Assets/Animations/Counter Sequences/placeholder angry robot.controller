@@ -14,13 +14,19 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: Start Laser
+  - m_Name: Start Roulette
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: Start Roulette
+  - m_Name: ReflectBall
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: Hit
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -71,47 +77,47 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 5
-    m_ConditionEvent: Start Laser
+    m_ConditionEvent: Start Ball
     m_EventTreshold: 0
     m_ExitTime: .944444418
   m_Atomic: 1
   m_Solo: 0
   m_Mute: 0
   m_CanTransitionToSelf: 0
---- !u!1101 &110119268
+--- !u!1101 &110130636
 Transition:
   serializedVersion: 2
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
-  m_SrcState: {fileID: 110296598}
-  m_DstState: {fileID: 110206832}
-  m_TransitionDuration: .100000001
+  m_SrcState: {fileID: 110232879}
+  m_DstState: {fileID: 110263924}
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Start Laser
+    m_ConditionEvent: Hit
     m_EventTreshold: 0
-    m_ExitTime: .899999976
+    m_ExitTime: 1
   m_Atomic: 1
   m_Solo: 0
   m_Mute: 0
   m_CanTransitionToSelf: 0
---- !u!1101 &110151078
+--- !u!1101 &110142099
 Transition:
   serializedVersion: 2
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
-  m_SrcState: {fileID: 110206832}
-  m_DstState: {fileID: 110257043}
-  m_TransitionDuration: 0
+  m_SrcState: {fileID: 110232879}
+  m_DstState: {fileID: 110278142}
+  m_TransitionDuration: .000749429397
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 5
-    m_ConditionEvent: Start Roulette
+  - m_ConditionMode: 1
+    m_ConditionEvent: ReflectBall
     m_EventTreshold: 0
     m_ExitTime: 1
   m_Atomic: 1
@@ -131,7 +137,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 5
-    m_ConditionEvent: 
+    m_ConditionEvent: ReflectBall
     m_EventTreshold: 0
     m_ExitTime: 1
   m_Atomic: 1
@@ -158,6 +164,26 @@ Transition:
   m_Solo: 0
   m_Mute: 0
   m_CanTransitionToSelf: 0
+--- !u!1101 &110199518
+Transition:
+  serializedVersion: 2
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 110278142}
+  m_DstState: {fileID: 110232879}
+  m_TransitionDuration: 0
+  m_TransitionOffset: 0
+  m_Conditions:
+  - m_ConditionMode: 5
+    m_ConditionEvent: ReflectBall
+    m_EventTreshold: 0
+    m_ExitTime: 1
+  m_Atomic: 1
+  m_Solo: 0
+  m_Mute: 0
+  m_CanTransitionToSelf: 0
 --- !u!1102 &110200000
 State:
   m_ObjectHideFlags: 3
@@ -170,21 +196,6 @@ State:
   - {fileID: 7400000, guid: c2ef339794fc79e43bf24685becb84c6, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
   m_Position: {x: 192, y: 108, z: 0}
-  m_IKOnFeet: 0
-  m_Mirror: 0
-  m_Tag: 
---- !u!1102 &110206832
-State:
-  m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: laser counter intro
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Motions:
-  - {fileID: 7400000, guid: 3664f3055a8827a43b4ddcd0c83cbe76, type: 2}
-  m_ParentStateMachine: {fileID: 110700000}
-  m_Position: {x: 192, y: 240, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -203,21 +214,6 @@ State:
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
---- !u!1102 &110257043
-State:
-  m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: laser idle
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Motions:
-  - {fileID: 7400000, guid: 3f6560def4803c74b961ff145f90d59d, type: 2}
-  m_ParentStateMachine: {fileID: 110700000}
-  m_Position: {x: 480, y: 240, z: 0}
-  m_IKOnFeet: 0
-  m_Mirror: 0
-  m_Tag: 
 --- !u!1102 &110261744
 State:
   m_ObjectHideFlags: 3
@@ -229,7 +225,22 @@ State:
   m_Motions:
   - {fileID: 7400000, guid: 8f7c9908c2488ba469ddfc7d5bc432af, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
-  m_Position: {x: 480, y: 360, z: 0}
+  m_Position: {x: 480, y: 372, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
+--- !u!1102 &110263924
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: ballhit
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: 9487953d2a743b2488eff1107892d19a, type: 2}
+  m_ParentStateMachine: {fileID: 110700000}
+  m_Position: {x: 552, y: -24, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -244,7 +255,22 @@ State:
   m_Motions:
   - {fileID: 7400000, guid: 48f80a32a60e37c47b34fa9928b1af04, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
-  m_Position: {x: 192, y: 360, z: 0}
+  m_Position: {x: 192, y: 372, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
+--- !u!1102 &110278142
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: ball reflect
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: 0fbd984005433054a968e508da040bca, type: 2}
+  m_ParentStateMachine: {fileID: 110700000}
+  m_Position: {x: 744, y: 108, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -275,25 +301,24 @@ StateMachine:
   - {fileID: 110200000}
   - {fileID: 110296598}
   - {fileID: 110232879}
-  - {fileID: 110206832}
-  - {fileID: 110257043}
   - {fileID: 110270537}
   - {fileID: 110261744}
+  - {fileID: 110278142}
+  - {fileID: 110263924}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110261744}
+      first: {fileID: 110263924}
       second: []
     data:
-      first: {fileID: 110270537}
+      first: {fileID: 110278142}
       second:
-      - {fileID: 110178789}
+      - {fileID: 110199518}
     data:
       first: {fileID: 110296598}
       second:
       - {fileID: 110100000}
-      - {fileID: 110119268}
       - {fileID: 110193321}
     data:
       first: {fileID: 110200000}
@@ -301,13 +326,21 @@ StateMachine:
       - {fileID: 110109981}
     data:
       first: {fileID: 110232879}
+      second:
+      - {fileID: 110142099}
+      - {fileID: 110130636}
+    data:
+      first: {fileID: 0}
       second: []
     data:
-      first: {fileID: 110206832}
-      second:
-      - {fileID: 110151078}
+      first: {fileID: 0}
+      second: []
     data:
-      first: {fileID: 110257043}
+      first: {fileID: 110270537}
+      second:
+      - {fileID: 110178789}
+    data:
+      first: {fileID: 110261744}
       second: []
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 50, y: 20, z: 0}

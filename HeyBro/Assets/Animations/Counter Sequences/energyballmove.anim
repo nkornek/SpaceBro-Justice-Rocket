@@ -18,13 +18,13 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: {x: -.58984375, y: 61.6901016, z: 86.1750183}
-        inSlope: {x: .257369995, y: -38.8728828, z: -56.955368}
-        outSlope: {x: .257369995, y: -38.8728828, z: -56.955368}
-        tangentMode: 0
-      - time: 2
-        value: {x: -.0751037598, y: -16.0556622, z: -27.7357178}
-        inSlope: {x: .257369995, y: -38.8728828, z: -56.955368}
-        outSlope: {x: .257369995, y: -38.8728828, z: -56.955368}
+        inSlope: {x: .20589599, y: -31.8760414, z: -45.5642929}
+        outSlope: {x: .20589599, y: -31.8760414, z: -45.5642929}
+        tangentMode: 1853189955
+      - time: 2.5
+        value: {x: -.0751037598, y: -18, z: -27.7357178}
+        inSlope: {x: .20589599, y: -31.8760414, z: -45.5642929}
+        outSlope: {x: .20589599, y: -31.8760414, z: -45.5642929}
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -49,7 +49,7 @@ AnimationClip:
   m_AnimationClipSettings:
     serializedVersion: 2
     m_StartTime: 0
-    m_StopTime: 2
+    m_StopTime: 2.5
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -69,13 +69,13 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: -.58984375
-        inSlope: .257369995
-        outSlope: .257369995
+        inSlope: .20589599
+        outSlope: .20589599
         tangentMode: 10
-      - time: 2
+      - time: 2.5
         value: -.0751037598
-        inSlope: .257369995
-        outSlope: .257369995
+        inSlope: .20589599
+        outSlope: .20589599
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -88,13 +88,13 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: 61.6901016
-        inSlope: -38.8728828
-        outSlope: -38.8728828
+        inSlope: -31.8760414
+        outSlope: -31.8760414
         tangentMode: 10
-      - time: 2
-        value: -16.0556622
-        inSlope: -38.8728828
-        outSlope: -38.8728828
+      - time: 2.5
+        value: -18
+        inSlope: -31.8760414
+        outSlope: -31.8760414
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -107,13 +107,13 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: 86.1750183
-        inSlope: -56.955368
-        outSlope: -56.955368
+        inSlope: -45.5642929
+        outSlope: -45.5642929
         tangentMode: 10
-      - time: 2
+      - time: 2.5
         value: -27.7357178
-        inSlope: -56.955368
-        outSlope: -56.955368
+        inSlope: -45.5642929
+        outSlope: -45.5642929
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -123,8 +123,15 @@ AnimationClip:
     script: {fileID: 0}
   m_EulerEditorCurves: []
   m_Events:
-  - time: 0
-    functionName: 
+  - time: .166666672
+    functionName: energyBallCameraTarget
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2
+    functionName: BeamPlayerCameraTarget
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

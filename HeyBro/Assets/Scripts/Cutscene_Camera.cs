@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Cutscene_Camera : MonoBehaviour {
-	public GameObject cutsceneOneMaster;
+	public Animator cutsceneOneMaster;
 	public ParticleSystem[] cutsceneOneParticles;
 	public int cutsceneNum;
 
@@ -33,7 +33,7 @@ public class Cutscene_Camera : MonoBehaviour {
 	public void triggerScene (int whichScene) {
 	switch (whichScene){
 		case 1:
-			cutsceneOneMaster.GetComponent<Animator>().SetTrigger("Cutscene 1");
+			cutsceneOneMaster.SetTrigger("Cutscene 1");
 			break;
 		}
 	}

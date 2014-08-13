@@ -25,7 +25,6 @@ GameObject:
   - 4: {fileID: 400002}
   - 95: {fileID: 9500002}
   - 114: {fileID: 11400010}
-  - 114: {fileID: 11400012}
   - 114: {fileID: 11400004}
   - 82: {fileID: 8200006}
   - 82: {fileID: 8200004}
@@ -306,7 +305,7 @@ GameObject:
   - 212: {fileID: 21200002}
   - 198: {fileID: 19800016}
   - 199: {fileID: 19900016}
-  - 114: {fileID: 11400008}
+  - 95: {fileID: 9500010}
   - 114: {fileID: 11400006}
   m_Layer: 0
   m_Name: EnergyBall
@@ -3255,6 +3254,20 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+--- !u!95 &9500010
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100036}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 43130e8de45c2ac418d101556cec197e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3345,27 +3358,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 100036}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e0d5fab674c4c6499b6d769728d8fa4, type: 3}
+  m_Script: {fileID: 11500000, guid: b61037e55517fca4ea8adbb4c298c28c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SplineRoot: {fileID: 100034}
-  Duration: 7
-  OrientationMode: 0
-  WrapMode: 1
-  AutoStart: 0
-  AutoClose: 1
-  HideOnExecute: 1
---- !u!114 &11400008
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98b0812fc28aa2d418d2b1b440a31374, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  masterCounterSystem: {fileID: 11400028}
+  CounterControl: {fileID: 11400026}
+  camera: {fileID: 11400034}
+  beamEnemyCamera: {fileID: 400042}
+  beamPlayerCamera: {fileID: 400024}
+  beamPointTarget: {fileID: 0}
+  ballPointTarget: {fileID: 400036}
+  gunPointTarget: {fileID: 0}
+  backgroundAnimator: {fileID: 0}
+  enemyAnimator: {fileID: 9500002}
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3383,21 +3388,10 @@ MonoBehaviour:
   beamEnemyCamera: {fileID: 400042}
   beamPlayerCamera: {fileID: 400170}
   beamPointTarget: {fileID: 400000}
+  ballPointTarget: {fileID: 400036}
+  gunPointTarget: {fileID: 400168}
   backgroundAnimator: {fileID: 9500004}
---- !u!114 &11400012
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0802473459f8ae499f96b6ae4d47d18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cutsceneOneMaster: {fileID: 0}
-  cutsceneOneParticles: []
-  cutsceneNum: 0
+  enemyAnimator: {fileID: 9500002}
 --- !u!114 &11400014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3559,7 +3553,10 @@ MonoBehaviour:
   beamEnemyCamera: {fileID: 0}
   beamPlayerCamera: {fileID: 0}
   beamPointTarget: {fileID: 0}
+  ballPointTarget: {fileID: 0}
+  gunPointTarget: {fileID: 0}
   backgroundAnimator: {fileID: 9500004}
+  enemyAnimator: {fileID: 0}
 --- !u!114 &11400034
 MonoBehaviour:
   m_ObjectHideFlags: 1

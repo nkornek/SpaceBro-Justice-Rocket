@@ -128,6 +128,7 @@ GameObject:
   - 124: {fileID: 12400000}
   - 81: {fileID: 8100000}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400004}
   m_Layer: 0
   m_Name: speedline space
   m_TagString: MainCamera
@@ -732,7 +733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0802473459f8ae499f96b6ae4d47d18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cutsceneOneMaster: {fileID: 100030}
+  cutsceneOneMaster: {fileID: 9500004}
   cutsceneOneParticles:
   - {fileID: 19800002}
   - {fileID: 19800004}
@@ -756,6 +757,19 @@ MonoBehaviour:
   enemy: {fileID: 0}
   player: {fileID: 0}
   clapSound: {fileID: 8200000}
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f2fb843a9a637040b07353e5f06d64f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetAspectWidth: 9
+  targetAspectHeight: 16
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1
