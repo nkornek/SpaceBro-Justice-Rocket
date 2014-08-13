@@ -122,12 +122,24 @@ public class GameControl : MonoBehaviour {
 		player.generateBlockSequence ();
 
 		//////put variables to choose which attack
-		enemyAnimations.SetTrigger ("StartCharge");
+		/// 
+		int attackNum = Random.Range (0, 3);
+		switch (attackNum) {
+		case 0:
+			enemyAnimations.SetTrigger ("StartCharge");
+			break;
+		case 1:
+			enemyAnimations.SetTrigger ("PunchCharge");
+			break;
+		case 2:
+			enemyAnimations.SetTrigger ("Siphon");
+			break;
+		}
 	}
 		
 	private void checkBlocked () {
 		player.defending = false;
-		////////put trigger to do attack
+		enemyAnimations.SetTrigger ("Attack");
 
 	}
 
@@ -245,6 +257,41 @@ public class GameControl : MonoBehaviour {
 	public void LaserDamage() {
 		if (!player.blocked) {
 			player.hp -= 20;
+			mainCamera.Shake();
+			playerLeft.GetComponent<PlayerAnimations>().SetAnim(5);
+			playerRight.GetComponent<PlayerAnimations>().SetAnim(5);
+		}
+		if (player.hp <= 0) {
+			srcPlayersDie.Play ();
+			Invoke ("loadSplashScreen", 5.0f);
+			paused = true;
+		}
+		else {
+			Invoke ("startPlayerTurn", 5.0f);
+		}
+	}
+
+	public void SiphonAttack () {
+		if (!player.blocked) {
+			player.hp -= 20;
+			enemy.hp += 40;
+			mainCamera.Shake();
+			playerLeft.GetComponent<PlayerAnimations>().SetAnim(5);
+			playerRight.GetComponent<PlayerAnimations>().SetAnim(5);
+		}
+		if (player.hp <= 0) {
+			srcPlayersDie.Play ();
+			Invoke ("loadSplashScreen", 5.0f);
+			paused = true;
+		}
+		else {
+			Invoke ("startPlayerTurn", 5.0f);
+		}
+	}
+
+	public void PunchAttack () {
+		if (!player.blocked) {
+			player.hp -= 30;
 			mainCamera.Shake();
 			playerLeft.GetComponent<PlayerAnimations>().SetAnim(5);
 			playerRight.GetComponent<PlayerAnimations>().SetAnim(5);
