@@ -118,7 +118,6 @@ GameObject:
   - 82: {fileID: 8200004}
   - 82: {fileID: 8200002}
   - 114: {fileID: 11400010}
-  - 114: {fileID: 11400008}
   m_Layer: 0
   m_Name: Angry Robot
   m_TagString: Untagged
@@ -2083,21 +2082,7 @@ MonoBehaviour:
   laserCharge: {fileID: 8300000, guid: 31dc84a598306c347ab7b276502feb5b, type: 3}
   laserFire: {fileID: 8300000, guid: d6ac3b5836d98534fa4ae613f133e63d, type: 3}
   wubwub: {fileID: 8300000, guid: 4ff7b9818daa4a34798be7c88507193f, type: 3}
---- !u!114 &11400008
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd30f2edbe88a0041abdfa9a0c4f5621, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackTime: 2
-  particle: {fileID: 0}
-  particle2: {fileID: 0}
-  game: {fileID: 0}
+  slowmo: {fileID: 0}
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1

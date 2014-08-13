@@ -4197,22 +4197,15 @@ AnimationClip:
     classID: 4
     script: {fileID: 0}
   m_Events:
-  - time: -.0111111114
-    functionName: servoClip
+  - time: .0666666701
+    functionName: showCharge
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: .555555582
-    functionName: servoClip
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: .75555557
-    functionName: partVisible
+  - time: .411111116
+    functionName: servo2Clip
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
