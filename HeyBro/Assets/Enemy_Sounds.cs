@@ -53,22 +53,22 @@ public class Enemy_Sounds : MonoBehaviour {
 	}
 
 	public void servoClip () {
-		enemyAudio.loop = false;
+		enemyEffects.loop = false;
 		int randomInt = Random.Range (0, 5);
-		enemyAudio.clip = servo[randomInt];
-		enemyAudio.Play ();
+		enemyEffects.clip = servo[randomInt];
+		enemyEffects.Play ();
 	}
 
 	public void servo2Clip () {
-		enemyAudio.loop = false;
-		enemyAudio.clip = servo[2];
-		enemyAudio.Play ();
+		enemyEffects.loop = false;
+		enemyEffects.clip = servo[2];
+		enemyEffects.Play ();
 	}
 
 	public void servo3Clip () {
-		enemyAudio.loop = false;
-		enemyAudio.clip = servo[3];
-		enemyAudio.Play ();
+		enemyEffects.loop = false;
+		enemyEffects.clip = servo[3];
+		enemyEffects.Play ();
 	}
 
 	public void LongRoarClip () {

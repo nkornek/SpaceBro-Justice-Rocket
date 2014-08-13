@@ -61,11 +61,13 @@ public class GameControl : MonoBehaviour {
 			if (enemy.hp <= 0){
 				Invoke ("loadSplashScreen", 5.0f);
 				paused = true;
+				prompts.win ();
 			}
 			
 			else if (player.hp <= 0){
 				Invoke ("loadSplashScreen", 5.0f);
 				paused = true;
+				prompts.lose ();
 			}
 		}
 

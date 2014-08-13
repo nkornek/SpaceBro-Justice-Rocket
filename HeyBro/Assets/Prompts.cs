@@ -11,6 +11,8 @@ public class Prompts : MonoBehaviour {
 	public AudioClip[] aww;
 	public HealthBarPlayer playerhp;
 	public HealthBarEnemy enemyhp;
+	public AudioClip winAudio;
+	public AudioClip loseAudio;
 
 	// Use this for initialization
 	void Start () {
@@ -90,6 +92,17 @@ public class Prompts : MonoBehaviour {
 	public void sequenceFail () {
 		int randomInt = Random.Range (0,5);
 		gameObject.GetComponent<AudioSource> ().clip = aww[randomInt];
+		gameObject.GetComponent<AudioSource> ().Play();
+	}
+
+	public void win () {
+		showPrompt (5);
+		gameObject.GetComponent<AudioSource> ().clip = winAudio;
+		gameObject.GetComponent<AudioSource> ().Play();
+	}
+	public void lose () {
+		showPrompt (6);
+		gameObject.GetComponent<AudioSource> ().clip = loseAudio;
 		gameObject.GetComponent<AudioSource> ().Play();
 	}
 }
