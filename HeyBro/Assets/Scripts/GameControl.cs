@@ -119,15 +119,15 @@ public class GameControl : MonoBehaviour {
 	}
 	
 	private void createBlockSequence () {
-		player.generateBlockSequence ();	
-		enemyParticleParent.chargeVisible = true;
+		player.generateBlockSequence ();
+
+		//////put variables to choose which attack
 		enemyAnimations.SetTrigger ("StartCharge");
 	}
 		
 	private void checkBlocked () {
 		player.defending = false;
-		enemyParticleParent.chargeVisible = false;
-		enemyParticleParent.Invoke ("FireLasers", 0.7f);
+		////////put trigger to do attack
 
 	}
 

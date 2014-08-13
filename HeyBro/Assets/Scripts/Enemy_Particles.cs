@@ -35,8 +35,7 @@ public class Enemy_Particles : MonoBehaviour {
 				attackAudio.clip = laserCharge;
 				attackAudio.Play ();
 				attackAudio.loop = true;
-			}
-			
+			}			
 		}
 		else
 		{
@@ -69,6 +68,14 @@ public class Enemy_Particles : MonoBehaviour {
 			forcefield.enabled = false;
 		}
 	}
+
+	public void showCharge () {
+		chargeVisible = true;
+	}
+	public void endCharge () {
+		chargeVisible = false;
+		}
+
 	void EndLasers () {
 		laser.enableEmission = false;
 		laser2.enableEmission = false;
