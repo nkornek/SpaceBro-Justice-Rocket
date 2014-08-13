@@ -501,7 +501,7 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: a9f96a62593b2c245ac3459649aeeeca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &42498974
@@ -5153,6 +5153,8 @@ MonoBehaviour:
   laserFire: {fileID: 8300000, guid: d6ac3b5836d98534fa4ae613f133e63d, type: 3}
   wubwub: {fileID: 8300000, guid: 4ff7b9818daa4a34798be7c88507193f, type: 3}
   slowmo: {fileID: 8300000, guid: 38f6029583de2de45b8eb96dcff5d0b1, type: 3}
+  RPE: []
+  RPEnum: 0
 --- !u!1 &199403528
 GameObject:
   m_ObjectHideFlags: 0
@@ -8694,6 +8696,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: 2916b188e77c1c24f911e03c7cdce4ef, type: 2}
+      propertyPath: m_SortingOrder
+      value: -11
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200048, guid: 2916b188e77c1c24f911e03c7cdce4ef, type: 2}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200050, guid: 2916b188e77c1c24f911e03c7cdce4ef, type: 2}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2916b188e77c1c24f911e03c7cdce4ef, type: 2}
   m_RootGameObject: {fileID: 394999264}
@@ -8858,6 +8872,7 @@ MonoBehaviour:
   rouletteChangeTime: 0
   rouletteDing: {fileID: 8300000, guid: ec66226eeb712184bbc006d0b78692c2, type: 3}
   canRoulette: 0
+  canRPE: 0
 --- !u!114 &394999267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17658,7 +17673,7 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
-  m_SortingOrder: 10
+  m_SortingOrder: -11
   m_Sprite: {fileID: 21300000, guid: 12490e553c5e4cb4bb883b3545ef166f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &801243619
@@ -27860,7 +27875,7 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 5f08b97f70ccc32419553858ac081a0d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1144754580
@@ -36384,6 +36399,8 @@ MonoBehaviour:
   laserFire: {fileID: 8300000, guid: d6ac3b5836d98534fa4ae613f133e63d, type: 3}
   wubwub: {fileID: 8300000, guid: 4ff7b9818daa4a34798be7c88507193f, type: 3}
   slowmo: {fileID: 0}
+  RPE: []
+  RPEnum: 0
 --- !u!95 &1385235416
 Animator:
   serializedVersion: 3

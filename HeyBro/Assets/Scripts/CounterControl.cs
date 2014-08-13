@@ -34,6 +34,9 @@ public class CounterControl : MonoBehaviour {
 	public AudioClip rouletteDing;
 	public bool canRoulette;
 
+	//RPE
+	public bool canRPE;
+
 	// Use this for initialization
 	void Awake () {
 		promptLeft = GameObject.Find ("P1_Prompt_back");
@@ -150,6 +153,17 @@ public class CounterControl : MonoBehaviour {
 			}
 			break;
 		case 2:
+			if (PlayerControl.GetComponent<SequenceControls>().checkBothEvents() & pictogramsInRangeRPE() & !failed & canRPE)
+			{
+				canRPE = false;
+				counterAnimatorEnemy.SetTrigger("Won");
+				int whichRPE = PlayerControl.GetComponent<SequenceControls>().contactA;
+				switch (whichRPE) {
+				case 0:
+
+					break;
+				}
+			}
 
 			break;
 		case 3:
@@ -271,7 +285,22 @@ public class CounterControl : MonoBehaviour {
 		}
 		else if (GameManager.GetComponent<GameControl>().counterNum == 2)
 		{
-
+			counterAnimatorEnemy.SetTrigger ("Start RPE");
+			foreach (GameObject g in counterSpritesPlayers)
+			{
+				foreach (SpriteRenderer r in g.GetComponentsInChildren<SpriteRenderer>())
+				{
+					r.enabled = true;
+				}
+				foreach (ParticleSystem p in g.GetComponentsInChildren<ParticleSystem>())
+				{
+					p.enableEmission = true;
+				}
+			}
+			foreach (SpriteRenderer g in counterSpritesEnemy.GetComponentsInChildren<SpriteRenderer>())
+			{
+				g.enabled = true;
+			}
 		}
 		else if (GameManager.GetComponent<GameControl>().counterNum == 3)
 		{
@@ -306,4 +335,8 @@ public class CounterControl : MonoBehaviour {
 	private bool pictogramsInRangeRoulette () {
 		return (!spinning);
 	}
+	private bool pictogramsInRangeRPE () {
+		return (canRPE);
+	}
+
 }
