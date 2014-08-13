@@ -250,7 +250,7 @@ AnimationClip:
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
-    m_LoopTime: 1
+    m_LoopTime: 0
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
@@ -848,7 +848,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0
+  - time: .100000001
     functionName: BeamPlayerCameraTarget
     data: 
     objectReferenceParameter: {fileID: 0}

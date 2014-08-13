@@ -63,7 +63,6 @@ GameObject:
   - 4: {fileID: 400006}
   - 212: {fileID: 21200116}
   - 114: {fileID: 11400018}
-  - 135: {fileID: 13500000}
   m_Layer: 0
   m_Name: Forcefield
   m_TagString: Untagged
@@ -3180,7 +3179,7 @@ MonoBehaviour:
   beamPlayerCamera: {fileID: 400024}
   ballPointTarget: {fileID: 400036}
   gunPointTarget: {fileID: 400168}
-  fistPointTarget: {fileID: 0}
+  fistPointTarget: {fileID: 400134}
   backgroundAnimator: {fileID: 9500004}
   enemyAnimator: {fileID: 9500002}
 --- !u!114 &11400012
@@ -3378,18 +3377,6 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100162}
   m_Enabled: 1
---- !u!135 &13500000
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100006}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 6.11999989
-  m_Center: {x: 0, y: -2.56999993, z: 3.22000003}
 --- !u!198 &19800012
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -182,6 +182,7 @@ public class CounterControl : MonoBehaviour {
 				canRoulette = false;
 				promptLeft.GetComponent<SpriteRenderer>().sprite = rouletteLeft[roulettePrompt + 3];
 				promptRight.GetComponent<SpriteRenderer>().sprite = rouletteRight[roulettePrompt + 3];
+				counterAnimatorEnemy.SetTrigger("Won");
 				Invoke ("hidePrompts", 0.2f);
 			}
 
