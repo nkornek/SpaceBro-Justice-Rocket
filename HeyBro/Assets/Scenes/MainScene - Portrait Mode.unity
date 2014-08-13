@@ -15952,7 +15952,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &736590786
 Transform:
   m_ObjectHideFlags: 0
@@ -36187,6 +36187,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 100182, guid: 2916b188e77c1c24f911e03c7cdce4ef, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2916b188e77c1c24f911e03c7cdce4ef, type: 2}
   m_RootGameObject: {fileID: 394999264}
@@ -51747,6 +51751,7 @@ MonoBehaviour:
   canCounter: 0
   mainCamera: {fileID: 1565206129}
   cutsceneAnim: {fileID: 1536569935}
+  attackNum: 0
   prompts: {fileID: 412787319}
 --- !u!4 &2061117480
 Transform:

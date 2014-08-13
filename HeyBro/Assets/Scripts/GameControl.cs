@@ -37,6 +37,7 @@ public class GameControl : MonoBehaviour {
 
 	public cameraShake mainCamera;
 	public Animator cutsceneAnim;
+	public int attackNum;
 
 	public Prompts prompts;
 
@@ -121,18 +122,17 @@ public class GameControl : MonoBehaviour {
 	private void createBlockSequence () {
 		player.generateBlockSequence ();
 
-		//////put variables to choose which attack
-		/// 
-		int attackNum = Random.Range (0, 3);
+		//////put variables to choose which attack 
+		attackNum = Random.Range (0, 3);
 		switch (attackNum) {
 		case 0:
 			enemyAnimations.SetTrigger ("StartCharge");
 			break;
 		case 1:
-			enemyAnimations.SetTrigger ("PunchCharge");
+			enemyAnimations.SetTrigger ("Siphon");
 			break;
 		case 2:
-			enemyAnimations.SetTrigger ("Siphon");
+			enemyAnimations.SetTrigger ("PunchCharge");
 			break;
 		}
 	}
@@ -219,7 +219,7 @@ public class GameControl : MonoBehaviour {
 					canCounter = false;
 					player.defending = false;
 					//counterNum = Random.Range (1, 4);
-					counterNum = 2;
+					counterNum = attackNum + 1;
 					if (GameObject.Find ("Counters"))
 					{
 						GameObject.Find ("Counters").GetComponent<CounterControl>().Invoke ("StartCounter", 0.3f);
