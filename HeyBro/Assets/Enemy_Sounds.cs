@@ -17,6 +17,8 @@ public class Enemy_Sounds : MonoBehaviour {
 	public AudioClip laserFire;
 	public AudioClip wubwub;
 	public AudioClip slowmo;
+	public AudioClip[] RPE;
+	public int RPEnum;
 
 	// Use this for initialization
 	void Start () {
@@ -128,6 +130,13 @@ public class Enemy_Sounds : MonoBehaviour {
 
 	public void stopEnemyEffectAudio () {
 		enemyEffects.Stop ();
+	}
+
+	public void RPEcallout () {
+		enemyAudio.loop = false;
+		enemyAudio.clip = RPE[RPEnum];
+		enemyAudio.Play ();
+		RPEnum ++;
 	}
 
 }

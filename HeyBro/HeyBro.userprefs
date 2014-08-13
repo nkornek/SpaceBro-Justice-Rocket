@@ -1,10 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Enemy_Particles.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Counter_Animation_Triggers.cs">
     <Files>
-      <File FileName="Assets\Scripts\Enemy_Particles.cs" Line="66" Column="8" />
-      <File FileName="Assets\Scripts\Particle_Deactivate.cs" Line="15" Column="34" />
-      <File FileName="Assets\Scripts\GameControl.cs" Line="123" Column="1" />
+      <File FileName="Assets\Scripts\Enemy_Particles.cs" Line="72" Column="3" />
+      <File FileName="Assets\Scripts\GameControl.cs" Line="206" Column="28" />
+      <File FileName="Assets\Scripts\CounterControl.cs" Line="179" Column="5" />
+      <File FileName="Assets\Enemy_Sounds.cs" Line="140" Column="3" />
+      <File FileName="Assets\Scripts\Counter_Animation_Triggers.cs" Line="74" Column="7" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

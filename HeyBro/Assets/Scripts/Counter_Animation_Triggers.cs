@@ -82,4 +82,30 @@ public class Counter_Animation_Triggers : MonoBehaviour {
 	void damageEnemy () {
 		CounterControl.damageEnemy ();
 	}
+
+	public void randomRPE () {
+		int whichRPE = Random.Range (0, 3);
+		//pick player req input
+		CounterControl.PlayerControl.GetComponent<SequenceControls>().contactA = whichRPE;
+		CounterControl.PlayerControl.GetComponent<SequenceControls>().contactB = whichRPE;
+		//set enemy to the opposite
+		switch (whichRPE) {
+		case 0: 
+			enemyAnimator.SetTrigger("Rock");
+			break;
+		case 1: 
+			enemyAnimator.SetTrigger("Elbow");
+			break;
+		case 2: 
+			enemyAnimator.SetTrigger("Paper");
+			break;
+		}
+	}
+	public void inputRPE () {
+		CounterControl.canRPE = true;
+	}
+	public void failRPE () {
+		CounterControl.failed = true;
+		CounterControl.canRPE = true;
+	}
 }
