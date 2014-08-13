@@ -5,7 +5,7 @@ public class Counter_Animation_Triggers : MonoBehaviour {
 	public CounterAnimations masterCounterSystem;
 	public CounterControl CounterControl;
 	public SmoothCamera2D camera;
-	public Transform beamEnemyCamera, beamPlayerCamera, beamPointTarget, ballPointTarget, gunPointTarget;
+	public Transform beamEnemyCamera, beamPlayerCamera, ballPointTarget, gunPointTarget;
 	public Animator backgroundAnimator, enemyAnimator;
 
 
@@ -42,26 +42,6 @@ public class Counter_Animation_Triggers : MonoBehaviour {
 	void BeamPlayerCameraTarget() {
 		camera.target = beamPlayerCamera;
 		camera.cangrow = false;
-	}
-	void BeamPointCameraTarget () {
-		camera.target = beamPointTarget;
-		camera.cangrow = true;
-		Invoke ("CanMoveBeamContact", 1);		
-		CounterControl.promptLeft.GetComponentInParent<Animator>().SetTrigger("BeamcounterStart");
-	}
-	void CanMoveBeamContact () {
-		CounterControl.canMoveContactPoint = true;
-		CounterControl.ShowBeamPrompts ();
-	}
-
-	void enemyFireBeams () {
-		masterCounterSystem.FireLasersEnemy ();
-	}
-	void playerFireBeams () {
-		masterCounterSystem.FireLasersPlayer ();
-	}
-	void sphereBeams () {
-		masterCounterSystem.SphereParticleClash ();
 	}
 
 	void showRoulette () {

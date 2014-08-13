@@ -22,15 +22,6 @@ public class CounterControl : MonoBehaviour {
 	public Sprite[] p1Ball;
 	public Sprite[] p2Ball;
 
-	//beam
-	public bool canMoveContactPoint;
-	public Transform contactSphere;
-	public ParticleSystem[] enemyBeam;
-	public ParticleSystem[] playerBeam;
-	public int fivesLaser;
-	public Sprite[] p1laser;
-	public Sprite[] p2laser;
-	public float enemyBeamPush;
 
 	//roulette
 	public int roulettePrompt;
@@ -51,8 +42,6 @@ public class CounterControl : MonoBehaviour {
 		PlayerControl = GameObject.Find ("Players");
 		EnemyControls = GameObject.Find ("Enemy");
 		GameManager = GameObject.Find ("Game");
-		fivesLaser = 0;
-		enemyBeamPush = 0.5f;
 		rouletteChangeTime = 0.1f;
 
 		foreach (GameObject g in counterSpritesPlayers)
@@ -70,6 +59,7 @@ public class CounterControl : MonoBehaviour {
 		{
 			g.enabled = false;
 		}
+		energyBallObject.GetComponentInChildren<ParticleSystem>().enableEmission = false;
 	}
 	
 	// Update is called once per frame
@@ -157,72 +147,7 @@ public class CounterControl : MonoBehaviour {
 			}
 			break;
 		case 2:
-			//lasers counter
-			if (canMoveContactPoint)
-			{
-				enemyBeamPush -= Time.deltaTime;
-				if (PlayerControl.GetComponent<SequenceControls>().checkBothEvents() & pictogramsInRangeLaser() & !failed)
-				{
-					fivesLaser += 1;
-					promptLeft.GetComponent<SpriteRenderer>().sprite = p1laser[1];
-					promptRight.GetComponent<SpriteRenderer>().sprite = p2laser[1];
-					Invoke ("ResetLaserPrompts", 0.1f);
-					contactSphere.Translate (Vector3.forward * 2, Space.Self);
-					foreach (ParticleSystem pp in playerBeam)
-					{
-						pp.startLifetime += 0.06f;
-						pp.startSpeed += 1;
-					}
-					foreach (ParticleSystem pe in enemyBeam)
-					{
-						pe.startLifetime -= 0.06f;
-						pe.startSpeed -= 1;
-					}
-				}
-				if (enemyBeamPush <= 0)
-				{
-					fivesLaser -= 1;
-					enemyBeamPush = 0.5f;
-					contactSphere.Translate (Vector3.back * 2, Space.Self);
-					foreach (ParticleSystem pp in playerBeam)
-					{
-						pp.startLifetime -= 0.06f;
-						pp.startSpeed -= 1;
-					}
-					foreach (ParticleSystem pe in enemyBeam)
-					{
-						pe.startLifetime += 0.06f;
-						pe.startSpeed += 1;
-					}
-				}
-				if (pictogramsWonLaser() || pictogramsFailedLaser() )
-				{
-					canMoveContactPoint = false;
-					promptLeft.GetComponentInParent<Animator>().SetTrigger("BeamcounterEnd");
-					counterAnimatorEnemy.SetTrigger("EndCounter");
-					hidePrompts();
-					if (pictogramsWonLaser() )
-					{
-						counterAnimatorEnemy.SetTrigger("PlayerWon");
-						Invoke ("damageEnemy", 1);
-						Invoke ("endCounter", 3);
-						foreach (ParticleSystem pe in enemyBeam)
-						{
-							pe.enableEmission = false;
-						}
-					}
-					else if (pictogramsFailedLaser() )
-					{
-						counterAnimatorEnemy.SetTrigger("EnemyWon");
-						Invoke ("damagePlayer", 1);
-						Invoke ("endCounter", 3);
-						foreach (ParticleSystem pp in playerBeam)
-						{
-							pp.enableEmission = false;
-						}
-					}
-				}
-			}
+
 			break;
 		case 3:
 			if (spinning)
@@ -265,10 +190,6 @@ public class CounterControl : MonoBehaviour {
 		}
 	}
 
-	public void ResetLaserPrompts () {
-		promptLeft.GetComponent<SpriteRenderer>().sprite = p1laser[0];
-		promptRight.GetComponent<SpriteRenderer>().sprite = p2laser[0];
-		}
 
 	public void hidePrompts () {
 		promptLeft.GetComponent<SpriteRenderer> ().enabled = false;
@@ -278,14 +199,6 @@ public class CounterControl : MonoBehaviour {
 		GameManager.GetComponent<GameControl>().counterActive = false;
 		counterCamera.GetComponent<SmoothCamera2D> ().target = closeOutCamera;
 		CounterAnimations.IntroOutro (2);
-		foreach (ParticleSystem pe in enemyBeam)
-		{
-			pe.enableEmission = false;
-		}
-		foreach (ParticleSystem pp in playerBeam)
-		{
-			pp.enableEmission = false;
-		}
 		}
 	public void damageEnemy() {
 		EnemyControls.GetComponent<EnemyControls>().DamageEnemy (damage);
@@ -300,19 +213,7 @@ public class CounterControl : MonoBehaviour {
 		Destroy (gameObject);
 		GameObject go = Instantiate(Resources.Load("Counters")) as GameObject;
 		}
-
-	public void ShowBeamPrompts () {
-		promptLeft.GetComponent<SpriteRenderer>().enabled = true;
-		promptRight.GetComponent<SpriteRenderer>().enabled = true;
-		foreach (ParticleSystem pp in playerBeam)
-		{
-			pp.startLifetime = 1;
-		}
-		foreach (ParticleSystem pe in enemyBeam)
-		{
-			pe.startLifetime = 1;
-		}
-	}
+	
 	public void showRoulette() {
 		promptLeft.GetComponent<SpriteRenderer>().enabled = true;
 		promptRight.GetComponent<SpriteRenderer>().enabled = true;
@@ -364,24 +265,7 @@ public class CounterControl : MonoBehaviour {
 		}
 		else if (GameManager.GetComponent<GameControl>().counterNum == 2)
 		{
-			counterAnimatorEnemy.SetTrigger("Start Laser");
-			promptLeft.GetComponent<SpriteRenderer>().sprite = p1laser[0];		
-			promptRight.GetComponent<SpriteRenderer>().sprite = p2laser[0];
-			foreach (GameObject g in counterSpritesPlayers)
-			{
-				foreach (SpriteRenderer r in g.GetComponentsInChildren<SpriteRenderer>())
-				{
-					r.enabled = true;
-				}
-				foreach (ParticleSystem p in g.GetComponentsInChildren<ParticleSystem>())
-				{
-					p.enableEmission = true;
-				}
-			}
-			foreach (SpriteRenderer g in counterSpritesEnemy.GetComponentsInChildren<SpriteRenderer>())
-			{
-				g.enabled = true;
-			}
+
 		}
 		else if (GameManager.GetComponent<GameControl>().counterNum == 3)
 		{
@@ -412,16 +296,6 @@ public class CounterControl : MonoBehaviour {
 	}
 	private bool pictogramsFailedBall () {
 		return (Mathf.Abs (promptLeft.transform.localPosition.x - promptRight.transform.localPosition.x) <= 2.5);
-	}
-	private bool pictogramsInRangeLaser () {
-		//check left both are the same
-		return (promptLeft.GetComponent<SpriteRenderer>().sprite == p1laser[0]);
-	}
-	private bool pictogramsFailedLaser () {
-		return (fivesLaser <= -13);
-	}
-	private bool pictogramsWonLaser () {
-		return (fivesLaser >= 13);
 	}
 	private bool pictogramsInRangeRoulette () {
 		return (!spinning);

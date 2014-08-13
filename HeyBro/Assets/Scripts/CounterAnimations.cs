@@ -10,9 +10,6 @@ public class CounterAnimations : MonoBehaviour {
 	public ParticleSystem toPlayerPart, fromPlayerPart;
 	public CounterControl CounterControl;
 	public GameControl game;
-	public ParticleSystem[] enemyBeam;
-	public ParticleSystem[] playerBeam;
-	public ParticleSystem[] sphere;
 
 	// Use this for initialization
 	void Start () {	
@@ -21,18 +18,6 @@ public class CounterAnimations : MonoBehaviour {
 		game = GameObject.Find ("Game").GetComponent<GameControl>();
 		toPlayerPart.enableEmission = false;
 		fromPlayerPart.enableEmission = false;
-		foreach (ParticleSystem pe in enemyBeam)
-		{
-			pe.enableEmission = false;
-		}
-		foreach (ParticleSystem pe in playerBeam)
-		{
-			pe.enableEmission = false;
-		}
-		foreach (ParticleSystem pe in sphere)
-		{
-			pe.enableEmission = false;
-		}
 	}
 	
 	// Update is called once per frame
@@ -83,28 +68,6 @@ public class CounterAnimations : MonoBehaviour {
 		case 2:
 			BG.SetTrigger("Out");
 			break;
-		}
-	}
-
-	public void FireLasersEnemy () {
-		foreach (ParticleSystem pe in enemyBeam)
-		{
-			pe.Play();
-			pe.enableEmission = true;
-		}
-	}
-	public void FireLasersPlayer () {
-		foreach (ParticleSystem pe in playerBeam)
-		{
-			pe.Play();
-			pe.enableEmission = true;
-		}
-	}
-	public void SphereParticleClash () {
-		foreach (ParticleSystem pe in sphere)
-		{
-			pe.Play();
-			pe.enableEmission = true;
 		}
 	}
 }

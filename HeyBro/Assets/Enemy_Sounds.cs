@@ -71,7 +71,7 @@ public class Enemy_Sounds : MonoBehaviour {
 	public void explosionAudio () {
 		enemyEffects.loop = false;
 		int randomInt = Random.Range (0, 2);
-		enemyEffects.clip = roar[randomInt];
+		enemyEffects.clip = explosion[randomInt];
 		enemyEffects.Play ();
 	}
 
