@@ -20,6 +20,18 @@ public class Animation_Triggers : MonoBehaviour {
 
 	}
 
+	public void LaserDamage () {
+		game.LaserDamage ();
+	}
+
+	public void SiphonDamage () {
+		game.SiphonAttack ();
+	}
+
+	public void PunchDamage () {
+		game.PunchAttack ();
+	}
+
 	void readyPrompt () {
 		prompts.showPrompt (0);
 	}
