@@ -15179,8 +15179,8 @@ AnimationClip:
     classID: 4
     script: {fileID: 0}
   m_Events:
-  - time: 0
-    functionName: partVisible
+  - time: .0333333351
+    functionName: servo3Clip
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
