@@ -346,6 +346,13 @@ AnimationClip:
     script: {fileID: 0}
   m_EulerEditorCurves: []
   m_Events:
+  - time: 1.45000005
+    functionName: RocketAudio
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 2.98333335
     functionName: readyPrompt
     data: 
@@ -353,8 +360,29 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 3.2166667
+    functionName: wubwubAudio
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 4.6500001
+    functionName: stopEnemyEffectAudio
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 6.01666689
     functionName: goPrompts
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 7.0999999
+    functionName: stopEnemyRocketAudio
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

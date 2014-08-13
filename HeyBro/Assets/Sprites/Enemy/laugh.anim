@@ -24543,6 +24543,13 @@ AnimationClip:
     classID: 4
     script: {fileID: 0}
   m_Events:
+  - time: .0333333351
+    functionName: servo2Clip
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: .116666667
     functionName: laughClip
     data: 
@@ -24550,8 +24557,22 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 1.26666665
+    functionName: servo2Clip
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 1.39999998
     functionName: stopEnemyVoiceAudio
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.88333333
+    functionName: stopEnemyEffectAudio
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
