@@ -5,6 +5,7 @@ public class Display_Forcefield : MonoBehaviour {
 
 	public bool showField;
 	public SpriteRenderer forcefield;
+	public SphereCollider forceSphere;
 
 	// Use this for initialization
 	void Start () {
@@ -17,10 +18,12 @@ public class Display_Forcefield : MonoBehaviour {
 		if (showField == true)
 		{
 			forcefield.renderer.enabled = true;
+			forceSphere.enabled = true;
 		}
 		else if (showField == false)
 		{
 			forcefield.renderer.enabled = false;
+			forceSphere.enabled = false;
 		}
 
 	

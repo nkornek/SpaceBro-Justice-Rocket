@@ -63,6 +63,7 @@ GameObject:
   - 4: {fileID: 400006}
   - 212: {fileID: 21200116}
   - 114: {fileID: 11400018}
+  - 135: {fileID: 13500000}
   m_Layer: 0
   m_Name: Forcefield
   m_TagString: Untagged
@@ -1336,7 +1337,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &100184
 GameObject:
   m_ObjectHideFlags: 1
@@ -3240,6 +3241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   showField: 0
   forcefield: {fileID: 21200116}
+  forceSphere: {fileID: 13500000}
 --- !u!114 &11400026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3386,6 +3388,18 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100162}
   m_Enabled: 1
+--- !u!135 &13500000
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100006}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 6.11999989
+  m_Center: {x: 0, y: -2.56999993, z: 3.22000003}
 --- !u!198 &19800012
 ParticleSystem:
   m_ObjectHideFlags: 1

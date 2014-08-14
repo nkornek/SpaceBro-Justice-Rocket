@@ -270,6 +270,7 @@ public class GameControl : MonoBehaviour {
 		}
 		else {
 			Invoke ("startPlayerTurn", 5.0f);
+			enemyParticleParent.Invoke("EndField", 1);
 		}
 	}
 
@@ -288,6 +289,7 @@ public class GameControl : MonoBehaviour {
 		}
 		else {
 			Invoke ("startPlayerTurn", 5.0f);
+			enemyParticleParent.Invoke("EndField", 1);
 		}
 	}
 
@@ -305,6 +307,7 @@ public class GameControl : MonoBehaviour {
 		}
 		else {
 			Invoke ("startPlayerTurn", 5.0f);
+			enemyParticleParent.Invoke("EndField", 1);
 		}
 	}
 
