@@ -353,6 +353,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 3.16666675
+    functionName: stopEnemyRocketAudio
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 3.2166667
     functionName: wubwubAudio
     data: 
@@ -376,13 +383,6 @@ AnimationClip:
     messageOptions: 0
   - time: 6.5
     functionName: goPrompts
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 7.0999999
-    functionName: stopEnemyRocketAudio
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
