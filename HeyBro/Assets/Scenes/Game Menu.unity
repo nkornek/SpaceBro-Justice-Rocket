@@ -12708,7 +12708,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   infoPrompts: {fileID: 1000517865}
   menu: {fileID: 2144949165}
-  Talker: {fileID: 0}
+  Talker: {fileID: 995907211}
 --- !u!1 &1691502940
 GameObject:
   m_ObjectHideFlags: 0

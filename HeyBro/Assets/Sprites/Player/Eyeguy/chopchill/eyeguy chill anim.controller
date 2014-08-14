@@ -50,7 +50,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: ATTACk (louis add)
+  - m_Name: Attack
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -261,7 +261,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: ATTACk (louis add)
+    m_ConditionEvent: Attack
     m_EventTreshold: 0
     m_ExitTime: 1
   m_Atomic: 0
@@ -425,7 +425,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 5
-    m_ConditionEvent: ATTACk (louis add)
+    m_ConditionEvent: Attack
     m_EventTreshold: 0
     m_ExitTime: 1
   - m_ConditionMode: 1
@@ -449,7 +449,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 5
-    m_ConditionEvent: ATTACk (louis add)
+    m_ConditionEvent: Attack
     m_EventTreshold: 0
     m_ExitTime: 1
   m_Atomic: 1
@@ -849,16 +849,8 @@ StateMachine:
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110287481}
-      second:
-      - {fileID: 110109021}
-    data:
       first: {fileID: 0}
       second: []
-    data:
-      first: {fileID: 110221330}
-      second:
-      - {fileID: 110182921}
     data:
       first: {fileID: 110200000}
       second:
@@ -869,48 +861,35 @@ StateMachine:
       - {fileID: 110108003}
       - {fileID: 110146102}
     data:
-      first: {fileID: 110226202}
-      second:
-      - {fileID: 110155867}
-    data:
-      first: {fileID: 110222305}
-      second:
-      - {fileID: 110100528}
-    data:
-      first: {fileID: 110290329}
-      second:
-      - {fileID: 110198446}
-    data:
-      first: {fileID: 110250009}
-      second:
-      - {fileID: 110171470}
-    data:
-      first: {fileID: 110248553}
-      second:
-      - {fileID: 110198644}
-    data:
-      first: {fileID: 110291228}
-      second:
-      - {fileID: 110130093}
-    data:
       first: {fileID: 110208554}
       second:
       - {fileID: 110165561}
       - {fileID: 110177126}
     data:
-      first: {fileID: 110297627}
+      first: {fileID: 110221330}
       second:
-      - {fileID: 110165118}
+      - {fileID: 110182921}
+    data:
+      first: {fileID: 110222305}
+      second:
+      - {fileID: 110100528}
+    data:
+      first: {fileID: 110226202}
+      second:
+      - {fileID: 110155867}
     data:
       first: {fileID: 110233314}
       second:
       - {fileID: 110187372}
       - {fileID: 110127276}
     data:
-      first: {fileID: 110288113}
+      first: {fileID: 110248553}
       second:
-      - {fileID: 110165223}
-      - {fileID: 110117605}
+      - {fileID: 110198644}
+    data:
+      first: {fileID: 110250009}
+      second:
+      - {fileID: 110171470}
     data:
       first: {fileID: 110255759}
       second:
@@ -921,6 +900,27 @@ StateMachine:
       second:
       - {fileID: 110197910}
       - {fileID: 110182266}
+    data:
+      first: {fileID: 110287481}
+      second:
+      - {fileID: 110109021}
+    data:
+      first: {fileID: 110288113}
+      second:
+      - {fileID: 110165223}
+      - {fileID: 110117605}
+    data:
+      first: {fileID: 110290329}
+      second:
+      - {fileID: 110198446}
+    data:
+      first: {fileID: 110291228}
+      second:
+      - {fileID: 110130093}
+    data:
+      first: {fileID: 110297627}
+      second:
+      - {fileID: 110165118}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: -132, y: -204, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}

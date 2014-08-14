@@ -50,7 +50,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: ATTACK (louis add)
+  - m_Name: Attack
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -261,7 +261,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 5
-    m_ConditionEvent: ATTACK (louis add)
+    m_ConditionEvent: Attack
     m_EventTreshold: 0
     m_ExitTime: 1
   m_Atomic: 1
@@ -341,7 +341,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 5
-    m_ConditionEvent: ATTACK (louis add)
+    m_ConditionEvent: Attack
     m_EventTreshold: 0
     m_ExitTime: 1
   - m_ConditionMode: 1
@@ -525,7 +525,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: ATTACK (louis add)
+    m_ConditionEvent: Attack
     m_EventTreshold: 0
     m_ExitTime: 1
   m_Atomic: 1
@@ -844,10 +844,6 @@ StateMachine:
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110277668}
-      second:
-      - {fileID: 110148577}
-    data:
       first: {fileID: 110285000}
       second:
       - {fileID: 110187500}
@@ -913,6 +909,10 @@ StateMachine:
       second:
       - {fileID: 110166597}
       - {fileID: 110130107}
+    data:
+      first: {fileID: 110277668}
+      second:
+      - {fileID: 110148577}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: -648, y: -456, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}

@@ -35,6 +35,7 @@ public class PlayerAnimations : MonoBehaviour {
 			characterAnims.SetTrigger("elbow");	
 			break;
 		case 3:
+			characterAnims.SetTrigger("Attack");
 			break;
 		case 5:
 			characterAnims.SetTrigger("gethit");

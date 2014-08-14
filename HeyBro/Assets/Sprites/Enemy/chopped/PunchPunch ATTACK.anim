@@ -113505,6 +113505,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: .883333325
+    functionName: PunchDamage
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 1.14999998
     functionName: stopEnemyRocketAudio
     data: 

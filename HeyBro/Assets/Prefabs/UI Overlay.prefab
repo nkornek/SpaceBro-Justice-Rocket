@@ -2242,6 +2242,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e29c9bf9210897243b6f9acb2449fb17, type: 3}
   - {fileID: 8300000, guid: 312913df386123c4c9c337f3c1424b6f, type: 3}
   - {fileID: 8300000, guid: 3c03cb2d4961f7f4f88725a1da2acb18, type: 3}
+  - {fileID: 8300000, guid: 2b8068fd32f3de14fbe0bf8a97b8517a, type: 3}
+  - {fileID: 8300000, guid: ae94d0aa56f212c44adf6048486c707b, type: 3}
   moveAudio:
   - {fileID: 8300000, guid: cb4082102f762444bab6d0a148d0c09a, type: 3}
   - {fileID: 8300000, guid: c0c0b99115721fa448932a18ff174340, type: 3}
@@ -2269,8 +2271,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4bdfb3373132fb34b88cfe0e8d7df1b0, type: 3}
   playerhp: {fileID: 11400000}
   enemyhp: {fileID: 11400002}
-  winAudio: {fileID: 8300000, guid: 2b8068fd32f3de14fbe0bf8a97b8517a, type: 3}
-  loseAudio: {fileID: 8300000, guid: ae94d0aa56f212c44adf6048486c707b, type: 3}
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1

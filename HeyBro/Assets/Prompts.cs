@@ -11,8 +11,6 @@ public class Prompts : MonoBehaviour {
 	public AudioClip[] aww;
 	public HealthBarPlayer playerhp;
 	public HealthBarEnemy enemyhp;
-	public AudioClip winAudio;
-	public AudioClip loseAudio;
 
 	// Use this for initialization
 	void Start () {
@@ -30,7 +28,10 @@ public class Prompts : MonoBehaviour {
 		gameObject.GetComponentInChildren<ParticleSystem> ().Emit (100);
 		gameObject.GetComponent<AudioSource> ().clip = promptAudio [sprite];
 		gameObject.GetComponent<AudioSource> ().Play();
-		Invoke ("hidePrompt", 1);
+		if (sprite < 5)
+		{
+			Invoke ("hidePrompt", 1);
+		}
 		if (sprite == 0)
 		{
 			playerhp.CanFadeIn = true;
@@ -97,12 +98,8 @@ public class Prompts : MonoBehaviour {
 
 	public void win () {
 		showPrompt (5);
-		gameObject.GetComponent<AudioSource> ().clip = winAudio;
-		gameObject.GetComponent<AudioSource> ().Play();
 	}
 	public void lose () {
 		showPrompt (6);
-		gameObject.GetComponent<AudioSource> ().clip = loseAudio;
-		gameObject.GetComponent<AudioSource> ().Play();
 	}
 }

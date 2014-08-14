@@ -353,15 +353,15 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 2.98333335
-    functionName: readyPrompt
+  - time: 3.2166667
+    functionName: wubwubAudio
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 3.2166667
-    functionName: wubwubAudio
+  - time: 4
+    functionName: readyPrompt
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -374,7 +374,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 6.01666689
+  - time: 6.5
     functionName: goPrompts
     data: 
     objectReferenceParameter: {fileID: 0}
