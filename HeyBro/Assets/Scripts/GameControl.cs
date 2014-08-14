@@ -62,12 +62,15 @@ public class GameControl : MonoBehaviour {
 				Invoke ("loadSplashScreen", 5.0f);
 				paused = true;
 				prompts.win ();
+				enemyAnimations.SetTrigger("Laugh");
+
 			}
 			
 			else if (player.hp <= 0){
 				Invoke ("loadSplashScreen", 5.0f);
 				paused = true;
 				prompts.lose ();
+				enemyAnimations.SetTrigger("ZeroHealth");
 			}
 		}
 
@@ -276,6 +279,7 @@ public class GameControl : MonoBehaviour {
 
 	public void SiphonAttack () {
 		if (!player.blocked) {
+			enemyParticleParent.startSiphonParticles();
 			player.hp -= 20;
 			enemy.hp += 40;
 			mainCamera.Shake();

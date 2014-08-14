@@ -62,7 +62,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: ZeroHealth (louis added)
+  - m_Name: ZeroHealth
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -133,7 +133,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: ZeroHealth (louis added)
+    m_ConditionEvent: ZeroHealth
     m_EventTreshold: 0
     m_ExitTime: 1
   m_Atomic: 1
@@ -313,7 +313,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 5
-    m_ConditionEvent: ZeroHealth (louis added)
+    m_ConditionEvent: ZeroHealth
     m_EventTreshold: 0
     m_ExitTime: 1
   m_Atomic: 1
@@ -493,7 +493,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 5
-    m_ConditionEvent: ZeroHealth (louis added)
+    m_ConditionEvent: ZeroHealth
     m_EventTreshold: 0
     m_ExitTime: 1
   m_Atomic: 1
@@ -816,13 +816,13 @@ StateMachine:
       first: {fileID: 0}
       second: []
     data:
-      first: {fileID: 110288290}
-      second:
-      - {fileID: 110102175}
-    data:
       first: {fileID: 110200000}
       second:
       - {fileID: 110100000}
+    data:
+      first: {fileID: 110288290}
+      second:
+      - {fileID: 110102175}
     data:
       first: {fileID: 110206961}
       second:

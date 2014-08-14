@@ -13,6 +13,7 @@ public class Enemy_Particles : MonoBehaviour {
 	public SphereCollider forcefield;
 	public float rotation;
 	public Animator enemyAnimations;
+	public ParticleSystem siphonParticles;
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +21,7 @@ public class Enemy_Particles : MonoBehaviour {
 		laser.enableEmission = false;
 		laser2.enableEmission = false;
 		attackTime = 3.0f;
+		siphonParticles.enableEmission = false;
 	}
 	
 	// Update is called once per frame
@@ -82,5 +84,13 @@ public class Enemy_Particles : MonoBehaviour {
 	}
 	void EndField () {	
 		GameObject.Find("Forcefield").GetComponent<Display_Forcefield>().showField = false;
+	}
+
+	public void startSiphonParticles () {
+		siphonParticles.enableEmission = true;
+	}
+
+	public void endSiphonParticles () {
+		siphonParticles.enableEmission = false;
 	}
 }

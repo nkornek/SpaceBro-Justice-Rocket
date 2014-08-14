@@ -31305,6 +31305,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 4.21111107
+    functionName: endSiphonParticles
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 4.84444427
     functionName: stopEnemyEffectAudio
     data: 
